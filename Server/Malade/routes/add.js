@@ -2,7 +2,7 @@ var Router = require('express').Router()
 var Model = require('../DBModel')
 
 
-async function Ajouter (req, res)
+async function Add (req, res)
 {
     if (!req.body) {
         res.json({
@@ -28,9 +28,9 @@ async function Ajouter (req, res)
     })
 }
 
-Router.post ('/add', Ajouter) 
+Router.post ('/add', Add) 
 
 module.exports= {
     Router,
-    Ajouter
+    Add
 }
