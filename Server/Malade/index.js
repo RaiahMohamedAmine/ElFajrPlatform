@@ -14,7 +14,7 @@ app.use(bodyParser())
 app.set ('view engine', 'ejs')
 
 app.get('/get', VerifyAuth, (req,res)=>{
-     if (res.user ===null)  res.render('Login')
+     if (res.user ===null)  res.redirect('/login')
      else res.render ('Get')
 })
 
@@ -51,13 +51,12 @@ app.post ('/login', urlEncoded, (req,res)=> {
 })
 
 app.post ('/logout', urlEncoded,(req,res)=> {
-    var cookies= req.cookies
-    res.json(cookies.toString())
+    res.clearCookie("jwt")
+    res.redirect('/login')
 })
 
 app.get ('/delete', VerifyAuth, (req,res)=> {
-    req.logout()
-    res.render ('Login')
+    res.render ('DeletePerson')
 })
 
 app.post ('/delete', (req, res)=>{
@@ -79,7 +78,7 @@ function VerifyAuth (req,res,next) {
     if(token ===null) res.sendStatus (404)
     else {
         jwt.verify (token,process.env.ACCES_TOKEN, (err, user)=> {
-            if(err) res.render ('Login')
+            if(err) res.redirect ('/login')
             else{
                 req.user = user
                 console.log(req.user)
