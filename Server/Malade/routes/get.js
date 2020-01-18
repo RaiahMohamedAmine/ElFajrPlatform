@@ -2,21 +2,51 @@ var Router = require ('express').Router ()
 var Model =  require('../DBModel')
 
 
-function Get (req, res) {
+async function Get (req, res) {
     Model.find ((err, malades) => {
-        if (err) {
-            res.json ({
-                type: "Err" ,
-                message : "Une Erreur est survenue ! Impossible de trouver des malades. Veuillez Reessayez"
-            })
-        }
-        res.json ({type :"Info",  message: "Le malade est trouve" })
-    })
-}
+            if (err) {
+                res.json ({
+                    type: "Err" ,
+                    message : "Une Erreur est survenue ! Impossible de trouver des malades. Veuillez Reessayez"
+                })
+            }
+            else {
+                //res.malades =malades
+               // res.json ({type :"Info",  message: "Le malade est trouve" , malades : malades})
+                return malades;
+            }
+        }).then (malades=> 
+           { 
+                malades = malades.filter(malade=> {
+                   return malade.nom.toUpperCase().includes(req.body.id.toUpperCase())
+                   ||
+                    malade.prenom.toUpperCase().includes(req.body.id.toUpperCase())
+                })
+               res.json({
+                   malades
+               }) 
+            }
+        )
+} 
 
 Router.post('/get', Get)
 
-module.exports ={
-    Router,
-    Get
-}
+module.exports = Get
+
+
+
+
+/*Model.find ({}, (err, malades) => {
+    if (err) {
+        res.json ({
+            type: "Err" ,
+            message : "Une Erreur est survenue ! Impossible de trouver des malades. Veuillez Reessayez"
+        })
+    }
+    else {
+        res.json ({type :"Info",  message: "Le malade est trouve" , "malades" : malades})
+        console.log(2)
+        M=malades
+       return malades
+    }
+}).then (e=> console.log(M))*/

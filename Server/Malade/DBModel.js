@@ -3,7 +3,7 @@ var mongoose = require ('mongoose')
 var schema = mongoose.Schema 
 
 var MaladeShema = new schema({
-    id : {
+    prenom : {
         type: String,
         require : true
     },
@@ -11,11 +11,11 @@ var MaladeShema = new schema({
         type: String,
         require : true
     },
-    prenom : {
+    id : {
         type: String,
         require : true
     },
-    DateNaissance : {
+    /*DateNaissance : {
         type: String,
         require : true
     },
@@ -50,11 +50,7 @@ var MaladeShema = new schema({
     Endroit : {
         type: String,
         require : true
-    },
-    id : {
-        type: String,
-        require : true
-    },
+    },*/
 })
-
-module.exports = mongoose.model('Malade', MaladeShema)
+const Model = mongoose.model('Malade', MaladeShema, "malade")
+module.exports = Model

@@ -11,6 +11,7 @@ async function Add (req, res)
         })
         return
     }
+    console.log(req.body)
     var malade = new Model(req.body)
     malade.save (err => {
         if (err) {
@@ -30,7 +31,4 @@ async function Add (req, res)
 
 Router.post ('/add', Add) 
 
-module.exports= {
-    Router,
-    Add
-}
+module.exports= Add
