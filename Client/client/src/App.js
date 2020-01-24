@@ -2,7 +2,7 @@ import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import SearchBar from './mainPage/Search' ;
-import Header from './mainPage/header'
+import Header from './mainPage/Header'
 function App() {
   return (
     <div>

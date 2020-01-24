@@ -1,0 +1,15 @@
+.input100 {
+    font-family: poppins-Medium;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+  
+    outline: transparent;
+    display: block;
+    width: 200;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+    position: relative;
+  }
