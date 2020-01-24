@@ -11,7 +11,6 @@ async function Add (req, res)
         })
         return
     }
-    console.log(req.body)
     var malade = new Model(req.body)
     malade.save (err => {
         if (err) {
@@ -25,6 +24,7 @@ async function Add (req, res)
         res.json ({
             type : 'info',
             message : 'Malade Ajoute'
+            
         })
     })
 }

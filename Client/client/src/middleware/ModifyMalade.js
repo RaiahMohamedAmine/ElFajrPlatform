@@ -2,7 +2,7 @@ import axios from 'axios' ;
 
 export default (data) => {
     axios({
-        method ="POST" ,
+        method :"POST" ,
         data : data ,
         url : "http://localhost:3000/modify",
         headers :{

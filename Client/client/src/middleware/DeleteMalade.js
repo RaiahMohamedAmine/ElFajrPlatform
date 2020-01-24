@@ -2,9 +2,9 @@ import axios from 'axios' ;
 
 export default (data) => {
     axios({
-        method ="POST" ,
+        method :"POST" ,
         data : data ,
-        url : "http://localhost:3000/delete/:"+data.id,
+        url : "http://localhost:3000/delete",
         headers :{
             Authorization : "Bearer " + "token" ,
             crossDomaine : true

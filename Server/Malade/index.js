@@ -16,8 +16,10 @@ app.use(bodyParser());
 app.set ('view engine', 'ejs');
 
 app.get('/get', (req,res)=>{
-     if (res.user ===null)  res.redirect('/login')
-     else res.render ('Get')
+     /*if (res.user ===null)  res.redirect('/login')
+     else res.render ('Get')*/ 
+     console.log('**')
+     res.render ('Get')
 });
 
 app.post ('/get', urlEncoded, (req,res)=> {
@@ -28,7 +30,7 @@ app.get ('/ajouter', VerifyAuth,(req,res)=> {
         res.render ('AddPerson')
 })
 
-app.post ('/ajouter', urlEncoded,(req,res)=> {
+app.post ('/add', urlEncoded,(req,res)=> {
     routes.Add (req,res)
 })
 
