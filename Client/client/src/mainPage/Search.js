@@ -1,11 +1,13 @@
 import React, {Component} from 'react' ;
 import GetMalade from '../middleware/GetMalade'
-import AddMalade from '../middleware/AddMalade'
-import DeleteMalade from '../middleware/DeleteMalade';
+/*import AddMalade from '../middleware/AddMalade'
+import DeleteMalade from '../middleware/DeleteMalade';*/
 import ModifyMalade from'../middleware/ModifyMalade'; 
+import { OverlayTrigger, Popover,Button} from 'react-bootstrap';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
-    faFilter
-} from 'react-fontawesome' ;
+    faClock
+    } from '@fortawesome/free-solid-svg-icons'
 import './css.css'
 
 class SearchBar extends Component {
@@ -16,7 +18,18 @@ class SearchBar extends Component {
         this.MaladeClicked = this.MaladeClicked.bind(this);
         this.state = {
             text: "" ,
-            malades : []
+            malades : [],
+            rdv : [
+                {
+                    time : "25/12/2019"
+                },
+                {
+                    time : "25/12/2019"
+                },
+                {
+                    time : "25/12/2019"
+                }
+            ]
         }
     }
 
@@ -30,7 +43,8 @@ class SearchBar extends Component {
             });
         })
     }
-    Submit (e) {  //Submit of the form 
+    
+    Submit (e) {  //Submit de L'Ajout d<un malade
         var {id,prenom, nom } = this.refs ;
         var malade= {
             id :id.value,
@@ -41,7 +55,7 @@ class SearchBar extends Component {
         ModifyMalade (malade);
     }
 
-    MaladeClicked (IDmalade) {
+    MaladeClicked (IDmalade) { // Quand le user clique ur un malade donne
         GetMalade({
             key :IDmalade
         }).then( data=> {
@@ -52,6 +66,29 @@ class SearchBar extends Component {
     }
 
     render () {
+
+       /* const popover = (
+            <Popover id="popover">
+              <Popover.Title as="h3">Prochains Rendez-Vous :</Popover.Title>
+              <Popover.Content>
+                <div> 
+                    <ul>
+                        {this.state.rdv.map (r=> <li key={r.id}> {r.time}</li>)}
+                    </ul>
+                </div>
+              </Popover.Content>
+            </Popover>
+          );*/
+          const popover = (
+            <Popover id="popover-basic">
+              <Popover.Title as="h3">Popover right</Popover.Title>
+              <Popover.Content>
+                And here's some <strong>amazing</strong> content. It's very engaging.
+                right?
+              </Popover.Content>
+            </Popover>
+          );
+
         return (
             <div>
                 <input className="input100" placeholder="Rechercher Compte" type ="text" onChange= { (e)=> this.OnChange(e.target.value)}/> 
@@ -65,7 +102,9 @@ class SearchBar extends Component {
                     })
                     }
                 </ul>
-
+                <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                    <Button variant="success">Click me to see</Button>
+                </OverlayTrigger>
             </div>
            /* <div >
                  <h1 >Forumulaire </h1>
