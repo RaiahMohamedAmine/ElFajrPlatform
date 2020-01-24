@@ -6,7 +6,7 @@ async function Add (req, res)
 {
     if (!req.body) {
         res.json({
-            type:'error',
+            type:'Err',
             message : 'no body '
         })
         return
@@ -16,14 +16,14 @@ async function Add (req, res)
     malade.save (err => {
         if (err) {
             res.json({
-                type:'error',
+                type:'Err',
                 message : "Erreur ! Le malade n'a pas ete ajoute"
             })
             return
         }
         console.log("Ajoute")
         res.json ({
-            type : 'Nice',
+            type : 'info',
             message : 'Malade Ajoute'
         })
     })

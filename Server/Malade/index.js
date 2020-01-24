@@ -1,24 +1,26 @@
-var express = require('express')
-var cookieParser = require ('cookie-parser')
-var bodyParser = require('body-parser')
-var urlEncoded = bodyParser.urlencoded({extended: true})
-var jwt = require('jsonwebtoken')
-require('dotenv').config()
-require('./db')
+var express = require('express');
+var cookieParser = require ('cookie-parser');
+var bodyParser = require('body-parser');
+var urlEncoded = bodyParser.urlencoded({extended: true});
+var jwt = require('jsonwebtoken');
+var cors = require('cors');
+require('dotenv').config();
+require('./db');
 
 var routes = require('./routes')
 var app =express()
 
-app.use(cookieParser())
-app.use(bodyParser())
-app.set ('view engine', 'ejs')
+app.use(cors());
+app.use(cookieParser());
+app.use(bodyParser());
+app.set ('view engine', 'ejs');
 
-app.get('/get', VerifyAuth, (req,res)=>{
+app.get('/get', (req,res)=>{
      if (res.user ===null)  res.redirect('/login')
      else res.render ('Get')
-})
+});
 
-app.post ('/get', (req,res)=> {
+app.post ('/get', urlEncoded, (req,res)=> {
      routes.Get(req,res);
 })
 

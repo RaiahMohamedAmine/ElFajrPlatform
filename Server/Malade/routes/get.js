@@ -10,21 +10,18 @@ async function Get (req, res) {
                     message : "Une Erreur est survenue ! Impossible de trouver des malades. Veuillez Reessayez"
                 })
             }
-            else {
-                //res.malades =malades
-               // res.json ({type :"Info",  message: "Le malade est trouve" , malades : malades})
-                return malades;
-            }
+            return malades
         }).then (malades=> 
-           { 
+           {
                 malades = malades.filter(malade=> {
-                   return malade.nom.toUpperCase().includes(req.body.id.toUpperCase())
+                   return malade.nom.toUpperCase().includes(req.body.key.toUpperCase())
                    ||
-                    malade.prenom.toUpperCase().includes(req.body.id.toUpperCase())
+                    malade.prenom.toUpperCase().includes(req.body.key.toUpperCase())
+                    ||
+                    malade.id.toUpperCase().includes (req.body.key.toUpperCase())
                 })
-               res.json({
-                   malades
-               }) 
+               res.malades = malades
+               res.json ({type :"Info",  message: "Le malade est trouve" , malades : res.malades})
             }
         )
 } 
