@@ -2,6 +2,7 @@ var express = require('express');
 var cookieParser = require ('cookie-parser');
 var bodyParser = require('body-parser');
 var urlEncoded = bodyParser.urlencoded({extended: true});
+var fileUpload = require('express-fileupload') ;
 var jwt = require('jsonwebtoken');
 var cors = require('cors');
 require('dotenv').config();
@@ -10,6 +11,7 @@ require('./db');
 var routes = require('./routes')
 var app =express()
 
+app.use(fileUpload ());
 app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser());

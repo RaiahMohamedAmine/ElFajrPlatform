@@ -7,7 +7,8 @@ export default (data) => {
         url : "http://localhost:3000/add",
         headers : {
             Authorization : "Bearer " + "token",
-            crossDomaine : true
+            crossDomaine : true,
+            'Content-Type' : 'multipart/form-data'
         }
     }).then (res => {
         if (res.data.type ==="Err")

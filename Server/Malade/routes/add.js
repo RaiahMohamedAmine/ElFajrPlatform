@@ -4,13 +4,16 @@ var Model = require('../DBModel')
 
 async function Add (req, res)
 {
-    if (!req.body) {
+   // console.log (req)
+    if (req.body===null) {
         res.json({
             type:'Err',
             message : 'no body '
         })
         return
     }
+    req.body.PhotoIdentite = req.files['PhotoIdentite'] ;
+    console.log (req.body);
     var malade = new Model(req.body)
     malade.save (err => {
         if (err) {

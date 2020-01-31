@@ -15,11 +15,11 @@ var MaladeShema = new schema({
         type: String,
         require : true
     },
-    /*DateNaissance : {
-        type: String,
-        require : true
+    PhotoIdentite : {
+        type: Object,
+        require : false
     },
-    Adresse : {
+   /* Adresse : {
         type: String,
         require : true
     },
