@@ -1,7 +1,6 @@
 var Router = require ('express').Router ()
 var Model =  require('../DBModel')
 
-
 async function Get (req, res) {
     Model.find ((err, malades) => {
             if (err) {

@@ -12,7 +12,7 @@ async function Add (req, res)
         })
         return
     }
-    req.body.PhotoIdentite = req.files['PhotoIdentite'] ;
+    req.body.PhotoIdentite = req.files['PhotoIdentite'];
     console.log (req.body);
     var malade = new Model(req.body)
     malade.save (err => {

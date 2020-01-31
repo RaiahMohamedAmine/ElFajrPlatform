@@ -27,10 +27,6 @@ class SearchBar extends Component {
                     time : "25/12/2019"
                 }
             ] ,
-           /* files : {
-                "PhotoIdentite" : {} ,
-                "CopiePhotoIdentite": {}
-            }*/
             file : {}
         }
     }
@@ -49,16 +45,15 @@ class SearchBar extends Component {
     Submit (e) {  //Submit de L'Ajout d<un malade
     
         var {id,prenom, nom } = this.refs ;
-       // console.log (photo.value)
+        console.log (this.state.file)
         e.preventDefault ();
         var formdata = new FormData() ;
         formdata.append ('id',id.value) ;
         formdata.append ('prenom',prenom.value) ;
         formdata.append ('nom',nom.value) ;
         formdata.append ('PhotoIdentite', this.state.file)
-     //   formdata.append ('CopiePhotoIdentite', this.state.files['CopiePhotoIdentite'])
 
-    console.log (formdata)
+        // console.log (formdata)
         AddMalade (formdata);
     }
 
@@ -163,7 +158,7 @@ class SearchBar extends Component {
                     {this.state.malades.map(malade => {
                         return (
                         <div key={malade.id}>
-                            <img />
+                            <img src={ "data:image/jpeg;base64,"+malade.PhotoIdentite.data} style={{height: 160, width:160}} />
                             <button key={malade.id} id={malade.id} onClick={(e)=> this.MaladeClicked (e.target.id)}> {malade.id} {malade.prenom} {malade.nom} </button> 
                         </div>
                         )
