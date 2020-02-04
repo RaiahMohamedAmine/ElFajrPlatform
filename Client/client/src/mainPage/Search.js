@@ -3,6 +3,7 @@ import GetMalade from '../middleware/GetMalade'
 import AddMalade from '../middleware/AddMalade'
 import DeleteMalade from '../middleware/DeleteMalade';
 import ModifyMalade from'../middleware/ModifyMalade'; 
+
 import { OverlayTrigger, Popover,Button} from 'react-bootstrap';
 //import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 /*import {
@@ -16,21 +17,10 @@ class SearchBar extends Component {
         this.state = {
             text: "" ,
             malades : [],
-            rdv : [
-                {
-                    time : "25/12/2019"
-                },
-                {
-                    time : "25/15/2019"
-                },
-                {
-                    time : "25/12/2019"
-                }
-            ] ,
-            file : {}
+            file : {},
         }
     }
-
+    
     OnChange (Compte) {
          GetMalade ({
             key : Compte
@@ -53,19 +43,19 @@ class SearchBar extends Component {
         formdata.append ('nom',nom.value) ;
         formdata.append ('PhotoIdentite', this.state.file)
 
-        // console.log (formdata)
         AddMalade (formdata);
     }
 
     ModifierMalade (e) {  //Submit de L'Ajout d<un malade
         var {id,prenom, nom } = this.refs ;
-        var malade= {
-            id :id.value,
-            prenom : prenom.value,
-            nom :nom.value
-        } ;
-        console.log(malade);
-        ModifyMalade (malade);
+
+        var formdata = new FormData() ;
+        formdata.append ('id',id.value) ;
+        formdata.append ('prenom',prenom.value) ;
+        formdata.append ('nom',nom.value) ;
+        formdata.append ('PhotoIdentite', this.state.file)
+
+        ModifyMalade (formdata);
     }
 
     SupprimerMalade (e) {  //Submit de L'Ajout d<un malade
@@ -111,7 +101,6 @@ class SearchBar extends Component {
                         Lastname : <input type="text" id="lastname" name="nom" ref="nom"/>
                     </div>
                     <input type="file" name="PhotoIdentite" onChange= {(e)=>this.PhotoOnChange (e)} /> <br/><br/>
-                    <input type="file" name= "CopiePhotoIdentite" onChange= {(e)=>this.PhotoOnChange (e)} /> <br/><br/>
                         <input type="submit" value="Submit"/>
                 </form>
               </Popover.Content>
@@ -132,6 +121,7 @@ class SearchBar extends Component {
                     <div>  
                         Lastname : <input type="text" id="lastname" name="nom" ref="nom" placeholder="Nv NOM "/>
                     </div>
+                    <input type="file" name= "PhotoIdentite" placeholder="Nvl Photo D'identite "  onChange= {(e)=>this.PhotoOnChange (e)} /> <br/><br/>
                         <input type="submit" value="Submit"/>
                 </form>
               </Popover.Content>

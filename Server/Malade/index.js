@@ -5,6 +5,7 @@ var urlEncoded = bodyParser.urlencoded({extended: true});
 var fileUpload = require('express-fileupload') ;
 var jwt = require('jsonwebtoken');
 var cors = require('cors');
+var auth = require('./auth');
 require('dotenv').config();
 require('./db');
 
@@ -45,15 +46,16 @@ app.post ('/login', urlEncoded, (req,res)=> {
         prenom : req.body.prenom,
         nom : req.body.nom
     }
-    console.log (process.env.ACCES_TOKEN)
-    jwt.sign (user, process.env.ACCES_TOKEN , (err, token)=> {
+    console.log (process.env.ACCES_TOKEN);
+    auth.createToken(user,res);
+   /* jwt.sign (user, process.env.ACCES_TOKEN , (err, token)=> {
         if (err) res.sendStatus (404)
         else{
             res.cookie ("jwt",token)
             console.log(res.cookie)
             res.render('AddPerson')
         }
-    })
+    })*/
 })
 
 app.post ('/logout', urlEncoded,(req,res)=> {
@@ -78,6 +80,9 @@ app.post ('/modify', (req,res)=>{
     routes.Update(req,res)
 })
 
+app.post('/auth', auth.VerifyToken,(req,res)=> {
+    
+})
 
 function VerifyAuth (req,res,next) {
     var token = req.cookies["jwt"]

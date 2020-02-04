@@ -13,7 +13,7 @@ async function Add (req, res)
         return
     }
     req.body.PhotoIdentite = req.files['PhotoIdentite'];
-    console.log (req.body);
+   // console.log (req.body);
     var malade = new Model(req.body)
     malade.save (err => {
         if (err) {
@@ -25,7 +25,7 @@ async function Add (req, res)
         }
         console.log("Ajoute")
         res.json ({
-            type : 'info',
+            type : 'Info',
             message : 'Malade Ajoute'
             
         })
