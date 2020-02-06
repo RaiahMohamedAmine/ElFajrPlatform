@@ -38,24 +38,23 @@ app.post ('/add', urlEncoded,(req,res)=> {
 })
 
 app.get('/login',(req,res) => {
-    res.render ('Login')
+    res.redirect ('/login')
 })
 
 app.post ('/login', urlEncoded, (req,res)=> {
     var user = {
-        prenom : req.body.prenom,
-        nom : req.body.nom
+        Email : req.body.Email,
+        mdp : req.body.mdp
     }
-    console.log (process.env.ACCES_TOKEN);
-    auth.createToken(user,res);
-   /* jwt.sign (user, process.env.ACCES_TOKEN , (err, token)=> {
-        if (err) res.sendStatus (404)
-        else{
-            res.cookie ("jwt",token)
-            console.log(res.cookie)
-            res.render('AddPerson')
-        }
-    })*/
+     auth.createToken(user,res).then (token => {
+        res.cookie ('jwt',res.token);
+        console.log (res)
+        res.json({
+            type: 'Info', 
+            message : 'Logged In'
+        });
+     });
+    
 })
 
 app.post ('/logout', urlEncoded,(req,res)=> {
@@ -80,9 +79,7 @@ app.post ('/modify', (req,res)=>{
     routes.Update(req,res)
 })
 
-app.post('/auth', auth.VerifyToken,(req,res)=> {
-    
-})
+app.post('/auth', auth.VerifyToken)
 
 function VerifyAuth (req,res,next) {
     var token = req.cookies["jwt"]
@@ -99,7 +96,7 @@ function VerifyAuth (req,res,next) {
     }
 }
 
-var port = process.env.MONGO_URL || 3000
+var port = process.env.PORT || 5200
 
 app.listen (port, ()=>{
     console.log("Server started at port : "+ port)

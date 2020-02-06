@@ -3,7 +3,7 @@ import axios from 'axios';
 export default (token)=> 
     axios ({
         method: 'POST',
-        url: 'http://localhost:3000/auth',
+        url: 'http://localhost:5200/auth',
         headers : {
             Authorization :'Bearer ', //+ token,
             crossDomaine : true
@@ -11,11 +11,10 @@ export default (token)=>
         data : token
     }).then (res => {
        if (res.data.type ==='Err'){
-            axios({
-                method: 'GET',
-                url :'http://localhost:3000/login'
-            }).then (res=>{
-                console.log(res);
-            })
+            return false
+       }
+       else
+       {
+           return true
        }
     });

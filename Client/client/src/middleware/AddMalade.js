@@ -4,7 +4,7 @@ export default (data) => {
     return axios ({
         method: "POST" ,
         data :data ,
-        url : "http://localhost:3000/add",
+        url : process.env.PROXY+"/add",
         headers : {
             Authorization : "Bearer " + "token",
             crossDomaine : true,

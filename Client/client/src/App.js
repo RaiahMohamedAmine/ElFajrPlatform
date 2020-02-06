@@ -19,7 +19,7 @@ class App extends Component {
     componentDidMount () {
       var {cookie} = this.props ;
       console.log(cookie) ;
-     // Auth(cookie);
+      Auth(cookie).then (e=> console.log (e));
   }
 
   render () {

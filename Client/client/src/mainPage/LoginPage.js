@@ -1,5 +1,5 @@
 import React, {Component} from 'react' ;
-import auth from '../middleware/auth';
+import login from '../middleware/login';
 
 class LoginPage extends Component {
 
@@ -16,7 +16,7 @@ class LoginPage extends Component {
                 Email : Email.value ,
                 mdp : mdp.value
         }
-        auth (user)
+        login(user).then (e=>console.log(e))
     }
 
 
