@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {Route,Switch} from 'react-router-dom'
 //import logo from './logo.svg';
 import './App.css';
-import SearchBar from './mainPage/Search' ;
-import Header from './mainPage/Header'; 
+import Main from './mainPage/Main';
 import LoginPage from './mainPage/LoginPage';
 import Auth from './middleware/auth';
 
@@ -25,8 +24,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Header></Header>
-                  <SearchBar> </SearchBar>
+        <Main></Main>
       </div>
     )
     /*return (  

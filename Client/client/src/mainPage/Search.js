@@ -4,7 +4,7 @@ import AddMalade from '../middleware/AddMalade'
 import DeleteMalade from '../middleware/DeleteMalade';
 import ModifyMalade from'../middleware/ModifyMalade'; 
 
-import { OverlayTrigger, Popover,Button} from 'react-bootstrap';
+import { OverlayTrigger, Popover,Button,Image} from 'react-bootstrap';
 //import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 /*import {
     faClock
@@ -19,6 +19,7 @@ class SearchBar extends Component {
             malades : [],
             file : {},
         }
+        this.RenderingItem = this.RenderingItem.bind (this);
     }
     
     OnChange (Compte) {
@@ -68,6 +69,7 @@ class SearchBar extends Component {
     }
 
     MaladeClicked (IDmalade) { // Quand le user clique ur un malade donne
+        console.log (IDmalade)
         this.state.malades.forEach(malade=> {
             if (malade.id===IDmalade) {
                 alert (malade.id +" " + malade.prenom +" " +malade.nom+malade.PhotoIdentite);
@@ -83,6 +85,21 @@ class SearchBar extends Component {
          });
     }
 
+    RenderingItem (malade) {
+        return (
+            <div className ="Item" width= "250px" key={malade.id} > 
+                <Button  variant="light" onClick= {(e)=> this.MaladeClicked (malade.id)}>
+                    <Image className="avatar" alt ={"photo de "+ malade.nom} src={ "data:image/jpeg;base64,"+malade.PhotoIdentite.data} roundedCircle/>
+                    <h6 className="name">
+                        {malade.nom + " " + malade.prenom} 
+                    </h6>
+                    <p className ="soustitre">
+                        {malade.id+ ", "}
+                    </p>
+                </Button>
+            </div>
+        )
+    }
 
     render () {
           const popAjouter = (
@@ -146,10 +163,11 @@ class SearchBar extends Component {
                 <ul>
                     {this.state.malades.map(malade => {
                         return (
-                        <div key={malade.id}>
+                       /* <div key={malade.id}>
                             <img alt={"Photo de " +malade.nom} src={ "data:image/jpeg;base64,"+malade.PhotoIdentite.data} style={{height: 160, width:160}} />
                             <button key={malade.id} id={malade.id} onClick={(e)=> this.MaladeClicked (e.target.id)}> {malade.id} {malade.prenom} {malade.nom} </button> 
-                        </div>
+                        </div>*/
+                        this.RenderingItem (malade)
                         )
                     })
                     }
