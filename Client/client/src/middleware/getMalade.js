@@ -3,10 +3,10 @@ import axios from 'axios' ;
 export default (data) => {
     return axios({
             method : "POST" ,
-            url : process.env.PROXY+"/get",
+            url : "http://localhost:5200/get",
             data : data ,
             headers: {
-                Authorization : "Bearer" + "token" ,
+                Authorization : "Bearer",// + "token" ,
                 crossDomaine : true
             }
         }).then ( res=> {

@@ -36,7 +36,7 @@ class SearchBar extends Component {
     
         var {id,prenom, nom } = this.refs ;
         console.log (this.state.file)
-        e.preventDefault ();
+      //  e.preventDefault ();
         var formdata = new FormData() ;
         formdata.append ('id',id.value) ;
         formdata.append ('prenom',prenom.value) ;
@@ -68,12 +68,11 @@ class SearchBar extends Component {
     }
 
     MaladeClicked (IDmalade) { // Quand le user clique ur un malade donne
-        GetMalade({
-            key :IDmalade
-        }).then( data=> {
-            data.forEach(d => {
-                alert (d.id +" " + d.prenom +" " +d.nom+d.PhotoIdentite)
-            });
+        this.state.malades.forEach(malade=> {
+            if (malade.id===IDmalade) {
+                alert (malade.id +" " + malade.prenom +" " +malade.nom+malade.PhotoIdentite);
+                return;
+            }
         })
     }
 
@@ -148,7 +147,7 @@ class SearchBar extends Component {
                     {this.state.malades.map(malade => {
                         return (
                         <div key={malade.id}>
-                            <img src={ "data:image/jpeg;base64,"+malade.PhotoIdentite.data} style={{height: 160, width:160}} />
+                            <img alt={"Photo de " +malade.nom} src={ "data:image/jpeg;base64,"+malade.PhotoIdentite.data} style={{height: 160, width:160}} />
                             <button key={malade.id} id={malade.id} onClick={(e)=> this.MaladeClicked (e.target.id)}> {malade.id} {malade.prenom} {malade.nom} </button> 
                         </div>
                         )

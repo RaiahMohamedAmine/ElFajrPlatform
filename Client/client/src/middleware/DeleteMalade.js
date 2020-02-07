@@ -4,9 +4,9 @@ export default (data) => {
     axios({
         method :"POST" ,
         data : data ,
-        url : process.env.PROXY+"/delete",
+        url : "http://localhost:5200/delete",
         headers :{
-            Authorization : "Bearer " + "token" ,
+            Authorization : "Bearer ",// + "token" ,
             crossDomaine : true
         }
     }).then (res => {

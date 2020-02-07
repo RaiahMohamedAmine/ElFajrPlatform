@@ -3,11 +3,6 @@ import login from '../middleware/login';
 
 class LoginPage extends Component {
 
-    constructor (props) {
-        super(props); 
-
-
-    }
 
     Submit(e) {
         e.preventDefault ();

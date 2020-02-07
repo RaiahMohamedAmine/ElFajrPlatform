@@ -23,7 +23,13 @@ class App extends Component {
   }
 
   render () {
-    return (  
+    return (
+      <div>
+        <Header></Header>
+                  <SearchBar> </SearchBar>
+      </div>
+    )
+    /*return (  
         <div>
             {
               this.state.Loaded? <h1> We are Loading</h1> :(
@@ -36,8 +42,8 @@ class App extends Component {
             }
         </div>
       
-    );
-  } 
+    );*/
+  }
 }
 
 export default App;

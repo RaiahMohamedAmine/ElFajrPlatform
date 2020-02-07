@@ -4,9 +4,9 @@ export default (data) => {
     return axios ({
         method: "POST" ,
         data :data ,
-        url : process.env.PROXY+"/add",
+        url : "http://localhost:5200/add",
         headers : {
-            Authorization : "Bearer " + "token",
+            Authorization : "Bearer ",// + "token",
             crossDomaine : true,
             'Content-Type' : 'multipart/form-data'
         }
