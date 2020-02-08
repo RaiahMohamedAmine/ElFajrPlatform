@@ -38,7 +38,7 @@ class Dialog extends Component {
                         </div>
                     </Col>
                     <Col>
-                        <Image className="Avatar" alt ={"photo de "+ this.props.malade.nom} src={ "data:image/jpeg;base64,"+this.props.malade.PhotoIdentite.data} roundedCircle/>
+                        <Image className="Avatar" alt ={"photo de "+ this.props.malade.nom} src={ "data:image/jpeg;base64,"+this.props.malade.PhotoIdentite} roundedCircle/>
                     </Col>
                 </Row>
             </div>) 

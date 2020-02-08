@@ -59,13 +59,18 @@ class SearchBar extends Component {
         })
     }
 
-    
+    PhotoOnChange(e) {
+        console.log (e.target.name)
+        this.setState ({
+            file : e.target.files[0]
+         });
+    }
 
     RenderingItem (malade) {
         return (
             <div className ="" key={malade.id} > 
                 <Button className="Item" variant="light" onClick= {(e)=> this.MaladeClicked (malade.id)}>
-                    <img className="avatar" alt ={"photo de "+ malade.nom} src={ "data:image/jpeg;base64,"+malade.PhotoIdentite.data} roundedCircle/>
+                    <img className="avatar" alt ={"photo de "+ malade.nom} src={ "data:image/jpeg;base64,"+malade.PhotoIdentite} roundedCircle/>
                     <h6 className="name">
                         {malade.nom + " " + malade.prenom} 
                     </h6>
