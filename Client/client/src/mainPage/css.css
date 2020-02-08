@@ -15,39 +15,48 @@
     margin: 20px;
   }
 
-  .wrap-input100 {
+.wrap-input100 {
     position: relative;
     width: 100%;
     z-index: 1;
     margin-bottom: 10px;
-  }
+}
 
-  .validate-input {
+.validate-input {
     position: relative;
-  }
+}
 
-  .Item {
+.Item {
     margin : 20px;
-    padding: 20
-  }
+    padding: 0;
+    width: 350px;
+    height: 90px;
+}
 
-  .name {
+.name {
     font-weight: 600;
     font-family: Calibri;
     font-size: medium;
-  }
+}
 
-  .soustitre {
+.soustitre {
     font-weight: 200;
     color: #666666;
     font-family: Calibri;
     font-size: small;
-  }
+}
 
 .avatar {
-  width: 35px;
-  height: 35px;
+  width: 70px;
+  height: 60px;
   margin-right: 10px;
+  align-self: flex-start;
+  margin-bottom: 15px;
+  padding: 3px, 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  border :none;
+  text-align: left;
 }
 
 
@@ -55,7 +64,8 @@
 .dialogStyles {
   width: 500px;
   max-width: 100%;
-  margin: 0 auto;
+  max-height: 800px;
+  margin: 20 auto;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -63,10 +73,10 @@
   z-index: 999;
   background-color: #eee;
   padding: 10px,20px,40px;
-  border-radius: 8px;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow: scroll;
   white-space: nowrap;
 }
 div.dialogStyles a {

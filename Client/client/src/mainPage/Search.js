@@ -1,6 +1,5 @@
 import React, {Component} from 'react' ;
 import GetMalade from '../middleware/GetMalade'
-import AddMalade from '../middleware/AddMalade'
 import DeleteMalade from '../middleware/DeleteMalade';
 import ModifyMalade from'../middleware/ModifyMalade'; 
 import Dialog from './Dialog';
@@ -48,15 +47,6 @@ class SearchBar extends Component {
         ModifyMalade (formdata);
     }
 
-    SupprimerMalade (e) {  //Submit de L'Ajout d<un malade
-        var {id} = this.refs ;
-        var malade= {
-            id :id.value
-        } ;
-        console.log(malade);
-        DeleteMalade (malade);
-    }
-
     MaladeClicked (IDmalade) { // Quand le user clique ur un malade donne
         console.log (IDmalade)
         this.state.malades.forEach(malade=> {
@@ -73,9 +63,9 @@ class SearchBar extends Component {
 
     RenderingItem (malade) {
         return (
-            <div className ="Item" width= "250px" key={malade.id} > 
-                <Button  variant="light" onClick= {(e)=> this.MaladeClicked (malade.id)}>
-                    <Image className="avatar" alt ={"photo de "+ malade.nom} src={ "data:image/jpeg;base64,"+malade.PhotoIdentite.data} roundedCircle/>
+            <div className ="" key={malade.id} > 
+                <Button className="Item" variant="light" onClick= {(e)=> this.MaladeClicked (malade.id)}>
+                    <img className="avatar" alt ={"photo de "+ malade.nom} src={ "data:image/jpeg;base64,"+malade.PhotoIdentite.data} roundedCircle/>
                     <h6 className="name">
                         {malade.nom + " " + malade.prenom} 
                     </h6>
@@ -109,20 +99,6 @@ class SearchBar extends Component {
               </Popover.Content>
             </Popover>
           );
-
-          const popSupprimer = (
-            <Popover id="popover-basic">
-              <Popover.Title as="h3">Forumulaire</Popover.Title>
-              <Popover.Content>
-                <form onSubmit={ (e) => this.SupprimerMalade (e)}>
-                   <div>
-                        id : <input type="text" id="id" name="id" ref="id" placeholder="Id malade "/>
-                    </div>
-                        <input type="submit" value="Submit"/>
-                </form>
-              </Popover.Content>
-            </Popover>
-          );
         return (
             <div>
                 <input className="input100" placeholder="Rechercher Compte" type ="text" onChange= { (e)=> this.OnChange(e.target.value)}/> 
@@ -145,9 +121,6 @@ class SearchBar extends Component {
                     <Button variant="success">Modifier Malade</Button>
                 </OverlayTrigger>
                 <br/><br/><br/>
-                <OverlayTrigger trigger="click" placement="right" overlay={popSupprimer}>
-                    <Button variant="success">Supprimer Malade</Button>
-                </OverlayTrigger>
                 <Dialog isOpen={this.state.Maladeclicked} onClose= {e=> this.setState({Maladeclicked: false})} malade= {this.state.malade}/>
                 <AddForm isOpen={this.state.Adding} onClose ={e=> this.setState({Adding : false})}/>
             </div>

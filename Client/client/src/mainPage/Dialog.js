@@ -1,11 +1,23 @@
 import React, {Component} from 'react';
 import {Image, Row,Col} from 'react-bootstrap';
+import '../../node_modules/font-awesome/css/font-awesome.min.css';
+import DeleteMalade from '../middleware/DeleteMalade';
 import './dialog.css';
 
 class Dialog extends Component {
     constructor (props)
     {
         super (props);
+    }
+
+    SupprimerMalade (IdMalade) {  //Submit de L'Ajout d<un malade
+        var malade= {
+            id :IdMalade
+        } ;
+        console.log(IdMalade);
+        DeleteMalade (malade);
+        document.location.reload(true);
+        //alert("Le Malade a bien ete Supprimer")
     }
 
     render(){
@@ -15,7 +27,10 @@ class Dialog extends Component {
         else{
              dialog = (
             <div className="dialogStyles"> 
-                <div className="dialogCloseButton" onClick={this.props.onClose }> x</div>
+                        <div className="dialogCloseButton" onClick ={e=> this.SupprimerMalade(this.props.malade.id)}><i className ="fa fa-trash"></i></div>
+                    
+                         <div className="dialogCloseButton" onClick={this.props.onClose }> x</div>
+                    
                 <Row>
                     <Col>
                         <div className="Name">

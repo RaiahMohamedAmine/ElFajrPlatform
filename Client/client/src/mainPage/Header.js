@@ -11,7 +11,7 @@ class Header extends Component {
                     <Container>
                         <Row >
                             <Col> 
-                                <Image alt="Logo El Fajr" src={image} height="50" width="50" roundedCircle/>
+                                <Image alt="Logo El Fajr" src={image} height="98" width="100" roundedCircle/>
                             </Col>
                             <Col>
                                 <div >
