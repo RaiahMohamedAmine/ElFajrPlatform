@@ -3,7 +3,8 @@ import GetMalade from '../middleware/GetMalade'
 import AddMalade from '../middleware/AddMalade'
 import DeleteMalade from '../middleware/DeleteMalade';
 import ModifyMalade from'../middleware/ModifyMalade'; 
-
+import Dialog from './Dialog';
+import AddForm from './AddForm';
 import { OverlayTrigger, Popover,Button,Image} from 'react-bootstrap';
 //import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 /*import {
@@ -16,10 +17,12 @@ class SearchBar extends Component {
         super(props)
         this.state = {
             text: "" ,
+            Maladeclicked: false,
+            Adding: false,
+            malade : {},
             malades : [],
             file : {},
         }
-        this.RenderingItem = this.RenderingItem.bind (this);
     }
     
     OnChange (Compte) {
@@ -31,20 +34,6 @@ class SearchBar extends Component {
                malades:data 
             });
         })
-    }
-    
-    Submit (e) {  //Submit de L'Ajout d<un malade
-    
-        var {id,prenom, nom } = this.refs ;
-        console.log (this.state.file)
-      //  e.preventDefault ();
-        var formdata = new FormData() ;
-        formdata.append ('id',id.value) ;
-        formdata.append ('prenom',prenom.value) ;
-        formdata.append ('nom',nom.value) ;
-        formdata.append ('PhotoIdentite', this.state.file)
-
-        AddMalade (formdata);
     }
 
     ModifierMalade (e) {  //Submit de L'Ajout d<un malade
@@ -72,18 +61,15 @@ class SearchBar extends Component {
         console.log (IDmalade)
         this.state.malades.forEach(malade=> {
             if (malade.id===IDmalade) {
-                alert (malade.id +" " + malade.prenom +" " +malade.nom+malade.PhotoIdentite);
-                return;
+                this.setState({
+                    Maladeclicked:true,
+                    malade : malade
+                })
             }
         })
     }
 
-    PhotoOnChange(e) {
-        console.log (e.target.name)
-        this.setState ({
-            file : e.target.files[0]
-         });
-    }
+    
 
     RenderingItem (malade) {
         return (
@@ -102,26 +88,6 @@ class SearchBar extends Component {
     }
 
     render () {
-          const popAjouter = (
-            <Popover id="popover-basic">
-              <Popover.Title as="h3">Forumulaire</Popover.Title>
-              <Popover.Content>
-                <form onSubmit={ (e) => this.Submit (e)}>
-                   <div>
-                        id : <input type="text" id="id" name="id" ref="id" />
-                    </div>
-                    <div>
-                        Firstname : <input type="text" id="firstname" name="prenom"  ref="prenom" />
-                    </div>
-                    <div>  
-                        Lastname : <input type="text" id="lastname" name="nom" ref="nom"/>
-                    </div>
-                    <input type="file" name="PhotoIdentite" onChange= {(e)=>this.PhotoOnChange (e)} /> <br/><br/>
-                        <input type="submit" value="Submit"/>
-                </form>
-              </Popover.Content>
-            </Popover>
-          );
 
           const popModifer = (
             <Popover id="popover-basic">
@@ -172,9 +138,8 @@ class SearchBar extends Component {
                     })
                     }
                 </ul>
-                <OverlayTrigger trigger="click" placement="right" overlay={popAjouter}>
-                    <Button variant="success">Ajouter Malade</Button>
-                </OverlayTrigger>
+                    <Button variant="success" onClick ={(e)=> this.setState ({Adding:true})}>Ajouter Malade</Button>
+                
                 <br/><br/><br/>
                 <OverlayTrigger trigger="click" placement="right" overlay={popModifer}>
                     <Button variant="success">Modifier Malade</Button>
@@ -183,6 +148,8 @@ class SearchBar extends Component {
                 <OverlayTrigger trigger="click" placement="right" overlay={popSupprimer}>
                     <Button variant="success">Supprimer Malade</Button>
                 </OverlayTrigger>
+                <Dialog isOpen={this.state.Maladeclicked} onClose= {e=> this.setState({Maladeclicked: false})} malade= {this.state.malade}/>
+                <AddForm isOpen={this.state.Adding} onClose ={e=> this.setState({Adding : false})}/>
             </div>
            /* <div >
                  <h1 >Forumulaire </h1>

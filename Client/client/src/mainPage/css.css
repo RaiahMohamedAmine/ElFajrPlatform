@@ -1,5 +1,5 @@
 .input100 {
-    font-family: poppins-Medium;
+    font-family: Calibri;
     font-size: 15px;
     line-height: 1.5;
     color: #666666;
@@ -48,4 +48,42 @@
   width: 35px;
   height: 35px;
   margin-right: 10px;
+}
+
+
+
+.dialogStyles {
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+  background-color: #eee;
+  padding: 10px,20px,40px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  white-space: nowrap;
+}
+div.dialogStyles a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+.dialogCloseButton{
+  margin-bottom: 15px;
+  padding: 3px, 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  border :none;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  align-self: flex-end;
 }
