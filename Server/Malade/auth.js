@@ -36,14 +36,7 @@ var createToken = (user,res)=> {
     })
 }
 
-var DeleteToken =(res)=>{
-    res.clearCookie('jwt');
-    res.redirect('/');
-} 
-
-
 module.exports ={
     createToken,
-    VerifyToken,
-    DeleteToken
+    VerifyToken
 };

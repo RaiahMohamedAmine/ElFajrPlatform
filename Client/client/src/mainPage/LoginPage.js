@@ -22,7 +22,6 @@ class LoginPage extends Component {
                     this.setState({
                         isLogged : true
                     }) ;
-                    console.log (cookies)
                 }
             }
         })

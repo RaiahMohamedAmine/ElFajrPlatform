@@ -17,7 +17,7 @@ class App extends Component {
 
     componentDidMount () {
       var {cookies} = this.props ;
-      console.log(cookies) ;
+      console.log(cookies);
       VerifyAuth(cookies).then (res=> {
         if (res.data.type=== "Info")
           this.setState ({
@@ -26,11 +26,21 @@ class App extends Component {
       });
   }
 
+  Logout (e) {
+    var {cookies} = this.props;
+    cookies.remove ('jwt');
+    this.setState({
+      isLogged:false
+    })
+}
   render () {
     return (
       <div>
         {this.state.isLogged ? 
-            <Main>  </Main>
+            <div> 
+              <Main>  </Main>
+              <button onClick={e=> this.Logout (e)}> Logout</button>
+             </div>
             :
             <LoginPage isLogged= {this.state.isLogged}> </LoginPage>
             

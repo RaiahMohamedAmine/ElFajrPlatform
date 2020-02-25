@@ -35,12 +35,6 @@ app.post ('/login', urlEncoded, (req,res)=> {
      auth.createToken(user,res)
 }) ;
 
-
-app.post ('/logout', urlEncoded,(req,res)=> {
-    res.clearCookie("jwt")
-    res.redirect('/login')
-})
-
 app.post ('/delete', (req, res)=>{
     routes.Delete(req,res)
 })

@@ -6,11 +6,6 @@ import LoginPage from './LoginPage';
 import {withCookies} from 'react-cookie';
 
 class Main extends Component {
-  /*  componentDidMount () {
-        var {cookies} = this.props;
-        console.log(cookies);
-        VerifyAuth(cookies)
-    }*/
     render() {
         return (
             <div>
