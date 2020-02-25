@@ -4,44 +4,40 @@ import {Route,Switch} from 'react-router-dom'
 import './App.css';
 import Main from './mainPage/Main';
 import LoginPage from './mainPage/LoginPage';
-import Auth from './middleware/auth';
+import VerifyAuth from './middleware/VerifyAuth';
+import {withCookies} from 'react-cookie';
 
 class App extends Component {
     constructor(props) {
       super (props) ;
       this.state ={
-        isLogged : false,
-        Loaded : false
+        isLogged : false
       }
     }
 
     componentDidMount () {
-      var {cookie} = this.props ;
-      console.log(cookie) ;
-      Auth(cookie).then (e=> console.log (e));
+      var {cookies} = this.props ;
+      console.log(cookies) ;
+      VerifyAuth(cookies).then (res=> {
+        if (res.data.type=== "Info")
+          this.setState ({
+            isLogged: true,
+          })
+      });
   }
 
   render () {
     return (
       <div>
-        <Main></Main>
+        {this.state.isLogged ? 
+            <Main>  </Main>
+            :
+            <LoginPage isLogged= {this.state.isLogged}> </LoginPage>
+            
+        }
       </div>
     )
-    /*return (  
-        <div>
-            {
-              this.state.Loaded? <h1> We are Loading</h1> :(
-                this.state.isLogged ? <div>
-                  <Header></Header>
-                  <SearchBar> </SearchBar>
-                </div> :
-                <LoginPage></LoginPage>
-              )
-            }
-        </div>
-      
-    );*/
   }
 }
 
-export default App;
+export default withCookies(App);

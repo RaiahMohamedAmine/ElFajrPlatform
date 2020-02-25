@@ -1,49 +1,37 @@
 var jwt = require('jsonwebtoken');
 
-var VerifyToken =(req,res,next)=> {
-    var token = req.cookies["jwt"]
-    if(token ===null) res.sendStatus (404)
+var VerifyToken =(cookies,res)=> {
+    var token = cookies.jwt;
+    if(token ===null) return false ;
     else {
         jwt.verify (token,process.env.ACCES_TOKEN, (err, user)=> {
-            if(err) res.redirect ('/login')
+            if (err) res.json({
+                type: 'Err',
+                message: 'Error Not Loggined'
+            });
             else{
-                req.user = user
-                console.log(req.user)
-                next()
+                res.json ({
+                    type: 'Info', 
+                    message : 'Logged In' ,
+                    user
+                })
             }
         })
     }
-   /* var header = req.headers['Authorization'];
-    if (!header) {res.json({
-        type:'Err',
-        message: 'No Header'
-    })
-    return };
-    var token = header.split(' ')[1];
-    jwt.verify (token,process.env.ACCES_TOKEN, (err,user)=> {
-        if (err) res.json({
-            type: 'Err',
-            message : 'Not Authenticated'
-        })
-        else {
-            res.json({
-                type: 'Info' ,
-                info :'Authenthicated' ,
-                user : user
-            }) ;
-            next ();
-        }
-    })*/
 }
 
-var createToken = async (user,res)=> {
+var createToken = (user,res)=> {
     jwt.sign(user,process.env.ACCES_TOKEN, (err,token)=> {
         if (err) res.json({
             type: 'Err',
             message: 'Error While logging'
         });
         else{
-            res.token = token
+            res.json ({
+                type: 'Info', 
+                message : 'Logged In' ,
+                cookie : token
+            })
         }
     })
 }

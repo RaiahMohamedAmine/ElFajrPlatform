@@ -1,6 +1,6 @@
 import React, {Component} from 'react' ;
 import login from '../middleware/login';
-
+import { withCookies } from 'react-cookie';
 class LoginPage extends Component {
 
 
@@ -11,7 +11,21 @@ class LoginPage extends Component {
                 Email : Email.value ,
                 mdp : mdp.value
         }
-        login(user).then (e=>console.log(e))
+        var {  cookies } = this.props;
+        login(user).then (res => {
+            if (res.data.type ==='Err') 
+                throw new Error (res.data.message);
+            else {
+                if (res.data.type==="Info")
+                {
+                    cookies.set ('jwt', res.data.cookie);
+                    this.setState({
+                        isLogged : true
+                    }) ;
+                    console.log (cookies)
+                }
+            }
+        })
     }
 
 
@@ -33,4 +47,4 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage;
+export default withCookies (LoginPage);
