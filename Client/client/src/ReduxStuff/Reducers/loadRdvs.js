@@ -2,10 +2,13 @@ import c from '../constants'
 
 
 const loadRdvs=(state=false,action)=>{
-    if (action.type ===c.REQUEST_RDVS) {
-        return true
-    } else {
-        return state
+    switch (action.type) {
+        case c.REQUEST_RDVS:
+            return true
+        case c.RECEIVE_RDVS:
+            return false
+        default:
+            return state
     }
 }
 

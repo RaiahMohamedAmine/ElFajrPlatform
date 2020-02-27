@@ -1,8 +1,8 @@
 @import '../../Base.css';
 
+
 .list-item{
     position: relative;
-    max-width: 400px;
     width: 100%;
     height: 80px;
     display: flex;
