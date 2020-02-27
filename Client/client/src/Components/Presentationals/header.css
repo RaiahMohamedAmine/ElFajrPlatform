@@ -1,0 +1,41 @@
+@import '../../Base.css';
+
+.header{
+    height: 80px;
+    width: 100vw;
+    padding: 0 30px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-left{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo{
+    background-image: url(../assets/Logo.jpg);
+    border: 10px solid white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size:100%;
+    margin: 0 10px;
+}
+
+.header-title{
+    color: white;
+}
+
+.header-settings{
+    background: url(../assets/settings.svg);
+    background-position: center;
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
