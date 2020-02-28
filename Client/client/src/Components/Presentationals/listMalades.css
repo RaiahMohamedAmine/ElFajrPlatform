@@ -1,0 +1,51 @@
+@import '../../Base.css';
+
+.list-malades{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: scroll;
+    height:60vh;
+    padding-right: 10px;
+}
+
+.list-malades::-webkit-scrollbar{
+    width:10px;
+}
+.list-malades::-webkit-scrollbar-track{
+    background-color:rgba(32, 27, 27, 0.067);
+    border-radius: 10%;
+}
+.list-malades::-webkit-scrollbar-thumb{
+    background-color:rgba(15, 14, 14, 0.445);
+    border-radius: 10%;
+}
+
+.load{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border-top: var(--secondary-color) 1px solid;
+    border-left: var(--secondary-color) 1px solid;
+    animation-name: rotation;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotation{
+    0%{
+        transform: translate(-50%,-50%);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(360deg) ;
+    }
+}
+
+.list-malades > *{
+    margin-bottom: 10px;
+}

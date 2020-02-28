@@ -1,5 +1,5 @@
 import React, {Component} from 'react' ;
-import GetMalade from '../middleware/GetMalade'
+import GetMalade from '../middleware/getMalade'
 import DeleteMalade from '../middleware/DeleteMalade';
 import ModifyMalade from'../middleware/ModifyMalade'; 
 import Dialog from './Dialog';

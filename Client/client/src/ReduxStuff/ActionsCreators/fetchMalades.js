@@ -1,6 +1,23 @@
+import setMalades from './setMalades';
+import requestMalade from './requestMalades';
+import receiveMalades from './receiveMalades';
+import  axios from 'axios';
 
+const fetchMalades = (data) => {
+        return function (dispatch) {
+                dispatch(requestMalade())
+                axios({
+                        method : "POST" ,
+                        url : "http://localhost:5200/get",
+                        data : data ,
+                        headers: {
+                            Authorization : "Bearer",// + "token" ,
+                            crossDomaine : true
+                        }
+                    }).then(response => dispatch(setMalades(response.data.malades)))
+                    .then(response => dispatch(receiveMalades()))
+        }
 
-// const fetchMalades=(data)=>{
-        // TODO
-        // an action creator that return an asynchrone function using Redux Thunk
-// }
+}
+
+export default fetchMalades
