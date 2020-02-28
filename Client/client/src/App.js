@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Route,Switch} from 'react-router-dom'
 //import logo from './logo.svg';
 import './App.css';
-import Main from './mainPage/Main';
+import Main from './pages/home';
 import LoginPage from './mainPage/LoginPage';
 import VerifyAuth from './middleware/VerifyAuth';
 import {withCookies} from 'react-cookie';

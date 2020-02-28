@@ -3,7 +3,8 @@ import requestMalade from './requestMalades';
 import receiveMalades from './receiveMalades';
 import  axios from 'axios';
 
-const fetchMalades = (data) => {
+const fetchMalades = (key) => {
+        var data ={key};
         return function (dispatch) {
                 dispatch(requestMalade())
                 axios({
