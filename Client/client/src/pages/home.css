@@ -1,0 +1,27 @@
+@import '../Base.css';
+
+.main-page{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-content{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.page-content-left{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    padding: 0 40px;
+}
+
+.page-content-right{
+    height: 100%;
+    width: 50%;
+}
