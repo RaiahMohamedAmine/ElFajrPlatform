@@ -17,7 +17,7 @@
 }
 
 .header-logo{
-    background-image: url(../assets/Logo.jpg);
+    background-image: url(../../assets/Logo.jpg);
     border: 10px solid white;
     width: 70px;
     height: 70px;
@@ -31,7 +31,7 @@
 }
 
 .header-settings{
-    background: url(../assets/settings.svg);
+    background: url(../../assets/settings.svg);
     background-position: center;
     background-size: 100%;
     width: 40px;
