@@ -20,7 +20,7 @@ const Search = ({
                 <input id='text' type='text'
                     ref={input => _currentText = input}
                     placeholder='Recherche...' className='search-input'
-                    onChange={e => onChange(_currentText.value)} />
+                    onChange={e =>onChange(_currentText.value)} />
             </div>
             <span className='search-icon' onClick={e=> onSearchClick()}></span>
         </div>

@@ -8,7 +8,14 @@ const mapDispatchToProps= dispatch =>({
         dispatch(
           fetchMalades(data)
         )
-    }
+    },
+    onChange(data){
+      data==="" ? 
+      dispatch (setMalades ([])) :
+      dispatch(
+        fetchMalades(data)
+      )
+  }
 })
 
 const MySearch = connect(null,mapDispatchToProps)(Search)
