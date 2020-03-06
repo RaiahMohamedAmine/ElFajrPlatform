@@ -1,0 +1,42 @@
+@import '../../Base.css';
+.dialog-bg{
+    position: absolute;
+    z-index: 999;
+    height: 100%;
+    backdrop-filter: blur(2px);
+}
+
+.dialog-container{
+    height: 100%;
+    padding: 50px 20px;
+}
+
+.dialog-popup{
+    height: 100%;
+    width: 90%;
+    background-color: var(--bg-color);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 1px 1px 10px 3px #3131313a ;
+}
+
+.dialog-content{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.dialog-close{
+    position: absolute;
+    top: -13px;
+    right: 5px;
+    padding: 0;
+    transform: rotate(45deg);
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.dialog-close:hover{
+    color: #4b4747ad;
+}
