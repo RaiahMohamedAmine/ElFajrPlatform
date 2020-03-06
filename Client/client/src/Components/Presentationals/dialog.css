@@ -4,6 +4,7 @@
     z-index: 999;
     height: 100%;
     backdrop-filter: blur(2px);
+    overflow: hidden;
 }
 
 .dialog-container{
@@ -29,12 +30,15 @@
 }
 .dialog-close{
     position: absolute;
-    top: -13px;
-    right: 5px;
+    top: -10px;
+    right: 10px;
     padding: 0;
-    transform: rotate(45deg);
+    transform: rotate(45deg);   
     font-size: 3rem;
     cursor: pointer;
+}
+.dialog-close>p{
+    padding: 0;
 }
 
 .dialog-close:hover{

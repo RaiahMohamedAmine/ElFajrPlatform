@@ -7,12 +7,12 @@ const Dialog = ({
     onClose = f => f,
 }) => {
     return <div className='dialog-bg container-fluid'>
+        <div className='dialog-close' onClick={e => onClose()}><p>+</p></div>
         <div className='dialog-container container'>
             <div className='dialog-popup'>
                 <div className='dialog-content'>
                     {children}
                 </div>
-                <span className='dialog-close' onClick={e => onClose()}>+</span>
             </div>
         </div>
     </div>
