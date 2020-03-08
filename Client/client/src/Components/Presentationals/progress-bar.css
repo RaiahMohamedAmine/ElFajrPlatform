@@ -1,0 +1,30 @@
+@import '../../Base.css';
+
+.bar{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.progress-bar{
+    position: absolute;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 0 5% 5% 0 /50%;
+    transition: all .3s ease-in;
+}
+
+.step{
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease-in;
+    font-size: 1.2rem;
+}
+
+.selected{
+    color: white;
+}

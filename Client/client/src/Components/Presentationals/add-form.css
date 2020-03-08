@@ -1,0 +1,16 @@
+.add-form{
+    height: 100%;
+    width: 100%;
+}
+
+.af-bar{
+    position: relative;
+    height: 12%;
+    width: 100%;
+}
+
+
+.af-body{
+    height: 100%;
+    width: 100%;
+}

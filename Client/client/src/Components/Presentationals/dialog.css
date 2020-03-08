@@ -13,6 +13,7 @@
 }
 
 .dialog-popup{
+    max-height: 700px;
     height: 100%;
     width: 90%;
     background-color: var(--bg-color);
@@ -21,6 +22,8 @@
     left: 50%;
     transform: translate(-50%,-50%);
     box-shadow: 1px 1px 10px 3px #3131313a ;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .dialog-content{
@@ -43,4 +46,11 @@
 
 .dialog-close:hover{
     color: #4b4747ad;
+}
+
+.bar-step{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }

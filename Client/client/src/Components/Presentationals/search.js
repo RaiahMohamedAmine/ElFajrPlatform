@@ -18,6 +18,7 @@ const Search = ({
         <div className='search'>
             <div className='search-input-container'>
                 <input id='text' type='text'
+                    autoComplete='off'
                     ref={input => _currentText = input}
                     placeholder='Recherche...' className='search-input'
                     onChange={e =>onChange(_currentText.value)} />

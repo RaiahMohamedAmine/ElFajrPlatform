@@ -1,0 +1,13 @@
+.page-view{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.page{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: ease-in all .3s;
+}
