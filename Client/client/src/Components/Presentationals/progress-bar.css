@@ -14,6 +14,14 @@
     background-color: var(--primary-color);
     border-radius: 0 5% 5% 0 /50%;
     transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -webkit-border-radius: 0 5% 5% 0 /50%;
+    -moz-border-radius: 0 5% 5% 0 /50%;
+    -ms-border-radius: 0 5% 5% 0 /50%;
+    -o-border-radius: 0 5% 5% 0 /50%;
 }
 
 .step{
@@ -23,6 +31,10 @@
     align-items: center;
     transition: all .5s ease-in;
     font-size: 1.2rem;
+    -webkit-transition: all .5s ease-in;
+    -moz-transition: all .5s ease-in;
+    -ms-transition: all .5s ease-in;
+    -o-transition: all .5s ease-in;
 }
 
 .selected{

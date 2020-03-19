@@ -8,10 +8,11 @@ const PageView=({
     return <div className='page-view'>
         {
             children.map((child,i)=>{
-                return <div className='page' style={
-                    i===currentPage ?
+                var pos = i+1
+                return <div key={i} className='page' style={
+                    pos===currentPage ?
                     {transform:'translateX(0)'}
-                    : i>currentPage ?
+                    : pos>currentPage ?
                     {transform:'translate(100%)'}:
                     {transform:'translate(-100%)'}
                 }>
