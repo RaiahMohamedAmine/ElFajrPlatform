@@ -12,6 +12,9 @@ async function Add (req, res)
         })
         return
     }
+    console.log (req.body);
+    console.log (req.files);
+    /*
     req.body.PhotoIdentite = req.files['PhotoIdentite'].data;
    // console.log (req.body);
     var malade = new Model(req.body)
@@ -29,7 +32,7 @@ async function Add (req, res)
             message : 'Malade Ajoute'
             
         })
-    })
+    })*/
 }
 
 Router.post ('/add', Add) 

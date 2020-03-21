@@ -7,12 +7,13 @@ import PageView from './page-view';
 import { useStep, useForm } from 'react-hooks-helper'
 import PersonalForm from './personal-form';
 import PhotoForm from './photo-form';
+import AddMalade from'../../middleware/AddMalade';
 
 const AddForm = ({
 
 }) => {
     const { index = 1, navigation } = useStep({ steps: 3 })
-    const [formData, setValue] = useForm({
+    const [formValues, setValue] = useForm({
         id: '',
         nom: '',
         prenom: '',
@@ -34,7 +35,7 @@ const AddForm = ({
             </div>
             <div className='af-body'>
                 <PageView currentPage={index + 1}>
-                    <PersonalForm formdata={formData} onChange={setValue}
+                    <PersonalForm formdata={formValues} onChange={setValue}
                         onSubmit={
                             e => {
                                 e.preventDefault()
@@ -43,10 +44,18 @@ const AddForm = ({
                                 }
                             }
                         } />
-                       <PhotoForm formdata= {formData}
+                       <PhotoForm formdata= {formValues}
                         onSubmit ={
                            e=> {
                             e.preventDefault();
+                            var formdata = new FormData ();
+                            const items =['id','nom', 'prenom', 'sexe', 'assure','situationFamiliale', 'adresse', 'adherent', 'tel', 
+                            'fonction', 'photoIdentite', 'anapathe','radio'];
+                            items.forEach((item)=>{
+                                formdata.append (item,formValues[item]);
+                            });
+                            console.log (formdata);
+                            AddMalade (formdata);
                            }
                        }/>
                        <PersonalForm/> 
