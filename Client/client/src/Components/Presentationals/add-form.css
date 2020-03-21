@@ -13,25 +13,6 @@
 .af-body{
     height: 100%;
     width: 100%;
-    padding: 3% 5%;
-    overflow: scroll;
-}
-.af-body::-webkit-scrollbar{
-    width:10px;
-}
-.af-body::-webkit-scrollbar-track{
-    background-color:rgba(32, 27, 27, 0.067);
-    border-radius: 10%;
-}
-.af-body::-webkit-scrollbar-thumb{
-    background-color:rgba(15, 14, 14, 0.445);
-    border-radius: 10%;
-}
-.red{
-    background-color: red;
-}
-form{
-    height: 100%;
 }
 
 input{

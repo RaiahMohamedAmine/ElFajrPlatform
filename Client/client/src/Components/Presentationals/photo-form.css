@@ -1,13 +1,16 @@
-.personal-form{
-    width: 100%;
+.photo-form{
     height: 100%;
+    width: 100%;
     position: relative;
-    padding: 3% 5% 0;
+    padding: 3% 5% 0; 
 }
 
-.button-container{
+.photo-form-btns{
     position: absolute;
-    bottom: 6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    bottom: 7%;
     right: 3%;
     transform: translateY(-100%);
     -webkit-transform: translateY(-100%);

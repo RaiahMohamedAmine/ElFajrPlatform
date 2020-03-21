@@ -1,0 +1,75 @@
+@import '../../../Base.css';
+
+.file-input{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.file-input-title{
+    font-size: 1.2rem;
+}
+
+.file-input > input{
+    height: .1px;
+    width: .1px;
+    visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+}
+
+.file-input-content{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 1px gray solid;
+    overflow: hidden;
+}
+.file-input-content > *{
+    height: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.file-input-content>span{
+    width: 100%;
+    position: relative;
+    padding: 10px 30px;
+}
+.file-input-content>span >p,
+.file-input-content>label >p{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+.file-input-content>label{
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    border-left: 1px grey solid;
+    font-size: 1.1rem;
+    transition: .2s all ease-in-out;
+    -webkit-transition: .2s all ease-in-out;
+    -moz-transition: .2s all ease-in-out;
+    -ms-transition: .2s all ease-in-out;
+    -o-transition: .2s all ease-in-out;
+}
+.file-input-content>label:hover{
+    background-color: grey;
+    color: var(--bg-color);
+}

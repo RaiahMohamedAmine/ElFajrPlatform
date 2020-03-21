@@ -1,0 +1,25 @@
+@import '../../Base.css';
+
+.my-button{
+    width:90%;
+    min-width: 200px;
+    max-width: 450px;
+    padding: 10px 50px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    color: white;
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 1.4rem;
+    box-shadow: 1px 1px 3px 1px #9993938c;
+    transition: all ease-in .5s;
+    -webkit-transition: all ease-in .5s;
+    -moz-transition: all ease-in .5s;
+    -ms-transition: all ease-in .5s;
+    -o-transition: all ease-in .5s;
+}
+
+
