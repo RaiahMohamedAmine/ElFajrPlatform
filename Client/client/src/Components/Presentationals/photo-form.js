@@ -5,18 +5,20 @@ import FileInput from './Form-Items/file-input';
 import Button from './button';
 
 const PhotoForm = ({
+    formdata,
+    //onChange,
     onSubmit,
 }) => {
-    return <form className='container photo-form'>
+    return <form className='container photo-form' onSubmit= {onSubmit}>
         <div className='row justify-content-center'>
             <div className='col-5'>
-                <FileInput title="Photo D'Identité"></FileInput>
+                <FileInput name='photoIdentite' title="Photo D'Identité" formdata={formdata}></FileInput>
             </div>
             <div className='col-5'>
-                <FileInput title="Scan"></FileInput>
+                <FileInput name= 'anapathe' title="Scan" formdata={formdata}></FileInput>
             </div>
             <div className='col-10 mt-4'>
-                <FileInput title="Radios"></FileInput>
+                <FileInput name = 'radio' title="Radios" formdata={formdata}></FileInput>
             </div>
         </div>
         <div className='photo-form-btns'>

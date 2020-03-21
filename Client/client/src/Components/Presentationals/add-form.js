@@ -22,7 +22,10 @@ const AddForm = ({
         adresse: '',
         adherent: true,
         tel: '',
-        fonction: ''
+        fonction: '',
+        photoIdentite : {},
+        anapathe :{},
+        radio: {}
     });
     return <Dialog>
         <div className='add-form'>
@@ -40,7 +43,12 @@ const AddForm = ({
                                 }
                             }
                         } />
-                       <PhotoForm />
+                       <PhotoForm formdata= {formData}
+                        onSubmit ={
+                           e=> {
+                            e.preventDefault();
+                           }
+                       }/>
                        <PersonalForm/> 
                 </PageView>
             </div>
