@@ -54,7 +54,7 @@ const AddForm = ({
                             items.forEach((item)=>{
                                 formdata.append (item,formValues[item]);
                             });
-                            console.log (formdata);
+                            //console.log (formdata);
                             AddMalade (formdata);
                            }
                        }/>

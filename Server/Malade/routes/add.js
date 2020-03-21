@@ -4,7 +4,7 @@ var Model = require('../DBModel')
 
 async function Add (req, res)
 {
-   // console.log (req)
+    
     if (req.body===null) {
         res.json({
             type:'Err',
@@ -12,11 +12,10 @@ async function Add (req, res)
         })
         return
     }
-    console.log (req.body);
-    console.log (req.files);
-    /*
-    req.body.PhotoIdentite = req.files['PhotoIdentite'].data;
-   // console.log (req.body);
+    req.body.photoIdentite = req.files['photoIdentite'].data;
+    req.body.anapathe = req.files['anapathe'].data;
+    req.files['radio']?  req.body.radio = req.files['radio'].data : req.body.radio = null;
+
     var malade = new Model(req.body)
     malade.save (err => {
         if (err) {
@@ -32,7 +31,7 @@ async function Add (req, res)
             message : 'Malade Ajoute'
             
         })
-    })*/
+    })
 }
 
 Router.post ('/add', Add) 

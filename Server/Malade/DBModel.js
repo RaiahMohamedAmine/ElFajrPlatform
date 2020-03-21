@@ -3,7 +3,7 @@ var mongoose = require ('mongoose')
 var schema = mongoose.Schema 
 
 var MaladeShema = new schema({
-    prenom : {
+    id : {
         type: String,
         require : true
     },
@@ -11,46 +11,50 @@ var MaladeShema = new schema({
         type: String,
         require : true
     },
-    id : {
+    prenom : {
         type: String,
         require : true
     },
-    PhotoIdentite : {
+    sexe : {
+        type: String,
+        require : true
+    },
+    assure : {
+        type: String,
+        require : true
+    },
+    situationFamiliale : {
+        type: String,
+        require : true
+    },
+    adresse : {
+        type: String,
+        require : true
+    },
+    adherent : {
+        type: String,
+        require : true
+    },
+    tel : {
+        type: String,
+        require : true
+    },
+    fonction : {
+        type: String,
+        require : true
+    },
+    photoIdentite : {
         type: Object,
         require : false
     },
-   /* Adresse : {
-        type: String,
+    anapathe : {
+        type: Object,
         require : true
     },
-    SituationFamilliale : {
-        type: String,
-        require : true
-    },
-    Assure : {
-        type: Boolean,
-        require : true
-    },
-    Fonction : {
-        type: String,
-        require : true
-    },
-    Tel : {
-        type: Array,
-        require : true
-    },
-    TypeCancer : {
-        type: String,
-        require : true
-    },
-    MedecinTraitant : {
-        type: String,
+    radio : {
+        type: Object,
         require : false
-    },
-    Endroit : {
-        type: String,
-        require : true
-    },*/
+    }
 })
 const Model = mongoose.model('Malade', MaladeShema, "malade")
 module.exports = Model
