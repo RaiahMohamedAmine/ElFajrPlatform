@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './malade-dlg.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dialog from './dialog'
-import getMalade from '../../../middleware/getMalade'
+import getMaladeById from '../../../middleware/getMaladeById'
 import Button from '../button';
 
 const MaladeDlg = ({
@@ -12,7 +12,7 @@ const MaladeDlg = ({
     const [malade, setMalade] = React.useState({})
     useEffect(() => {
         async function fetchData() {
-            setMalade(await getMalade({ key: 'nassim' }).then(res => { return res[0] }))
+            setMalade(await getMaladeById({ key: '2' }).then(res => { return res[0] }))
         }
         fetchData()
     }, [])

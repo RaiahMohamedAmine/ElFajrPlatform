@@ -1,6 +1,7 @@
 import axios from 'axios' ;
 
 export default (data) => {
+    console.log (data);
     return axios({
             method : "POST" ,
             url : "http://localhost:5200/get",

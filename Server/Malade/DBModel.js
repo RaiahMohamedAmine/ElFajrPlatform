@@ -27,6 +27,10 @@ var MaladeShema = new schema({
         type: String,
         require : true
     },
+    type: {
+        type: String,
+        required: true
+    },
     adresse : {
         type: String,
         require : true

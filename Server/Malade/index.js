@@ -22,6 +22,9 @@ app.post ('/get', urlEncoded, (req,res)=> {
      routes.Get(req,res);
 })
 
+app.post ('/getById', (req,res)=>{
+    routes.GetById(req,res);
+});
 
 app.post ('/add', urlEncoded,(req,res)=> {
     routes.Add (req,res)
