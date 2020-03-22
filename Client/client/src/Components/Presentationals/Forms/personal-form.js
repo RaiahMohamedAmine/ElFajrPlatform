@@ -58,7 +58,7 @@ const PersonalForm = ({
             </div>
             <div className='col-3'>
                 <Select title='Cancer' required
-                    name='cancer' onChange={onChange}>
+                    name='type' onChange={onChange}>
                     <option>Poumon</option>
                     <option>Sang</option>
                     <option>Foie</option>

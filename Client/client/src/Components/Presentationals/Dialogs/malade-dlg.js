@@ -12,7 +12,7 @@ const MaladeDlg = ({
     const [malade, setMalade] = React.useState({})
     useEffect(() => {
         async function fetchData() {
-            setMalade(await getMaladeById({ key: '2' }).then(res => { return res[0] }))
+            setMalade(await getMaladeById({ key: '90' }).then(res => { return res[0] }))
         }
         fetchData()
     }, [])
@@ -34,7 +34,7 @@ const MaladeDlg = ({
                 <div className='col-10 malade-field'>Sexe: <p>{malade.sexe}</p></div>
                 <div className='col-10 malade-field'>Fonction: <p>{malade.fonction}</p></div>
                 <div className='col-10 malade-field'>N° de telephone: <p>{malade.tel}</p></div>
-                <div className='col-10 malade-field'>Type Cancer: <p>{malade.cancer}</p></div>
+                <div className='col-10 malade-field'>Type Cancer: <p>{malade.type}</p></div>
             </div>
             <div className='row justify-content-end modifier-btn'>
                 <div className='col-auto'>

@@ -1,4 +1,3 @@
-var Router = require ('express').Router ()
 var Model =  require('../DBModel')
 
 async function Get (req, res) {
@@ -24,7 +23,4 @@ async function Get (req, res) {
             }
         )
 } 
-
-Router.post('/get', Get);
-
 module.exports = Get;

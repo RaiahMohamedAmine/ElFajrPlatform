@@ -1,4 +1,3 @@
-var Router =  require ('express').Router ()
 var Model = require ('../DBModel')
 
 function Modify (req, res) {
@@ -18,7 +17,4 @@ function Modify (req, res) {
         }
     })
 }
-
-Router.post('/modify', Modify)
-
 module.exports = Modify

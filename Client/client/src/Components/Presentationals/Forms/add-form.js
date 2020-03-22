@@ -19,8 +19,8 @@ const AddForm = ({
         prenom: '',
         sexe: 'Male',
         assure: false,
-        situationFamiliale: 'Marie(e)',
-        cancer:'Poumon',
+        situationFamilliale: 'Marie(e)',
+        type:'Poumon',
         adresse: '',
         adherent: true,
         tel: '',
@@ -50,7 +50,7 @@ const AddForm = ({
                            e=> {
                             e.preventDefault();
                             var formdata = new FormData ();
-                            const items =['id','nom', 'prenom', 'sexe', 'assure','situationFamiliale','cancer', 'adresse', 'adherent', 'tel', 
+                            const items =['id','nom', 'prenom', 'sexe', 'assure','situationFamilliale','type', 'adresse', 'adherent', 'tel', 
                             'fonction', 'photoIdentite', 'anapathe','radio'];
                             items.forEach((item)=>{
                                 formdata.append (item,formValues[item]);

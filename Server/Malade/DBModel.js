@@ -20,10 +20,10 @@ var MaladeShema = new schema({
         require : true
     },
     assure : {
-        type: String,
+        type: Boolean,
         require : true
     },
-    situationFamiliale : {
+    situationFamilliale : {
         type: String,
         require : true
     },
@@ -36,7 +36,7 @@ var MaladeShema = new schema({
         require : true
     },
     adherent : {
-        type: String,
+        type: Boolean,
         require : true
     },
     tel : {

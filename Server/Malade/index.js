@@ -9,7 +9,6 @@ var auth = require('./auth');
 require('dotenv').config();
 require('./db');
 
-var routes = require('./routes')
 var app =express()
 
 app.use(fileUpload ());
@@ -18,17 +17,7 @@ app.use(cookieParser());
 app.use(bodyParser());
 app.set ('view engine', 'ejs');
 
-app.post ('/get', urlEncoded, (req,res)=> {
-     routes.Get(req,res);
-})
-
-app.post ('/getById', (req,res)=>{
-    routes.GetById(req,res);
-});
-
-app.post ('/add', urlEncoded,(req,res)=> {
-    routes.Add (req,res)
-})
+require ('./routes') (app);
 
 app.post ('/login', urlEncoded, (req,res)=> {
     var user = {
@@ -37,15 +26,6 @@ app.post ('/login', urlEncoded, (req,res)=> {
     }
      auth.createToken(user,res)
 }) ;
-
-app.post ('/delete', (req, res)=>{
-    routes.Delete(req,res)
-})
-
-
-app.post ('/modify', (req,res)=>{
-    routes.Update(req,res)
-})
 
 app.post('/VerifyAuth', (req,res)=> {
     auth.VerifyToken (req.body.cookies,res)

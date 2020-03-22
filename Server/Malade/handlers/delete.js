@@ -1,4 +1,3 @@
-var Router = require('express').Router()
 var Model = require ('../DBModel')
 
 function Delete (req, res) {
@@ -9,7 +8,5 @@ function Delete (req, res) {
             res.json({type:"Info", message : "Malade supprime"})
     })
 }
-
-Router.post('/delete/:id', Delete)
 
 module.exports = Delete

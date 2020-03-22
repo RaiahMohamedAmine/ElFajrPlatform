@@ -1,4 +1,3 @@
-var Router = require ('express').Router ();
 var Model = require ('../DBModel');
 
 async function GetById (req,res) {
@@ -29,7 +28,4 @@ async function GetById (req,res) {
         }
     });
 };
-
-Router.post ('/getById',GetById);
-
 module.exports =GetById ;
