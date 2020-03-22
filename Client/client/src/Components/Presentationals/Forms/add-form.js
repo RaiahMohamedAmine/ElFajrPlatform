@@ -1,13 +1,13 @@
 import React from 'react'
 import './add-form.css'
-import Dialog from './dialog'
+import Dialog from '../Dialogs/dialog'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ProgressBar from './progress-bar';
-import PageView from './page-view';
+import ProgressBar from '../progress-bar';
+import PageView from '../page-view';
 import { useStep, useForm } from 'react-hooks-helper'
 import PersonalForm from './personal-form';
 import PhotoForm from './photo-form';
-import AddMalade from'../../middleware/AddMalade';
+import AddMalade from'../../../middleware/AddMalade';
 
 const AddForm = ({
 
@@ -20,6 +20,7 @@ const AddForm = ({
         sexe: 'Male',
         assure: false,
         situationFamiliale: 'Marie(e)',
+        cancer:'Poumon',
         adresse: '',
         adherent: true,
         tel: '',
@@ -49,7 +50,7 @@ const AddForm = ({
                            e=> {
                             e.preventDefault();
                             var formdata = new FormData ();
-                            const items =['id','nom', 'prenom', 'sexe', 'assure','situationFamiliale', 'adresse', 'adherent', 'tel', 
+                            const items =['id','nom', 'prenom', 'sexe', 'assure','situationFamiliale','cancer', 'adresse', 'adherent', 'tel', 
                             'fonction', 'photoIdentite', 'anapathe','radio'];
                             items.forEach((item)=>{
                                 formdata.append (item,formValues[item]);

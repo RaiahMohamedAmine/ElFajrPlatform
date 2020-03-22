@@ -1,9 +1,9 @@
 import React from 'react'
 import './personal-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TextField from './Form-Items/text-field';
-import Select from './Form-Items/select';
-import Button from './button';
+import TextField from '../Form-Items/text-field';
+import Select from '../Form-Items/select';
+import Button from '../button';
 
 const PersonalForm = ({
     onChange,
@@ -57,11 +57,19 @@ const PersonalForm = ({
                 </Select>
             </div>
             <div className='col-3'>
-                <Select title='Cancer' required>
+                <Select title='Cancer' required
+                    name='cancer' onChange={onChange}>
                     <option>Poumon</option>
-                    <option>Poumon</option>
-                    <option>Poumon</option>
-                    <option>Poumon</option>
+                    <option>Sang</option>
+                    <option>Foie</option>
+                    <option>Sein</option>
+                    <option>Prostate</option>
+                    <option>Vessie</option>
+                    <option>Peau</option>
+                    <option>Colorectal</option>
+                    <option>Utérus</option>
+                    <option>Estomac</option>
+                    <option>Gorge</option>
                 </Select>
             </div>
             <div className='col-3'>

@@ -1,0 +1,78 @@
+@import '../../../Base.css';
+.malade-dlg-container{
+    width: 100%;
+    height: 100%;
+    padding: 5% 5%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+.malade-dlg-container::-webkit-scrollbar {
+    display: none;
+}
+.malade-dlg-container  .photo{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 3px solid var(--primary-color);
+}
+.malade-dlg-header{
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.malade-dlg-header > .malade-name{
+    font-size: 2.5rem;
+}
+.malade-dlg-header > .malade-adr{
+    font-size: 1rem;
+    margin-top: -20px;
+    padding: 0 5px;
+    color: grey;
+}
+
+.line{
+    margin: 10px 0 20px;
+    height: 0;
+    width: 100%;
+    border-top: 1px solid grey;
+}
+
+.malade-field{
+    display: flex;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    align-items: baseline;
+    align-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin: 10px;
+    padding: 10px 20px;
+}
+.malade-field > p{
+    font-size: 1.1rem;
+    margin:0 0 0 20px;
+    padding: 0;
+    color: grey;
+}
+.malade-field:hover{
+    background-color: #8888883b;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+
+.modifier-btn{
+    margin: 20px 0;
+}

@@ -1,4 +1,4 @@
-@import '../../Base.css';
+@import '../../../Base.css';
 .dialog-bg{
     position: absolute;
     z-index: 999;
@@ -14,8 +14,6 @@
 
 .dialog-popup{
     max-height: 700px;
-    height: 100%;
-    width: 90%;
     background-color: var(--bg-color);
     position: relative;
     top: 50%;
@@ -24,6 +22,14 @@
     box-shadow: 1px 1px 10px 3px #3131313a ;
     border-radius: 15px;
     overflow: hidden;
+}
+.dialog-popup-lg{
+    height: 100%;
+    width: 90%;
+}
+.dialog-popup-sm{
+    height: 100%;
+    width: 60%;
 }
 
 .dialog-content{

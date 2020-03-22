@@ -5,11 +5,13 @@ import React from 'react';
 const Dialog = ({
     children,
     onClose = f => f,
+    type='lg',
 }) => {
+    type= ['sm','lg'].includes(type) ? type : 'lg'
     return <div className='dialog-bg container-fluid'>
         <div className='dialog-close' onClick={e => onClose()}><p>+</p></div>
         <div className='dialog-container container'>
-            <div className='dialog-popup'>
+            <div className={"dialog-popup dialog-popup-"+type}>
                 <div className='dialog-content'>
                     {children}
                 </div>
