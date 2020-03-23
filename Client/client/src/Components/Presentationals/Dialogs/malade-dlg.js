@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './malade-dlg.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dialog from './dialog'
-import Button from '../button';
+import Button from '../Buttons/button';
 
 const MaladeDlg = ({
     onClose=f=>f,
@@ -17,7 +17,7 @@ const MaladeDlg = ({
                     <p className='malade-name'>{malade.nom + " " + malade.prenom}</p>
                     <p className='malade-adr'>{malade.adresse}</p>
                 </div>
-                <div className='col-4' className='photo' style={{ backgroundImage: "url(" + "data:image/jpeg;base64," + malade.photoIdentite + ")" }}></div>
+                <div className='col-auto photo'  style={{ backgroundImage: "url(data:image/jpeg;base64," + malade.photoIdentite + ")" }}></div>
                 <div className="col-10 line"></div>
             </div>
             <div className='row justify-content-center'>

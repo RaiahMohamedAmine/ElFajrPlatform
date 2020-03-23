@@ -11,8 +11,6 @@ import MainPage from './pages/home';
 import {
     HashRouter,
     Route,
-    Switch,
-    Redirect
 } from 'react-router-dom'
 import AddPage from './pages/add-page'
 import MaladePage from './pages/malade-page';

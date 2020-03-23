@@ -2,7 +2,7 @@ import React from 'react'
 import './photo-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FileInput from '../Form-Items/file-input';
-import Button from '../button';
+import Button from '../Buttons/button';
 
 const PhotoForm = ({
     formdata,

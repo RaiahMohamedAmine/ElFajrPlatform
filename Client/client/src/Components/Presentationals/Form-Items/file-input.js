@@ -18,7 +18,7 @@ const FileInput = ({
         <input name={name} type='file' onChange={onChange} id={title} required={required}></input>
         <span className='file-input-content'>
             <span> <p>{placeholder}</p></span>
-            <label for={title}><p>Parcourir</p></label>
+            <label htmlFor={title}><p>Parcourir</p></label>
         </span>
     </div>
 }

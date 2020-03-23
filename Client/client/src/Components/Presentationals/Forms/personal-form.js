@@ -3,7 +3,7 @@ import './personal-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TextField from '../Form-Items/text-field';
 import Select from '../Form-Items/select';
-import Button from '../button';
+import Button from '../Buttons/button';
 
 const PersonalForm = ({
     onChange,

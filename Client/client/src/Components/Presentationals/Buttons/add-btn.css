@@ -1,0 +1,37 @@
+@import '../../../Base.css';
+
+.add-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    position: relative;
+    box-shadow: 2px 2px 4px 1px rgb(136, 135, 135);
+    cursor: pointer;
+    transition: .3s all ease-in-out;
+    -webkit-transition: .3s all ease-in-out;
+    -moz-transition: .3s all ease-in-out;
+    -ms-transition: .3s all ease-in-out;
+    -o-transition: .3s all ease-in-out;
+}
+.add-btn:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.add-btn > p{
+    color: white;
+    font-size: 4rem;
+    font-weight: 700;
+}

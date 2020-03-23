@@ -15,7 +15,7 @@ const MaladePage = ({
             setMalade(await getMalade({ key: match.params.id }).then(res => { return res[0] }))
         }
         fetchData()
-    }, [])
+    },[match])
     return <div>
         <MaladeDlg malade={malade} onClose={e => history.goBack()}
         onEdit={e=> history.push(`${match.params.id}/Modifier`)} 
