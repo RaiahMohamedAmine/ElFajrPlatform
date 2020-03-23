@@ -22,7 +22,7 @@ const PersonalForm = ({
             </div>
             <div className='col-4'>
                 <TextField title='ID' type='number' required
-                    name='id' onChange={onChange}></TextField>
+                    name='_id' onChange={onChange}></TextField>
             </div>
             <div className='col-9'>
                 <TextField title='Adresse' required

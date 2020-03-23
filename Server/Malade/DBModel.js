@@ -3,7 +3,7 @@ var mongoose = require ('mongoose')
 var schema = mongoose.Schema 
 
 var MaladeShema = new schema({
-    id : {
+    _id : {
         type: String,
         require : true
     },

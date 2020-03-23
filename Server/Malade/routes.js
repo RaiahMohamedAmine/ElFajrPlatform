@@ -6,7 +6,7 @@ var Update = require ('./handlers/modify');
 
 module.exports= (app)=>{
     app.post('/get', Get);
-    app.post('/getById', GetById);
+    app.post('/get/:id', GetById);
     app.post('/add', Add);
     app.post('/delete', Delete);
     app.post('/modify', Update);

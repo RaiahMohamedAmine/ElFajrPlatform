@@ -14,7 +14,7 @@ const AddForm = ({
 }) => {
     const { index = 1, navigation } = useStep({ steps: 3 })
     const [formValues, setValue] = useForm({
-        id: '',
+        _id: '',
         nom: '',
         prenom: '',
         sexe: 'Male',
@@ -58,7 +58,7 @@ const AddForm = ({
                             e => {
                                 e.preventDefault();
                                 var formdata = new FormData();
-                                const items = ['id', 'nom', 'prenom', 'sexe', 'assure', 'situationFamilliale', 'type', 'adresse', 'adherent', 'tel',
+                                const items = ['_id', 'nom', 'prenom', 'sexe', 'assure', 'situationFamilliale', 'type', 'adresse', 'adherent', 'tel',
                                     'fonction', 'photoIdentite', 'anapathe', 'radio'];
                                 items.forEach((item) => {
                                     formdata.append(item, formValues[item]);

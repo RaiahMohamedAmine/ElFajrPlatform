@@ -8,5 +8,5 @@ export default withRouter(({
     history
 })=>{
     return <ListMalades malades={malades} loading={loading}
-        onClick={malade=> history.push(`malades/${malade.id}`)}></ListMalades>
+        onClick={malade=> history.push(`malades/${malade._id}`)}></ListMalades>
 })

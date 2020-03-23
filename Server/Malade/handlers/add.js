@@ -12,7 +12,6 @@ async function Add (req, res)
     req.body.photoIdentite = req.files['photoIdentite'].data;
     req.body.anapathe = req.files['anapathe'].data;
     req.files['radio']?  req.body.radio = req.files['radio'].data : req.body.radio = null;
-    console.log (req.body);
     var malade = new Model(req.body);
     malade.save (err => {
         if (err) {

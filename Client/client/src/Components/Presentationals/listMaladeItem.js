@@ -14,7 +14,7 @@ const ListMaladeItem= ({
         </div>
         <div className='list-item-right'>
             <p className='list-item-primary-text'>{malade.nom +" "+malade.prenom}</p>
-            <p className='list-item-secondary-text'>{malade.age+"ans, "+malade.ville}</p>
+            <p className='list-item-secondary-text'>{malade.age+"ans, "+malade.adresse}</p>
         </div>
     </div>
 }

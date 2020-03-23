@@ -1,31 +1,24 @@
 var Model = require ('../DBModel');
 
 async function GetById (req,res) {
-    if (!req.body.key) 
+    if (!req.params.id) 
         res.json ({
             type :"Err",
             message :"No Id"
         });
-    Model.find ({id : req.body.key}, (err,malades)=>{
+    Model.findById (req.params.id, (err,malades)=>{
         if (err){
             res.json({
                 type: "Err",
                 message :"Fatal Error"
             });
         };
-        if (malades.length===0){
-                res.json({
-                    type : "Err",
-                    message : "No Malade"
-                });
-        }
-        if (malades.length===1){
-            res.json({
-                type : "Info",
-                message :"Getting Malade",
-                malade : malades
-            });
-        }
+        console.log (malades);
+        res.json({
+            type : "Info",
+            message :"Getting Malade",
+            malade : malades
+        });
     });
 };
 module.exports =GetById ;

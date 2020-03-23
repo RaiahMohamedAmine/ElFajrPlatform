@@ -3,9 +3,11 @@ import './home.css'
 import Header from './../Components/Presentationals/header';
 import MySearch from './../Components/Containers/Search';
 import Malades from './../Components/Containers/Malades';
+import AddForm from './../Components/Presentationals/Forms/malade-form';
 
 const MainPage = () => {
     return <div className='main-page'>
+        {/*<AddForm></AddForm>*/}
         <Header></Header>
         <div className='page-content'>
             <div className='page-content-left'>
