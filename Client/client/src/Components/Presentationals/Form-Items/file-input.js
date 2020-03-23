@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const FileInput = ({
     name,
     title,
-    formdata
+    formdata,
+    required=false,
 }) => {
     const [placeholder,setPlaceHolder]=React.useState('Aucun Fichier');
     const onChange = (e)=> {
@@ -14,7 +15,7 @@ const FileInput = ({
     }    
     return <div className='file-input'>
         <label className='file-input-title'>{title}</label>
-        <input name={name} type='file' onChange={onChange} id={title}></input>
+        <input name={name} type='file' onChange={onChange} id={title} required={required}></input>
         <span className='file-input-content'>
             <span> <p>{placeholder}</p></span>
             <label for={title}><p>Parcourir</p></label>

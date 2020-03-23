@@ -5,7 +5,7 @@ const Button =({
     onClick,
     children
 })=>{
-    return <button className='my-button'>
+    return <button onClick={onClick} className='my-button'>
         {children}
     </button>
 }

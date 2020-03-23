@@ -2,20 +2,14 @@ import React, { useEffect } from 'react'
 import './malade-dlg.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dialog from './dialog'
-import getMaladeById from '../../../middleware/getMaladeById'
 import Button from '../button';
 
 const MaladeDlg = ({
     onClose=f=>f,
-    onEdit=f=>f
+    onEdit=f=>f,
+    AddRdv=f=>f,
+    malade={},
 }) => {
-    const [malade, setMalade] = React.useState({})
-    useEffect(() => {
-        async function fetchData() {
-            setMalade(await getMaladeById({ key: '90' }).then(res => { return res[0] }))
-        }
-        fetchData()
-    }, [])
     return <Dialog type='sm' onClose={onClose}>
         <div className='malade-dlg-container container'>
             <div className='row justify-content-around'>
@@ -36,7 +30,10 @@ const MaladeDlg = ({
                 <div className='col-10 malade-field'>N° de telephone: <p>{malade.tel}</p></div>
                 <div className='col-10 malade-field'>Type Cancer: <p>{malade.type}</p></div>
             </div>
-            <div className='row justify-content-end modifier-btn'>
+            <div className='row justify-content-between modifier-btn'>
+                <div className='col-auto'>
+                    <Button onClick={AddRdv}>RDV</Button>
+                </div>
                 <div className='col-auto'>
                     <Button onClick={onEdit}>Modifier</Button>
                 </div>

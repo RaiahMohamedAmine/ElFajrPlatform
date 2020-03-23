@@ -7,29 +7,53 @@ import Button from '../button';
 const PhotoForm = ({
     formdata,
     //onChange,
-    onSubmit,
+    onSubmit = f => f,
+    goBack = f => f,
+    type = 'photo'
 }) => {
-    return <form className='container photo-form' onSubmit= {onSubmit}>
-        <div className='row justify-content-center'>
-            <div className='col-5'>
-                <FileInput name='photoIdentite' title="Photo D'Identité" formdata={formdata}></FileInput>
+    type = ['photo', 'radio'].includes(type) ? type : 'photo'
+    return type === 'photo'
+        ?
+        <form className='container photo-form' onSubmit={onSubmit}>
+            <div className='row justify-content-center'>
+                <div className='col-10'>
+                    <FileInput name='photoIdentite' title="Photo D'Identité" formdata={formdata} required></FileInput>
+                </div>
+                <div className='col-10'>
+                    <FileInput name='anapathe' title="Scan" formdata={formdata} required></FileInput>
+                </div>
             </div>
-            <div className='col-5'>
-                <FileInput name= 'anapathe' title="Scan" formdata={formdata}></FileInput>
+            <div className='photo-form-btns'>
+                <div className='col-auto'>
+                    <Button onClick={e => {
+                        e.preventDefault()
+                        goBack()
+                    }}>Précédent</Button>
+                </div>
+                <div className='col-auto'>
+                    <Button>Suivant</Button>
+                </div>
             </div>
-            <div className='col-10 mt-4'>
-                <FileInput name = 'radio' title="Radios" formdata={formdata}></FileInput>
+        </form>
+        :
+        <form className='container photo-form' onSubmit={onSubmit}>
+            <div className='row justify-content-center'>
+                <div className='col-10 mt-4'>
+                    <FileInput name='radio' title="Radios" formdata={formdata}></FileInput>
+                </div>
             </div>
-        </div>
-        <div className='photo-form-btns'>
+            <div className='photo-form-btns'>
             <div className='col-auto'>
-                <Button>Précédent</Button>
+                    <Button onClick={e => {
+                        e.preventDefault()
+                        goBack()
+                    }}>Précédent</Button>
+                </div>
+                <div className='col-auto'>
+                    <Button>Ajouter</Button>
+                </div>
             </div>
-            <div className='col-auto'>
-                <Button>Suivant</Button>
-            </div>
-        </div>
-    </form>
+        </form>
 }
 
 
