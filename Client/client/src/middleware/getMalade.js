@@ -1,7 +1,6 @@
 import axios from 'axios' ;
 
 export default (data) => {
-    console.log (data);
     return axios({
             method : "POST" ,
             url : "http://localhost:5200/get",
@@ -14,7 +13,6 @@ export default (data) => {
                 if (res.data.type ==="Err") 
                     throw new Error (res.data.message)
                 else {
-                    console.log (res.data.malades);
                     return res.data.malades;
                 }
             }

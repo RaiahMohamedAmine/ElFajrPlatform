@@ -19,6 +19,10 @@ var MaladeShema = new schema({
         type: String,
         require : true
     },
+    dateNaissance :{
+        type: String,
+        require: true
+    },
     assure : {
         type: Boolean,
         require : true

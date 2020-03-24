@@ -7,13 +7,21 @@ const Select = ({
     name,
     onChange,
     value,
+    modify
 }) => {
     return <div className='select'>
         <label>{title}</label>
-        <select name={name} value={value}
+        {
+            modify?
+            <select name={name} value={value} disabled
             onChange={onChange}>
             {children}
-        </select>
+            </select> : 
+            <select name={name} value={value}
+            onChange={onChange}>
+            {children}
+            </select>
+        }
     </div>
 }
 

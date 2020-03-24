@@ -8,14 +8,21 @@ const TextField = ({
     required,
     onChange,
     value,
-    name
+    name,
+    modify
 }) => {
     type = ['text', 'number'].includes(type) ? type : 'text'
     return <div className='text-field'>
         <label className='text-field-title'>{title}</label>
-        <input className='text-field-input' name={name}
+        {modify? 
+        <input className='text-field-input' name={name} 
+        value={value} type={type}
+        required onChange={onChange} disabled></input> :
+        
+        <input className='text-field-input' name={name} 
             value={value} type={type}
-            required onChange={onChange}></input>
+            required onChange={onChange}></input>    
+    }
     </div>
 }
 

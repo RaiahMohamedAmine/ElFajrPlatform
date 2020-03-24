@@ -10,21 +10,22 @@ const PersonalForm = ({
     onChange,
     onSubmit,
     formdata = {},
+    modify
 }) => {
     return <form className='container personal-form'
         onSubmit={onSubmit}>
         <div className='row'>
             <div className='col-4'>
                 <TextField title='Nom' required
-                    value={formdata.nom} name='nom' onChange={onChange}></TextField>
+                    value={formdata.nom} name='nom' onChange={onChange} modify={modify}></TextField>
             </div>
             <div className='col-4'>
                 <TextField title='Prénom' required
-                    value={formdata.prenom} name='prenom' onChange={onChange}></TextField>
+                    value={formdata.prenom} name='prenom' onChange={onChange} modify={modify}></TextField>
             </div>
             <div className='col-4'>
                 <TextField title='ID' type='number' required
-                    value={formdata._id} name='_id' onChange={onChange}></TextField>
+                    value={formdata._id} name='_id' onChange={onChange} modify={modify}></TextField>
             </div>
             <div className='col-9'>
                 <TextField title='Adresse' required
@@ -32,7 +33,7 @@ const PersonalForm = ({
             </div>
             <div className='col-3'>
                 <Select title='Sexe' required name='sexe' 
-                    value={formdata.sexe} onChange={onChange}>
+                    value={formdata.sexe} onChange={onChange} modify={modify}>
                     <option value='Male'>Homme</option>
                     <option value='Female'>Femme</option>
                 </Select>
@@ -60,7 +61,7 @@ const PersonalForm = ({
                 </Select>
             </div>
             <div className='col-3'>
-                <Select title='Cancer' required
+                <Select title='Type du Cancer' required modify={modify}
                     name='type' onChange={onChange}
                     value={formdata.type}>
                     <option value='Poumon'>Poumon</option>
@@ -84,7 +85,7 @@ const PersonalForm = ({
                 </Select>
             </div>
             <div className='col-3'>
-                <DateInput title='Date de Naissance'></DateInput>
+                <DateInput name='dateNaissance' value={formdata.dateNaissance} onChange={onChange} title='Date de Naissance' modify={modify}></DateInput>
             </div>
         </div>
         <div className='button-container'>

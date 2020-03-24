@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-export default (data) => {
+export default (id) => {
     return axios({
         method: "POST",
-        url: "http://localhost:5200/getById",
-        data,
+        url: "http://localhost:5200/get/"+id,
         headers: {
             Authorization: "Bearer",// + "token" ,
             crossDomaine: true

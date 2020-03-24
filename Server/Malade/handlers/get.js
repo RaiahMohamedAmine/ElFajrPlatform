@@ -1,4 +1,4 @@
-var Model =  require('../DBModel')
+var Model =  require('../DBModel');
 
 async function Get (req, res) {
     Model.find ((err, malades) => {
@@ -6,9 +6,9 @@ async function Get (req, res) {
                 res.json ({
                     type: "Err" ,
                     message : "Une Erreur est survenue ! Impossible de trouver des malades. Veuillez Reessayez"
-                })
+                });
             }
-            return malades
+            return malades;
         }).then (malades=> 
            {
                 malades = malades.filter(malade=> {
@@ -17,10 +17,9 @@ async function Get (req, res) {
                     malade.prenom.toUpperCase().includes(req.body.key.toUpperCase())
                     ||
                     malade.id.toUpperCase().includes (req.body.key.toUpperCase())
-                })
-               res.malades = malades
-               res.json ({type :"Info",  message: "Le malade est trouve" , malades : res.malades})
+                });
+               res.json ({type :"Info",  message: "Le malade est trouve" , malades});
             }
-        )
-} 
+        );
+} ;
 module.exports = Get;

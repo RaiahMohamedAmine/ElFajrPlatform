@@ -21,9 +21,10 @@ const MaladeForm = ({
         initValues:
         {
         _id: '',
-        nom: initValues.nom,
+        nom: '',
         prenom: '',
         sexe: 'Male',
+        dateNaissance: '',
         assure: true,
         situationFamilliale: 'marie(e)',
         type: 'Foie',
@@ -42,7 +43,7 @@ const MaladeForm = ({
             </div>
             <div className='af-body'>
                 <PageView currentPage={index + 1}>
-                    <PersonalForm formdata={formValues} initvalues={initValues} onChange={setValue}
+                    <PersonalForm formdata={formValues} initvalues={initValues} onChange={setValue} modify={modify}
                         onSubmit={
                             e => {
                                 e.preventDefault()
@@ -65,11 +66,15 @@ const MaladeForm = ({
                             e => {
                                 e.preventDefault();
                                 var formdata = new FormData();
-                                const items = ['_id', 'nom', 'prenom', 'sexe', 'assure', 'situationFamilliale', 'type', 'adresse', 'adherent', 'tel',
+                                const items = ['_id', 'nom', 'prenom', 'sexe', 'dateNaissance', 'assure', 'situationFamilliale', 'type', 'adresse', 'adherent', 'tel',
                                     'fonction', 'photoIdentite', 'anapathe', 'radio'];
                                 items.forEach((item) => {
                                     formdata.append(item, formValues[item]);
                                 });
+                                console.log ('*******');
+                                console.log ('*******');
+                                console.log ('*******');
+                                console.log (formValues);
                                 onSubmit(formdata);
                                 onClose(e)
                             }

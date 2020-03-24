@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import MaladeDlg from '../Components/Presentationals/Dialogs/malade-dlg'
 import { withRouter } from 'react-router';
-import getMalade from '../middleware/getMalade'
+import getMaladeById from '../middleware/getMaladeById'
 import MainPage from './home';
 
 
@@ -9,11 +9,10 @@ const MaladePage = ({
     history,
     match
 }) => {
-    console.log('hna')
     const [malade, setMalade] = React.useState({})
     useEffect(() => {
         async function fetchData() {
-            setMalade(await getMalade({ key: match.params.id }).then(res => { return res[0] }))
+            setMalade(await getMaladeById( match.params.id).then(res => res ));
         }
         fetchData()
     },[match])

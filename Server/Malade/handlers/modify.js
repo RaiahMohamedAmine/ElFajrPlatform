@@ -1,8 +1,13 @@
-var Model = require ('../DBModel')
+var Model = require ('../DBModel');
 
 function Modify (req, res) {
-    req.body.PhotoIdentite = req.files['PhotoIdentite'].data;
-    Model.updateOne ({id: req.body.id}, req.body , (err, raw)=>{
+    if (req.files)
+    {
+        if (req.files.photoIdentite)    req.body.photoIdentite = req.files['photoIdentite'].data;
+        if (req.files.anapathe)    req.body.anapathe = req.files['anapathe'].data;
+        if (req.files.radio)       req.body.radio = req.files['radio'].data;
+    }    
+    Model.findByIdAndUpdate (req.body._id, req.body , (err, malade)=>{
         if(err) {
             res.json({
                 type : "Err" ,
@@ -12,9 +17,10 @@ function Modify (req, res) {
         else{
             res.json({
                 type : "Info" ,
-                message : "La modification effectuee"
+                message : "La modification effectuee",
+                malade 
             })
         }
-    })
+    }) ;
 }
 module.exports = Modify

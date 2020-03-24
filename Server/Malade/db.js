@@ -5,6 +5,7 @@ mongoose.connect (process.env.MONGOURL,{
     useUnifiedTopology : true,
     useCreateIndex: true,
     useNewUrlParser : true,
+    useFindAndModify : false,
     dbName : process.env.dbName
 }, (err)=> {
     if (err) console.log("err")

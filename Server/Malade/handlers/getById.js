@@ -13,7 +13,7 @@ async function GetById (req,res) {
                 message :"Fatal Error"
             });
         };
-        console.log (malades);
+      //  console.log (malades);
         res.json({
             type : "Info",
             message :"Getting Malade",
