@@ -7,20 +7,26 @@ import PageView from '../page-view';
 import { useStep, useForm } from 'react-hooks-helper'
 import PersonalForm from './personal-form';
 import PhotoForm from './photo-form';
-import AddMalade from '../../../middleware/AddMalade';
+import RadioForm from './radio-form';
 
-const AddForm = ({
+const MaladeForm = ({
     onClose = f => f,
+    initValues={},
+    modify=false,
+    onSubmit
 }) => {
     const { index = 1, navigation } = useStep({ steps: 3 })
-    const [formValues, setValue] = useForm({
+    const [formValues, setValue] = useForm(
+        modify ?
+        initValues:
+        {
         _id: '',
-        nom: '',
+        nom: initValues.nom,
         prenom: '',
         sexe: 'Male',
-        assure: false,
-        situationFamilliale: 'Marie(e)',
-        type: 'Poumon',
+        assure: true,
+        situationFamilliale: 'marie(e)',
+        type: 'Foie',
         adresse: '',
         adherent: true,
         tel: '',
@@ -36,7 +42,7 @@ const AddForm = ({
             </div>
             <div className='af-body'>
                 <PageView currentPage={index + 1}>
-                    <PersonalForm formdata={formValues} onChange={setValue}
+                    <PersonalForm formdata={formValues} initvalues={initValues} onChange={setValue}
                         onSubmit={
                             e => {
                                 e.preventDefault()
@@ -46,6 +52,7 @@ const AddForm = ({
                             }
                         } />
                     <PhotoForm formdata={formValues}
+                        modify
                         onSubmit={
                             e => {
                                 e.preventDefault()
@@ -53,7 +60,7 @@ const AddForm = ({
                             }
                         }
                         goBack={navigation.previous} />
-                    <PhotoForm formdata={formValues} type='radio'
+                    <RadioForm formdata={formValues}
                         onSubmit={
                             e => {
                                 e.preventDefault();
@@ -63,7 +70,7 @@ const AddForm = ({
                                 items.forEach((item) => {
                                     formdata.append(item, formValues[item]);
                                 });
-                                AddMalade(formdata);
+                                onSubmit(formdata);
                                 onClose(e)
                             }
                         }
@@ -74,4 +81,4 @@ const AddForm = ({
     </Dialog>
 }
 
-export default AddForm
+export default MaladeForm

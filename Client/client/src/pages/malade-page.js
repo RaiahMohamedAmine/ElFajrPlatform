@@ -9,6 +9,7 @@ const MaladePage = ({
     history,
     match
 }) => {
+    console.log('hna')
     const [malade, setMalade] = React.useState({})
     useEffect(() => {
         async function fetchData() {

@@ -18,3 +18,11 @@
     -ms-transform: translateY(-100%);
     -o-transform: translateY(-100%);
 }
+
+.photo > div{
+    height: 150px;
+    width: 150px;
+    margin: 20px auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

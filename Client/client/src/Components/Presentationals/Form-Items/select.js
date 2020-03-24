@@ -1,16 +1,18 @@
 import React from 'react'
 import './select.css'
 
-const Select=({
+const Select = ({
     title,
     children,
     name,
-    onChange
-})=>{
+    onChange,
+    value,
+}) => {
     return <div className='select'>
         <label>{title}</label>
-        <select name={name} onChange={onChange}>
-          {children}
+        <select name={name} value={value}
+            onChange={onChange}>
+            {children}
         </select>
     </div>
 }

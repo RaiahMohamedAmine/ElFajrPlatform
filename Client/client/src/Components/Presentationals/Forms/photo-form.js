@@ -6,21 +6,31 @@ import Button from '../Buttons/button';
 
 const PhotoForm = ({
     formdata,
-    //onChange,
     onSubmit = f => f,
     goBack = f => f,
-    type = 'photo'
+    modify=false
 }) => {
-    type = ['photo', 'radio'].includes(type) ? type : 'photo'
-    return type === 'photo'
-        ?
-        <form className='container photo-form' onSubmit={onSubmit}>
-            <div className='row justify-content-center'>
-                <div className='col-10'>
-                    <FileInput name='photoIdentite' title="Photo D'Identité" formdata={formdata} required></FileInput>
+    return <form className='container photo-form' onSubmit={onSubmit}>
+            <div className='row justify-content-center align-items-center'>
+                {
+                    modify ? 
+                    <div className='col-4 photo'>
+                        <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.photoIdentite + ")" }}/>
+                    </div>
+                    :null
+                }
+                <div className={modify ? 'col-6' : 'col-10'}>
+                    <FileInput name='photoIdentite' title="Photo D'Identité" formdata={formdata}></FileInput>
                 </div>
-                <div className='col-10'>
-                    <FileInput name='anapathe' title="Scan" formdata={formdata} required></FileInput>
+                {
+                    modify ? 
+                    <div className='col-4 photo'>
+                        <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.anapathe + ")" }}/>
+                    </div>
+                    :null
+                }
+                <div className={modify ? 'col-6' : 'col-10'}>
+                    <FileInput name='anapathe' title="Scan" formdata={formdata}></FileInput>
                 </div>
             </div>
             <div className='photo-form-btns'>
@@ -32,25 +42,6 @@ const PhotoForm = ({
                 </div>
                 <div className='col-auto'>
                     <Button>Suivant</Button>
-                </div>
-            </div>
-        </form>
-        :
-        <form className='container photo-form' onSubmit={onSubmit}>
-            <div className='row justify-content-center'>
-                <div className='col-10 mt-4'>
-                    <FileInput name='radio' title="Radios" formdata={formdata}></FileInput>
-                </div>
-            </div>
-            <div className='photo-form-btns'>
-            <div className='col-auto'>
-                    <Button onClick={e => {
-                        e.preventDefault()
-                        goBack()
-                    }}>Précédent</Button>
-                </div>
-                <div className='col-auto'>
-                    <Button>Ajouter</Button>
                 </div>
             </div>
         </form>

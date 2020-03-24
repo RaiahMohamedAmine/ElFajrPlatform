@@ -22,7 +22,7 @@ const MaladeDlg = ({
             </div>
             <div className='row justify-content-center'>
                 <div className='col-10 malade-field'>ID: <p>{malade._id}</p></div>
-                <div className='col-10 malade-field'>Situation Familiale: <p>{malade.situationFamiliale}</p></div>
+                <div className='col-10 malade-field'>Situation Familiale: <p>{malade.situationFamilliale}</p></div>
                 <div className='col-10 malade-field'>Assuré(e): <p>{malade.assure ? "OUI" : "NON"}</p></div>
                 <div className='col-10 malade-field'>Adhérent(e): <p>{malade.adherent ? "OUI" : "NON"}</p></div>
                 <div className='col-10 malade-field'>Sexe: <p>{malade.sexe}</p></div>

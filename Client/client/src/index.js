@@ -14,6 +14,7 @@ import {
 } from 'react-router-dom'
 import AddPage from './pages/add-page'
 import MaladePage from './pages/malade-page';
+import ModifyPage from './pages/modify-page'
 const myStore = createElFajrStore()
 
 ReactDOM.render(<Provider store={myStore}>
@@ -21,7 +22,7 @@ ReactDOM.render(<Provider store={myStore}>
         <Route exact path='/' component={MainPage} />
         <Route path='/Ajouter-Malade' component={AddPage} />
         <Route exact path='/malades/:id' component={MaladePage} />
-        <Route path='/malades/:id/Modifier' component={AddPage}></Route>
+        <Route path='/malades/:id/Modifier' component={ModifyPage}></Route>
         <Route path='/malades/:id/Rendez-Vous' component={()=><p>Hna rendez vous</p>}></Route>
     </HashRouter>
 </Provider>, document.getElementById('root'))

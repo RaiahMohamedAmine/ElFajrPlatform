@@ -7,74 +7,77 @@ import Button from '../Buttons/button';
 
 const PersonalForm = ({
     onChange,
-    onSubmit
+    onSubmit,
+    formdata = {},
 }) => {
     return <form className='container personal-form'
         onSubmit={onSubmit}>
         <div className='row'>
             <div className='col-4'>
                 <TextField title='Nom' required
-                    name='nom' onChange={onChange}></TextField>
+                    value={formdata.nom} name='nom' onChange={onChange}></TextField>
             </div>
             <div className='col-4'>
                 <TextField title='Prénom' required
-                    name='prenom' onChange={onChange}></TextField>
+                    value={formdata.prenom} name='prenom' onChange={onChange}></TextField>
             </div>
             <div className='col-4'>
                 <TextField title='ID' type='number' required
-                    name='_id' onChange={onChange}></TextField>
+                    value={formdata._id} name='_id' onChange={onChange}></TextField>
             </div>
             <div className='col-9'>
                 <TextField title='Adresse' required
-                    name='adresse' onChange={onChange}></TextField>
+                    value={formdata.adresse} name='adresse' onChange={onChange}></TextField>
             </div>
             <div className='col-3'>
-                <Select title='Sexe' required name='sexe' onChange={onChange}>
+                <Select title='Sexe' required name='sexe' 
+                    value={formdata.sexe} onChange={onChange}>
                     <option value='Male'>Homme</option>
                     <option value='Female'>Femme</option>
                 </Select>
             </div>
             <div className='col-4'>
                 <Select title='Situation Familiale'
-                    name='situationFamilliale' onChange={onChange}>
+                    name='situationFamilliale' value={formdata.situationFamilliale} onChange={onChange}>
                     <option value='marie(e)'>Marié(e)</option>
                     <option value='celibataire'>Célibataire</option>
                 </Select>
             </div>
             <div className='col-4'>
                 <TextField title='N° de Téléphone' type='number' required
-                    name='tel' onChange={onChange}></TextField>
+                    value={formdata.tel} name='tel' onChange={onChange}></TextField>
             </div>
             <div className='col-4'>
                 <TextField title='Profession' required
-                    name='fonction' onChange={onChange}></TextField>
+                    value={formdata.fonction} name='fonction' onChange={onChange}></TextField>
             </div>
             <div className='col-3'>
                 <Select title='Assurance' required
-                    name='assure' onChange={onChange}>
+                    name='assure' value={formdata.assure} onChange={onChange}>
                     <option value={true}>Assuré(e)</option>
                     <option value={false}>Non Assuré(e)</option>
                 </Select>
             </div>
             <div className='col-3'>
                 <Select title='Cancer' required
-                    name='type' onChange={onChange}>
-                    <option>Poumon</option>
-                    <option>Sang</option>
-                    <option>Foie</option>
-                    <option>Sein</option>
-                    <option>Prostate</option>
-                    <option>Vessie</option>
-                    <option>Peau</option>
-                    <option>Colorectal</option>
-                    <option>Utérus</option>
-                    <option>Estomac</option>
-                    <option>Gorge</option>
+                    name='type' onChange={onChange}
+                    value={formdata.type}>
+                    <option value='Poumon'>Poumon</option>
+                    <option value='Sang'>Sang</option>
+                    <option value='Foie'>Foie</option>
+                    <option value='Sein'>Sein</option>
+                    <option value='Prosta'>Prostate</option>
+                    <option value='Vessie'>Vessie</option>
+                    <option value='Peau'>Peau</option>
+                    <option value='Colore'>Colorectal</option>
+                    <option value='Utérus'>Utérus</option>
+                    <option value='Estoma'>Estomac</option>
+                    <option value='Gorge<'>Gorge</option>
                 </Select>
             </div>
             <div className='col-3'>
                 <Select title='Adhérent' required
-                    name='adherent' onChange={onChange}>
+                    name='adherent' value={formdata.adherent} onChange={onChange}>
                     <option value={true}>Oui</option>
                     <option value={false}>Non</option>
                 </Select>

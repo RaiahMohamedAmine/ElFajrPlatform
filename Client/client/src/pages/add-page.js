@@ -1,5 +1,5 @@
 import React from 'react'
-import AddForm from '../Components/Presentationals/Forms/malade-form'
+import AddForm from '../Components/Presentationals/Forms/add-form'
 import { withRouter } from 'react-router';
 import MainPage from './home';
 
