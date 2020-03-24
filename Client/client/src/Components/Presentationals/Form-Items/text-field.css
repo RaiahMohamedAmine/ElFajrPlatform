@@ -8,16 +8,16 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-.text-field{
+.text-field,.date-input{
     width: 100%;
     padding: 10px 0;
 }
 
-.text-field-title{
+.text-field-title, .date-input-title{
     font-size: 1.2rem;
 }
 
-.text-field-input{
+.text-field-input,.date-input-input{
     font-size: 1.1rem;
     height: 100%;
     border: 1px grey solid;

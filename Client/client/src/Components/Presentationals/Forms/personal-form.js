@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TextField from '../Form-Items/text-field';
 import Select from '../Form-Items/select';
 import Button from '../Buttons/button';
+import DateInput from '../Form-Items/date-input';
 
 const PersonalForm = ({
     onChange,
@@ -81,6 +82,9 @@ const PersonalForm = ({
                     <option value={true}>Oui</option>
                     <option value={false}>Non</option>
                 </Select>
+            </div>
+            <div className='col-3'>
+                <DateInput title='Date de Naissance'></DateInput>
             </div>
         </div>
         <div className='button-container'>
