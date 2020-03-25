@@ -7,7 +7,6 @@ const ListMaladeItem= ({
     onClick=f=>f,
 })=>{
     return <div className='list-item' onClick={e=>{
-        console.log(malade)
         onClick()}}>
         <div className='list-item-img'>
         <img className='list-item-img' alt ={"photo de "+ malade.nom} src={ "data:image/jpeg;base64,"+malade.photoIdentite}/>

@@ -43,6 +43,8 @@ const PersonalForm = ({
                     name='situationFamilliale' value={formdata.situationFamilliale} onChange={onChange}>
                     <option value='marie(e)'>Marié(e)</option>
                     <option value='celibataire'>Célibataire</option>
+                    <option value='veuf()ve'>Veuf(ve)</option>
+                    <option value='divorce(e)'>Divorce(e)</option>
                 </Select>
             </div>
             <div className='col-4'>

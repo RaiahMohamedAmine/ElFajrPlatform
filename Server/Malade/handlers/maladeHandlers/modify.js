@@ -1,4 +1,4 @@
-var Model = require ('../DBModel');
+var maladeModel = require('../../Models/MaladeModel');
 
 function Modify (req, res) {
     if (req.files)
@@ -7,11 +7,11 @@ function Modify (req, res) {
         if (req.files.anapathe)    req.body.anapathe = req.files['anapathe'].data;
         if (req.files.radio)       req.body.radio = req.files['radio'].data;
     }    
-    Model.findByIdAndUpdate (req.body._id, req.body , (err, malade)=>{
+    maladeModel.findByIdAndUpdate (req.body._id, req.body , (err, malade)=>{
         if(err) {
             res.json({
                 type : "Err" ,
-                message : "Erreur ! La modification na pas reussi"
+                message : "Server not responding"
             })
         }
         else{

@@ -17,7 +17,8 @@ app.use(cookieParser());
 app.use(bodyParser());
 app.set ('view engine', 'ejs');
 
-require ('./routes') (app);
+require ('./routes/maladeRoutes') (app);
+require('./routes/rdvRoutes') (app);
 
 app.post ('/login', urlEncoded, (req,res)=> {
     var user = {

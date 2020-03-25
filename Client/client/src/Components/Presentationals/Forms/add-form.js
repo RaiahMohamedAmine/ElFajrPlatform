@@ -1,6 +1,6 @@
 import React from 'react'
 import MaladeForm from './malade-form'
-import AddMalade from '../../../middleware/AddMalade'
+import AddMalade from '../../../middleware/malade/AddMalade'
 
 
 const AddForm=({

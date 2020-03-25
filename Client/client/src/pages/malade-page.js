@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import MaladeDlg from '../Components/Presentationals/Dialogs/malade-dlg'
 import { withRouter } from 'react-router';
-import getMaladeById from '../middleware/getMaladeById'
+import getMaladeById from '../middleware/malade/getMaladeById'
 import MainPage from './home';
 
 

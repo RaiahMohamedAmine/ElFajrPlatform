@@ -12,7 +12,6 @@ export default (id) => {
             if (res.data.type === "Err")
                 throw new Error(res.data.type);
             else {
-                console.log(res.data.malade);
                 return res.data.malade;
             }
     });

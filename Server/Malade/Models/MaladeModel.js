@@ -5,11 +5,11 @@ var schema = mongoose.Schema
 var MaladeShema = new schema({
     _id : {
         type: String,
-        require : true
+        required : true
     },
     nom : {
         type: String,
-        require : true
+        required : true
     },
     prenom : {
         type: String,
@@ -17,19 +17,19 @@ var MaladeShema = new schema({
     },
     sexe : {
         type: String,
-        require : true
+        required : true
     },
     dateNaissance :{
         type: String,
-        require: true
+        required: true
     },
     assure : {
         type: Boolean,
-        require : true
+        required : true
     },
     situationFamilliale : {
         type: String,
-        require : true
+        required : true
     },
     type: {
         type: String,
@@ -37,31 +37,31 @@ var MaladeShema = new schema({
     },
     adresse : {
         type: String,
-        require : true
+        required : true
     },
     adherent : {
         type: Boolean,
-        require : true
+        required : true
     },
     tel : {
         type: String,
-        require : true
+        required : true
     },
     fonction : {
         type: String,
-        require : true
+        required : true
     },
     photoIdentite : {
         type: Object,
-        require : false
+        required : true
     },
     anapathe : {
         type: Object,
-        require : true
+        required : true
     },
     radio : {
         type: Object,
-        require : false
+        required : false
     }
 })
 const Model = mongoose.model('Malade', MaladeShema, "malade")

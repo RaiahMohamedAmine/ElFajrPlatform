@@ -26,7 +26,7 @@ const RdvForm=({
                     <option>Radiothérapie</option>
                     <option>Chimiothérapie</option>
                     <option>Imagerie</option>
-                    <option>Analyse de laboratoired</option>
+                    <option>Analyse de laboratoire</option>
                 </Select>
             </div>
             <div className='col-auto'>

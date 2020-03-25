@@ -15,5 +15,5 @@ export default (data) => {
             throw new Error (res.data.message)
         else
             return res.data
-    })
-}
+    });
+};

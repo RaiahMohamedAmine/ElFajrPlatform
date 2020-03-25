@@ -1,11 +1,11 @@
-var Model =  require('../DBModel');
+var maladeModel = require('../../Models/MaladeModel');
 
 async function Get (req, res) {
-    Model.find ((err, malades) => {
+    maladeModel.find ((err, malades) => {
             if (err) {
                 res.json ({
                     type: "Err" ,
-                    message : "Une Erreur est survenue ! Impossible de trouver des malades. Veuillez Reessayez"
+                    message : "Server not responding"
                 });
             }
             return malades;

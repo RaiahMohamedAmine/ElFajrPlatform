@@ -1,4 +1,4 @@
-var Model = require ('../DBModel');
+var maladeModel = require('../../Models/MaladeModel');
 
 async function GetById (req,res) {
     if (!req.params.id) 
@@ -6,11 +6,11 @@ async function GetById (req,res) {
             type :"Err",
             message :"No Id"
         });
-    Model.findById (req.params.id, (err,malades)=>{
+        maladeModel.findById (req.params.id, (err,malades)=>{
         if (err){
             res.json({
                 type: "Err",
-                message :"Fatal Error"
+                message : "Server not responding"
             });
         };
       //  console.log (malades);

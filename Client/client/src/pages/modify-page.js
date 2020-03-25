@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ModifyForm from './../Components/Presentationals/Forms/modify-form';
 import { withRouter } from 'react-router';
-import getMalade from '../middleware/getMalade'
+import getMaladeById from '../middleware/malade/getMaladeById'
 import MainPage from './home';
 
 const ModifyPage = ({
@@ -11,9 +11,9 @@ const ModifyPage = ({
     const [state, setState] = useState({ malade: {}, loading: true })
     useEffect(() => {
         async function fetchData() {
-            (await getMalade({ key: match.params.id }).then(res => {
+            (await getMaladeById(match.params.id ).then(res => {
                 setState({
-                    malade: res[0],
+                    malade: res,
                     loading: false
                 })
             }))
