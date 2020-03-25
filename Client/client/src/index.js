@@ -15,6 +15,8 @@ import {
 import AddPage from './pages/add-page'
 import MaladePage from './pages/malade-page';
 import ModifyPage from './pages/modify-page'
+import RdvDialog from './Components/Presentationals/Dialogs/rdv-dialog';
+import RdvPage from './pages/rdv-page';
 const myStore = createElFajrStore()
 
 ReactDOM.render(<Provider store={myStore}>
@@ -23,7 +25,7 @@ ReactDOM.render(<Provider store={myStore}>
         <Route path='/Ajouter-Malade' component={AddPage} />
         <Route exact path='/malades/:id' component={MaladePage} />
         <Route path='/malades/:id/Modifier' component={ModifyPage}></Route>
-        <Route path='/malades/:id/Rendez-Vous' component={()=><p>Hna rendez vous</p>}></Route>
+        <Route path='/malades/:id/Rendez-Vous' component={RdvPage}></Route>
     </HashRouter>
 </Provider>, document.getElementById('root'))
 
