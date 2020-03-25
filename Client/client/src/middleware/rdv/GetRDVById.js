@@ -13,6 +13,7 @@ export default (id)=>{
         if (res.type==="Err")
             throw new Error (res.message);
         else
-            console.log (res.rdv);
+            console.log (res.data.rdvs);
+            return res.data.rdvs
     })
 };

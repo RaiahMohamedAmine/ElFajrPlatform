@@ -15,5 +15,6 @@ export default (data)=>{
             throw new Error (res.message);
         else
             console.log (res.rdv);
+            return res.rdv
     })
 };

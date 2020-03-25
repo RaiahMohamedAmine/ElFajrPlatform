@@ -15,9 +15,9 @@ import {
 import AddPage from './pages/add-page'
 import MaladePage from './pages/malade-page';
 import ModifyPage from './pages/modify-page'
-import RdvDialog from './Components/Presentationals/Dialogs/rdv-dialog';
 import RdvPage from './pages/rdv-page';
 const myStore = createElFajrStore()
+
 
 ReactDOM.render(<Provider store={myStore}>
     <HashRouter>

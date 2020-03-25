@@ -1,0 +1,64 @@
+@import '../../Base.css';
+
+.rdv-malade{
+    max-height: 100px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    margin: 15px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rdv-malade *{
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+.rdv-malade p:nth-child(1){
+    font-size: 1.5rem;
+}
+
+.rdv-malade p:nth-child(2n)::before{
+    content: "à ";
+}
+
+.rdv-malade p:nth-child(2n){
+    font-size: 1.1rem;
+    margin-top: -10px;
+}
+
+.rdv-malade p:nth-child(3)::before{
+    content: "Motif: ";
+}
+.rdv-malade p:nth-child(3){
+    font-size: 1rem;
+    color: black;
+}
+
+.rdv-malade span{
+    background-image: url(../../assets/delete.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+}
+.rdv-malade span:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
