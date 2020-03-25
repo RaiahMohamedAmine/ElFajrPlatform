@@ -1,14 +1,14 @@
 var RdvModel = require ('../../Models/RdvModel');
 
-async function GetById (req,res) {
-    if (!req.params.id)
+async function Delete (req,res) {
+    if (!req.body)
     {
         res.json ({
             type: "Err",
-            message : "No Id"
+            message : "No body"
         });
     };
-    RdvModel.find ({idMalade : req.params.id},(err,rdvs)=> {
+    RdvModel.findOneAndDelete ({dateRDV : req.body.dateRDV, idMalade : req.body.idMalade},(err,rdvs)=> {
         if (err)
         {
             res.json ({
@@ -19,10 +19,10 @@ async function GetById (req,res) {
         };
         res.json({
             type :'Info',
-            message : 'RDV trouve',
+            message : 'RDV Supprimee',
             rdvs
         });
     });
 };
 
-module.exports= GetById ;
+module.exports= Delete ;

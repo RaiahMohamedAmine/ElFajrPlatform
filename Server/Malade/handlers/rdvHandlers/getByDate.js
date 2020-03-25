@@ -19,7 +19,7 @@ async function GetByDate (req,res) {
         };
         res.json({
             type :'Info',
-            message : 'RDV Ajoute',
+            message : 'RDV trouve',
             rdvs
         });
     });
