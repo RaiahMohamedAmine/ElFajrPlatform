@@ -5,10 +5,11 @@ import { withRouter } from 'react-router';
 import MaladeRdv from '../Components/Containers/MaladeRdvs';
 
 const RdvPage=({
-    history
+    history,
+    match
 })=>{
     return <div>
-        <MaladeRdv onClose={e=> history.goBack()} />
+        <MaladeRdv id={match.params.id} onClose={e=> history.goBack()} />
         <MainPage/>
     </div>
 }

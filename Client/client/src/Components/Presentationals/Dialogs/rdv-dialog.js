@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './rdv-dialog.css'
 import Dialog from './dialog';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RdvForm from './../Forms/rdv-form';
 import RdvMalade from './../rdv-malade';
-import { withRouter } from 'react-router';
+import getMaladeForRdv from '../../../middleware/malade/getMaladeForRdv';
 
 const RdvDialog = ({
-    history,
-    match,
+    id,
     rdvs = [],
-    loading=true,
+    loading = true,
     onAdd = f => f,
-    fetchRdv=f=>f,
-    onDelete=f=>f,
-    onClose=f=>f,
+    fetchRdv = f => f,
+    onDelete = f => f,
+    onClose = f => f,
 }) => {
     useEffect(() => {
-        fetchRdv(match.params.id)
-    }, [fetchRdv, match.params.id])
+        fetchRdv(id)
+    }, [fetchRdv, id])
     return <Dialog onClose={onClose}>
         <div className='separation-line'></div>
         <div className='container rdv-dialog'>
@@ -43,11 +42,11 @@ const RdvDialog = ({
                     </div>
                 </div>
                 <div className='col-6 rdv-form-container'>
-                    <RdvForm onAdd={onAdd} idMalade={match.params.id}></RdvForm>
+                    <RdvForm onAdd={onAdd} idMalade={id}></RdvForm>
                 </div>
             </div>
         </div>
     </Dialog>
 }
 
-export default withRouter(RdvDialog)
+export default RdvDialog

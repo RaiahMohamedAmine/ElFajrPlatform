@@ -4,6 +4,8 @@ import Header from './../Components/Presentationals/header';
 import MySearch from './../Components/Containers/Search';
 import Malades from './../Components/Containers/Malades';
 import AddBtn from '../Components/Presentationals/WithRouter/add-btn';
+import RdvsList from '../Components/Presentationals/rdvs-list';
+import Rdvs from '../Components/Containers/Rdvs';
 
 const MainPage = () => {
     return <div className='main-page'>
@@ -16,7 +18,9 @@ const MainPage = () => {
                 <MySearch />
                 <Malades />
             </div>
-            <div className='page-content-right'></div>
+            <div className='page-content-right'>
+                <Rdvs/>
+            </div>
         </div>
     </div>
 }

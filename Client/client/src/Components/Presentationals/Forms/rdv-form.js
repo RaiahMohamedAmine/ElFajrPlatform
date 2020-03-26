@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './rdv-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TextField from './../Form-Items/text-field';
@@ -6,28 +6,41 @@ import DateInput from './../Form-Items/date-input';
 import Select from './../Form-Items/select';
 import Button from './../Buttons/button';
 import { useForm } from 'react-hooks-helper';
+import getMaladeForRdv from '../../../middleware/malade/getMaladeForRdv';
 
 const RdvForm = ({
-    onAdd=f=>f,
-    idMalade,
+    onAdd = f => f,
+    // infoMalade,
+    idMalade
 }) => {
-    const [rdv, setRdv]=useForm({
-        idMalade:idMalade,
-        dateRdv:'',
-        lieu:'',
-        motif:''
+    const [rdv, setRdv] = useForm({
+        idMalade: idMalade,
+        dateRdv: '',
+        lieu: '',
+        motif: '',
     })
-    return <form className='container rdv-form' onSubmit={e=>{
+    useEffect(() => {
+        getMaladeForRdv(idMalade).then(res => {
+            rdv.idMalade=res._id
+            rdv.nom= res.nom
+            rdv.prenom= res.prenom
+            rdv.tel= res.tel
+            rdv.photoIdentite= res.photoIdentite
+        }
+        )
+        console.log('nassim')
+    }, [])
+    return <form className='container rdv-form' onSubmit={e => {
         e.preventDefault()
         onAdd(rdv)
     }}>
         <div className='row justify-content-center align-items-around rdv-form-content'>
             <div className='col-10'>
                 <DateInput title='Date' name='dateRDV'
-                    required onChange={setRdv}/>
+                    required onChange={setRdv} />
             </div>
             <div className='col-10'>
-                <TextField title='Lieu' name='lieu' required onChange={setRdv}/>
+                <TextField title='Lieu' name='lieu' required onChange={setRdv} />
             </div>
             <div className='col-10'>
                 <Select title='Motif' name='motif' required onChange={setRdv}>

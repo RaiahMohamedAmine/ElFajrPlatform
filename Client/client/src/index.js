@@ -16,17 +16,12 @@ import AddPage from './pages/add-page'
 import MaladePage from './pages/malade-page';
 import ModifyPage from './pages/modify-page'
 import RdvPage from './pages/rdv-page';
+import ElFadjrApp from './Components/Containers/ElFadjrApp';
 const myStore = createElFajrStore()
 
 
 ReactDOM.render(<Provider store={myStore}>
-    <HashRouter>
-        <Route exact path='/' component={MainPage} />
-        <Route path='/Ajouter-Malade' component={AddPage} />
-        <Route exact path='/malades/:id' component={MaladePage} />
-        <Route path='/malades/:id/Modifier' component={ModifyPage}></Route>
-        <Route path='/malades/:id/Rendez-Vous' component={RdvPage}></Route>
-    </HashRouter>
+    <ElFadjrApp/>
 </Provider>, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change

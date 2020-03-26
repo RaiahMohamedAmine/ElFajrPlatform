@@ -1,0 +1,78 @@
+@import '../../Base.css';
+
+.rdvs-list{
+    width: 80%;
+    height: 70vh;
+    max-width: 900px;
+    max-height: 700px;
+    background-color: var(--secondary-color);
+    margin: 40px;
+    padding: 20px 40px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 3px 3px 6px 2px gray;
+    overflow: hidden;
+}
+.rdvs-list > div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.rdvs-list *{
+    color: white;
+}
+
+.rdv-header{
+  display: flex;
+  flex-direction: column;
+}
+
+.rdv-header > .rdv-header-title{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.rdv-header > .rdv-header-date{
+    color: rgba(255, 254, 254, 0.438);
+    font-size: 1.4rem;
+    margin-top: -25px;
+}
+
+.rdv-date-input{
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.rdv-date-icon{
+    height: 50px;
+    width: 50px;
+    background-image: url(../../assets/calendar.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+.rdvs-list-content{
+    position: relative;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.aucun-rdv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    font-size: 1.7rem;
+}
