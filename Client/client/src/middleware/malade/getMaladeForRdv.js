@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-export default (data)=>{
+export default (id)=>{
     return axios ({
         method: "POST",
-        data : data,
-        url : "http://localhost:5200/addRdv",
+        url : "http://localhost:5200/getForRdv/"+id,
         headers :{
             Authorization : "Bearer ",// + "token",
             crossDomaine : true,
@@ -12,8 +11,9 @@ export default (data)=>{
         }
     }).then (res=>{
         if (res.data.type==="Err")
-            throw new Error (res.data.message);
+            throw new Error (res.message);
         else
-            console.log (res.rdv);
+            console.log (res.data);
+            return res.data.malade
     })
 };

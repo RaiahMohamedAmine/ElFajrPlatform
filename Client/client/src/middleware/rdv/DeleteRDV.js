@@ -12,9 +12,9 @@ export default (data)=>{
             'Content-Type' : 'application/json'
         }
     }).then (res=>{
-        if (res.type==="Err")
-            throw new Error (res.message);
+        if (res.data.type==="Err")
+            throw new Error (res.data.message);
         else
-            console.log (res.rdv);
+            console.log (res.data);
     })
 };
