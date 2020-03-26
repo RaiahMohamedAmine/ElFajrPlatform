@@ -1,7 +1,7 @@
 var maladeModel = require('../../Models/MaladeModel');
 
 async function Get (req, res) {
-    maladeModel.find ((err, malades) => {
+    maladeModel.find ({},{nom: 1, prenom: 1, dateNaissance :1, adresse :1, photoIdentite :1},(err, malades) => {
             if (err) {
                 res.json ({
                     type: "Err" ,
