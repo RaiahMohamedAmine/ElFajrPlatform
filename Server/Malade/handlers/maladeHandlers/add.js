@@ -9,7 +9,7 @@ async function Add (req, res)
         })
         return
     };
-    console.log (req.body);
+   // console.log (req.body);
     req.body.photoIdentite = req.files['photoIdentite'].data;
     req.body.anapathe = req.files['anapathe'].data;
     req.files['radio']?  req.body.radio = req.files['radio'].data : req.body.radio = null;

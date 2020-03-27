@@ -1,10 +1,9 @@
 import axios from 'axios' ;
 
-export default (data) => {
+export default (id) => {
     axios({
         method :"POST" ,
-        data : data ,
-        url : "http://localhost:5200/delete",
+        url : "http://localhost:5200/delete/"+id,
         headers :{
             Authorization : "Bearer ",// + "token" ,
             crossDomaine : true

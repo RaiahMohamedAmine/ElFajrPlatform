@@ -9,7 +9,7 @@ module.exports= (app)=>{
     app.post('/get', Get);
     app.post('/get/:id', GetById);
     app.post('/add', Add);
-    app.post('/delete', Delete);
+    app.post('/delete/:id', Delete);
     app.post('/modify', Update);
     app.post('/getForRdv/:id',GetForRdv)
 };
