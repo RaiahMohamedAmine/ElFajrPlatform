@@ -1,7 +1,6 @@
 var express = require('express');
 var cookieParser = require ('cookie-parser');
 var bodyParser = require('body-parser');
-var urlEncoded = bodyParser.urlencoded({extended: true});
 var fileUpload = require('express-fileupload') ;
 var jwt = require('jsonwebtoken');
 var cors = require('cors');
@@ -14,13 +13,20 @@ var app =express()
 app.use(fileUpload ());
 app.use(cors());
 app.use(cookieParser());
-app.use(bodyParser());
+app.use(bodyParser.json({  
+    limit:'10mb',
+    extended: true
+}));
+app.use(bodyParser.urlencoded({
+    limit:'10mb',
+    extended: true
+}));
 app.set ('view engine', 'ejs');
 
 require ('./routes/maladeRoutes') (app);
 require('./routes/rdvRoutes') (app);
 
-app.post ('/login', urlEncoded, (req,res)=> {
+app.post ('/login', (req,res)=> {
     var user = {
         Email : req.body.Email,
         mdp : req.body.mdp

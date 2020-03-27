@@ -14,7 +14,6 @@ const RdvForm = ({
 }) => {
     const [rdv, setRdv] = useForm({
         idMalade: idMalade,
-        dateRdv: '',
         lieu: '',
         motif: '',
     })

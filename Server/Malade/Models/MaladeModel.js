@@ -57,7 +57,7 @@ var MaladeShema = new schema({
     },
     anapathe : {
         type: Object,
-        required : false
+        required : true
     },
     radio : {
         type: Object,

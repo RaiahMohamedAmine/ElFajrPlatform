@@ -1,7 +1,6 @@
 var MaladeModel = require ('../../Models/MaladeModel');
 
 async function GetForRdv (req,res) {
-    console.log(3);
     if (!req.params.id)
     {
         res.json ({
