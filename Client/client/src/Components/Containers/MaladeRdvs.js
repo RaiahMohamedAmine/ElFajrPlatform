@@ -4,11 +4,9 @@ import addRdvm from './../../ReduxStuff/ActionsCreators/Rdv-malade/addRdvm';
 import deleteRdvm from './../../ReduxStuff/ActionsCreators/Rdv-malade/deleteRdvm';
 import fetchRdvm from './../../ReduxStuff/ActionsCreators/Rdv-malade/fetchRdvm';
 
-const mapStateToProps=(state,ownProps)=>({
+const mapStateToProps=(state)=>({
     rdvs:state.rdvm.rdvs,
-    loading:state.rdvm.loading,
-    onClose: ownProps.onClose,
-    id:ownProps.id
+    loading:state.rdvm.loadingRdvm,
 })
 
 const mapDispatchToProps=(dispatch)=>({
@@ -33,7 +31,14 @@ const mapDispatchToProps=(dispatch)=>({
     }
 })
 
+const mergeProps=(stateProps,dispatchProps,ownProps)=>({
+    ...stateProps,
+    ...dispatchProps,
+    id:ownProps.id,
+    onClose:ownProps.onClose,
+})
 
-const MaladeRdv= connect(mapStateToProps,mapDispatchToProps)(RdvDialog)
+
+const MaladeRdv= connect(mapStateToProps,mapDispatchToProps,mergeProps)(RdvDialog)
 
 export default MaladeRdv

@@ -42,12 +42,23 @@
 
 .rdv-date-input{
     position: absolute;
-    width: 0.1px;
-    height: 0.1px;
-    overflow: hidden;
+    widows: 100%;
+    height: 100%;
     visibility: hidden;
 }
-
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    visibility: visible;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
 .rdv-date-icon{
     height: 50px;
     width: 50px;
@@ -63,6 +74,10 @@
     height: 100%;
     overflow-y: scroll;
     scrollbar-width: none;
+}
+
+.rdvs-list-content::-webkit-scrollbar{
+    display: none;
 }
 
 .aucun-rdv{

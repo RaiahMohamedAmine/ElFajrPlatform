@@ -18,8 +18,8 @@ const MaladePage = ({
     },[match])
     return <div>
         <MaladeDlg malade={malade} onClose={e => history.goBack()}
-        onEdit={e=> history.push(`${match.params.id}/Modifier`)} 
-        AddRdv={e=> history.push(`${match.params.id}/Rendez-Vous`)}/>
+        onEdit={e=> history.push(`./${match.params.id}/Modifier`)} 
+        AddRdv={e=> history.push(`./${match.params.id}/Rendez-Vous`)}/>
         <MainPage />
     </div>
 }

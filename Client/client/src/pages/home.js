@@ -4,7 +4,6 @@ import Header from './../Components/Presentationals/header';
 import MySearch from './../Components/Containers/Search';
 import Malades from './../Components/Containers/Malades';
 import AddBtn from '../Components/Presentationals/WithRouter/add-btn';
-import RdvsList from '../Components/Presentationals/rdvs-list';
 import Rdvs from '../Components/Containers/Rdvs';
 
 const MainPage = () => {

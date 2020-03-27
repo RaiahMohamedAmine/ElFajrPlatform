@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import './rdv-dialog.css'
 import Dialog from './dialog';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RdvForm from './../Forms/rdv-form';
 import RdvMalade from './../rdv-malade';
-import getMaladeForRdv from '../../../middleware/malade/getMaladeForRdv';
 
 const RdvDialog = ({
     id,
@@ -17,7 +16,7 @@ const RdvDialog = ({
 }) => {
     useEffect(() => {
         fetchRdv(id)
-    }, [fetchRdv, id])
+    }, [id,fetchRdv])
     return <Dialog onClose={onClose}>
         <div className='separation-line'></div>
         <div className='container rdv-dialog'>

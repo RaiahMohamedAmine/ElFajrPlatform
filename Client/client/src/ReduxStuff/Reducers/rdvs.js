@@ -1,17 +1,20 @@
 import c from '../constants'
 
 
-const rdvs=(state={}, action)=>{
+const rdvs=(state={
+    rdvs:[],
+    loadingRdvs:false
+}, action)=>{
     switch (action.type) {
         case c.REQUEST_RDVM:
             return {
                 ...state,
-                loading:true,
+                loadingRdvs:true,
             }
         case c.RECEIVE_RDVS:
             return {
                 ...state,
-                loading:false,
+                loadingRdvs:false,
             }
         case c.SET_RDVS:
             return {
@@ -19,7 +22,7 @@ const rdvs=(state={}, action)=>{
                 rdvs:action.rdvs,
             }
         default:
-            return state
+            return {...state}
     }
 }
 

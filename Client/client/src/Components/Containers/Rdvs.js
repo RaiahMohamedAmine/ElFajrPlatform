@@ -6,7 +6,7 @@ import fetchRdvs from './../../ReduxStuff/ActionsCreators/Rdvs/fetchRdvs';
 
 const mapStateToProps=(state)=>({
     rdvs:state.rdvs.rdvs,
-    loading:state.rdvs.loading
+    loading:state.rdvs.loadingRdvs
 })
 
 const mapDispatchToProps=(dispatch)=>({

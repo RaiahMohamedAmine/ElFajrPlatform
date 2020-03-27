@@ -6,12 +6,12 @@ const rdvm=(state={}, action)=>{
         case c.REQUEST_RDVM:
             return{
                 ...state,
-                loading:true
+                loadingRdvm:true
             }
         case c.RECEIVE_RDVM:
             return{
                 ...state,
-                loading:false
+                loadingRdvm:false
             }
         case c.SET_RDVM:
             return {
@@ -19,7 +19,7 @@ const rdvm=(state={}, action)=>{
                 rdvs: action.rdvm
             }
         default:
-            return state
+            return {...state}
     }
 }
 

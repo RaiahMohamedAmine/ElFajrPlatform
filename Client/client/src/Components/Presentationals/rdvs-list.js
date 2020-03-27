@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './rdvs-list.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ListRdvsItem from './rdvs-list-item'
@@ -6,29 +6,28 @@ import ListRdvsItem from './rdvs-list-item'
 
 const RdvsList = ({
     rdvs = [],
-    loading = false,
+    loading,
     onDateChange = f => f,
 }) => {
-    var today = new Date()
-    const date = today.getDate() < 10 ? "0" + today.getDate() : today.getDate()
-    const month = today.getMonth() < 10 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1)
-    today = today.getFullYear() + "-" + month + "-" + date
-    const [currentDate, setDate] = useState(today)
+    useEffect(()=>{
+        onDateChange(getInputDate(new Date()))
+    },[onDateChange])
+    const [currentDate, setDate] = useState(getInputDate(new Date()))
     return <div className='rdvs-list'>
         <div className='container'>
             <div className='row justify-content-between align-items-center'>
                 <div className='col-auto rdv-header'>
                     <p className='rdv-header-title'>Rendez Vous</p>
                     <p className='rdv-header-date'>{
-                        currentDate=== today ? "Aujourd'hui" : currentDate
+                        currentDate=== getInputDate(new Date()) ? "Aujourd'hui" : currentDate
                     }</p>
                 </div>
                 <div className='col-auto'>
                     <input id='rdv-date' type='date'
                         className='rdv-date-input' onChange={e => {
                             onDateChange(e.target.value + "")
-                            const haya = e.target.value
-                            setDate(haya)
+                            const date = e.target.value
+                            setDate(date)
                         }} />
                     <label htmlFor='rdv-date' className='rdv-date-icon'>
                     </label>
@@ -42,7 +41,6 @@ const RdvsList = ({
                         rdvs.length === 0 ?
                             <div className='aucun-rdv'> Aucun Rendez Vous</div>
                             : rdvs.map((rdv, i) => {
-                                console.log(rdv)
                                 return <ListRdvsItem rdv={rdv} key={i}></ListRdvsItem>
                             })
                 }
@@ -51,5 +49,9 @@ const RdvsList = ({
     </div>
 }
 
-
+function getInputDate(Date){
+    const date = Date.getDate() < 10 ? "0" + Date.getDate() : Date.getDate()
+    const month = Date.getMonth() < 10 ? "0" + (Date.getMonth() + 1) : (Date.getMonth() + 1)
+    return Date.getFullYear() + "-" + month + "-" + date
+}
 export default RdvsList

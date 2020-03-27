@@ -3,7 +3,6 @@
     height: fit-content;
     display: flex;
     flex-direction: row;
-    justify-content: start;
     align-items: center;
     margin: 10px;
     border-bottom: 1px white solid;

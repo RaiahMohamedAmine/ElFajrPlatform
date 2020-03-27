@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, {useEffect } from 'react'
 import './rdv-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TextField from './../Form-Items/text-field';
@@ -10,7 +10,6 @@ import getMaladeForRdv from '../../../middleware/malade/getMaladeForRdv';
 
 const RdvForm = ({
     onAdd = f => f,
-    // infoMalade,
     idMalade
 }) => {
     const [rdv, setRdv] = useForm({
@@ -28,8 +27,7 @@ const RdvForm = ({
             rdv.photoIdentite= res.photoIdentite
         }
         )
-        console.log('nassim')
-    }, [])
+    }, [idMalade,rdv])
     return <form className='container rdv-form' onSubmit={e => {
         e.preventDefault()
         onAdd(rdv)
