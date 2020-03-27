@@ -1,7 +1,7 @@
 @import '../../../Base.css';
 .dialog-bg{
     position: absolute;
-    z-index: 999;
+    z-index: 2;
     height: 100%;
     backdrop-filter: blur(2px);
     overflow: hidden;

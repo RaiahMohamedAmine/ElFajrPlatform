@@ -3,7 +3,8 @@ import c from '../constants'
 
 const rdvs=(state={
     rdvs:[],
-    loadingRdvs:false
+    loadingRdvs:false,
+    dateRdvs:"",
 }, action)=>{
     switch (action.type) {
         case c.REQUEST_RDVS:
@@ -20,6 +21,11 @@ const rdvs=(state={
             return {
                 ...state,
                 rdvs:action.rdvs,
+            }
+        case c.SET_RDVS_DATE:
+            return {
+                ...state,
+                dateRdvs:action.dateRdvs,
             }
         default:
             return {...state}

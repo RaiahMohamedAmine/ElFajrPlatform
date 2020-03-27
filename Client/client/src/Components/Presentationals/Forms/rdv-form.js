@@ -10,10 +10,13 @@ import getMaladeForRdv from '../../../middleware/malade/getMaladeForRdv';
 
 const RdvForm = ({
     onAdd = f => f,
-    idMalade
+    idMalade,
+    currentDate,
+    updateRdvs=f=>f
 }) => {
     const [rdv, setRdv] = useForm({
         idMalade: idMalade,
+        dateRDV: '',
         lieu: '',
         motif: '',
     })
@@ -30,6 +33,9 @@ const RdvForm = ({
     return <form className='container rdv-form' onSubmit={e => {
         e.preventDefault()
         onAdd(rdv)
+        if (rdv.dateRDV=== currentDate) {
+            updateRdvs(currentDate)
+        }
     }}>
         <div className='row justify-content-center align-items-around rdv-form-content'>
             <div className='col-10'>

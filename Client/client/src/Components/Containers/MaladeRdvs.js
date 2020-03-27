@@ -7,6 +7,7 @@ import fetchRdvm from './../../ReduxStuff/ActionsCreators/Rdv-malade/fetchRdvm';
 const mapStateToProps=(state)=>({
     rdvs:state.rdvm.rdvs,
     loading:state.rdvm.loadingRdvm,
+    currentDate: state.rdvs.dateRdvs
 })
 
 const mapDispatchToProps=(dispatch)=>({

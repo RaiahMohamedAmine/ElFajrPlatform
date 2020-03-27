@@ -3,12 +3,14 @@ import './malade-dlg.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dialog from './dialog'
 import Button from '../Buttons/button';
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 const MaladeDlg = ({
-    onClose=f=>f,
-    onEdit=f=>f,
-    AddRdv=f=>f,
-    malade={},
+    onClose = f => f,
+    onEdit = f => f,
+    AddRdv = f => f,
+    malade = {},
 }) => {
     return <Dialog type='sm' onClose={onClose}>
         <div className='malade-dlg-container container'>
@@ -17,7 +19,7 @@ const MaladeDlg = ({
                     <p className='malade-name'>{malade.nom + " " + malade.prenom}</p>
                     <p className='malade-adr'>{malade.adresse}</p>
                 </div>
-                <div className='col-auto photo'  style={{ backgroundImage: "url(data:image/jpeg;base64," + malade.photoIdentite + ")" }}></div>
+                <div className='col-auto photo' style={{ backgroundImage: "url(data:image/jpeg;base64," + malade.photoIdentite + ")" }}></div>
                 <div className="col-10 line"></div>
             </div>
             <div className='row justify-content-center'>
@@ -31,10 +33,26 @@ const MaladeDlg = ({
                 <div className='col-10 malade-field'>N° de telephone: <p>{malade.tel}</p></div>
                 <div className='col-10 malade-field'>Type Cancer: <p>{malade.type}</p></div>
             </div>
-            <div className='row justify-content-between modifier-btn'>
+            <div className='row justify-content-between align-items-center modifier-btn'>
                 <div className='col-auto'>
                     <Button onClick={AddRdv}>RDV</Button>
                 </div>
+                <div className='col-auto delete-malade' onClick={e => 
+                    confirmAlert({
+                        title: 'Confirmer la supression',
+                        message: 'Etes vous sure de supprimer '+malade.nom+" "+malade.prenom+"?",
+                        buttons: [
+                            {
+                                label: 'Oui',
+                                onClick: () => alert('Click Yes')
+                            },
+                            {
+                                label: 'Non',
+                                onClick: () => alert('Click No')
+                            }
+                        ]
+                    })
+                }></div>
                 <div className='col-auto'>
                     <Button onClick={onEdit}>Modifier</Button>
                 </div>

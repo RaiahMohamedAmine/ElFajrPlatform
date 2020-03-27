@@ -10,6 +10,7 @@ const constants={
     DELETE_RDVM:'DELETE_RDVM',
     REQUEST_RDVM:'REQUEST_RDVM',
     RECEIVE_RDVM:'RECEIVE_RDVM',
+    SET_RDVS_DATE:'SET_RDVS_DATE',
 }
 
 export default constants

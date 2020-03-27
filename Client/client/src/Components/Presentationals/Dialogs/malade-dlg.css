@@ -76,3 +76,26 @@
 .modifier-btn{
     margin: 20px 0;
 }
+
+.delete-malade{
+    background-image: url(../../../assets/deleteGrey.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    transition: .5s ease-in-out all;
+    -webkit-transition: .5s ease-in-out all;
+    -moz-transition: .5s ease-in-out all;
+    -ms-transition: .5s ease-in-out all;
+    -o-transition: .5s ease-in-out all;
+}
+
+.delete-malade:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}

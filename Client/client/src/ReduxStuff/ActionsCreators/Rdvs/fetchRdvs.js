@@ -3,9 +3,11 @@ import setRdvs from './setRdvs';
 import receiveRdvs from './receiveRdvs';
 import requestRdvs from './requestRdvs';
 import axios from 'axios';
+import setRdvsDate from './setRdvsDate';
 
 const fetchRdvs = (date) => {
         return function (dispatch) {
+                dispatch(setRdvsDate(date.dateRDV))
                 dispatch(requestRdvs())
                 axios({
                         method: "POST",

@@ -13,7 +13,6 @@ const ElFadjrApp = ({
 }) => {
     useEffect(()=>{
         var date=getInputDate(new Date())
-        console.log(date)
         getRdv(date)
     },[])
     return <HashRouter>

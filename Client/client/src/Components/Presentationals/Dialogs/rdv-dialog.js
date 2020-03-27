@@ -2,13 +2,14 @@ import React, { useEffect} from 'react'
 import './rdv-dialog.css'
 import Dialog from './dialog';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RdvForm from './../Forms/rdv-form';
 import RdvMalade from './../rdv-malade';
+import RdvForm from './../../Containers/RdvForm';
 
 const RdvDialog = ({
     id,
     rdvs = [],
     loading = true,
+    currentDate,
     onAdd = f => f,
     fetchRdv = f => f,
     onDelete = f => f,

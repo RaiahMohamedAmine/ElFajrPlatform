@@ -8,21 +8,19 @@ const RdvsList = ({
     rdvs = {},
     onDateChange = f => f,
 }) => {
-    const [currentDate, setDate] = useState(getInputDate(new Date()))
     return <div className='rdvs-list'>
         <div className='container'>
             <div className='row justify-content-between align-items-center'>
                 <div className='col-auto rdv-header'>
                     <p className='rdv-header-title'>Rendez Vous</p>
                     <p className='rdv-header-date'>{
-                        currentDate=== getInputDate(new Date()) ? "Demain" : currentDate
+                        rdvs.dateRdvs=== getInputDate(new Date()) ? "Demain" : rdvs.dateRdvs
                     }</p>
                 </div>
                 <div className='col-auto'>
                     <input id='rdv-date' type='date'
                         className='rdv-date-input' onChange={e => {
                             onDateChange(e.target.value+"")
-                            setDate(e.target.value+"")
                         }} />
                     <label htmlFor='rdv-date' className='rdv-date-icon'>
                     </label>
