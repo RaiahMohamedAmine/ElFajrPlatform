@@ -1,17 +1,13 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import './rdvs-list.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ListRdvsItem from './rdvs-list-item'
 
 
 const RdvsList = ({
-    rdvs = [],
-    loading,
+    rdvs = {},
     onDateChange = f => f,
 }) => {
-    useEffect(()=>{
-        onDateChange(getInputDate(new Date()))
-    },[onDateChange])
     const [currentDate, setDate] = useState(getInputDate(new Date()))
     return <div className='rdvs-list'>
         <div className='container'>
@@ -25,9 +21,8 @@ const RdvsList = ({
                 <div className='col-auto'>
                     <input id='rdv-date' type='date'
                         className='rdv-date-input' onChange={e => {
-                            onDateChange(e.target.value + "")
-                            const date = e.target.value
-                            setDate(date)
+                            onDateChange(e.target.value+"")
+                            setDate(e.target.value+"")
                         }} />
                     <label htmlFor='rdv-date' className='rdv-date-icon'>
                     </label>
@@ -35,12 +30,12 @@ const RdvsList = ({
             </div>
             <div className='row rdvs-list-content'>
                 {
-                    loading ?
+                    rdvs.loadingRdvs ?
                         <div className='load' style={{ borderColor: 'white' }}></div>
                         :
-                        rdvs.length === 0 ?
+                        rdvs.rdvs.length === 0 ?
                             <div className='aucun-rdv'> Aucun Rendez Vous</div>
-                            : rdvs.map((rdv, i) => {
+                            : rdvs.rdvs.map((rdv, i) => {
                                 return <ListRdvsItem rdv={rdv} key={i}></ListRdvsItem>
                             })
                 }
@@ -49,10 +44,9 @@ const RdvsList = ({
     </div>
 }
 
-function getInputDate(Date){
+export function getInputDate(Date){
     const date = Date.getDate() < 9 ? "0" + Date.getDate() +1: Date.getDate() +1
     const month = Date.getMonth() < 9 ? "0" + (Date.getMonth() + 1) : (Date.getMonth() + 1)
-    console.log (date + ' '+ month + ' '+ Date.getFullYear());
     return Date.getFullYear() + "-" + month + "-" + date
 }
 export default RdvsList

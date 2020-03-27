@@ -26,7 +26,7 @@ const RdvForm = ({
             rdv.photoIdentite= res.photoIdentite
         }
         )
-    }, [idMalade,rdv])
+    }, [idMalade])
     return <form className='container rdv-form' onSubmit={e => {
         e.preventDefault()
         onAdd(rdv)
@@ -41,11 +41,12 @@ const RdvForm = ({
             </div>
             <div className='col-10'>
                 <Select title='Motif' name='motif' required onChange={setRdv}>
+                    <option >Choisir Motif</option>
                     <option value='Consultation'>Consultation</option>
                     <option value='Radiothérapie'>Radiothérapie</option>
                     <option value='Chimiothérapie'>Chimiothérapie</option>
-                    <option value='Consultation'>Imagerie</option>
-                    <option value='Consultation'>Analyse de laboratoire</option>
+                    <option value='Imagerie'>Imagerie</option>
+                    <option value='Analyse de laboratoire'>Analyse de laboratoire</option>
                 </Select>
             </div>
             <div className='col-auto'>

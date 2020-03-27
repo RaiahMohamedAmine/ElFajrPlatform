@@ -6,7 +6,7 @@ const rdvs=(state={
     loadingRdvs:false
 }, action)=>{
     switch (action.type) {
-        case c.REQUEST_RDVM:
+        case c.REQUEST_RDVS:
             return {
                 ...state,
                 loadingRdvs:true,
