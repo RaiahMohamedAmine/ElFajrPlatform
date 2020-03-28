@@ -8,12 +8,28 @@ const ListMalades = ({
     loading=false,
     onClick = f => f,
 }) => {
-    return <div className='list-malades'>
+    if (malades!==null){
+        if (malades.length===undefined)
         {
-            loading ? <span className='load'></span>
-            :malades.map((malade, i) => <ListMaladeItem key={i} malade={malade} onClick={e=>onClick(malade)}/>)
+            return <div className='list-malades'>
+            {
+                loading ? <span className='load'></span>
+                : <ListMaladeItem key={malades._id} malade={malades} onClick={e=>onClick(malades)}/>
+            }
+            </div>
         }
+        return <div className='list-malades'>
+            {
+                loading ? <span className='load'></span>
+                :malades.map((malade, i) => <ListMaladeItem key={i} malade={malade} onClick={e=>onClick(malade)}/>)
+            }
+        </div>
+    }
+
+    return <div className="list-malades">
+        <h2> Oops ! Aucun malade n'a été trouvé. Vous vous êtes surement trompé.</h2>
     </div>
+    
 }
 
 export default ListMalades
