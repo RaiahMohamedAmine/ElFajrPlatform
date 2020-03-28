@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export default (data)=>{
+    console.log (data);
     return axios ({
         method: "POST",
         data : data,

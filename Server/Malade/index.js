@@ -14,11 +14,9 @@ app.use(fileUpload ());
 app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.json({  
-    limit:'10mb',
     extended: true
 }));
 app.use(bodyParser.urlencoded({
-    limit:'10mb',
     extended: true
 }));
 app.set ('view engine', 'ejs');

@@ -16,22 +16,6 @@ var rdvSchema = mongoose.Schema({
     motif : {
         type :String,
         required : true
-    },
-    nom : {
-        type :String,
-        required :true
-    },
-    prenom : {
-        type :String,
-        required: true
-    },
-    tel  :{
-        type : String,
-        required :true
-    },
-    photoIdentite :{
-        type :Object,
-        required: true
     }
 });
 

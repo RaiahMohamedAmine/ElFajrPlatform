@@ -20,16 +20,6 @@ const RdvForm = ({
         lieu: '',
         motif: '',
     })
-    useEffect(() => {
-        getMaladeForRdv(idMalade).then(res => {
-            rdv.idMalade=res._id
-            rdv.nom= res.nom
-            rdv.prenom= res.prenom
-            rdv.tel= res.tel
-            rdv.photoIdentite= res.photoIdentite
-        }
-        )
-    }, [idMalade])
     return <form className='container rdv-form' onSubmit={e => {
         e.preventDefault()
         onAdd(rdv)
