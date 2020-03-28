@@ -24,6 +24,6 @@ const mergeProps=(propsFromState,propsFromDispatch,ownProps)=>({
     idMalade:ownProps.idMalade
 })
 
-const RdvForm=connect(mapStateToProps,mapDispatchToProps)(RDVForm)
+const RdvForm=connect(mapStateToProps,mapDispatchToProps,mergeProps)(RDVForm)
 
 export default RdvForm

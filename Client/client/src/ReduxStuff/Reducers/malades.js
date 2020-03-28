@@ -1,11 +1,14 @@
 import c from '../constants'
 
 
-const malades=(state=[], action)=>{
-    if (action.type === c.SET_MALADES) {
-        return action.malades
-    } else {
-        return state
+const malades = (state = [], action) => {
+    switch (action.type) {
+        case c.SET_MALADES:
+            return action.malades
+        case c.EMPTY_MALADES:
+            return []
+        default:
+            return state
     }
 }
 
