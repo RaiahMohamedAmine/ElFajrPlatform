@@ -1,5 +1,7 @@
 var MaladeModel = require('../../Models/MaladeModel');
 var RdvModel = require('../../Models/RdvModel');
+var PrestationModel = require ('../../Models/PrestationModel');
+
 function Delete (req, res) {
     if (!req.params.id)
         res.status(400).json({
@@ -14,18 +16,27 @@ function Delete (req, res) {
                 message : "Server not responding"
             });
     }).then (()=>{
-        RdvModel.deleteMany({idMalade: req.params.id}, (err,rdvs)=>{
+        RdvModel.deleteMany({idMalade: req.params.id}, (err)=>{
             if (err){
                 res.json({
-                type :"Err",
-                message:"Server not respondig"
+                    type :"Err",
+                    message:"Server not responding"
                 });
                 return;
             }
-            res.json({
-                type:"Info",
-                message :"Malade Deleted",
-                rdvs
+        }).then(()=>{
+            PrestationModel.deleteMany({_id: req.params.id}, (err)=>{
+                if (err){
+                    res.json({
+                        type :"Err",
+                        message:"Server not responding"
+                    });
+                    return;
+                }
+                res.json({
+                    type:"Info",
+                    message :"Malade Supprime"
+                });
             });
         });
     });
