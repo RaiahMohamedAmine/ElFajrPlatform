@@ -7,13 +7,12 @@ function Delete (req, res) {
             message :"No Id"
         });
     
-   MaladeModel.findByIdAndDelete (req.params.id, (err,malade)=>{
+   MaladeModel.findByIdAndDelete (req.params.id, (err)=>{
         if (err) 
             res.json({
                 type: "Err", 
                 message : "Server not responding"
             });
-            console.log(malade)
     }).then (()=>{
         RdvModel.deleteMany({idMalade: req.params.id}, (err,rdvs)=>{
             if (err){

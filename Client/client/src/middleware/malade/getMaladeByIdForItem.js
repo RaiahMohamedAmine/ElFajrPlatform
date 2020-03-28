@@ -3,7 +3,7 @@ import axios from 'axios';
 export default (id)=>{
     return axios ({
         method: "POST",
-        url : "http://localhost:5200/getForRdv/"+id,
+        url : "http://localhost:5200/getForItem/"+id,
         headers :{
             Authorization : "Bearer ",// + "token",
             crossDomaine : true,

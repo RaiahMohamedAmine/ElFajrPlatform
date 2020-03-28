@@ -1,6 +1,6 @@
 var MaladeModel = require ('../../Models/MaladeModel');
 
-async function GetForRdv (req,res) {
+async function GetByIdForItem (req,res) {
     if (!req.params.id)
     {
         res.json ({
@@ -8,7 +8,7 @@ async function GetForRdv (req,res) {
             message : "No Id"
         });
     };
-    MaladeModel.findById (req.params.id,{nom:1, prenom:1, tel:1, photoIdentite:1},(err,malade)=> {
+    MaladeModel.findById (req.params.id,{nom:1, prenom:1, dateNaissance:1, adresse:1, photoIdentite:1},(err,malade)=> {
         if (err)
         {
             res.json ({
@@ -25,4 +25,4 @@ async function GetForRdv (req,res) {
     });
 };
 
-module.exports= GetForRdv ;
+module.exports= GetByIdForItem ;

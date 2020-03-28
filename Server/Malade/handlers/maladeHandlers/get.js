@@ -15,8 +15,6 @@ async function Get (req, res) {
                    return malade.nom.toUpperCase().includes(req.body.key.toUpperCase())
                    ||
                     malade.prenom.toUpperCase().includes(req.body.key.toUpperCase())
-                    ||
-                    malade.id.toUpperCase().includes (req.body.key.toUpperCase())
                 });
                res.json ({type :"Info",  message: "Le malade est trouve" , malades});
             }

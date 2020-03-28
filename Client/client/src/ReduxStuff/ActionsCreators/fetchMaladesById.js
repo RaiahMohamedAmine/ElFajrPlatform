@@ -8,7 +8,7 @@ const fetchMalades = (id) => {
                 dispatch(requestMalade())
                 axios({
                         method : "POST" ,
-                        url : "http://localhost:5200/get/"+id,
+                        url : "http://localhost:5200/getForItem/"+id,
                         headers: {
                             Authorization : "Bearer",// + "token" ,
                             crossDomaine : true

@@ -31,7 +31,7 @@ const ListMalades = ({
     }
 
     return <div className="list-malades">
-        <h2> Oops ! Aucun malade n'a été trouvé. Vous vous êtes surement trompé.</h2>
+        <h2> Oops ! Aucun malade n'a été trouvé avec cet Id. Vous vous êtes surement trompé.</h2>
     </div>
     
 }

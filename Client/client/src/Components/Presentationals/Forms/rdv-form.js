@@ -6,7 +6,6 @@ import DateInput from './../Form-Items/date-input';
 import Select from './../Form-Items/select';
 import Button from './../Buttons/button';
 import { useForm } from 'react-hooks-helper';
-import getMaladeForRdv from '../../../middleware/malade/getMaladeForRdv';
 
 const RdvForm = ({
     onAdd = f => f,
