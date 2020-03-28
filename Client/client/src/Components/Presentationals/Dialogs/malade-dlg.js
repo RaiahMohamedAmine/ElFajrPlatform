@@ -5,6 +5,7 @@ import Dialog from './dialog'
 import Button from '../Buttons/button';
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css'; 
+import DeleteMalade from '../../../middleware/malade/DeleteMalade';
 
 const MaladeDlg = ({
     onClose = f => f,
@@ -44,7 +45,10 @@ const MaladeDlg = ({
                         buttons: [
                             {
                                 label: 'Oui',
-                                onClick: () => alert('Click Yes')
+                                onClick: () => {
+                                    onClose()
+                                    DeleteMalade(malade._id)
+                                }
                             },
                             {
                                 label: 'Non',

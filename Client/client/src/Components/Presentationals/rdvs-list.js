@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './rdvs-list.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ListRdvsItem from './rdvs-list-item'

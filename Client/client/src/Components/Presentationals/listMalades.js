@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './listMalades.css'
 import ListMaladeItem from './listMaladeItem';
 
@@ -7,7 +7,11 @@ const ListMalades = ({
     malades = [],
     loading=false,
     onClick = f => f,
+    emptyList=f=>f,
 }) => {
+    useEffect(()=>{
+        emptyList()
+    },[])
     if (malades!==null){
         if (malades.length===undefined)
         {
