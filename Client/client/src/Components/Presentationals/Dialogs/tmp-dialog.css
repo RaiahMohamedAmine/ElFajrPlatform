@@ -1,19 +1,46 @@
 @import '../../../Base.css';
 
-.rdv-list{
-    padding: 30px 20px;
-    max-height: 100%;
-    overflow-y: scroll;
-    scrollbar-width: none;
-}
-
-
-.rdv-list > span{
+.tmp-dialog{
     height: 100%;
     width: 100%;
+    padding: 20px 0;
+}
+.tmp-dialog > div{
+    height: 100%;
+}
+.right-part{
+    height: 100%;
+}
+.rdv-container{
+    width: 100%;
+    height: 100%;
+}
+.right-part h1{
+    margin: 20px auto;
+}
+.separation-line{
+    width: 0px;
+    height: 80%;
+    border: 1px var(--primary-color) solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+}
+
+.separation-line2{
+    border: 1px var(--primary-color) solid;
+    margin-top: 20px;
+}
+
+.left-part{
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
 .loading{
