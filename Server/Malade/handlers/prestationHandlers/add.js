@@ -1,6 +1,7 @@
 var prestationModel = require('../../Models/PrestationModel');
 
 async function Add (req,res) {
+    console.log(req.body)
     if(!req.body)
     {
         res.json ({
@@ -19,7 +20,7 @@ async function Add (req,res) {
             });
             return;
         }
-        res.josn({
+        res.json({
             type:"Info",
             message:"Prestation Ajoutee",
             prestation

@@ -19,7 +19,8 @@ const MaladePage = ({
     return <div>
         <MaladeDlg malade={malade} onClose={e => history.goBack()}
         onEdit={e=> history.push(`./${match.params.id}/Modifier`)} 
-        AddRdv={e=> history.push(`./${match.params.id}/Rendez-Vous`)}/>
+        toRdv={e=> history.push(`./${match.params.id}/Rendez-Vous`)}
+        toPrestation={e=> history.push(`./${match.params.id}/Prestations`)}/>
         <MainPage />
     </div>
 }

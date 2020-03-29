@@ -18,7 +18,7 @@ const RdvDialog = ({
         fetchRdv(id)
     }, [id, fetchRdv])
     return <DialogTemplate onClose={onClose} title='Les Rendez Vous'>
-        <div className='row justify-content-center rdv-list'>
+        <div className='row justify-content-center rdv-list' style={{height: loading ? "100%":'auto'}}>
             {loading ?
                 <span>
                     <div className='loading'></div>

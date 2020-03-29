@@ -77,13 +77,13 @@
     margin: 20px 0;
 }
 
-.delete-malade{
-    background-image: url(../../../assets/deleteGrey.svg);
+.icon{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 40px;
     width: 40px;
+    margin: 10px 0 40px;
     cursor: pointer;
     transition: .5s ease-in-out all;
     -webkit-transition: .5s ease-in-out all;
@@ -92,10 +92,40 @@
     -o-transition: .5s ease-in-out all;
 }
 
-.delete-malade:hover{
+.icon:hover{
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
+}
+
+.edit{
+    background-image: url(../../../assets/editGrey.svg);
+}
+.archive{
+    background-image: url(../../../assets/documentGrey.svg);
+}
+.delete{
+    background-image: url(../../../assets/deleteGrey.svg);
+}
+
+.icon:hover::before{
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+.edit.icon:hover::before{
+    content: 'Modifier';
+}
+.archive.icon:hover::before{
+    content: 'Archiver';
+}
+.delete.icon:hover::before{
+    content: 'Supprimer';
 }
