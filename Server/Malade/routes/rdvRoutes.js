@@ -1,11 +1,7 @@
-var Add = require ('../handlers/rdvHandlers/add');
-var GetById = require ('../handlers/rdvHandlers/getById');
-var GetByDate = require ('../handlers/rdvHandlers/getByDate');
-var Delete = require ('../handlers/rdvHandlers/delete');
-
+var rdv = require('../handlers/rdvHandlers/index');
 module.exports= (app)=>{
-    app.post('/addRdv',Add);
-    app.post('/getRdv/:id',GetById);
-    app.post('/getRdvByDate',GetByDate);
-    app.post('/deleteRdv',Delete);
+    app.post('/addRdv',rdv.Add);
+    app.post('/getRdv/:id',rdv.GetById);
+    app.post('/getRdvByDate',rdv.GetByDate);
+    app.post('/deleteRdv',rdv.Delete);
 };
