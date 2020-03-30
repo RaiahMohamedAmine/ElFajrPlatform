@@ -1,6 +1,13 @@
 var maladeModel = require('../../Models/MaladeModel');
 
 function Modify (req, res) {
+    if (!req.body){
+        res.status(400).json ({
+            type:"Err",
+            message :"Bad request"
+        });
+        return;
+    }
     if (req.files)
     {
         if (req.files.photoIdentite)    req.body.photoIdentite = req.files['photoIdentite'].data;
@@ -9,13 +16,13 @@ function Modify (req, res) {
     }    
     maladeModel.findByIdAndUpdate (req.body._id, req.body , (err, malade)=>{
         if(err) {
-            res.json({
+            res.status(500).json({
                 type : "Err" ,
                 message : "Server not responding"
             })
         }
         else{
-            res.json({
+            res.status(200).json({
                 type : "Info" ,
                 message : "La modification effectuee",
                 malade 

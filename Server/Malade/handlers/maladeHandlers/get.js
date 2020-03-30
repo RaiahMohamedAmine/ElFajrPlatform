@@ -3,7 +3,7 @@ var maladeModel = require('../../Models/MaladeModel');
 async function Get (req, res) {
     maladeModel.find ({},{nom: 1, prenom: 1, dateNaissance :1, adresse :1, photoIdentite :1},(err, malades) => {
             if (err) {
-                res.json ({
+                res.status(500).json ({
                     type: "Err" ,
                     message : "Server not responding"
                 });
@@ -16,7 +16,7 @@ async function Get (req, res) {
                    ||
                     malade.prenom.toUpperCase().includes(req.body.key.toUpperCase())
                 });
-               res.json ({type :"Info",  message: "Le malade est trouve" , malades});
+               res.status(200).json ({type :"Info",  message: "Le malade est trouve" , malades});
             }
         );
 } ;

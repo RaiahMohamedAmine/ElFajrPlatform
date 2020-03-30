@@ -3,17 +3,17 @@ var ArchiveModel =require('../../Models/ArchiveModel');
 var RdvMalade = require('../../Models/RdvModel');
 
 async function Add (req,res){
-    if (!req.params.id) {
-        res.json({
+    if (!req.body) {
+        res.status(400).json({
             type: "Err",
             message :"Bad request"
         });
         return;
     }
-    MaladeModel.findByIdAndDelete (req.params.id, (err,malade)=>{
+    MaladeModel.findByIdAndDelete (req.body.id, (err,malade)=>{
         if (err)
         {
-            res.json({
+            res.status(500).json({
                 type: "Err",
                 message :"Server not responding"
             });
@@ -24,17 +24,20 @@ async function Add (req,res){
             nom : malade.nom, 
             prenom : malade.prenom ,
             sexe : malade.sexe ,
+            lieu: malade.lieu,
             dateNaissance : malade.dateNaissance ,
             situationFamilliale : malade.situationFamilliale,
             type : malade.type,
             adresse : malade.adresse ,
             tel : malade.tel,
             fonction : malade.fonction,
-            photoIdentite : malade.photoIdentite
+            photoIdentite : malade.photoIdentite, 
+            etat : req.body.etat ,
+            dateArchive : req.body.dateArchive
         }) ;
         newArchiveMalade.save ((err)=>{
             if (err){
-                res.json ({
+                res.status(500).json ({
                     type:"Err",
                     message :"Server not responding"
                 });
@@ -43,13 +46,13 @@ async function Add (req,res){
             RdvMalade.deleteMany ({idMalade: malade._id}, (err)=>{
                 if (err)
                 {
-                    res.json ({
+                    res.status(500).json ({
                         type:"Err",
                         message :"Server not responding"
                     });
                     return;
                 }
-                res.json ({
+                res.status(200).json ({
                     type:"Info",
                     message :"Malade Archive"
                 });

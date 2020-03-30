@@ -4,16 +4,16 @@ var MaladeModel = require ('../../Models/MaladeModel');
 async function GetByDate (req,res) {
     if (!req.body)
     {
-        res.json ({
+        res.status(400).json ({
             type: "Err",
-            message : "No body"
+            message :"Bad request"
         });
     };
 
     RdvModel.find({dateRDV : req.body.dateRDV}).then(rdvs=>{
         var promises = rdvs.map (rdv=>{
            return MaladeModel.findById(rdv.idMalade,{nom:1, prenom:1, tel :1, photoIdentite:1}).catch (err=> 
-            res.json ({
+            res.status(500).json ({
                 type :"Err",
                 message :"Server not responding",
                 err
@@ -23,7 +23,7 @@ async function GetByDate (req,res) {
             var newRdvs=[];
             if (malades.length!==rdvs.length)
             {
-                res.json({
+                res.status(500).json({
                     type:"Err",
                     message :"Server not respondig"
                 });
@@ -42,7 +42,7 @@ async function GetByDate (req,res) {
                 });
             }
             return Promise.all (newRdvs).then (newRdvs=> {
-                res.json({
+                res.status(200).json({
                     type :'Info',
                     message : 'RDV trouve',
                     rdvs :newRdvs

@@ -3,22 +3,22 @@ var prestationModel = require('../../Models/PrestationModel');
 async function Delete (req,res){
     if(!req.body)
     {
-        res.json({
+        res.status(400).json({
             type:"Err",
-            message :"No body"
+            message :"Bad request"
         });
         return;
     }
     prestationModel.findOneAndDelete(req.body, (err,prestations)=>{
         if(err)
         {
-            res.json({
+            res.status(500).json({
                 type:"Err",
                 message:"Server not responding"
             });
             return;
         }
-        res.json({
+        res.status(200).json({
             type:"Info",
             message:"Prestations supprimees",
             prestations
