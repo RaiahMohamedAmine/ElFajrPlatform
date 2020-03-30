@@ -4,7 +4,7 @@ var RdvMalade = require('../../Models/RdvModel');
 
 async function Add (req,res){
     if (!req.params.id) {
-        res.json({
+        res.status(400).json({
             type: "Err",
             message :"Bad request"
         });
@@ -13,7 +13,7 @@ async function Add (req,res){
     MaladeModel.findByIdAndDelete (req.params.id, (err,malade)=>{
         if (err)
         {
-            res.json({
+            res.status(500).json({
                 type: "Err",
                 message :"Server not responding"
             });
@@ -34,7 +34,7 @@ async function Add (req,res){
         }) ;
         newArchiveMalade.save ((err)=>{
             if (err){
-                res.json ({
+                res.status(500).json ({
                     type:"Err",
                     message :"Server not responding"
                 });
@@ -43,13 +43,13 @@ async function Add (req,res){
             RdvMalade.deleteMany ({idMalade: malade._id}, (err)=>{
                 if (err)
                 {
-                    res.json ({
+                    res.status(500).json ({
                         type:"Err",
                         message :"Server not responding"
                     });
                     return;
                 }
-                res.json ({
+                res.status(200).json ({
                     type:"Info",
                     message :"Malade Archive"
                 });

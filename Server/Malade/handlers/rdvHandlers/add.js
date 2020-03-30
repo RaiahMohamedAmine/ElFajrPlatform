@@ -3,22 +3,22 @@ var RdvModel = require ('../../Models/RdvModel');
 async function Add (req,res) {
     if (!req.body)
     {
-        res.json ({
+        res.status(400).json ({
             type: "Err",
-            message : "No Body"
+            message :"Bad request"
         });
     };
     var newRdv = new RdvModel (req.body);
     newRdv.save ((err,rdv)=> {
         if (err)
         {
-            res.json ({
+            res.status(500).json ({
                 type :"Err",
                 message : "Server not responding"
             });
             return;
         };
-        res.json({
+        res.status(200).json({
             type :'Info',
             message : 'RDV Ajoute',
             rdv

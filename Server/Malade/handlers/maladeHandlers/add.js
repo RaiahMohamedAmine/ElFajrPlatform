@@ -2,10 +2,10 @@ var maladeModel = require('../../Models/MaladeModel');
 
 async function Add (req, res)
 {
-    if (req.body===null) {
-        res.json({
+    if (!req.body) {
+        res.status(400).json({
             type:'Err',
-            message : 'no body '
+            message :"Bad request"
         })
         return
     };
@@ -16,13 +16,13 @@ async function Add (req, res)
     var malade = new maladeModel(req.body);
     malade.save ((err,malade) => {
         if (err) {
-            res.json({
+            res.status(500).json({
                 type:'Err',
                 message : "Server not responding"
             })
             return
         }
-        res.json ({
+        res.status(200).json ({
             type : 'Info',
             message : 'Malade Ajoute',
             malade
