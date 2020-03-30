@@ -25,7 +25,7 @@ function Delete (req, res) {
                 return;
             }
         }).then(()=>{
-            PrestationModel.deleteMany({_id: req.params.id}, (err)=>{
+            PrestationModel.deleteMany({idMalade: req.params.id}, (err)=>{
                 if (err){
                     res.json({
                         type :"Err",

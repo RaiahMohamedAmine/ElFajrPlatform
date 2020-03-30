@@ -24,6 +24,7 @@ app.set ('view engine', 'ejs');
 require ('./routes/maladeRoutes') (app);
 require('./routes/rdvRoutes') (app);
 require('./routes/prestationsRoutes') (app);
+require('./routes/archiveRoutes') (app);
 
 app.post ('/login', (req,res)=> {
     var user = {
