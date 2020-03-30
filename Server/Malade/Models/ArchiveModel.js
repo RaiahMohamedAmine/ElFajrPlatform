@@ -41,14 +41,6 @@ var ArchiveSchema = new mongoose.Schema({
         type: String,
         required : true
     },
-    date : {
-        type: String,
-        required : true
-    },
-    etat : {
-        type: String,
-        required : true
-    },
     lieu : {
         type: String,
         required : false
