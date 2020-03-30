@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-export default (id) => {
+export default (data) => {
     return axios({
         method: "POST",
-        url: "http://localhost:5200/addMaladeToArchive/"+id,
+        data,
+        url: "http://localhost:5200/addMaladeToArchive/"+data.id,
         headers: {
             Authorization: "Bearer ",// + "token",
             crossDomaine: true,

@@ -44,6 +44,14 @@ var ArchiveSchema = new mongoose.Schema({
     photoIdentite : {
         type: Object,
         required : true
+    }, 
+    dateArchive: {
+        type: String,
+        required:true
+    },
+    etat :{
+        type: String ,
+        required :true
     }
 });
 const archiveModel = mongoose.model('Archive', ArchiveSchema, "archive")
