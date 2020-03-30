@@ -51,7 +51,7 @@ var ArchiveSchema = new mongoose.Schema({
     },
     lieu : {
         type: String,
-        required : true
+        required : false
     },
 
     photoIdentite : {

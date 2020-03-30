@@ -6,6 +6,8 @@ import Button from '../Buttons/button';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import DeleteMalade from '../../../middleware/malade/DeleteMalade';
+import archiveMalade from '../../../middleware/archive/AddMaladeToArchive'
+import { getInputToday } from '../rdvs-list';
 
 const MaladeDlg = ({
     onClose = f => f,
@@ -45,13 +47,24 @@ const MaladeDlg = ({
                             {
                                 label: 'Mort(e)',
                                 onClick: () => {
-                                    // onClose()
-                                    // DeleteMalade(malade._id)
+                                    archiveMalade({
+                                        id:malade._id,
+                                        etat:'mort',
+                                        dateArchive:getInputToday()
+                                    })
+                                    onClose()
                                 }
                             },
                             {
                                 label: 'Guéri(e)',
-                                onClick: null
+                                onClick: () => {
+                                    archiveMalade({
+                                        id:malade._id,
+                                        etat:'gueri',
+                                        dateArchive:getInputToday()
+                                    })
+                                    onClose()
+                                }
                             },
                             {
                                 label: 'Annuler',

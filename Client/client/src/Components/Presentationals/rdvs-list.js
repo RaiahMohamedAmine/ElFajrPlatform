@@ -47,4 +47,10 @@ export function getInputDate(Date){
     const month = Date.getMonth() < 9 ? "0" + (Date.getMonth() + 1) : (Date.getMonth() + 1)
     return Date.getFullYear() + "-" + month + "-" + date
 }
+export function getInputToday(){
+    const today = new Date()
+    const date = today.getDate() < 9 ? "0" + today.getDate(): today.getDate()
+    const month = today.getMonth() < 9 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1)
+    return today.getFullYear() + "-" + month + "-" + date
+}
 export default RdvsList

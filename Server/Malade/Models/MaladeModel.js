@@ -25,7 +25,7 @@ var MaladeShema = new schema({
     },
     lieu :{
         type :String,
-        required :true
+        required :false
     },
     assure : {
         type: Boolean,
