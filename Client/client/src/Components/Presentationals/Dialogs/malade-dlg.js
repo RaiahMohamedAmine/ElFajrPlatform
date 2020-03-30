@@ -37,7 +37,29 @@ const MaladeDlg = ({
                         ]
                     })
                 }></div>
-                <div className='icon archive'></div>
+                <div className='icon archive' onClick={e=>{
+                      confirmAlert({
+                        title: "Confirmer l'archive",
+                        message: "Etes vous sure d'archiver" + malade.nom + " " + malade.prenom + "?",
+                        buttons: [
+                            {
+                                label: 'Mort(e)',
+                                onClick: () => {
+                                    // onClose()
+                                    // DeleteMalade(malade._id)
+                                }
+                            },
+                            {
+                                label: 'Guéri(e)',
+                                onClick: null
+                            },
+                            {
+                                label: 'Annuler',
+                                onClick: null
+                            },
+                        ]
+                    })
+                }}></div>
             </div>
             <div className='row justify-content-around'>
                 <div className='col-7 malade-dlg-header'>
