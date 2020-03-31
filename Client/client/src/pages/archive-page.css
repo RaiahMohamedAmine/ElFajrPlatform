@@ -1,0 +1,27 @@
+@import '../Base.css';
+
+.archive-page{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 2400px;
+    min-width: 700px;
+    max-height: 1400px;
+    overflow: hidden;
+}
+
+
+.archive-content{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}   
+
+.archive-list{
+    position: relative;
+    padding: 30px;
+}

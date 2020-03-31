@@ -1,0 +1,44 @@
+.archive-card-container{
+    height: 350px;
+    width: 100%;
+    box-shadow: 1px 1px 3px grey;
+    border: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 10px;
+}
+.etat{
+    height: 10%;
+    width: 100%;
+}
+.mort{
+    background-color: red;
+}
+.gueri{
+    background-color: green;
+}
+.archive-card-photo{
+    height: 150px;
+    width: 150px;
+    margin: 20px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.archive-card-nom{
+    font-size: 1.5rem;
+    margin: 10px;
+}

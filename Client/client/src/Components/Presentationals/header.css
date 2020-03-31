@@ -3,7 +3,7 @@
 .header{
     position: relative;
     height: 80px;
-    padding: 0 30px;
+    padding: 20px 30px;
     background-color: var(--primary-color);
     display: flex;
     align-items: center;
@@ -24,6 +24,7 @@
     border-radius: 50%;
     background-size:100%;
     margin: 0 10px;
+    cursor: pointer;
 }
 
 .header-title{
@@ -31,7 +32,7 @@
 }
 
 .header-settings{
-    background: url(../../assets/settings.svg);
+    background: url(../../assets/document.svg);
     background-position: center;
     background-size: 100%;
     width: 40px;

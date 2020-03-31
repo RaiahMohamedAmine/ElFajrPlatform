@@ -9,6 +9,7 @@ import { getInputDate } from './Components/Presentationals/rdvs-list';
 import PrestationDialog from './Components/Presentationals/Dialogs/prestation-dlg';
 import PrestationDlg from './Components/Containers/PrestationDlg';
 import PrestationPage from './pages/prestation-page';
+import ArchivePage from './pages/archive-page';
 
 
 const ElFadjrApp = ({
@@ -25,6 +26,7 @@ const ElFadjrApp = ({
         <Route path='/malades/:id/Modifier' component={modifyPage}></Route>
         <Route path='/malades/:id/Rendez-Vous' component={rdvPage}></Route>
         <Route path='/malades/:id/Prestations' component={PrestationPage}></Route>
+        <Route path='/archives' component={ArchivePage}></Route>
     </HashRouter>
 }
 

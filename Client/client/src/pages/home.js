@@ -1,6 +1,6 @@
 import React from 'react'
 import './home.css'
-import Header from './../Components/Presentationals/header';
+import Header from './../Components/Presentationals/WithRouter/header';
 import MySearch from './../Components/Containers/Search';
 import Malades from './../Components/Containers/Malades';
 import AddBtn from '../Components/Presentationals/WithRouter/add-btn';

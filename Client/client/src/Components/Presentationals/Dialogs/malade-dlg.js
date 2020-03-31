@@ -28,8 +28,8 @@ const MaladeDlg = ({
                             {
                                 label: 'Oui',
                                 onClick: () => {
-                                    onClose()
                                     DeleteMalade(malade._id)
+                                    onClose()
                                 }
                             },
                             {
