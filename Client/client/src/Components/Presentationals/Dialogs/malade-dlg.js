@@ -85,6 +85,7 @@ const MaladeDlg = ({
             <div className='row justify-content-center'>
                 <div className='col-10 malade-field'>ID: <p>{malade._id}</p></div>
                 <div className='col-10 malade-field'>Date de Naissance : <p>{malade.dateNaissance}</p></div>
+                <div className='col-10 malade-field'>Adresse : <p>{malade.adresse}</p></div>
                 <div className='col-10 malade-field'>Situation Familiale: <p>{malade.situationFamilliale}</p></div>
                 <div className='col-10 malade-field'>Assuré(e): <p>{malade.assure ? "OUI" : "NON"}</p></div>
                 <div className='col-10 malade-field'>Adhérent(e): <p>{malade.adherent ? "OUI" : "NON"}</p></div>

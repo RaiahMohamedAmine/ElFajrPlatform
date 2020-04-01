@@ -26,7 +26,7 @@ const RdvsList = ({
                     </label>
                 </div>
             </div>
-            <div className='row rdvs-list-content'>
+            <div className='row rdvs-list-content' style={{height: rdvs.rdvs.length===0 ? '100%':'auto'}}>
                 {
                     rdvs.loadingRdvs ?
                         <div className='load' style={{ borderColor: 'white' }}></div>
