@@ -14,7 +14,7 @@ const RdvsList = ({
                 <div className='col-auto rdv-header'>
                     <p className='rdv-header-title'>Rendez Vous</p>
                     <p className='rdv-header-date'>{
-                        rdvs.dateRdvs=== getInputDate(new Date()) ? "Demain" : rdvs.dateRdvs
+                        rdvs.dateRdvs=== getInputDate() ? "Demain" : rdvs.dateRdvs
                     }</p>
                 </div>
                 <div className='col-auto'>
@@ -42,10 +42,13 @@ const RdvsList = ({
     </div>
 }
 
-export function getInputDate(Date){
-    const date = Date.getDate() < 9 ? "0" + Date.getDate() +1: Date.getDate() +1
-    const month = Date.getMonth() < 9 ? "0" + (Date.getMonth() + 1) : (Date.getMonth() + 1)
-    return Date.getFullYear() + "-" + month + "-" + date
+export function getInputDate()
+{
+    var tomoroow = new Date ();
+    tomoroow.setDate (tomoroow.getDate ()+1);
+    const date = tomoroow.getDate() < 10 ? "0" + tomoroow.getDate() : tomoroow.getDate() ;
+    const month = tomoroow.getMonth() < 9 ? "0" + (tomoroow.getMonth() + 1) : (tomoroow.getMonth() + 1);
+    return tomoroow.getFullYear() + "-" + month + "-" + date
 }
 export function getInputToday(){
     const today = new Date()

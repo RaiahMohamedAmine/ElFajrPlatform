@@ -1,7 +1,7 @@
 var ArchiveModel = require('../../Models/ArchiveModel');
 
 async function Get (req, res) {
-    ArchiveModel.find ({},{nom:1,prenom:1,photoIdentite:1,dateArchive:1,etat:1},(err, maladesArchive) => {
+    ArchiveModel.find ({}, {nom:1, prenom:1, photoIdentite:1, dateArchive :1, etat:1},(err, maladesArchive) => {
         if (err) {
             res.status(500).json ({
                 type: "Err" ,
