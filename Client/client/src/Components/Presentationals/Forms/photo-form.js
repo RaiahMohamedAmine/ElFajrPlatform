@@ -20,7 +20,7 @@ const PhotoForm = ({
                     :null
                 }
                 <div className={modify ? 'col-6' : 'col-10'}>
-                    <FileInput name='photoIdentite' title="Photo D'Identité" formdata={formdata}></FileInput>
+                    <FileInput name='photoIdentite' title="Photo D'Identité" formdata={formdata} required={modify? false : true}></FileInput>
                 </div>
                 {
                     modify ? 
@@ -30,7 +30,7 @@ const PhotoForm = ({
                     :null
                 }
                 <div className={modify ? 'col-6' : 'col-10'}>
-                    <FileInput name='anapathe' title="Scan" formdata={formdata}></FileInput>
+                    <FileInput name='anapathe' title="Anapathe" formdata={formdata} required={modify? false :true}></FileInput>
                 </div>
             </div>
             <div className='photo-form-btns'>

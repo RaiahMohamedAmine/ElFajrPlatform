@@ -27,9 +27,16 @@ const PersonalForm = ({
                 <TextField title='ID' type='number' required
                     value={formdata._id} name='_id' onChange={onChange} modify={modify}></TextField>
             </div>
-            <div className='col-9'>
+            <div className='col-8'>
                 <TextField title='Adresse' required
                     value={formdata.adresse} name='adresse' onChange={onChange}></TextField>
+            </div>
+            <div className='col-4'>
+                <DateInput name='dateNaissance' value={formdata.dateNaissance} onChange={onChange} title='Date de Naissance' modify={modify}></DateInput>
+            </div>
+            <div className='col-5'>
+                <TextField title='lieu' required
+                    value={formdata.lieu} name='lieu' onChange={onChange}></TextField>
             </div>
             <div className='col-3'>
                 <Select title='Sexe' required name='sexe' 
@@ -43,7 +50,7 @@ const PersonalForm = ({
                     name='situationFamilliale' value={formdata.situationFamilliale} onChange={onChange}>
                     <option value='marie(e)'>Marié(e)</option>
                     <option value='celibataire'>Célibataire</option>
-                    <option value='veuf()ve'>Veuf(ve)</option>
+                    <option value='veuf(ve)'>Veuf(ve)</option>
                     <option value='divorce(e)'>Divorce(e)</option>
                 </Select>
             </div>
@@ -55,13 +62,7 @@ const PersonalForm = ({
                 <TextField title='Profession' required
                     value={formdata.fonction} name='fonction' onChange={onChange}></TextField>
             </div>
-            <div className='col-3'>
-                <Select title='Assurance' required
-                    name='assure' value={formdata.assure} onChange={onChange}>
-                    <option value={true}>Assuré(e)</option>
-                    <option value={false}>Non Assuré(e)</option>
-                </Select>
-            </div>
+            
             <div className='col-3'>
                 <Select title='Type du Cancer' required modify={modify}
                     name='type' onChange={onChange}
@@ -70,13 +71,20 @@ const PersonalForm = ({
                     <option value='Sang'>Sang</option>
                     <option value='Foie'>Foie</option>
                     <option value='Sein'>Sein</option>
-                    <option value='Prosta'>Prostate</option>
+                    <option value='Prostate'>Prostate</option>
                     <option value='Vessie'>Vessie</option>
                     <option value='Peau'>Peau</option>
-                    <option value='Colore'>Colorectal</option>
+                    <option value='Colorectal'>Colorectal</option>
                     <option value='Utérus'>Utérus</option>
-                    <option value='Estoma'>Estomac</option>
+                    <option value='Estomac'>Estomac</option>
                     <option value='Gorge<'>Gorge</option>
+                </Select>
+            </div>
+            <div className='col-3'>
+                <Select title='Assurance' required
+                    name='assure' value={formdata.assure} onChange={onChange}>
+                    <option value={true}>Assuré(e)</option>
+                    <option value={false}>Non Assuré(e)</option>
                 </Select>
             </div>
             <div className='col-3'>
@@ -86,9 +94,7 @@ const PersonalForm = ({
                     <option value={false}>Non</option>
                 </Select>
             </div>
-            <div className='col-3'>
-                <DateInput name='dateNaissance' value={formdata.dateNaissance} onChange={onChange} title='Date de Naissance' modify={modify}></DateInput>
-            </div>
+            
         </div>
         <div className='button-container'>
             <Button>Suivant</Button>

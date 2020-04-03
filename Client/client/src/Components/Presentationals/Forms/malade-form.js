@@ -29,6 +29,7 @@ const MaladeForm = ({
         situationFamilliale: 'marie(e)',
         type: 'Foie',
         adresse: '',
+        lieu : '',
         adherent: true,
         tel: '',
         fonction: '',
@@ -66,7 +67,7 @@ const MaladeForm = ({
                             e => {
                                 e.preventDefault();
                                 var formdata = new FormData();
-                                const items = ['_id', 'nom', 'prenom', 'sexe', 'dateNaissance', 'assure', 'situationFamilliale', 'type', 'adresse', 'adherent', 'tel',
+                                const items = ['_id', 'nom', 'prenom', 'sexe', 'dateNaissance', 'lieu','assure', 'situationFamilliale', 'type', 'adresse', 'adherent', 'tel',
                                     'fonction', 'photoIdentite', 'anapathe', 'radio'];
                                 items.forEach((item) => {
                                     formdata.append(item, formValues[item]);
