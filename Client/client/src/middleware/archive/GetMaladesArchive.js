@@ -4,7 +4,7 @@ export default (data) => {
     return axios({
         method: "POST",
         data,
-        url: "http://localhost:5200/getMaladesArchive",
+        url: "http://localhost:5200/archive/get",
         headers: {
             Authorization: "Bearer ",// + "token",
             crossDomaine: true,

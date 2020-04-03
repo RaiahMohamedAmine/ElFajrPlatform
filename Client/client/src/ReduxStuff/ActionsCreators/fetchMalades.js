@@ -9,7 +9,7 @@ const fetchMalades = (key) => {
                 dispatch(requestMalade())
                 axios({
                         method : "POST" ,
-                        url : "http://localhost:5200/get",
+                        url : "http://localhost:5200/malade/get",
                         data : data ,
                         headers: {
                             Authorization : "Bearer",// + "token" ,

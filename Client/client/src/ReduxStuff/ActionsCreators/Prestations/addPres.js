@@ -9,7 +9,7 @@ const addPres = (prestation) => {
         axios({
             method: "POST",
             data: prestation,
-            url: "http://localhost:5200/addPrestation",
+            url: "http://localhost:5200/prestation/add",
             headers: {
                 Authorization: "Bearer ",// + "token",
                 crossDomaine: true,

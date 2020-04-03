@@ -1,8 +1,8 @@
 var prestation = require ('../handlers/prestationHandlers/index');
 
 module.exports= (app)=>{
-    app.post('/addPrestation', prestation.Add);
-    app.post('/getPrestation/:id', prestation.GetById);
-    app.post('/getPrestationByYear/:year', prestation.GetByYear);
-    app.post('/deletePrestation', prestation.Delete);
+    app.post('/prestation/add', prestation.Add);
+    app.post('/prestation/delete', prestation.Delete);
+    app.post('/prestation/byYear/:year', prestation.GetByYear);
+    app.post('/prestation/:id', prestation.GetById);
 };

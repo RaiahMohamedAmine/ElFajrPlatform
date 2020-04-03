@@ -71,9 +71,6 @@ const MaladeForm = ({
                                 items.forEach((item) => {
                                     formdata.append(item, formValues[item]);
                                 });
-                                console.log ('*******');
-                                console.log ('*******');
-                                console.log ('*******');
                                 console.log (formValues);
                                 onSubmit(formdata);
                                 onClose(e)

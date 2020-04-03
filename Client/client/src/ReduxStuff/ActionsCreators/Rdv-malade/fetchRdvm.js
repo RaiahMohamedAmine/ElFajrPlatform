@@ -9,7 +9,7 @@ const fetchRdvm=(id)=>{
         dispatch(requestRdvm())
         axios ({
             method: "POST",
-            url : "http://localhost:5200/getRdv/"+id,
+            url : "http://localhost:5200/rdv/"+id,
             headers :{
                 Authorization : "Bearer ",// + "token",
                 crossDomaine : true,

@@ -12,7 +12,7 @@ const fetchRdvs = (date) => {
                 axios({
                         method: "POST",
                         data :date,
-                        url : "http://localhost:5200/getRdvByDate",
+                        url : "http://localhost:5200/rdv/get/byDate",
                         headers :{
                             Authorization : "Bearer ",// + "token",
                             crossDomaine : true,

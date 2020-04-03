@@ -4,7 +4,7 @@ export default (data) => {
     axios({
         method :"POST" ,
         data : data ,
-        url : "http://localhost:5200/modify",
+        url : "http://localhost:5200/malade/modify",
         headers :{
             Authorization : "Bearer ",// + "token" ,
             crossDomaine : true

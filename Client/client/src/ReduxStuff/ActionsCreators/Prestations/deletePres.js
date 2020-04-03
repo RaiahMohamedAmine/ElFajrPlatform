@@ -10,7 +10,7 @@ const deletePres = (prestation) => {
         axios({
             method: "POST",
             data:prestation,
-            url: "http://localhost:5200/deletePrestation",
+            url: "http://localhost:5200/prestation/delete",
             headers: {
                 Authorization: "Bearer ",// + "token",
                 crossDomaine: true,

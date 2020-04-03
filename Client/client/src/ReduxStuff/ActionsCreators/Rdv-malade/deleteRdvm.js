@@ -10,7 +10,7 @@ const deleteRdvm = (data) => {
         axios ({
             method: "POST",
             data : data,
-            url : "http://localhost:5200/deleteRdv",
+            url : "http://localhost:5200/rdv/delete",
             headers :{
                 Authorization : "Bearer ",// + "token",
                 crossDomaine : true,

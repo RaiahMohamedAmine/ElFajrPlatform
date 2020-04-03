@@ -9,7 +9,7 @@ const fetchPres=(id)=>{
         dispatch(requestPres())
         axios ({
             method: "POST" ,
-            url : "http://localhost:5200/getPrestation/"+id,
+            url : "http://localhost:5200/prestation/"+id,
             headers : {
                 Authorization : "Bearer ",// + "token",
                 crossDomaine : true,

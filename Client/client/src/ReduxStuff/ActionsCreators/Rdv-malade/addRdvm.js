@@ -10,7 +10,7 @@ const addRdvm = (rdv) => {
         axios({
             method: "POST",
             data: rdv,
-            url: "http://localhost:5200/addRdv",
+            url: "http://localhost:5200/rdv/add",
             headers: {
                 Authorization: "Bearer ",// + "token",
                 crossDomaine: true,
