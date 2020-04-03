@@ -32,7 +32,7 @@ const RdvsList = ({
                         <div className='load' style={{ borderColor: 'white' }}></div>
                         :
                         rdvs.rdvs.length === 0 ?
-                            <div className='aucun-rdv'> Aucun Rendez Vous</div>
+                            <div className='aucun-rdv'> Aucun Rendez-Vous</div>
                             : rdvs.rdvs.map((rdv, i) => {
                                 return <ListRdvsItem rdv={rdv} key={i}></ListRdvsItem>
                             })
