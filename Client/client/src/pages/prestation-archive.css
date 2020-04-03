@@ -1,0 +1,10 @@
+.prestation-archive-container{
+    height: 100%;
+    width: 100%;
+    padding: 20px 30px;
+}
+.prestation-archive-list{
+    max-height: 100%;
+    scrollbar-width: none;
+    overflow-y: scroll;
+}

@@ -14,7 +14,6 @@ export default (data) => {
         if (res.data.type === "Err")
             throw new Error(res.data.message)
         else{
-            console.log(res.data)
             return res.data
         }
     });
