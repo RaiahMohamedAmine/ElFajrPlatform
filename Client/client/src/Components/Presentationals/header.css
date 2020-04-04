@@ -17,14 +17,20 @@
 }
 
 .header-logo{
-    background-image: url(../../assets/Logo.jpg);
+    background-image: url(../../assets/Logo\ El\ Fedjr.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     border: 10px solid white;
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-size:100%;
     margin: 0 10px;
     cursor: pointer;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 .header-title{

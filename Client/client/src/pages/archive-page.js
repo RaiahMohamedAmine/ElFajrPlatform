@@ -16,7 +16,6 @@ const ArchivePage = ({
         GetMaladesArchive().then(res => {
             setArchive(res.maladesArchive)
             setLoad(false)
-            console.log(archives)
         })
     }, [])
     return <div className='archive-page'>
