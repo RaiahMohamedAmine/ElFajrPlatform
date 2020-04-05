@@ -9,51 +9,133 @@ async function GetStatistics (req,res) {
             })
             return;
         };
-        var sexeStats={
-           Male :0 ,
-           Female: 0
-        };
-        var ageStats ={
-            "0To10" :0,
-            "10To20" :0,
-            "20To30": 0,
-            "30To40" : 0,
-            "40To50" : 0,
-            "50To60" : 0,
-            "60To70" : 0,
-            "70To80": 0
-        };
-        var situationStats= {
-            'marie(e)':0,
-            'celibataire':0,
-            'veuf(ve)' :0,
-            'divorce(e)' :0
-        };
 
-        var typeStats= {
-            'Poumon':0,
-            'Sang':0,
-            'Foie':0,
-            'Sein':0,
-            'Prostate':0,
-            'Vessie':0,
-            'Peau':0,
-            'Colorectal':0,
-            'Utérus':0,
-            'Estomac':0,
-            'Gorge':0,
-        };
-
-        var etatStats ={
-            'mort' :0,
-            'gueri' :0
-        };
+        var sexeStats=[
+            {
+                 name :'Male' ,
+                 value: 0
+             } ,
+             {
+                 name :'Female' ,
+                 value: 0
+             } ,
+        ];
+        var ageStats =[
+             {
+                 name :'0To10' ,
+                 value: 0
+             } ,
+             {
+                 name :'10To20' ,
+                 value: 0
+             } ,
+             {
+                 name :'20To30' ,
+                 value: 0
+             } ,
+             {
+                 name :'30To40' ,
+                 value: 0
+             } ,
+             {
+                 name :'40To50' ,
+                 value: 0
+             } ,
+             {
+                 name :'50To60' ,
+                 value: 0
+             } ,
+             {
+                 name :'60To70' ,
+                 value: 0
+             } ,
+             {
+                 name :'70To80' ,
+                 value: 0
+             } 
+        ]
+        var situationStats= [
+             {
+                 name :'marie(e)' ,
+                 value: 0
+             } ,
+             {
+                 name :'celibataire' ,
+                 value: 0
+             } ,
+             {
+                 name :'veuf(ve)' ,
+                 value: 0
+             } ,
+             {
+                 name :'divorce(e)' ,
+                 value: 0
+             }
+        ];
+ 
+        var typeStats= [
+             {
+                 name :'Poumon' ,
+                 value: 0
+             } ,
+             {
+                 name :'Sang' ,
+                 value: 0
+             } ,
+             {
+                 name :'Foie' ,
+                 value: 0
+             } ,
+             {
+                 name :'Sein' ,
+                 value: 0
+             } ,
+             {
+                 name :'Prostate' ,
+                 value: 0
+             } ,
+             {
+                 name :'Vessie' ,
+                 value: 0
+             } ,
+             {
+                 name :'Peau' ,
+                 value: 0
+             } ,
+             {
+                 name :'Colorectal' ,
+                 value: 0
+             } ,
+             {
+                 name :'Utérus' ,
+                 value: 0
+             } ,
+             {
+                 name :'Estomac' ,
+                 value: 0
+             } ,
+             {
+                 name :'Gorge' ,
+                 value: 0
+             }
+         ];
+ 
+         var etatStats= [
+             {
+                 name :'mort' ,
+                 value: 0
+             } ,
+             {
+                 name :'gueri' ,
+                 value: 0
+             } ,
+         ];
         malades.forEach(malade => {
-            sexeStats[malade.sexe]++;
+            malade.sexe==='Male' ? sexeStats[0].value++ : sexeStats[1].value++;
             setAge (malade.dateNaissance, ageStats);
-            situationStats[malade.situationFamilliale]++;
-            typeStats[malade.type]++;
-            etatStats[malade.etat]++;
+            setSituation (malade.situationFamilliale,situationStats);
+            setType (malade.type, typeStats);
+            malade.etat==='mort' ? etatStats[0].value++ : etatStats[1].value++;
         });
         res.status(200).json ({
             type : 'Info',
@@ -81,29 +163,28 @@ const calculateAge = (dateBirth) => {
     }
 };
 const setAge=  (dateBirth,ageStats)=>{
-    const age = calculateAge (dateBirth);
-    if (age>=0 && age<=10)
-                ageStats["0To10"]++;
-            else    
-                if (age>10 && age<=20)
-                    ageStats['10To20']++;
-                else
-                    if(age>20 && age<=30)
-                        ageStats['20To30']++;
-                    else    
-                        if (age>30 && age<=40)
-                            ageStats['30To40']++;
-                        else    
-                            if (age>40 && age<=50)
-                                ageStats['40To50']++;    
-                            else    
-                                if (age>50 && age<=60)
-                                    ageStats['50To60']++;
-                                else    
-                                    if (age>60 && age<=70)
-                                        ageStats['60To70']++;
-                                    else    
-                                        if (age>70 && age<=80)
-                                            ageStats['70To80']++;
-}
+    const age = calculateAge (dateBirth)-1;
+    const indice = age/10 >>0; 
+    ageStats[indice].value++;
+};
+
+const setSituation = (situationMalade, situationStats)=>{
+    situationStats.some(situation=>{
+        if (situationMalade===situation.name)
+        {
+            situation.value++;
+            return true;
+        };
+    });
+};
+
+const setType = (typeMalade, typeStats)=>{
+    typeStats.some(type=>{
+        if (typeMalade===type.name)
+        {
+            type.value++;
+            return true;
+        };
+    });
+};
 module.exports= GetStatistics;

@@ -9,68 +9,99 @@ async function GetStatistics (req,res){
             })
             return;
         };
-        var motifSocialeStats={
-            'Aide alimentaire':0,
-            'Aide en habillement':0,
-            'Aide matérielle':0,
-            'Aide pour fetes':0,
-            'Aide occasions religieuses':0,
-            'GENERAL' :0,
-        };
+        var socialeStats =[
+            {
+                name :'Aide alimentaire',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Aide en habillement',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Aide matérielle',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Aide pour fetes',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Aide occasions religieuses',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'GENERAL',
+                nb: 0,
+                montant :0
+            },
+        ];
 
-        var motifMedicaleStats={
-            'Imagerie' :0,
-            'Consultation générale' :0,
-            'Consultation spécialisée':0,
-            'Analyse labo':0,
-            'Médicament' :0,
-            'Para pharmacie' :0,
-            'GENERAL' :0
-        };
-
-        var montantSocialeStats= {
-            'Aide alimentaire':0,
-            'Aide en habillement':0,
-            'Aide matérielle':0,
-            'Aide pour fetes':0,
-            'Aide occasions religieuses':0,
-            'GENERAL' :0,
-        };
-
-        var montantMedicaleStats= {
-            'Imagerie' :0,
-            'Consultation générale' :0,
-            'Consultation spécialisée':0,
-            'Analyse labo':0,
-            'Médicament' :0,
-            'Para pharmacie' :0,
-            'GENERAL' :0
-        };
-
+        var medicalStats =[
+            {
+                name :'Imagerie',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Consultation générale',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Consultation spécialisée',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Analyse labo',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Médicament',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'GENERAL',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Para pharmacie',
+                nb: 0,
+                montant :0
+            },
+            
+        ];
         prestations.forEach(prestation => {
-            if (prestation.type==='medicale' ) {
-                motifMedicaleStats[prestation.motif]++;
-                motifMedicaleStats["GENERAL"]++;
-                montantMedicaleStats[prestation.motif]+=prestation.montant ;
-                montantMedicaleStats['GENERAL']+=prestation.montant ;
-            } 
-            else {
-                motifSocialeStats[prestation.motif]++;
-                motifSocialeStats["GENERAL"]++;
-                montantSocialeStats[prestation.motif]+=prestation.montant;
-                montantSocialeStats['GENERAL']+=prestation.montant;
-            }
-
+            prestation.type==='medicale' ? setStats (prestation,medicalStats) : setStats(prestation, socialeStats);
         });
         res.status(200).json({
             type:'Info',
             message : "Gettin Statistics",
-            motifMedicaleStats,
-            motifSocialeStats,
-            montantSocialeStats,
-            montantMedicaleStats,
-
+            medicalStats,
+            socialeStats
         });
+    });
+};
+
+const setStats = (prestation, Stats)=>{
+    Stats.some(stat=>{
+        if (prestation.motif=== stat.name)
+        {
+            stat.nb++;
+            stat.montant+=prestation.montant;
+            Stats[5].nb++;
+            Stats[5].montant+=prestation.montant;
+            return true;
+        }
     });
 };
 
