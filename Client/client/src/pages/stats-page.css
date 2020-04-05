@@ -1,0 +1,55 @@
+@import '../Base.css';
+
+.stats-page{
+    padding: 20px;
+}
+.chart-container{
+    background-color: white;
+    box-shadow: 1px 1px 5px var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100%;
+}
+.chart-container>p:nth-child(1){
+    color: var(--blue);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.n-malade-container{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+.n-malade{
+    display: flex;
+    padding: 30px;
+}
+
+.n-malade > p:nth-child(1){
+    position: relative;
+    left: 10%;
+    color: var(--blue);
+    font-size: 1.1rem;
+}
+.n-malade > p:nth-child(2){
+    position: absolute;
+    left: 60%;
+    color: grey;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.n-malade > p:nth-child(2)::after{
+    font-size: 1rem;
+    color: var(--blue);
+}
+
+.malades::after{
+    content: 'malades';
+}
+.morts::after{
+    content: 'morts';
+}
+.gueris::after{
+    content: 'guérisons';
+}

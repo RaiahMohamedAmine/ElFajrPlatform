@@ -10,6 +10,7 @@ import PrestationPage from './pages/prestation-page';
 import ArchivePage from './pages/archive-page';
 import ApercuArchive from './pages/apercu-archive';
 import PrestationArchive from './pages/prestation-archive';
+import StatsPage from './pages/stats-page';
 
 
 const ElFadjrApp = ({
@@ -29,6 +30,7 @@ const ElFadjrApp = ({
         <Route exact path='/archives/:id' component={ApercuArchive}></Route>
         <Route path='/archives/:id/Prestations' component={PrestationArchive}></Route>
         <Route path='/archives' component={ArchivePage}></Route>
+        <Route path='/statistiques' component={StatsPage}></Route>
     </HashRouter>
 }
 
