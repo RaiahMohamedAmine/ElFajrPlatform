@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './stats-page.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from '../Components/Presentationals/header'
 import {
     ResponsiveContainer, PieChart, Pie, XAxis, YAxis, Bar, BarChart, CartesianGrid,
-    Tooltip, Legend,LineChart,Line
+    Tooltip, Legend, LineChart, Line
 } from 'recharts';
 import Card from '../Components/Presentationals/card';
 import GetStats from '../middleware/malade/GetStatistics'
@@ -12,33 +12,56 @@ import GetStats from '../middleware/malade/GetStatistics'
 const StatsPage = ({
 
 }) => {
-    const data = [
-        { name: 'Group A', value: 400 }, { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 }, { name: 'Group D', value: 200 },
-    ];
-    const data1 = [
-        {
-            name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
-        },
-        {
-            name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
-        },
-        {
-            name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
-        },
-        {
-            name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
-        },
-        {
-            name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
-        },
-        {
-            name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
-        },
-        {
-            name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
-        },
-    ];
+    const [maladeStats, setMStats] = useState({})
+    const [Graphe1Data, setG1Data] = useState({
+        choice: 'sexe',
+        data: []
+    })
+    useEffect(() => {
+        GetStats().then(res => {
+            setMStats(res);
+            setG1Data({
+                ...Graphe1Data,
+                data: res.sexeStats
+            })
+        })
+    }, [])
+    const updateG1Data = (critere) => {
+        switch (critere) {
+            case 'sexe':
+                setG1Data({
+                    choice: 'sexe',
+                    data: maladeStats.sexeStats
+                })
+                break;
+            case 'type':
+                setG1Data({
+                    choice: 'type',
+                    data: maladeStats.typeStats
+                })
+                break;
+            case 'situation':
+                setG1Data({
+                    choice: 'situation',
+                    data: maladeStats.situationStats
+                })
+                break;
+            case 'assurance':
+                setG1Data({
+                    choice: 'assurance',
+                    data: maladeStats.assureStats
+                })
+                break;
+            case 'adherence':
+                setG1Data({
+                    choice: 'adherence',
+                    data: maladeStats.adherentStats
+                })
+                break;
+            default:
+                break;
+        }
+    }
     return <div>
         <Header />
         <div className='container-fluid stats-page'>
@@ -64,12 +87,35 @@ const StatsPage = ({
                     </Card>
                 </div>
                 <div className='col-6' style={{ marginTop: '15px' }}>
-                    <div className=' chart-container'>
+                    <div className='chart-container'>
                         <p>Graphe</p>
+                        <div className='radio-btns'>
+                            <div>
+                                <input checked={Graphe1Data.choice === 'sexe'} type='radio' name='graphe1' value='sexe' onChange={e => updateG1Data(e.target.value)}></input>
+                                <label>Sexe</label>
+                            </div>
+                            <div>
+                                <input checked={Graphe1Data.choice === 'situation'} type='radio' name='graphe1' value='situation' onChange={e => updateG1Data(e.target.value)}></input>
+                                <label>Situation</label>
+                            </div>
+                            <div>
+                                <input checked={Graphe1Data.choice === 'assurance'} type='radio' name='graphe1' value='assurance' onChange={e => updateG1Data(e.target.value)}></input>
+                                <label>Assurance</label>
+                            </div>
+                            <div>
+                                <input checked={Graphe1Data.choice === 'adherence'} type='radio' name='graphe1' value='adherence' onChange={e => updateG1Data(e.target.value)}></input>
+                                <label>Adherence</label>
+                            </div>
+                            <div>
+                                <input checked={Graphe1Data.choice === 'type'} type='radio' name='graphe1' value='type' onChange={e => updateG1Data(e.target.value)}></input>
+                                <label>Type</label>
+                            </div>
+                        </div>
                         <div style={{ width: '100%', height: '100%' }}>
                             <ResponsiveContainer>
                                 <PieChart>
-                                    <Pie dataKey="value" data={data} fill="#779da1" label />
+                                    <Tooltip />
+                                    <Pie dataKey="value" data={Graphe1Data.data} fill="#779da1" label />
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
@@ -82,26 +128,42 @@ const StatsPage = ({
                         <p>D'autres graphe</p>
                         <ResponsiveContainer>
                             <BarChart
-                                data={data1}
+                                data={maladeStats.ageStats}
                             >
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <XAxis dataKey="name" />
                                 <YAxis />
                                 <Tooltip />
-                                <Legend />
-                                <Bar dataKey="uv" barSize={60} fill="#bd1320" />
+                                {/* <Legend /> */}
+                                <Bar dataKey="value" barSize={60} fill="#bd1320" />
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
                 </div>
             </div>
             <div className='row justify-content-center'>
-                <div className='col-11'>
+                <div className='col-4'>
+                    <div className='chart-container' style={{ width: '100%', height: 400, marginTop: '50px' }}>
+                        <div className='chart-container-prestation' style={{ height: '100%', width: '100%' }}>
+                            <h1>General</h1>
+                            <p>10000200</p>
+                            <div style={{ width: '100%', height: '100%' }}>
+                                <ResponsiveContainer>
+                                    <PieChart>
+                                        <Tooltip />
+                                        <Pie dataKey="value" data={[{ name: 'Medicale', value: 900 }, { name: 'Sociale', value: 500 }]} fill="#779da1" label />
+                                    </PieChart>
+                                </ResponsiveContainer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-7'>
                     <div className='chart-container' style={{ width: '100%', height: 400, marginTop: '50px' }}>
                         <p>D'autres graphe</p>
                         <ResponsiveContainer>
                             <LineChart
-                                data={data1}
+                                data={maladeStats.ageStats}
                             >
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <XAxis dataKey="name" />

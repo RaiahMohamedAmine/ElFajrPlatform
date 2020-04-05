@@ -16,6 +16,25 @@
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
+.chart-container-prestation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.chart-container-prestation>h1{
+    color: var(--blue);
+    font-size: 1.7rem;
+}
+.chart-container-prestation>p{
+    color: grey;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.chart-container-prestation>p::after{
+    color: var(--blue);
+    content: 'Dzd';
+    font-size: 1rem;
+}
 .n-malade-container{
     display: flex;
     flex-direction: column;
@@ -52,4 +71,17 @@
 }
 .gueris::after{
     content: 'guérisons';
+}
+.radio-btns{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.radio-btns>*{
+    display: flex;
+    margin:0 10px;
+}
+.radio-btns>div>input{
+    margin-right: 4px;
 }
