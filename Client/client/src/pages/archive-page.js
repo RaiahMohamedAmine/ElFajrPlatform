@@ -27,7 +27,7 @@ const ArchivePage = ({
                     <div className='row archive-list' >
                         {
                             archives.map((malade,i) => <div className='col-3' key={i}>
-                                <ArchiveCard malade={malade} onClick={e=> history.push('archives/'+malade._id)}/>
+                                <ArchiveCard malade={malade} onClick={e=> history.push('/archives/'+malade._id)}/>
                             </div>)
                         }
                     </div>

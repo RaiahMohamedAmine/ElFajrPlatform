@@ -18,7 +18,7 @@ const ApercuArchive = ({
         fetchData()
     },[match])
     return <div>
-      <ArchiveDlg malade={malade} onClose={e=> history.goBack()} toPrestations={e=> history.push(`${match.params.id}/Prestations`)}/>
+      <ArchiveDlg malade={malade} onClose={e=> history.push('/archives')} toPrestations={e=> history.push(`${match.params.id}/Prestations`)}/>
     </div>
 }
 

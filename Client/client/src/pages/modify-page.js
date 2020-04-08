@@ -21,7 +21,7 @@ const ModifyPage = ({
         fetchData()
     }, [match])
     return state.loading ? <MainPage /> : <div>
-        <ModifyForm initValues={state.malade} onClose={e => history.goBack()} />
+        <ModifyForm initValues={state.malade} onClose={e => history.push('/')} />
         <MainPage />
     </div>
 }

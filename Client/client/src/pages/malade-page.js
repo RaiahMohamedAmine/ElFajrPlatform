@@ -17,7 +17,7 @@ const MaladePage = ({
         fetchData()
     },[match])
     return <div>
-        <MaladeDlg malade={malade} onClose={e => history.goBack()}
+        <MaladeDlg malade={malade} onClose={e => history.push('/')}
         onEdit={e=> history.push(`./${match.params.id}/Modifier`)} 
         toRdv={e=> history.push(`./${match.params.id}/Rendez-Vous`)}
         toPrestation={e=> history.push(`./${match.params.id}/Prestations`)}/>

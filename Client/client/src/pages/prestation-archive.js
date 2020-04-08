@@ -5,6 +5,7 @@ import Dialog from '../Components/Presentationals/Dialogs/dialog'
 import { withRouter } from 'react-router';
 import GetPrestationById from '../middleware/prestation/GetPrestationById.js'
 import PrestationCard from './../Components/Presentationals/prestation-card';
+import archivePage from './archive-page';
 
 
 const PrestationArchive = ({
@@ -16,7 +17,7 @@ const PrestationArchive = ({
         GetPrestationById(match.params.id).then(res => setPrestation(res.prestations))
     }, [])
     return <div>
-        <Dialog type='sm' onClose={e => history.goBack()}>
+        <Dialog type='sm' onClose={e => history.push('/archives')}>
             <div className='container prestation-archive-container'>
                 <div className='row justify-content-center'>
                     <div className="col-auto">

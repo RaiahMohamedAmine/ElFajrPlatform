@@ -8,7 +8,7 @@ const RdvPage=({
     match
 })=>{
     return <div>
-        <MaladeRdv id={match.params.id} onClose={e=>history.goBack()} />
+        <MaladeRdv id={match.params.id} onClose={e=>history.push('../../')} />
         <MainPage/>
     </div>
 }

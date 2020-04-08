@@ -7,7 +7,7 @@ const AddPage=({
     history
 })=>{
     return <div>
-         <AddForm onClose={e=>history.goBack()}
+         <AddForm onClose={e=>history.push('/')}
     ></AddForm>
     <MainPage></MainPage>
     </div>

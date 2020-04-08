@@ -17,7 +17,7 @@
 }
 
 .header-logo{
-    background-image: url(../../assets/Logo\ El\ Fedjr.svg);
+    background-image: url(../../assets/Logo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -36,13 +36,22 @@
 .header-title{
     color: white;
 }
-
-.header-settings{
-    background: url(../../assets/document.svg);
+.header-icons-container{
+    display: flex;
+    width: 200px;
+    justify-content: space-around;
+}
+.header-icon{
     background-position: center;
     background-size: 100%;
     width: 40px;
     height: 40px;
     cursor: pointer;
+}
+.header-archive-icon{
+    background-image: url(../../assets/document.svg);
+}
+.header-stats-icon{
+    background-image: url(../../assets/bars.svg);
 }
 

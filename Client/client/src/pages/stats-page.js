@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './stats-page.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from '../Components/Presentationals/header'
+import Header from '../Components/Presentationals/WithRouter/header'
 import {
     ResponsiveContainer, PieChart, Pie, XAxis, YAxis, Bar, BarChart, CartesianGrid,
     Tooltip, Legend, LineChart, Line
