@@ -5,6 +5,7 @@ const Header = ({
     toHome = f => f,
     toArchive = f => f,
     toStats=f=>f,
+    toChangePass =f=>f
 }) => {
     return <div className='header'>
         <div className='header-left'>
@@ -15,6 +16,8 @@ const Header = ({
             <div className='header-icon header-archive-icon' onClick={toArchive}>
             </div>
             <div className='header-icon header-stats-icon' onClick={toStats}>
+            </div>
+            <div className='header-icon header-settings-icon' onClick={toChangePass}>
             </div>
         </div>
     </div>

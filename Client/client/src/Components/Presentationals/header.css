@@ -54,4 +54,6 @@
 .header-stats-icon{
     background-image: url(../../assets/bars.svg);
 }
-
+.header-settings-icon{
+    background-image: url(../../assets/settings.svg);
+}

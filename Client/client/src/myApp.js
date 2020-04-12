@@ -4,6 +4,7 @@ import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 import ElFadjrApp from './Components/Containers/ElFadjrApp';
 import TextField from './Components/Presentationals/Form-Items/text-field';
 import Button from './Components/Presentationals/Buttons/button';
+import login from './middleware/login';
 
 
 const MyApp = () => {
@@ -15,12 +16,14 @@ const MyApp = () => {
             <Route path='/login' component={({ history }) => <div className='login-bg'>
                 <form className='login-form' onSubmit={e => {
                     e.preventDefault()
-                    if (mdp === 'nassim') {
-                        setLog(true)
-                        history.push('/')
-                    } else {
-                        setCorrect(false)
-                    }
+                    login({mdp}).then  (res=>{
+                        if (res.data.type==='Err')
+                            setCorrect (false);
+                        else {
+                            setLog (true);
+                            history.push ('/');
+                        }
+                    });
                 }}>
                     <p>Mot de passe</p>
                     <TextField onChange={e => { mdp = e.target.value }}></TextField>

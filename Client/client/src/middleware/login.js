@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export default (user)=> {
+export default (pass)=> {
     return axios ({
         method  :"POST",
-        data : user ,
+        data : pass ,
         url : "http://localhost:5200/login"
-    })
-}
+    });
+};

@@ -2,9 +2,9 @@ var express = require('express');
 var cookieParser = require ('cookie-parser');
 var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload') ;
-var jwt = require('jsonwebtoken');
 var cors = require('cors');
-var auth = require('./auth');
+var crypto = require ('crypto');
+var fs = require('fs');
 require('dotenv').config();
 require('./db');
 
@@ -27,20 +27,34 @@ require('./routes/prestationsRoutes') (app);
 require('./routes/archiveRoutes') (app);
 
 app.post ('/login', (req,res)=> {
-    var user = {
-        Email : req.body.Email,
-        mdp : req.body.mdp
-    }
-     auth.createToken(user,res)
+    const mdpHashed = crypto.pbkdf2Sync (req.body.mdp,process.env.SALT,10,100,'sha512').toString ();
+    var pass = fs.readFileSync('pass').toString ();
+    pass ===mdpHashed ? res.status(200).json ({
+        type :"Info"
+    }) : 
+    res.status (400).json ({
+        type: "Err"
+    });
 }) ;
 
-app.post('/VerifyAuth', (req,res)=> {
-    auth.VerifyToken (req.body.cookies,res)
-}
-)
+app.post ('/changePass',(req,res)=>{
+    const oldPassHashed = crypto.pbkdf2Sync (req.body.oldPass,process.env.SALT,10,100,'sha512').toString ();
+    const pass = fs.readFileSync('pass').toString();
+    if (oldPassHashed!==pass) {
+        res.status(400).json({
+            type:"Err",
+            message :" MDP Errone"
+        });
+        return;
+    };
+    const newPassHashed= crypto.pbkdf2Sync (req.body.newPass,process.env.SALT,10,100,'sha512').toString ();
+    fs.writeFileSync ('pass',newPassHashed, { encodding :'utf8', flag:'w'});
+    res.json ({
+        type:"Info", 
+        message :"Mot de passe change avec succes"
+    });
+});
 
-var port = 5200;
-
-app.listen (port, ()=>{
-    console.log("Server started at port : "+ port)
+app.listen (process.env.PORT ||5200, ()=>{
+    console.log("Server started at port : "+ 5200)
 })

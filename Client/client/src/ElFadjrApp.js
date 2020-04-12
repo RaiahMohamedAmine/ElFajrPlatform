@@ -11,7 +11,7 @@ import ArchivePage from './pages/archive-page';
 import ApercuArchive from './pages/apercu-archive';
 import PrestationArchive from './pages/prestation-archive';
 import StatsPage from './pages/stats-page';
-
+import ChangerMDP from './pages/changer-mdp';
 
 const ElFadjrApp = ({
     getRdv = f => f,
@@ -31,6 +31,7 @@ const ElFadjrApp = ({
         <Route path='/archives/:id/Prestations' component={PrestationArchive}></Route>
         <Route path='/archives' component={ArchivePage}></Route>
         <Route path='/statistiques' component={StatsPage}></Route>
+        <Route path='/changerMotDePasse' component={ChangerMDP}></Route>
     </HashRouter>
 }
 
