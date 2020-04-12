@@ -8,7 +8,7 @@ import prestations from './../Reducers/prestations';
 
 
 const createElFajrStore= ()=> {
-    return createStore(combineReducers({malades,rdvs,loadMalades,rdvm,prestations}),applyMiddleware(thunkMiddleware))
+    return createStore(combineReducers({malades,rdvs,rdvm,prestations}),applyMiddleware(thunkMiddleware))
 }
 
 export default createElFajrStore

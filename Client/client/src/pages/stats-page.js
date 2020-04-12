@@ -66,7 +66,7 @@ const StatsPage = ({
         <Header />
         <div className='container-fluid stats-page'>
             <div className='row first-row justify-content-center'>
-                <div className='col-5 n-malade-container'>
+                <div className='col-4 n-malade-container'>
                     <Card>
                         <div className='n-malade'>
                             <p>Nombre de Malades</p>
@@ -86,7 +86,7 @@ const StatsPage = ({
                         </div>
                     </Card>
                 </div>
-                <div className='col-6' style={{ marginTop: '15px' }}>
+                <div className='col-7' style={{ marginTop: '15px' }}>
                     <div className='chart-container'>
                         <p>Graphe</p>
                         <div className='radio-btns'>

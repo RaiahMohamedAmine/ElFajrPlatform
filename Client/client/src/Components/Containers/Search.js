@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import Search from './../Presentationals/search';
-import setMalades from './../../ReduxStuff/ActionsCreators/setMalades';
-import fetchMalades from './../../ReduxStuff/ActionsCreators/fetchMalades';
-import fetchMaladesById from './../../ReduxStuff/ActionsCreators/fetchMaladesById';
+import setMalades from './../../ReduxStuff/ActionsCreators/Malades/setMalades';
+import fetchMalades from './../../ReduxStuff/ActionsCreators/Malades/fetchMalades';
+import fetchMaladesById from './../../ReduxStuff/ActionsCreators/Malades/fetchMaladesById';
 
 
 const mapDispatchToProps = dispatch => ({

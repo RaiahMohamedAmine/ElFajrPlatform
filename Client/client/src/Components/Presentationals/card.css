@@ -4,4 +4,5 @@
     margin-top: 15px;
     background-color: white;
     box-shadow: 1px 1px 5px var(--secondary-color);
+    padding: 24px;
 }
