@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.set ('view engine', 'ejs');
 
+require ('./handlers/rdvHandlers/updatingDb') ();
 require ('./routes/maladeRoutes') (app);
 require('./routes/rdvRoutes') (app);
 require('./routes/prestationsRoutes') (app);
@@ -39,7 +40,7 @@ app.post ('/login', (req,res)=> {
 
 app.post ('/changePass',(req,res)=>{
     const oldPassHashed = crypto.pbkdf2Sync (req.body.oldPass,process.env.SALT,10,100,'sha512').toString ();
-    const pass = fs.readFileSync('pass').toString();
+    const pass = fs.readFileSync('pass', {encoding : 'utf8'}).toString();
     if (oldPassHashed!==pass) {
         res.status(400).json({
             type:"Err",
@@ -48,7 +49,7 @@ app.post ('/changePass',(req,res)=>{
         return;
     };
     const newPassHashed= crypto.pbkdf2Sync (req.body.newPass,process.env.SALT,10,100,'sha512').toString ();
-    fs.writeFileSync ('pass',newPassHashed, { encodding :'utf8', flag:'w'});
+    fs.writeFileSync ('pass',newPassHashed, { encoding :'utf8', flag:'w'});
     res.json ({
         type:"Info", 
         message :"Mot de passe change avec succes"
