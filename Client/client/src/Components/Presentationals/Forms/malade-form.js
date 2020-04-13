@@ -54,7 +54,7 @@ const MaladeForm = ({
                             }
                         } />
                     <PhotoForm formdata={formValues}
-                        modify
+                        modify = {modify}
                         onSubmit={
                             e => {
                                 e.preventDefault()

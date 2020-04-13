@@ -8,7 +8,7 @@ const PhotoForm = ({
     formdata,
     onSubmit = f => f,
     goBack = f => f,
-    modify=false
+    modify
 }) => {
     return <form className='container photo-form' onSubmit={onSubmit}>
             <div className='row justify-content-center align-items-center'>
@@ -20,7 +20,7 @@ const PhotoForm = ({
                     :null
                 }
                 <div className={modify ? 'col-6' : 'col-10'}>
-                    <FileInput name='photoIdentite' title="Photo D'Identité" formdata={formdata} required={modify? false : true}></FileInput>
+                    <FileInput name='photoIdentite' title="Photo D'Identité" formdata={formdata} required={!modify}></FileInput>
                 </div>
                 {
                     modify ? 
@@ -30,7 +30,7 @@ const PhotoForm = ({
                     :null
                 }
                 <div className={modify ? 'col-6' : 'col-10'}>
-                    <FileInput name='anapathe' title="Anapathe" formdata={formdata} required={modify? false :true}></FileInput>
+                    <FileInput name='anapathe' title="Anapathe" formdata={formdata} required={!modify}></FileInput>
                 </div>
             </div>
             <div className='photo-form-btns'>
