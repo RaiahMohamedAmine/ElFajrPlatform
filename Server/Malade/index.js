@@ -33,7 +33,7 @@ app.post ('/login', (req,res)=> {
     pass ===mdpHashed ? res.status(200).json ({
         type :"Info"
     }) : 
-    res.status (400).json ({
+    res.status(400).json ({
         type: "Err"
     });
 }) ;

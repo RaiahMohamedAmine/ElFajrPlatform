@@ -2,22 +2,12 @@ import axios from 'axios'
 import fetchPres from './fetchPres';
 import receivePres from './receiverPres';
 import requestPres from './requestPres';
+import AddPrestation from '../../../middleware/prestation/AddPrestation';
 
 const addPres = (prestation) => {
     return function (dispatch) {
         dispatch(requestPres())
-        axios({
-            method: "POST",
-            data: prestation,
-            url: "http://localhost:5200/prestation/add",
-            headers: {
-                Authorization: "Bearer ",// + "token",
-                crossDomaine: true,
-                'Content-Type' : 'application/json'            }
-        }).then(res => {
-            if (res.data.type === "Err") throw new Error(res.data.message)
-            else return res.data
-        })
+        AddPrestation(prestation)
         .then(response => dispatch(fetchPres(prestation.idMalade)))
             .then(response => dispatch(receivePres()))
     }

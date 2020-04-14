@@ -8,11 +8,13 @@ import {
 } from 'recharts';
 import Card from '../Components/Presentationals/card';
 import GetStats from '../middleware/malade/GetStatistics'
+import GetStatistics from '../middleware/prestation/GetStatistics';
 
 const StatsPage = ({
 
 }) => {
     const [maladeStats, setMStats] = useState({})
+    const [PrestationStats, setPStats] = useState({})
     const [Graphe1Data, setG1Data] = useState({
         choice: 'sexe',
         data: []
@@ -25,6 +27,11 @@ const StatsPage = ({
                 data: res.sexeStats
             })
         })
+        GetStatistics().then(res => {
+            console.log(res)
+            setPStats(res)
+        }
+        )
     }, [])
     const updateG1Data = (critere) => {
         switch (critere) {

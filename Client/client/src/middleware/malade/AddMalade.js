@@ -1,4 +1,5 @@
 import axios from 'axios' ;
+import { toastr } from 'react-redux-toastr';
 
 export default (data) => {
     return axios ({
@@ -11,9 +12,13 @@ export default (data) => {
             'Content-Type' : 'multipart/form-data'
         }
     }).then (res => {
-        if (res.data.type ==="Err")
+        if (res.data.type ==="Err"){
+            toastr.error('Erreur',"L'ajout a échoué")
             throw new Error (res.data.message)
-        else
+        }
+        else{
+            toastr.success('Succés','Malade Ajouté')   
             return res.data
+        }
     });
 };

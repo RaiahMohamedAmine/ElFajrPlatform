@@ -31,6 +31,10 @@
     height: 100%;
     width: 60%;
 }
+.dialog-popup-xs{
+    height: 400px;
+    width: 400px;
+}
 
 .dialog-content{
     position: absolute;

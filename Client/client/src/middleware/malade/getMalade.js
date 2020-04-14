@@ -3,7 +3,7 @@ import axios from 'axios' ;
 export default (data) => {
     return axios({
             method : "POST" ,
-            url : "http://localhost:5200/get",
+            url : "http://localhost:5200/malade/get",
             data : data ,
             headers: {
                 Authorization : "Bearer",// + "token" ,
