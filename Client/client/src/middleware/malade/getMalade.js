@@ -1,4 +1,5 @@
 import axios from 'axios' ;
+import { toastr } from 'react-redux-toastr';
 
 export default (data) => {
     return axios({

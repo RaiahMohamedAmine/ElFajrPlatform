@@ -27,7 +27,7 @@ const MyApp = () => {
                 }}>
                     <img src={logo} />
                     <p>Mot de passe</p>
-                    <TextField onChange={e => { mdp = e.target.value }}></TextField>
+                    <TextField onChange={e => { mdp = e.target.value }} type='password'></TextField>
                     <Button>Se connecter</Button>
                 </form>
             </div>} />

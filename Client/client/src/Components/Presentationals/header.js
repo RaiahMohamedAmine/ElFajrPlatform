@@ -10,7 +10,7 @@ const Header = ({
     return <div className='header'>
         <div className='header-left'>
             <span className='header-logo' onClick={toHome}></span>
-            <h2 className='header-title'>Association El Fadjr</h2>
+            <h2 className='header-title'>Association El Fedjr</h2>
         </div>
         <div className='header-icons-container'>
             <div className='header-icon header-archive-icon' onClick={toArchive}>
