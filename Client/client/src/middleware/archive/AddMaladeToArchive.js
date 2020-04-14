@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toastr } from 'react-redux-toastr'
 
 export default (data) => {
     return axios({
@@ -11,9 +12,13 @@ export default (data) => {
             'Content-Type': 'application/json'
         }
     }).then(res => {
-        if (res.data.type === "Err")
+        if (res.data.type === "Err") {
+            toastr.error('Erreur', "Impossible d'archiver")
             throw new Error(res.data.message)
-        else
+        }
+        else {
+            toastr.success('Succés','Malade Archivé')
             return res.data
+        }
     });
 };

@@ -1,4 +1,5 @@
 import axios from 'axios' ;
+import { toastr } from 'react-redux-toastr';
 
 export default (id) => {
     axios({
@@ -9,8 +10,12 @@ export default (id) => {
             crossDomaine : true
         }
     }).then (res => {
-        if (res.data.type ==="Err")
+        if (res.data.type ==="Err"){
+            toastr.error('Erreur','La suppression a échoué')
             throw new Error(res.data.message)
-        return res.data
+        }else {
+            toastr.success('Succés','Malade Supprimé')
+            return res.data
+        }
     })
 }

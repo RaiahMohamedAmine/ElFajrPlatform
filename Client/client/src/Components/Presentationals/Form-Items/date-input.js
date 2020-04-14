@@ -14,7 +14,7 @@ const DateInput=({
         {
             modify ?
         <input className='date-input-input' value={value} type='date' name= {name} onChange={onChange} disabled/> :
-        <input className='date-input-input' value={value} type='date' name= {name} max={getInputDate()} onChange={onChange} required/>
+        <input className='date-input-input' value={value} type='date' name= {name} min={getInputDate()} onChange={onChange} required/>
         }
     </div>
 }

@@ -1,4 +1,5 @@
 import axios from 'axios' ;
+import { toastr } from 'react-redux-toastr';
 
 export default (data) => {
     axios({
@@ -10,8 +11,13 @@ export default (data) => {
             crossDomaine : true
         }
     }).then (res => {
-        if (res.data.type ==="Err")
+        if (res.data.type ==="Err"){
+            toastr.error('Erreur','La Modification a echoué ')
             throw new Error(res.data.message)
-        return res.data
+        }
+        else{
+            toastr.success('Succés','Malade modifié')
+            return res.data
+        }
     })
 }
