@@ -22,9 +22,9 @@ const ChangeMDP = ({history})=>{
                     });
                 }}>
                     <h5>Ancien Mot de passe :</h5>
-                    <TextField onChange={e => { oldPass = e.target.value }}></TextField>
+                    <TextField onChange={e => { oldPass = e.target.value }} type="password"></TextField>
                     <h5>Nouveau Mot de passe :</h5>
-                    <TextField onChange={e => { newPass = e.target.value }}></TextField>
+                    <TextField onChange={e => { newPass = e.target.value }}  type="password"></TextField>
                     <Button>Changer</Button>
                 </form>
         </div>

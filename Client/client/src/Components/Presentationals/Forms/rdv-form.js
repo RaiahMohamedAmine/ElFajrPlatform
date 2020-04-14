@@ -28,7 +28,7 @@ const RdvForm = ({
     }}>
         <div className='row justify-content-center align-items-around rdv-form-content'>
             <div className='col-10'>
-                <DateInput title='Date' name='dateRDV'
+                <DateInput title='Date' name='dateRDV' rdv= 'true'
                     required onChange={setRdv} />
             </div>
             <div className='col-10'>

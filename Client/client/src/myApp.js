@@ -26,7 +26,7 @@ const MyApp = () => {
                     });
                 }}>
                     <p>Mot de passe</p>
-                    <TextField onChange={e => { mdp = e.target.value }}></TextField>
+                    <TextField onChange={e => { mdp = e.target.value }} type="password"></TextField>
                     <p style={{ opacity: correct ? '0' : '1' }}>Mot de passe incorrecte</p>
                     <Button>Se connecter</Button>
                 </form>

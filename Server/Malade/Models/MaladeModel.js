@@ -64,7 +64,7 @@ var MaladeShema = new schema({
         required : true
     },
     radio : {
-        type: Object,
+        type: [Object],
         required : false
     }
 })

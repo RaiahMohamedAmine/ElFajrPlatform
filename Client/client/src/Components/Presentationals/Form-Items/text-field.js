@@ -9,9 +9,9 @@ const TextField = ({
     onChange,
     value,
     name,
-    modify
+    modify,
 }) => {
-    type = ['text', 'number'].includes(type) ? type : 'text'
+    type = ['text', 'number', 'password'].includes(type) ? type : 'text'
     return <div className='text-field'>
         <label className='text-field-title'>{title}</label>
         {modify? 

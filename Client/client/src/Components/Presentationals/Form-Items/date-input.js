@@ -7,6 +7,7 @@ const DateInput=({
     onChange,
     modify,
     value,
+    rdv= false,
     required
 })=>{
     return <div className='date-input'>
@@ -14,15 +15,16 @@ const DateInput=({
         {
             modify ?
         <input className='date-input-input' value={value} type='date' name= {name} onChange={onChange} disabled/> :
-        <input className='date-input-input' value={value} type='date' name= {name} max={getInputDate()} onChange={onChange} required/>
+        <input className='date-input-input' value={value} type='date' name= {name} min={rdv ? getInputDate () : null} max={rdv? null: getInputDate(false)} onChange={onChange} required/>
         }
     </div>
 }
-function getInputDate()
+function getInputDate(tomorrow=true)
 {
-    var today = new Date ();
-    const date = today.getDate() < 10 ? "0" + today.getDate() : today.getDate() ;
-    const month = today.getMonth() < 9 ? "0" + (today.getMonth() + 1) : (today.getMonth() + 1);
-    return today.getFullYear() + "-" + month + "-" + date
+    var day = new Date ();
+    tomorrow ? day.setDate (day.getDate()+1): tomorrow =false;
+    const date = day.getDate() < 10 ? "0" + day.getDate() : day.getDate() ;
+    const month = day.getMonth() < 9 ? "0" + (day.getMonth() + 1) : (day.getMonth() + 1);
+    return day.getFullYear() + "-" + month + "-" + date
 }
 export default DateInput

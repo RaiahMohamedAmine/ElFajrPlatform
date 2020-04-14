@@ -62,7 +62,7 @@ const MaladeForm = ({
                             }
                         }
                         goBack={navigation.previous} />
-                    <RadioForm formdata={formValues}
+                    <RadioForm formdata={formValues} modify= {modify}
                         onSubmit={
                             e => {
                                 e.preventDefault();

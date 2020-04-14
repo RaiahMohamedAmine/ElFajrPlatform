@@ -7,7 +7,8 @@ import Button from '../Buttons/button';
 const RadioForm=({
     onSubmit,
     goBack,
-    formdata
+    formdata,
+    modify=false
 })=>{
     return <form className='container photo-form' onSubmit={onSubmit}>
     <div className='row justify-content-center'>
@@ -23,7 +24,7 @@ const RadioForm=({
             }}>Précédent</Button>
         </div>
         <div className='col-auto'>
-            <Button>Ajouter</Button>
+            <Button>{ modify ? "Modifier" :"Ajouter"}</Button>
         </div>
     </div>
 </form>
