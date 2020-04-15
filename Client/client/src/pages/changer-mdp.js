@@ -6,6 +6,7 @@ import Button from '../Components/Presentationals/Buttons/button';
 import ChangePass from '../middleware/ChangePass';
 import Dialog from '../Components/Presentationals/Dialogs/dialog';
 import MainPage from './home';
+import {toastr} from 'react-redux-toastr';
 
 const ChangeMDP = ({ history }) => {
     let oldPass = '';
@@ -16,10 +17,10 @@ const ChangeMDP = ({ history }) => {
                 e.preventDefault();
                 ChangePass({ oldPass, newPass }).then(res => {
                     if (res.data.type === 'Err') {
-                        console.log(res.data.message);
+                        toastr.error ('Erreur', "L'ancien mot de passe fourni est erroné")
                     }
                     else {
-                        console.log('MDP CHaNGER');
+                        toastr.success ('Succes !' , "Le mot de passe a bien ete changé")
                         history.push('/');
                     }
                 });

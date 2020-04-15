@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { toastr } from 'react-redux-toastr'
+import config from '../config';
 
 export default (data)=>{
     console.log (data)
     return axios ({
         method: "POST",
         data : data,
-        url : "http://localhost:5200/rdv/delete",
+        url : config.URL+":"+ config.PORT+"/rdv/delete",
         headers :{
             Authorization : "Bearer ",// + "token",
             crossDomaine : true,
@@ -21,5 +22,7 @@ export default (data)=>{
             toastr.success('Succés','Rendez-vous supprimé')
             console.log (res.data);
         }
-    })
+    }).catch (err=>{
+        toastr.error ('Erreur Fatale !', 'Assurez-vous que le serveur est bien en marche');
+    });
 };

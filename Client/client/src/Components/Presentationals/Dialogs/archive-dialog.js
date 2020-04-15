@@ -26,11 +26,11 @@ const ArchiveDlg = ({
                 <div className='col-10 malade-field'>Date de Naissance : <p>{malade.dateNaissance}</p></div>
                 <div className='col-10 malade-field'>Adresse : <p>{malade.adresse}</p></div>
                 <div className='col-10 malade-field'>Lieu des soins: <p>{malade.lieu}</p></div>
-                <div className='col-10 malade-field'>Situation Familiale: <p>{malade.situationFamilliale}</p></div>
+                <div className='col-10 malade-field'>Situation Familliale: <p>{malade.situationFamilliale}</p></div>
                 <div className='col-10 malade-field'>Sexe: <p>{malade.sexe}</p></div>
                 <div className='col-10 malade-field'>Fonction: <p>{malade.fonction}</p></div>
                 <div className='col-10 malade-field'>N° de telephone: <p>{malade.tel}</p></div>
-                <div className='col-10 malade-field'>Type Cancer: <p>{malade.type}</p></div>
+                <div className='col-10 malade-field'>Type du Cancer: <p>{malade.type}</p></div>
             </div>
             <div className='row justify-content-center modifier-btn'>
                 <Button onClick={toPrestations}>Prestations</Button>

@@ -1,9 +1,11 @@
 import axios from 'axios';
+import config from '../config';
+import {toastr} from 'react-redux-toastr';
 
 export default (id)=>{
     return axios ({
         method: "POST",
-        url : "http://localhost:5200/rdv/"+id,
+        url : config.URL+":"+ config.PORT+"/rdv/"+id,
         headers :{
             Authorization : "Bearer ",// + "token",
             crossDomaine : true,
@@ -15,5 +17,7 @@ export default (id)=>{
         else
             console.log (res.data.rdvs);
             return res.data.rdvs
-    })
+    }).catch (err=>{
+        toastr.error ('Erreur Fatale !', 'Assurez-vous que le serveur est bien en marche');
+    });
 };

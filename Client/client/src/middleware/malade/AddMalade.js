@@ -1,11 +1,12 @@
 import axios from 'axios' ;
 import { toastr } from 'react-redux-toastr';
+import config from '../config';
 
 export default (data) => {
     return axios ({
         method: "POST" ,
         data :data ,
-        url : "http://localhost:5200/malade/add",
+        url : config.URL+":"+ config.PORT+"/malade/add",
         headers : {
             Authorization : "Bearer ",// + "token",
             crossDomaine : true,
@@ -20,5 +21,7 @@ export default (data) => {
             toastr.success('Succés','Malade Ajouté')   
             return res.data
         }
+    }).catch (err=>{
+        toastr.error ('Erreur Fatale !', 'Assurez-vous que le serveur est bien en marche');
     });
 };

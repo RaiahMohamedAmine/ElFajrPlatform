@@ -1,9 +1,11 @@
 import axios from 'axios';
+import config from '../config';
+import {toastr} from 'react-redux-toastr';
 
 export default (year) => {
     return axios({
         method: "POST",
-        url: "http://localhost:5200/getPrestationByYear/" + year,
+        url: config.URL+":"+ config.PORT+"/getPrestationByYear/" + year,
         headers: {
             Authorization: "Bearer ",// + "token",
             crossDomaine: true,
@@ -14,5 +16,7 @@ export default (year) => {
             throw new Error(res.data.message)
         else
             return res.data
+    }).catch (err=>{
+        toastr.error ('Erreur Fatale !', 'Assurez-vous que le serveur est bien en marche');
     });
 };

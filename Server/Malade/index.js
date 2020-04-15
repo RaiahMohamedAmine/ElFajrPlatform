@@ -33,7 +33,7 @@ app.post ('/login', (req,res)=> {
     pass ===mdpHashed ? res.status(200).json ({
         type :"Info"
     }) : 
-    res.status(400).json ({
+    res.status(200).json ({
         type: "Err"
     });
 }) ;
@@ -42,7 +42,7 @@ app.post ('/changePass',(req,res)=>{
     const oldPassHashed = crypto.pbkdf2Sync (req.body.oldPass,process.env.SALT,10,100,'sha512').toString ();
     const pass = fs.readFileSync('pass', {encoding : 'utf8'}).toString();
     if (oldPassHashed!==pass) {
-        res.status(400).json({
+        res.status(200).json({
             type:"Err",
             message :" MDP Errone"
         });

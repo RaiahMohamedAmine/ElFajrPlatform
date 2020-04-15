@@ -19,11 +19,14 @@ const MyApp = () => {
                     e.preventDefault()
                     login({ mdp })
                     .then(res => {
+                        if (res.data.type==="Err") 
+                            toastr.error('Erreur','Mot de passe incorrecte')
+                        else{
                             toastr.success('Connexion réussie','Mot de passe correcte')
                             setLog(true);
                             history.push('/');
+                        }
                     })
-                    .catch(err=> toastr.error('Erreur','Mot de passe incorrecte'));
                 }}>
                     <img src={logo} />
                     <p>Mot de passe</p>
