@@ -3,7 +3,7 @@ import './Base.css'
 import logo from './assets/LogoElFedjr.svg'
 import { HashRouter, Route, Redirect, Switch } from 'react-router-dom';
 import ElFadjrApp from './Components/Containers/ElFadjrApp';
-import TextField from './Components/Presentationals/Form-Items/text-field';
+import PassField from './Components/Presentationals/Form-Items/password-field';
 import Button from './Components/Presentationals/Buttons/button';
 import login from './middleware/login';
 import { toastr } from 'react-redux-toastr';
@@ -30,7 +30,7 @@ const MyApp = () => {
                 }}>
                     <img src={logo} />
                     <p>Mot de passe</p>
-                    <TextField onChange={e => { mdp = e.target.value }} type='password'></TextField>
+                    <PassField onChange={e => { mdp = e.target.value }} type='password'></PassField>
                     <Button>Se connecter</Button>
                 </form>
             </div>} />

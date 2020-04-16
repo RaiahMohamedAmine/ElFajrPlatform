@@ -12,11 +12,7 @@ const DateInput=({
 })=>{
     return <div className='date-input'>
         <label className='date-input-title'>{title}</label>
-        {
-            modify ?
-        <input className='date-input-input' value={value} type='date' name= {name} onChange={onChange} disabled/> :
-        <input className='date-input-input' value={value} type='date' name= {name} min={rdv ? getInputDate () : null} max={rdv? null: getInputDate(false)} onChange={onChange} required/>
-        }
+        <input className='date-input-input' value={value} type='date' name= {name} min={rdv ? getInputDate () : null} max={rdv? null: getInputDate(false)} onChange={onChange} required disabled={modify}/>
     </div>
 }
 function getInputDate(tomorrow=true)

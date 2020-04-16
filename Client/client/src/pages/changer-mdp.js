@@ -1,7 +1,7 @@
 import React from 'react';
 import './changer-mdp.css';
 import { withRouter } from 'react-router';
-import TextField from '../Components/Presentationals/Form-Items/text-field';
+import PassField from '../Components/Presentationals/Form-Items/password-field';
 import Button from '../Components/Presentationals/Buttons/button';
 import ChangePass from '../middleware/ChangePass';
 import Dialog from '../Components/Presentationals/Dialogs/dialog';
@@ -25,10 +25,9 @@ const ChangeMDP = ({ history }) => {
                     }
                 });
             }}>
-                <h5>Ancien Mot de passe :</h5>
-                <TextField onChange={e => { oldPass = e.target.value }} type='password'></TextField>
-                <h5>Nouveau Mot de passe :</h5>
-                <TextField onChange={e => { newPass = e.target.value }} type='password'></TextField>
+                <PassField onChange={e => { oldPass = e.target.value }} title="Ancien mot de passe"></PassField>
+                <hr></hr>
+                <PassField onChange={e => { newPass = e.target.value }} title="Nouveau mot de passe" option="nouveau"></PassField>
                 <div className='change-mdp-form-btn'>
                     <Button>Changer</Button>
                 </div>

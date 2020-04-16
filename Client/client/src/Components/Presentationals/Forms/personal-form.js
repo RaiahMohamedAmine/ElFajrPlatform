@@ -24,11 +24,11 @@ const PersonalForm = ({
                     value={formdata.prenom} name='prenom' onChange={onChange} modify={modify}></TextField>
             </div>
             <div className='col-4'>
-                <TextField title='ID' type='number' required
+                <TextField title='ID' type='number' required type="id"
                     value={formdata._id} name='_id' onChange={onChange} modify={modify}></TextField>
             </div>
             <div className='col-8'>
-                <TextField title='Adresse' required
+                <TextField title='Adresse' required type='adresse'
                     value={formdata.adresse} name='adresse' onChange={onChange}></TextField>
             </div>
             <div className='col-4'>

@@ -1,12 +1,20 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
-  "main": "DBModel.js",
+  "description": "Un Logiciel ",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "node-scripts build ./Malade ./build"
   },
-  "author": "",
+  "author": "Raiah Mohamed Amine & Sehdi Mohammed Nassim",
+  "bugs": {
+    "url": "https://github.com/RaiahMohamedAmine/ElFajrPlatform/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaiahMohamedAmine/ElFajrPlatform.git"
+  },
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",

@@ -69,4 +69,8 @@ var MaladeShema = new schema({
     }
 })
 const Model = mongoose.model('Malade', MaladeShema, "malade")
+Model.collection.createIndex ({
+    nom:"text",
+    prenom :"text"
+});
 module.exports = Model
