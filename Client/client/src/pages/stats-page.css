@@ -1,36 +1,33 @@
 @import '../Base.css';
 
 .stats-page{
-    padding: 20px;
+    padding:  5vh 20px;
 }
-.chart-container{
-    background-color: white;
-    box-shadow: 1px 1px 5px var(--secondary-color);
+.chart-card{
     display: flex;
     flex-direction: column;
-    padding: 20px;
     height: 100%;
 }
-.chart-container>p:nth-child(1){
+.chart-card>p:nth-child(1){
     color: var(--blue);
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
-.chart-container-prestation{
+.chart-card-prestation{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.chart-container-prestation>h1{
+.chart-card-prestation>h1{
     color: var(--blue);
     font-size: 1.7rem;
 }
-.chart-container-prestation>p{
+.chart-card-prestation>p{
     color: grey;
     font-size: 2rem;
     font-weight: 600;
 }
-.chart-container-prestation>p::after{
+.chart-card-prestation>p::after{
     color: var(--blue);
     content: 'Dzd';
     font-size: 1rem;
@@ -38,7 +35,6 @@
 .n-malade-container{
     display: flex;
     flex-direction: column;
-    align-content: space-between;
 }
 .n-malade{
     display: flex;
@@ -61,6 +57,7 @@
 .n-malade > p:nth-child(2)::after{
     font-size: 1rem;
     color: var(--blue);
+    margin-left: 2px;
 }
 
 .malades::after{
@@ -72,16 +69,31 @@
 .gueris::after{
     content: 'guérisons';
 }
-.radio-btns{
-    display: flex;
+
+.prestation-chart-container{
+    height: 100%;
     width: 100%;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.prestation-chart-container>*:nth-child(1){
+    color: var(--blue);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.prestation-chart-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
-.radio-btns>*{
+.prestation-radio-btns{
     display: flex;
-    margin:0 10px;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-around;
 }
-.radio-btns>div>input{
-    margin-right: 4px;
+.prestation-radio-btns>div{
+    display: flex;
 }

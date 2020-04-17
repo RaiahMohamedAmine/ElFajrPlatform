@@ -1,0 +1,36 @@
+@import '../../../Base.css';
+
+.malade-pie-container{
+    padding: 12px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.malade-pie-container>*:nth-child(1){
+    color: var(--blue);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.malade-pie-left{
+    height: 100%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.radio-btns{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+}
+.radio-btns>*{
+    display: flex;
+    margin:0 10px;
+}
+.radio-btns>div>input{
+    margin-right: 4px;
+}

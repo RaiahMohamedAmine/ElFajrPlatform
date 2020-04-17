@@ -1,8 +1,10 @@
 @import '../../Base.css';
 
 .card{
-    margin-top: 15px;
+    margin: 0;
     background-color: white;
     box-shadow: 1px 1px 5px var(--secondary-color);
     padding: 24px;
+    height: 100%;
+    width: 100%;
 }
