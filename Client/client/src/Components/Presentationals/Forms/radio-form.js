@@ -12,6 +12,11 @@ const RadioForm=({
 })=>{
     return <form className='container photo-form' onSubmit={onSubmit}>
     <div className='row justify-content-center'>
+        {
+            modify? formdata.radio.map((r,i)=> <div className='col-4 photo' key={i}>
+            <div style={{backgroundImage: "url(data:image/jpeg;base64," + r + ")" }}/>
+        </div>) : null
+        }
         <div className='col-10 mt-4'>
             <FileInput name='radio' title="Radios" formdata={formdata}></FileInput>
         </div>

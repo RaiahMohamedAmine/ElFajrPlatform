@@ -1,4 +1,3 @@
-import axios from 'axios';
 import requestRdvm from './requestRdvm';
 import fetchRdvm from './fetchRdvm';
 import receiveRdvm from './receiveRdvm';

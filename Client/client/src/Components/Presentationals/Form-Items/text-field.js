@@ -23,7 +23,7 @@ const TextField = ({
         case 'number' : return <div className='text-field'>
             <label className='text-field-title'>{title}</label>
                 <input className='text-field-input' name={name} 
-                    value={value} type={type} pattern ="/^(00213|\+213|0)(5|6|7)[0-9]{8}$/"
+                    value={value} type='text' pattern ="0[5-7][0-9]{8}" maxLength="10"
                     title="Veuillez fournir un numero de telephone valide. Aucun espace nest demandé"
                     required onChange={onChange}></input>    
             </div>
@@ -43,6 +43,7 @@ const TextField = ({
             title= "Veuillez respecter le format : minuscule, majuscule avec espaces, minimum 3 lettres"
             required onChange={onChange} disabled={modify}></input>    
     </div>
+    default :return null
     }
 }
 

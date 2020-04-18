@@ -1,4 +1,3 @@
-import axios from 'axios';
 import requestPres from './requestPres';
 import fetchPres from './fetchPres';
 import receivePres from './receiverPres';
