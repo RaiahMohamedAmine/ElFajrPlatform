@@ -6,6 +6,7 @@ import DateInput from './../Form-Items/date-input';
 import Select from './../Form-Items/select';
 import Button from './../Buttons/button';
 import { useForm } from 'react-hooks-helper';
+import { getInputDate } from './../rdvs-list';
 
 const PrestationForm = ({
     onAdd = f => f,
@@ -34,7 +35,8 @@ const PrestationForm = ({
             </div>
             <div className='col-10'>
                 <DateInput title='Date' name='date'
-                    required onChange={setPres} />
+                    required onChange={setPres}
+                    min={getInputDate()} />
             </div>
             <div className='col-10'>
                 <TextField title='Montant' type='number' name='montant' required onChange={setPres} />

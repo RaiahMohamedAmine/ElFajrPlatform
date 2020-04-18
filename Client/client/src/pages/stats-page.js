@@ -4,34 +4,84 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from '../Components/Presentationals/WithRouter/header'
 import {
     ResponsiveContainer, PieChart, Pie, XAxis, YAxis, Bar, BarChart, CartesianGrid,
-    Tooltip, Legend, LineChart, Line
+    Tooltip, LineChart, Line, Legend
 } from 'recharts';
 import Card from '../Components/Presentationals/card';
-import GetStats from '../middleware/malade/GetStatistics'
-import GetStatistics from '../middleware/prestation/GetStatistics';
+import GetMStats from '../middleware/malade/GetStatistics'
+import GetPStats from '../middleware/prestation/GetStatistics';
+import GetAStats from '../middleware/archive/GetStatistics';
+import MaladePie from '../Components/Presentationals/Charts/malade-pie';
 
 const StatsPage = ({
 
 }) => {
+    const [pageStuff, setData] = useState({
+        loading: true,
+        nbApiCall: 3,
+    })
     const [maladeStats, setMStats] = useState({})
-    const [PrestationStats, setPStats] = useState({})
+    const [archiveStats, setAStats] = useState({})
+    const [prestationStats, setPStats] = useState({})
     const [Graphe1Data, setG1Data] = useState({
         choice: 'sexe',
         data: []
     })
+    const [typePres,settype]=useState('medical')
     useEffect(() => {
-        GetStats().then(res => {
-            setMStats(res);
+        GetMStats().then(res => {
+            console.log('malade')
+            console.log(res)
+            setData({
+                ...pageStuff,
+                nbApiCall: --pageStuff.nbApiCall
+            });
+            setMStats(res)
             setG1Data({
                 ...Graphe1Data,
                 data: res.sexeStats
             })
+            if (pageStuff.nbApiCall === 0) {
+                setData({
+                    ...pageStuff,
+                    loading: false
+                })
+            }
+
         })
-        GetStatistics().then(res => {
-            console.log(res)
-            setPStats(res)
-        }
-        )
+        GetPStats()
+            .then(res => {
+                console.log('prestation')
+                console.log(res)
+                setData({
+                    ...pageStuff,
+                    nbApiCall: --pageStuff.nbApiCall
+                })
+                setPStats(res)
+                if (pageStuff.nbApiCall === 0) {
+                    setData({
+                        ...pageStuff,
+                        loading: false
+                    })
+                }
+            }
+            )
+        GetAStats()
+            .then(res => {
+                console.log('archive')
+                console.log(res)
+                setData({
+                    ...pageStuff,
+                    nbApiCall: --pageStuff.nbApiCall
+                })
+                setAStats(res)
+                if (pageStuff.nbApiCall === 0) {
+                    setData({
+                        ...pageStuff,
+                        loading: false
+                    })
+                }
+            }
+            )
     }, [])
     const updateG1Data = (critere) => {
         switch (critere) {
@@ -77,109 +127,105 @@ const StatsPage = ({
                     <Card>
                         <div className='n-malade'>
                             <p>Nombre de Malades</p>
-                            <p className='malades'>80080</p>
+                            <p className='malades'>{pageStuff.loading ? '0' : maladeStats.sexeStats.reduce((x, y) => x + y.value, 0)}</p>
                         </div>
                     </Card>
+                    <div className='w-100' style={{ opacity: '0' }}>d</div>
                     <Card>
                         <div className='n-malade'>
                             <p>Nombre de Mort</p>
-                            <p className='morts'>80080</p>
+                            <p className='morts'>{pageStuff.loading ? '0' : archiveStats.etatStats[0].value}</p>
                         </div>
                     </Card>
+                    <div className='w-100' style={{ opacity: '0' }}>ds</div>
                     <Card>
                         <div className='n-malade'>
                             <p>Nombre de Guérison</p>
-                            <p className='gueris'>80080</p>
+                            <p className='gueris'>{pageStuff.loading ? '0' : archiveStats.etatStats[1].value}</p>
                         </div>
                     </Card>
                 </div>
-                <div className='col-7' style={{ marginTop: '15px' }}>
-                    <div className='chart-container'>
-                        <p>Graphe</p>
-                        <div className='radio-btns'>
-                            <div>
-                                <input checked={Graphe1Data.choice === 'sexe'} type='radio' name='graphe1' value='sexe' onChange={e => updateG1Data(e.target.value)}></input>
-                                <label>Sexe</label>
-                            </div>
-                            <div>
-                                <input checked={Graphe1Data.choice === 'situation'} type='radio' name='graphe1' value='situation' onChange={e => updateG1Data(e.target.value)}></input>
-                                <label>Situation</label>
-                            </div>
-                            <div>
-                                <input checked={Graphe1Data.choice === 'assurance'} type='radio' name='graphe1' value='assurance' onChange={e => updateG1Data(e.target.value)}></input>
-                                <label>Assurance</label>
-                            </div>
-                            <div>
-                                <input checked={Graphe1Data.choice === 'adherence'} type='radio' name='graphe1' value='adherence' onChange={e => updateG1Data(e.target.value)}></input>
-                                <label>Adherence</label>
-                            </div>
-                            <div>
-                                <input checked={Graphe1Data.choice === 'type'} type='radio' name='graphe1' value='type' onChange={e => updateG1Data(e.target.value)}></input>
-                                <label>Type</label>
-                            </div>
-                        </div>
-                        <div style={{ width: '100%', height: '100%' }}>
+                <div className='col-7'>
+                    <Card>
+                        <MaladePie choice={Graphe1Data.choice} data={Graphe1Data.data} title='Graphe' onChange={e => updateG1Data(e.target.value)} />
+                    </Card>
+                </div>
+            </div>
+            <div className='row justify-content-center' style={{ marginTop: '50px' }}>
+                <div className='col-11'>
+                    <Card>
+                        <div className='chart-card' style={{ width: '100%', height: 400 }}>
+                            <p>D'autres graphe</p>
                             <ResponsiveContainer>
-                                <PieChart>
+                                <BarChart
+                                    data={maladeStats.ageStats}
+                                >
+                                    <XAxis dataKey="name" />
+                                    <YAxis />
                                     <Tooltip />
-                                    <Pie dataKey="value" data={Graphe1Data.data} fill="#779da1" label />
-                                </PieChart>
+                                    <Bar dataKey="value" barSize={60} fill="#779da1" />
+                                </BarChart>
                             </ResponsiveContainer>
                         </div>
-                    </div>
+                    </Card>
                 </div>
             </div>
-            <div className='row justify-content-center'>
-                <div className='col-11'>
-                    <div className='chart-container' style={{ width: '100%', height: 400, marginTop: '50px' }}>
-                        <p>D'autres graphe</p>
-                        <ResponsiveContainer>
-                            <BarChart
-                                data={maladeStats.ageStats}
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <Tooltip />
-                                {/* <Legend /> */}
-                                <Bar dataKey="value" barSize={60} fill="#bd1320" />
-                            </BarChart>
-                        </ResponsiveContainer>
-                    </div>
-                </div>
-            </div>
-            <div className='row justify-content-center'>
+            <div className='row justify-content-center' style={{ marginTop: '50px ' }}>
                 <div className='col-4'>
-                    <div className='chart-container' style={{ width: '100%', height: 400, marginTop: '50px' }}>
-                        <div className='chart-container-prestation' style={{ height: '100%', width: '100%' }}>
-                            <h1>General</h1>
-                            <p>10000200</p>
-                            <div style={{ width: '100%', height: '100%' }}>
-                                <ResponsiveContainer>
-                                    <PieChart>
-                                        <Tooltip />
-                                        <Pie dataKey="value" data={[{ name: 'Medicale', value: 900 }, { name: 'Sociale', value: 500 }]} fill="#779da1" label />
-                                    </PieChart>
-                                </ResponsiveContainer>
+                    <Card>
+                        <div className='chart-card' style={{ width: '100%', height: 400 }}>
+                            <div className='chart-card-prestation' style={{ height: '100%', width: '100%' }}>
+                                <h1>General</h1>
+                                <p>{pageStuff.loading ? '0' : prestationStats.medicalStats.reduce((x, y) => x + y.montant, 0) +
+                                    prestationStats.socialeStats.reduce((x, y) => x + y.montant, 0)
+                                }</p>
+                                <div style={{ width: '100%', height: '100%' }}>
+                                    <ResponsiveContainer>
+                                        <PieChart>
+                                            <Tooltip />
+                                            <Pie dataKey="value"
+                                                data={[{ name: 'Medicale', value: pageStuff.loading ? 0 : prestationStats.medicalStats.reduce((x, y) => x + y.montant, 0) },
+                                                { name: 'Sociale', value: pageStuff.loading ? 0 : prestationStats.socialeStats.reduce((x, y) => x + y.montant, 0) }]}
+                                                fill="#779da1" label />
+                                        </PieChart>
+                                    </ResponsiveContainer>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Card>
                 </div>
                 <div className='col-7'>
-                    <div className='chart-container' style={{ width: '100%', height: 400, marginTop: '50px' }}>
-                        <p>D'autres graphe</p>
-                        <ResponsiveContainer>
-                            <LineChart
-                                data={maladeStats.ageStats}
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <Tooltip />
-                                <Line type="monotone" dataKey="uv" stroke="#779da1" />
-                            </LineChart>
-                        </ResponsiveContainer>
-                    </div>
+                    <Card>
+                        <div className='prestation-chart-container' style={{ width: '90%', height: 400, }}>
+                            <p>D'autres graphe</p>
+                            <div className='prestation-chart-content' style={{ height: '100%', width: '100%' }}>
+                                <div className='prestation-radio-btns'>
+                                    <div>
+                                        <input checked={typePres === 'medical'} type='radio' name='prestation-graphe' value='medical' onChange={e=> settype('medical')}></input>
+                                        <label>Médicale</label>
+                                    </div>
+                                    <div>
+                                        <input checked={typePres === 'sociale'} type='radio' name='prestation-graphe' value='sociale' onChange={e=> settype('sociale')}></input>
+                                        <label>Sociale</label>
+                                    </div>
+                                </div>
+                                <div style={{ height: '100%', width: '100%',}}>
+                                    <ResponsiveContainer>
+                                        <BarChart
+                                            data={pageStuff.loading ? null :typePres==='medical' ? prestationStats.medicalStats: prestationStats.socialeStats}
+                                            margin={{ top: 10, left: 30, right:0, bottom: 50 }}
+                                            barSize={30} 
+                                        >
+                                            <XAxis interval={0} dataKey="name"  padding={{ left: 10, right: 10 }} angle={-15} textAnchor='end' />
+                                            <YAxis />
+                                            <Tooltip />
+                                            <Bar dataKey="montant" fill="#779da1" />
+                                        </BarChart>
+                                    </ResponsiveContainer>
+                                </div>
+                            </div>
+                        </div>
+                    </Card>
                 </div>
             </div>
         </div>

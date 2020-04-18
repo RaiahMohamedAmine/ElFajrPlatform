@@ -6,6 +6,7 @@ import DateInput from './../Form-Items/date-input';
 import Select from './../Form-Items/select';
 import Button from './../Buttons/button';
 import { useForm } from 'react-hooks-helper';
+import { getInputDate } from './../rdvs-list';
 
 const RdvForm = ({
     onAdd = f => f,
@@ -29,7 +30,8 @@ const RdvForm = ({
         <div className='row justify-content-center align-items-around rdv-form-content'>
             <div className='col-10'>
                 <DateInput title='Date' name='dateRDV' rdv= 'true'
-                    required onChange={setRdv} />
+                    required onChange={setRdv}
+                    min={getInputDate()} />
             </div>
             <div className='col-10'>
                 <TextField title='Lieu' name='lieu' required onChange={setRdv} />

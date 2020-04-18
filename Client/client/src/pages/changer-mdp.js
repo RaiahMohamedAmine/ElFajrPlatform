@@ -26,7 +26,6 @@ const ChangeMDP = ({ history }) => {
                 });
             }}>
                 <PassField onChange={e => { oldPass = e.target.value }} title="Ancien mot de passe"></PassField>
-                <hr></hr>
                 <PassField onChange={e => { newPass = e.target.value }} title="Nouveau mot de passe" option="nouveau"></PassField>
                 <div className='change-mdp-form-btn'>
                     <Button>Changer</Button>

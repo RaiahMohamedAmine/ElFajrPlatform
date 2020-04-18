@@ -5,6 +5,7 @@ import TextField from '../Form-Items/text-field';
 import Select from '../Form-Items/select';
 import Button from '../Buttons/button';
 import DateInput from '../Form-Items/date-input';
+import {getInputToday } from './../rdvs-list';
 
 const PersonalForm = ({
     onChange,
@@ -32,7 +33,9 @@ const PersonalForm = ({
                     value={formdata.adresse} name='adresse' onChange={onChange}></TextField>
             </div>
             <div className='col-4'>
-                <DateInput name='dateNaissance' value={formdata.dateNaissance} onChange={onChange} title='Date de Naissance' modify={modify}></DateInput>
+                <DateInput name='dateNaissance' value={formdata.dateNaissance} onChange={onChange}
+                 title='Date de Naissance' modify={modify}
+                 max={getInputToday()}></DateInput>
             </div>
             <div className='col-5'>
                 <TextField title='lieu' required
