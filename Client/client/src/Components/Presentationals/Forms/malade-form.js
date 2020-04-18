@@ -8,6 +8,8 @@ import { useStep, useForm } from 'react-hooks-helper'
 import PersonalForm from './personal-form';
 import PhotoForm from './photo-form';
 import RadioForm from './radio-form';
+import FetchExist from '../../../middleware/malade/fetchExist' ;
+import { toastr } from 'react-redux-toastr';
 
 const MaladeForm = ({
     onClose = f => f,
@@ -48,8 +50,22 @@ const MaladeForm = ({
                         onSubmit={
                             e => {
                                 e.preventDefault()
-                                if (index === 0) {
-                                    navigation.next()
+                                if (modify){ 
+                                    if (index === 0) {
+                                        navigation.next()
+                                    }
+                                }
+                                else {
+                                    FetchExist(formValues._id).then (res=>{
+                                        if (res.data.malade) {
+                                            toastr.error ('Erreur !', "L'ID existe deja. Veuillez le changer")
+                                        }
+                                        else {
+                                            if (index === 0) {
+                                                navigation.next()
+                                            }
+                                        }
+                                    });
                                 }
                             }
                         } />

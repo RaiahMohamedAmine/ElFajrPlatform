@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 import { withRouter } from 'react-router';
-import getMaladeById from '../middleware/malade/getMaladeById'
-import ArchivePage from './archive-page';
 import ArchiveDlg from '../Components/Presentationals/Dialogs/archive-dialog';
 import GetMaladesArchive from '../middleware/archive/GetMaladeArchiveById';
 

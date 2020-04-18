@@ -1,6 +1,5 @@
 import requestRdvm from './requestRdvm';
 import receiveRdvm from './receiveRdvm';
-import axios  from 'axios';
 import fetchRdvm from './fetchRdvm';
 import DeleteRDV from '../../../middleware/rdv/DeleteRDV';
 

@@ -1,7 +1,6 @@
 import setMalades from './setMalades';
 import requestMalade from './requestMalades';
 import receiveMalades from './receiveMalades';
-import axios from 'axios';
 import getMalade from '../../../middleware/malade/getMalade';
 
 const fetchMalades = (key) => {

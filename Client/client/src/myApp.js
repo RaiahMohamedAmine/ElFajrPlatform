@@ -28,7 +28,7 @@ const MyApp = () => {
                         }
                     })
                 }}>
-                    <img src={logo} />
+                    <img src={logo} alt="Logo El Fedjr" />
                     <p>Mot de passe</p>
                     <PassField onChange={e => { mdp = e.target.value }} type='password'></PassField>
                     <Button>Se connecter</Button>

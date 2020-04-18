@@ -3,8 +3,8 @@ import './stats-page.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from '../Components/Presentationals/WithRouter/header'
 import {
-    ResponsiveContainer, PieChart, Pie, XAxis, YAxis, Bar, BarChart, CartesianGrid,
-    Tooltip, LineChart, Line, Legend
+    ResponsiveContainer, PieChart, Pie, XAxis, YAxis, Bar, BarChart,
+    Tooltip
 } from 'recharts';
 import Card from '../Components/Presentationals/card';
 import GetMStats from '../middleware/malade/GetStatistics'

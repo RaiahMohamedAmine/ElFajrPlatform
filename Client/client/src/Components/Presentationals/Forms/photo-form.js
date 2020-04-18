@@ -3,6 +3,7 @@ import './photo-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FileInput from '../Form-Items/file-input';
 import Button from '../Buttons/button';
+import Dialog from '../Dialogs/dialog';
 
 const PhotoForm = ({
     formdata,
@@ -15,7 +16,9 @@ const PhotoForm = ({
                 {
                     modify ? 
                     <div className='col-4 photo'>
-                        <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.photoIdentite + ")" }}/>
+                        <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.photoIdentite + ")" }} onClick={e=>  <Dialog> 
+                            <div >Any</div>
+                        </Dialog>}/>
                     </div>
                     :null
                 }

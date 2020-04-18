@@ -5,7 +5,6 @@ import Dialog from '../Components/Presentationals/Dialogs/dialog'
 import { withRouter } from 'react-router';
 import GetPrestationById from '../middleware/prestation/GetPrestationById.js'
 import PrestationCard from './../Components/Presentationals/prestation-card';
-import archivePage from './archive-page';
 
 
 const PrestationArchive = ({
