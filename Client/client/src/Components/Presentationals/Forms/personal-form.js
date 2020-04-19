@@ -25,7 +25,7 @@ const PersonalForm = ({
                     value={formdata.prenom} name='prenom' onChange={onChange} modify={modify}></TextField>
             </div>
             <div className='col-4'>
-                <TextField title='ID' required type="id"
+                <TextField title='ID' required type="number"
                     value={formdata._id} name='_id' onChange={onChange} modify={modify}></TextField>
             </div>
             <div className='col-8'>
@@ -58,7 +58,7 @@ const PersonalForm = ({
                 </Select>
             </div>
             <div className='col-4'>
-                <TextField title='N° de Téléphone' type='number' required
+                <TextField title='N° de Téléphone' type='tel' required
                     value={formdata.tel} name='tel' onChange={onChange}></TextField>
             </div>
             <div className='col-4'>

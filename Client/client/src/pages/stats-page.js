@@ -154,7 +154,7 @@ const StatsPage = ({
             <div className='row justify-content-center' style={{ marginTop: '50px' }}>
                 <div className='col-11'>
                     <Card>
-                        <div className='chart-card' style={{ width: '100%', height: 400 }}>
+                        <div className='chart-card' style={{ width: '100%', height: 500 }}>
                             <p>D'autres graphe</p>
                             <ResponsiveContainer>
                                 <BarChart
@@ -163,7 +163,7 @@ const StatsPage = ({
                                     <XAxis dataKey="name" />
                                     <YAxis />
                                     <Tooltip />
-                                    <Bar dataKey="value" barSize={60} fill="#779da1" />
+                                    <Bar dataKey="value" barSize={60} fill="#72c3e1" />
                                 </BarChart>
                             </ResponsiveContainer>
                         </div>
@@ -186,7 +186,8 @@ const StatsPage = ({
                                             <Pie dataKey="value"
                                                 data={[{ name: 'Medicale', value: pageStuff.loading ? 0 : prestationStats.medicalStats.reduce((x, y) => x + y.montant, 0) },
                                                 { name: 'Sociale', value: pageStuff.loading ? 0 : prestationStats.socialeStats.reduce((x, y) => x + y.montant, 0) }]}
-                                                fill="#779da1" label />
+                                                fill="#779da1" label>
+                                                </Pie>
                                         </PieChart>
                                     </ResponsiveContainer>
                                 </div>
@@ -213,7 +214,7 @@ const StatsPage = ({
                                     <ResponsiveContainer>
                                         <BarChart
                                             data={pageStuff.loading ? null :typePres==='medical' ? prestationStats.medicalStats: prestationStats.socialeStats}
-                                            margin={{ top: 10, left: 30, right:0, bottom: 50 }}
+                                            margin={{ top: 20, left: 40, right:0, bottom: 50 }}
                                             barSize={30} 
                                         >
                                             <XAxis interval={0} dataKey="name"  padding={{ left: 10, right: 10 }} angle={-15} textAnchor='end' />

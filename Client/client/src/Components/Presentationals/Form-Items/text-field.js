@@ -11,19 +11,19 @@ const TextField = ({
     name,
     modify =false,
 }) => {
-    type = ['text', 'number','id','adresse'].includes(type) ? type : 'text'; 
+    type = ['text', 'tel','number','adresse'].includes(type) ? type : 'text'; 
     switch (type) {
-        case 'id':
+        case 'number':
             return <div className='text-field'>
             <label className='text-field-title'>{title}</label>
                 <input className='text-field-input' name={name} 
                     value={value} type='number' 
                     required onChange={onChange} disabled={modify}></input>    
             </div>
-        case 'number' : return <div className='text-field'>
+        case 'tel' : return <div className='text-field'>
             <label className='text-field-title'>{title}</label>
                 <input className='text-field-input' name={name} 
-                    value={value} type='text' pattern ="0[5-7][0-9]{8}" maxLength="10"
+                    value={value} type='text' pattern ="0[5-7][0-9]{8}" maxLength="11"
                     title="Veuillez fournir un numero de telephone valide. Aucun espace nest demandé"
                     required onChange={onChange}></input>    
             </div>

@@ -27,7 +27,8 @@
     align-items: center;
     width: 30%;
 }
-.radio-btns>*{
+.radio-btns>div{
+    width: 10px;
     display: flex;
     margin:0 10px;
 }

@@ -1,6 +1,20 @@
 import React from 'react'
 import './malade-pie.css'
-import { ResponsiveContainer, PieChart, Tooltip, Pie } from 'recharts'
+import { ResponsiveContainer, PieChart, Tooltip, Pie, Cell, Legend } from 'recharts'
+
+const colors = [
+    '#009de0',
+    '#bd1320',
+    '#feed01',
+    '#f29400',
+    '#779da1',
+    '#72c3e1',
+    '#62e331',
+    '#7b03fc',
+    '#ca03fc',
+    '#03fce7',
+    '#aa91ab'
+]
 
 const MaladePie = ({
     choice,
@@ -36,8 +50,13 @@ const MaladePie = ({
             <div style={{ height: "100%", width: '70%' }}>
                 <ResponsiveContainer>
                     <PieChart>
+                        <Legend/>
                         <Tooltip />
-                        <Pie dataKey="value" data={data} fill="#779da1" label />
+                        <Pie dataKey="value" data={data} fill="#779da1" label>
+                            {data.map((entry, index) =>
+                                <Cell key={`cell-${index}`} fill={colors[index%11]} />
+                            )}
+                        </Pie>
                     </PieChart>
                 </ResponsiveContainer>
             </div>
