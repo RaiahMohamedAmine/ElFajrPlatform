@@ -147,7 +147,7 @@ const StatsPage = ({
                 </div>
                 <div className='col-7'>
                     <Card>
-                        <MaladePie choice={Graphe1Data.choice} data={Graphe1Data.data} title='Graphe' onChange={e => updateG1Data(e.target.value)} />
+                        <MaladePie id='maladePie' choice={Graphe1Data.choice} data={Graphe1Data.data} title='Graphe' onChange={e => updateG1Data(e.target.value)} />
                     </Card>
                 </div>
             </div>

@@ -96,4 +96,5 @@
 }
 .prestation-radio-btns>div{
     display: flex;
+    align-items: center;
 }

@@ -27,11 +27,9 @@
     align-items: center;
     width: 30%;
 }
-.radio-btns>div{
-    width: 10px;
+.radio-btns>*{
+    width: 20px;
     display: flex;
+    align-items: center;
     margin:0 10px;
-}
-.radio-btns>div>input{
-    margin-right: 4px;
 }
