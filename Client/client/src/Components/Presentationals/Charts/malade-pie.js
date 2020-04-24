@@ -17,6 +17,7 @@ const colors = [
 ]
 
 const MaladePie = ({
+    id,
     choice,
     data,
     title,
@@ -25,28 +26,28 @@ const MaladePie = ({
     return <div className='malade-pie-container'>
         <p>{title}</p>
         <div className='malade-pie-left'>
-            <div className='radio-btns'>
+            <form id={id} className='radio-btns'>
                 <div>
-                    <input checked={choice === 'sexe'} type='radio' name='graphe1' value='sexe' onChange={onChange}></input>
+                    <input id={id+'radio1'} checked={choice === 'sexe'} type='radio' name='graphe1' value='sexe' onChange={onChange}/>
                     <label>Sexe</label>
                 </div>
                 <div>
-                    <input checked={choice === 'situation'} type='radio' name='graphe1' value='situation' onChange={onChange}></input>
+                    <input id={id+'radio2'} checked={choice === 'situation'} type='radio' name='graphe1' value='situation' onChange={onChange}></input>
                     <label>Situation</label>
                 </div>
                 <div>
-                    <input checked={choice === 'assurance'} type='radio' name='graphe1' value='assurance' onChange={onChange}></input>
+                    <input id={id+'radio3'} checked={choice === 'assurance'} type='radio' name='graphe1' value='assurance' onChange={onChange}></input>
                     <label>Assurance</label>
                 </div>
                 <div>
-                    <input checked={choice === 'adherence'} type='radio' name='graphe1' value='adherence' onChange={onChange}></input>
+                    <input id={id+'radio4'} checked={choice === 'adherence'} type='radio' name='graphe1' value='adherence' onChange={onChange}></input>
                     <label>Adherence</label>
                 </div>
                 <div>
-                    <input checked={choice === 'type'} type='radio' name='graphe1' value='type' onChange={onChange}></input>
+                    <input id={id+'radio5'} checked={choice === 'type'} type='radio' name='graphe1' value='type' onChange={onChange}></input>
                     <label>Type</label>
                 </div>
-            </div>
+            </form>
             <div style={{ height: "100%", width: '70%' }}>
                 <ResponsiveContainer>
                     <PieChart>

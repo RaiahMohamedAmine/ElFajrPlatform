@@ -11,7 +11,7 @@ import { toastr } from 'react-redux-toastr';
 
 const MyApp = () => {
     let mdp = ''
-    const [logged, setLog] = useState(true)
+    const [logged, setLog] = useState(false)
     return <HashRouter>
         <Switch>
             <Route path='/login' component={({ history }) => <div className='login-bg'>

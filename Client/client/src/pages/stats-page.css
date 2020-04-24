@@ -28,8 +28,8 @@
     font-weight: 600;
 }
 .chart-card-prestation>p::after{
-    color: var(--blue);
-    content: 'Dzd';
+    color: "#779da1";
+    content: ' Dzd';
     font-size: 1rem;
 }
 .n-malade-container{
@@ -96,4 +96,5 @@
 }
 .prestation-radio-btns>div{
     display: flex;
+    align-items: center;
 }

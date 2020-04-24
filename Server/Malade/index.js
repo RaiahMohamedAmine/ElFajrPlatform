@@ -26,7 +26,9 @@ require ('./routes/maladeRoutes') (app);
 require('./routes/rdvRoutes') (app);
 require('./routes/prestationsRoutes') (app);
 require('./routes/archiveRoutes') (app);
-
+app.get('/', (req,res)=>{
+    res.send ('HellocWorld ')
+})
 app.post ('/login', (req,res)=> {
     const mdpHashed = crypto.pbkdf2Sync (req.body.mdp,process.env.SALT,10,100,'sha512').toString ();
     var pass = fs.readFileSync('pass').toString ();
@@ -56,6 +58,6 @@ app.post ('/changePass',(req,res)=>{
     });
 });
 
-app.listen (process.env.PORT ||5200, ()=>{
+app.listen (process.env.PORT || 5200, 'serverFedjr.dz', ()=>{
     console.log("Server started at port : "+ 5200)
 })

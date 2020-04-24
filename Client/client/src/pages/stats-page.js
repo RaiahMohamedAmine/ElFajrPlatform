@@ -147,7 +147,7 @@ const StatsPage = ({
                 </div>
                 <div className='col-7'>
                     <Card>
-                        <MaladePie choice={Graphe1Data.choice} data={Graphe1Data.data} title='Graphe' onChange={e => updateG1Data(e.target.value)} />
+                        <MaladePie id='maladePie' choice={Graphe1Data.choice} data={Graphe1Data.data} title='Graphe' onChange={e => updateG1Data(e.target.value)} />
                     </Card>
                 </div>
             </div>
@@ -155,15 +155,15 @@ const StatsPage = ({
                 <div className='col-11'>
                     <Card>
                         <div className='chart-card' style={{ width: '100%', height: 500 }}>
-                            <p>D'autres graphe</p>
+                            <p style={{color :"#413ea0"}}>Graphe d'age</p>
                             <ResponsiveContainer>
                                 <BarChart
-                                    data={maladeStats.ageStats}
+                                    data={maladeStats.ageStats} sroke="#f5f5f5"
                                 >
-                                    <XAxis dataKey="name" />
-                                    <YAxis />
+                                    <XAxis dataKey="name" label={{value :"Age (ans)" , position: 'insideBottomRight' }} />
+                                    <YAxis label={{value :"Nombre Malade" ,angle :-90, position: 'insideLeft'}} />
                                     <Tooltip />
-                                    <Bar dataKey="value" barSize={60} fill="#72c3e1" />
+                                    <Bar dataKey="value" barSize={40} fill="#413ea0" />
                                 </BarChart>
                             </ResponsiveContainer>
                         </div>
@@ -175,7 +175,7 @@ const StatsPage = ({
                     <Card>
                         <div className='chart-card' style={{ width: '100%', height: 400 }}>
                             <div className='chart-card-prestation' style={{ height: '100%', width: '100%' }}>
-                                <h1>General</h1>
+                            <h1 style={{color :"#779da1"}}>Dépenses Générale de l'année  {new Date().getFullYear()}</h1>
                                 <p>{pageStuff.loading ? '0' : prestationStats.medicalStats.reduce((x, y) => x + y.montant, 0) +
                                     prestationStats.socialeStats.reduce((x, y) => x + y.montant, 0)
                                 }</p>
@@ -198,7 +198,7 @@ const StatsPage = ({
                 <div className='col-7'>
                     <Card>
                         <div className='prestation-chart-container' style={{ width: '90%', height: 400, }}>
-                            <p>D'autres graphe</p>
+                            <p style={{color :"#779da1"}}>Graphe des Préstations de l'année  {new Date().getFullYear()}</p>
                             <div className='prestation-chart-content' style={{ height: '100%', width: '100%' }}>
                                 <div className='prestation-radio-btns'>
                                     <div>

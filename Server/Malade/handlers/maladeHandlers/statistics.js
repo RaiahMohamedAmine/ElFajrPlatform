@@ -21,35 +21,35 @@ async function GetStatistics (req,res) {
         ];
         var ageStats =[
             {
-                name :'0To10' ,
+                name :'0 à 10' ,
                 value: 0
             } ,
             {
-                name :'10To20' ,
+                name :'10 à 20' ,
                 value: 0
             } ,
             {
-                name :'20To30' ,
+                name :'20 à 30' ,
                 value: 0
             } ,
             {
-                name :'30To40' ,
+                name :'30 à 40' ,
                 value: 0
             } ,
             {
-                name :'40To50' ,
+                name :'40 à 50' ,
                 value: 0
             } ,
             {
-                name :'50To60' ,
+                name :'50 à 60' ,
                 value: 0
             } ,
             {
-                name :'60To70' ,
+                name :'60 à 70' ,
                 value: 0
             } ,
             {
-                name :'70To80' ,
+                name :'70 à 80' ,
                 value: 0
             } 
         ]
