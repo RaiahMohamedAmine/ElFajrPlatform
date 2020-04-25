@@ -11,7 +11,7 @@ const PrestationPage=({
 })=>{
     return <div>
         <PrestationDlg id={match.params.id} onClose={e=>history.push('/')} />
-        <MainPage/>
+        {/* <MainPage/> */}
     </div>
 }
 

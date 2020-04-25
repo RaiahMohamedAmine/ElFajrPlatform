@@ -9,7 +9,7 @@ const AddPage=({
     return <div>
          <AddForm onClose={e=>history.push('/')}
     ></AddForm>
-    <MainPage></MainPage>
+    {/* <MainPage></MainPage> */}
     </div>
 }
 
