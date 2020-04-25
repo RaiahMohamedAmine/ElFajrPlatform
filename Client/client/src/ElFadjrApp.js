@@ -41,7 +41,6 @@ const ElFadjrApp = ({
                     <Route path='/changerMotDePasse' component={ChangerMDP}></Route>
                     <Route path='/' component={
                         ({location})=>{
-                            console.log(location.pathname)
                             return <MainPage/>
                         }
                     } />
