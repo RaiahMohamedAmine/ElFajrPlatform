@@ -23,7 +23,7 @@ const MaladePage = ({
                 onEdit={e => history.push(`./${match.params.id}/Modifier`)}
                 toRdv={e => history.push(`./${match.params.id}/Rendez-Vous`)}
                 toPrestation={e => history.push(`./${match.params.id}/Prestations`)} />
-            {/* <MainPage /> */}
+            <MainPage />
         </div>
 }
 

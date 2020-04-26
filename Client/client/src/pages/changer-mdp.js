@@ -32,7 +32,7 @@ const ChangeMDP = ({ history }) => {
                 </div>
             </form>
         </Dialog>
-        {/* <MainPage /> */}
+        <MainPage />
     </div>
 }
 
