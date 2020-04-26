@@ -58,6 +58,6 @@ app.post ('/changePass',(req,res)=>{
     });
 });
 
-app.listen (process.env.PORT || 5200, 'serverFedjr.dz', ()=>{
+app.listen (process.env.PORT || 5200, 'localhost', ()=>{
     console.log("Server started at port : "+ 5200)
 })
