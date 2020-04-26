@@ -2,7 +2,7 @@ import axios from 'axios' ;
 import { toastr } from 'react-redux-toastr';
 import config from '../config';
 
-export default (data) => {
+export default (data, alternative=f=>f) => {
     return axios({
             method : "POST" ,
             url : config.URL+":"+ config.PORT+"/malade/get",
@@ -19,6 +19,7 @@ export default (data) => {
                 }
             }
         ).catch (err=>{
+            alternative()
             toastr.error ('Erreur Fatale !', 'Assurez-vous que le serveur est bien en marche');
         });
 } 
