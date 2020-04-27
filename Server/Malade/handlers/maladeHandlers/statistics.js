@@ -11,11 +11,11 @@ async function GetStatistics (req,res) {
         };
         var sexeStats=[
            {
-                name :'Masculin' ,
+                name :'Homme' ,
                 value: 0
             } ,
             {
-                name :'Féminin' ,
+                name :'Femme' ,
                 value: 0
             } ,
         ];
