@@ -1,4 +1,4 @@
 export default {
-    URL :"http://serverFedjr.dz",
+    URL :"http://localhost",
     PORT : 5200
 }

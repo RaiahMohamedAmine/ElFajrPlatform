@@ -176,16 +176,16 @@ const StatsPage = ({
                         <div className='chart-card' style={{ width: '100%', height: 400 }}>
                             <div className='chart-card-prestation' style={{ height: '100%', width: '100%' }}>
                             <h1 style={{color :"#779da1"}}>Dépenses Générale de l'année  {new Date().getFullYear()}</h1>
-                                <p>{pageStuff.loading ? '0' : prestationStats.medicalStats.reduce((x, y) => x + y.montant, 0) +
-                                    prestationStats.socialeStats.reduce((x, y) => x + y.montant, 0)
+                                <p>{pageStuff.loading ? '0' :  prestationStats.medicalStats.filter(s=> s.name==='GENERAL')[0].montant +
+                                     prestationStats.socialeStats.filter(s=> s.name==='GENERAL')[0].montant
                                 }</p>
                                 <div style={{ width: '100%', height: '100%' }}>
                                     <ResponsiveContainer>
                                         <PieChart>
                                             <Tooltip />
                                             <Pie dataKey="value"
-                                                data={[{ name: 'Medicale', value: pageStuff.loading ? 0 : prestationStats.medicalStats.reduce((x, y) => x + y.montant, 0) },
-                                                { name: 'Sociale', value: pageStuff.loading ? 0 : prestationStats.socialeStats.reduce((x, y) => x + y.montant, 0) }]}
+                                                data={[{ name: 'Medicale', value: pageStuff.loading ? 0 : prestationStats.medicalStats.filter(s=> s.name==='GENERAL')[0].montant },
+                                                { name: 'Sociale', value: pageStuff.loading ? 0 : prestationStats.socialeStats.filter(s=> s.name==='GENERAL')[0].montant }]}
                                                 fill="#779da1" label>
                                                 </Pie>
                                         </PieChart>
@@ -213,7 +213,7 @@ const StatsPage = ({
                                 <div style={{ height: '100%', width: '100%',}}>
                                     <ResponsiveContainer>
                                         <BarChart
-                                            data={pageStuff.loading ? null :typePres==='medical' ? prestationStats.medicalStats: prestationStats.socialeStats}
+                                            data={pageStuff.loading ? null :typePres==='medical' ? prestationStats.medicalStats.filter(pres=> pres.name!=='GENERAL'): prestationStats.socialeStats.filter(pres=> pres.name!=='GENERAL')}
                                             margin={{ top: 20, left: 40, right:0, bottom: 50 }}
                                             barSize={30} 
                                         >
