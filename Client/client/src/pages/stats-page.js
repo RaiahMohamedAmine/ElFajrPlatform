@@ -29,8 +29,6 @@ const StatsPage = ({
     const [typePres,settype]=useState('medical')
     useEffect(() => {
         GetMStats().then(res => {
-            console.log('malade')
-            console.log(res)
             setData({
                 ...pageStuff,
                 nbApiCall: --pageStuff.nbApiCall
@@ -50,8 +48,6 @@ const StatsPage = ({
         })
         GetPStats()
             .then(res => {
-                console.log('prestation')
-                console.log(res)
                 setData({
                     ...pageStuff,
                     nbApiCall: --pageStuff.nbApiCall
@@ -67,8 +63,6 @@ const StatsPage = ({
             )
         GetAStats()
             .then(res => {
-                console.log('archive')
-                console.log(res)
                 setData({
                     ...pageStuff,
                     nbApiCall: --pageStuff.nbApiCall
