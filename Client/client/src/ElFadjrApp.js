@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { HashRouter, Route, Switch, BrowserRouter, Router } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import MainPage from './pages/home';
 import addPage from './pages/add-page';
 import maladePage from './pages/malade-page';
@@ -20,7 +20,7 @@ const ElFadjrApp = ({
     useEffect(() => {
         var date = getInputDate(new Date())
         getRdv(date)
-    }, [])
+    }, [getRdv])
     return <BrowserRouter>
         <Switch>
             <Route path='/archives' component={() => {

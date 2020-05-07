@@ -8,7 +8,7 @@ import PrestationCard from '../prestation-card';
 
 
 const PrestationDialog = ({
-    prestations=[],
+    prestations = [],
     loading,
     id,
     onAdd = f => f,
@@ -18,17 +18,22 @@ const PrestationDialog = ({
 }) => {
     useEffect(() => {
         fetchPrestation(id)
-    }, [])
+    }, [id,fetchPrestation])
     return <DialogTemplate title='Préstations' onClose={onClose}>
-        <div className='row justify-content-center prestation-list' style={{height: loading ? "100%":'auto'}}>
+        <div className='row justify-content-center prestation-list' style={{ height: loading || prestations.length === 0 ? "100%" : 'auto' }}>
             {loading ?
                 <span>
                     <div className='loading'></div>
                 </span>
                 :
-                prestations.map(
-                    (prestation,i)=> <PrestationCard key={i} idMalade={id} onDelete={onDelete} prestation={prestation}/>
-                )}
+                prestations.length === 0 ?
+                    <span>
+                        <p>Ce malade n'a bénéficié d'aucune prestation</p>
+                    </span>
+                    :
+                    prestations.map(
+                        (prestation, i) => <PrestationCard key={i} idMalade={id} onDelete={onDelete} prestation={prestation} />
+                    )}
         </div>
         <PrestationForm onAdd={onAdd} idMalade={id} />
     </DialogTemplate>

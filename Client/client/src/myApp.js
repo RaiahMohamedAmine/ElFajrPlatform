@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Base.css'
 import logo from './assets/LogoElFedjr.svg'
-import { HashRouter, Route, Redirect, Switch, BrowserRouter } from 'react-router-dom';
+import { Route, Redirect, Switch, BrowserRouter } from 'react-router-dom';
 import ElFadjrApp from './Components/Containers/ElFadjrApp';
 import PassField from './Components/Presentationals/Form-Items/password-field';
 import Button from './Components/Presentationals/Buttons/button';
@@ -11,7 +11,7 @@ import { toastr } from 'react-redux-toastr';
 
 const MyApp = () => {
     let mdp = ''
-    const [logged, setLog] = useState(false)
+    const [logged, setLog] = useState(true)
     return <BrowserRouter>
         <Switch>
             <Route path='/login' component={({ history }) => <div className='login-bg'>
@@ -38,7 +38,6 @@ const MyApp = () => {
                 if (logged) {
                     return <ElFadjrApp />
                 } else {
-                    console.log('nassim')
                     return <Redirect to='/login' />
                 }
             }

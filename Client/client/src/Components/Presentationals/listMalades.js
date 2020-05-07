@@ -11,7 +11,7 @@ const ListMalades = ({
 }) => {
     useEffect(()=>{
         emptyList()
-    },[])
+    },[emptyList])
     if (malades!==null){
         if (malades.length===undefined)
         {

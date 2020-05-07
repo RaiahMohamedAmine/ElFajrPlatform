@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     if(data === "") 
       dispatch(setMalades([])) ;
     else{
-      if (parseInt(data)==data) //Case data is a digit
+      if (!isNaN(data)) //Case data is a digit
         dispatch(fetchMaladesById(data))
       else
         if(data.length>2)

@@ -1,4 +1,25 @@
 @import '../../../Base.css';
+
+.photo-malade-container{
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+}
+.photo-xl{
+    position: absolute;
+    height: 80%;
+    z-index: 11;
+    width: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+}
 .malade-dlg-container{
     width: 100%;
     height: 100%;
@@ -10,6 +31,7 @@
     display: none;
 }
 .malade-dlg-container  .photo{
+    cursor: pointer;
     height: 150px;
     width: 150px;
     border-radius: 50%;

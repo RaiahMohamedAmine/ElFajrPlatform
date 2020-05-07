@@ -18,10 +18,15 @@ const RdvDialog = ({
         fetchRdv(id)
     }, [id, fetchRdv])
     return <DialogTemplate onClose={onClose} title='Les Rendez Vous'>
-        <div className='row justify-content-center rdv-list' style={{height: loading ? "100%":'auto'}}>
+        <div className='row justify-content-center rdv-list' style={{height: loading || rdvs.length===0 ? "100%":'auto'}}>
             {loading ?
                 <span>
                     <div className='loading'></div>
+                </span>
+                :
+                rdvs.length===0?
+                <span>
+                    <p>Ce malade n'a aucun rendz-vous</p>
                 </span>
                 :
                 rdvs.map((rdv, i) => {

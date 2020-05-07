@@ -14,7 +14,7 @@ const PrestationArchive = ({
     const [prestations, setPrestation] = useState([])
     useEffect(() => {
         GetPrestationById(match.params.id).then(res => setPrestation(res.prestations))
-    }, [])
+    }, [match.params.id])
     return <div>
         <Dialog type='sm' onClose={e => history.push('/archives')}>
             <div className='container prestation-archive-container'>

@@ -15,6 +15,9 @@
     justify-content: center;
     align-items: center;
 }
+.rdv-list > span > *{
+    font-size: 1.2rem;
+}
 
 .loading{
     width: 40px;

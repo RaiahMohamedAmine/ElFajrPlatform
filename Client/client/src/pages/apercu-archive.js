@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { withRouter, Redirect } from 'react-router';
 import ArchiveDlg from '../Components/Presentationals/Dialogs/archive-dialog';
 import GetMaladesArchive from '../middleware/archive/GetMaladeArchiveById';
-import ArchivePage from './archive-page';
 
 
 const ApercuArchive = ({

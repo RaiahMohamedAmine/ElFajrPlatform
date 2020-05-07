@@ -12,9 +12,8 @@ import GetPStats from '../middleware/prestation/GetStatistics';
 import GetAStats from '../middleware/archive/GetStatistics';
 import MaladePie from '../Components/Presentationals/Charts/malade-pie';
 
-const StatsPage = ({
-
-}) => {
+const StatsPage = (
+) => {
     const [pageStuff, setData] = useState({
         loading: true,
         nbApiCall: 3,
@@ -76,7 +75,7 @@ const StatsPage = ({
                 }
             }
             )
-    }, [])
+    },[])
     const updateG1Data = (critere) => {
         switch (critere) {
             case 'sexe':
