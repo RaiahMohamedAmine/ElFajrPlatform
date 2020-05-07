@@ -25,7 +25,7 @@ const TextField = ({
                 <input className='text-field-input' name={name} 
                     value={value} type='text' pattern ="0[5-7][0-9]{8}" maxLength="11"
                     title="Veuillez fournir un numero de telephone valide. Aucun espace nest demandé"
-                    required onChange={onChange}></input>    
+                    required ={required} onChange={onChange}></input>    
             </div>
         case 'adresse': 
             return <div className='text-field'>

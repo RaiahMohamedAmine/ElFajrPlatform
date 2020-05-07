@@ -62,6 +62,10 @@ const PersonalForm = ({
                     value={formdata.tel} name='tel' onChange={onChange}></TextField>
             </div>
             <div className='col-4'>
+                <TextField title='Autre N° de Téléphone' type='tel' 
+                    value={formdata.autreTel} name='autreTel' onChange={onChange}></TextField>
+            </div>
+            <div className='col-4'>
                 <TextField title='Profession' required
                     value={formdata.fonction} name='fonction' onChange={onChange}></TextField>
             </div>
@@ -80,7 +84,7 @@ const PersonalForm = ({
                     <option value='Colorectal'>Colorectal</option>
                     <option value='Utérus'>Utérus</option>
                     <option value='Estomac'>Estomac</option>
-                    <option value='Gorge<'>Gorge</option>
+                    <option value='Gorge'>Gorge</option>
                 </Select>
             </div>
             <div className='col-3'>
