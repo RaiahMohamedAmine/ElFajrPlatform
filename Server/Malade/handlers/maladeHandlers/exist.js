@@ -1,4 +1,5 @@
 var MaladeModel = require('../../Models/MaladeModel');
+var ArchiveModel = require('../../Models/ArchiveModel');
 
 async function Exist (req,res) {
     if (!req.params.id)
@@ -12,9 +13,15 @@ async function Exist (req,res) {
                 type: "Err", 
                 message : "Server not responding"
             });
-        res.status(200).json( {
-            malade
-        });
+        if (!malade)
+            res.status(200).json();
+        else {
+            ArchiveModel.findById (req.params.id, {_id:1}, (err,malade)=>{
+                res.status(200).json( {
+                    malade
+                });
+            });
+        }   
     });
 };
 

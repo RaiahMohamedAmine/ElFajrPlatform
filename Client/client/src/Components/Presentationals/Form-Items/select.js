@@ -7,7 +7,7 @@ const Select = ({
     name,
     onChange,
     value,
-    modify
+    modify =false
 }) => {
     return <div className='select'>
         <label>{title}</label>

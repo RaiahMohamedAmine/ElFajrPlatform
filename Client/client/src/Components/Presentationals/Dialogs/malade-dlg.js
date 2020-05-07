@@ -89,9 +89,10 @@ const MaladeDlg = ({
                 <div className='col-10 malade-field'>Situation Familiale: <p>{malade.situationFamilliale}</p></div>
                 <div className='col-10 malade-field'>Assuré(e): <p>{malade.assure ? "OUI" : "NON"}</p></div>
                 <div className='col-10 malade-field'>Adhérent(e): <p>{malade.adherent ? "OUI" : "NON"}</p></div>
-                <div className='col-10 malade-field'>Sexe: <p>{malade.sexe}</p></div>
+                <div className='col-10 malade-field'>Sexe: <p>{malade.sexe==='Female' ? 'Femme' : 'Homme'}</p></div>
                 <div className='col-10 malade-field'>Fonction: <p>{malade.fonction}</p></div>
                 <div className='col-10 malade-field'>N° de telephone: <p>{malade.tel}</p></div>
+                <div className='col-10 malade-field'>Autre N° de telephone: <p>{malade.autreTel? malade.autreTel : "Aucun"}</p></div>
                 <div className='col-10 malade-field'>Type Cancer: <p>{malade.type}</p></div>
             </div>
             <div className='row justify-content-between align-items-center modifier-btn'>

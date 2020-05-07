@@ -51,6 +51,10 @@ var MaladeShema = new schema({
         type: String,
         required : true
     },
+    autreTel : {
+        type: String,
+        required : false
+    },
     fonction : {
         type: String,
         required : true
