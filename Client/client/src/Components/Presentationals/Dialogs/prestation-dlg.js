@@ -5,7 +5,6 @@ import DialogTemplate from './two-col-dlg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PrestationForm from './../Forms/prestation-form';
 import PrestationCard from '../prestation-card';
-import Select from '../Form-Items/select';
 
 
 const PrestationDialog = ({

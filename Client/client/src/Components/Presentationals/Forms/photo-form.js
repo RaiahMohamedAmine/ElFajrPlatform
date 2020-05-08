@@ -9,6 +9,7 @@ const PhotoForm = ({
     formdata,
     onSubmit = f => f,
     goBack = f => f,
+    onPhotoClick,
     modify
 }) => {
     return <form className='container photo-form' onSubmit={onSubmit}>
@@ -16,9 +17,8 @@ const PhotoForm = ({
                 {
                     modify ? 
                     <div className='col-4 photo'>
-                        <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.photoIdentite + ")" }} onClick={e=>  <Dialog> 
-                            <div >Any</div>
-                        </Dialog>}/>
+                        <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.photoIdentite + ")" }} 
+                        onClick={e=> onPhotoClick("url(data:image/jpeg;base64," + formdata.photoIdentite + ")")}/>
                     </div>
                     :null
                 }
@@ -28,7 +28,8 @@ const PhotoForm = ({
                 {
                     modify ? 
                     <div className='col-4 photo'>
-                        <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.anapathe + ")" }}/>
+                        <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.anapathe + ")" }}
+                        onClick={e=> onPhotoClick( "url(data:image/jpeg;base64," + formdata.anapathe + ")")}/>
                     </div>
                     :null
                 }

@@ -15,6 +15,7 @@ const MaladeForm = ({
     onClose = f => f,
     initValues={},
     modify=false,
+    onPhotoClick,
     onSubmit
 }) => {
     const { index = 1, navigation } = useStep({ steps: 3 })
@@ -72,6 +73,7 @@ const MaladeForm = ({
                         } />
                     <PhotoForm formdata={formValues}
                         modify = {modify}
+                        onPhotoClick={onPhotoClick}
                         onSubmit={
                             e => {
                                 e.preventDefault()
