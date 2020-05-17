@@ -96,7 +96,7 @@ img {
     color: var(--secondary-color);
 }
 
-.copyright >p{
+.copyright >span{
     display: inline;
     cursor: pointer;
     transition: .3s all ease-in;
@@ -106,6 +106,6 @@ img {
     -o-transition: .3s all ease-in;
 }
 
-.copyright >p:hover{
+.copyright >span:hover{
     color: #444444;
 }

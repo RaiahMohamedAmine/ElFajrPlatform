@@ -13,7 +13,7 @@ const CV = ({
                 <p>{tel}</p>
             </div>
             <div className='cv-picture' style={{ backgroundImage: picture }}>
-                <img src={picture} alt="Photo d'identité"></img>
+                <img src={picture} alt={fullName}></img>
             </div>
         </div>
         <div className='cv-section'>
@@ -25,7 +25,7 @@ const CV = ({
             <div className='cv-links'>
                 {Object.keys(links).map(
                     (key, i) => {
-                        return <a key={i} href={links[key]} target='_blank'><img className='link-logo' src={'/imgs/' + key + '.png'} alt={key} /></a>
+                        return <a key={i} href={links[key]} target='link'><img className='link-logo' src={'/imgs/' + key + '.png'} alt={key} /></a>
                     }
                 )}
             </div>
