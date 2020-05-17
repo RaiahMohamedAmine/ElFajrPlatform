@@ -13,6 +13,7 @@ import PrestationArchive from './pages/prestation-archive';
 import StatsPage from './pages/stats-page';
 import ChangerMDP from './pages/changer-mdp';
 import PageIntrouvable from './pages/page-introuvable';
+import AboutUs from './pages/about-us';
 
 const ElFadjrApp = ({
     getRdv = f => f,
@@ -31,6 +32,7 @@ const ElFadjrApp = ({
                 </Route>
             }}></Route>
             <Route path='/statistiques' component={StatsPage}></Route>
+            <Route path='/about-us' component={AboutUs}></Route>
             <Route path='/Ajouter-Malade' component={addPage} />
             <Route exact path='/malades/:id' component={maladePage} />
             <Route path='/malades/:id/Modifier' component={modifyPage}></Route>

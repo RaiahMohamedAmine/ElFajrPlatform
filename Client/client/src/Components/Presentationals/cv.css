@@ -1,0 +1,100 @@
+@import '../../Base.css';
+.cv {
+    position: relative;
+    width: 100%;
+    padding: 32px;
+}
+
+.cv-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.cv-header>div:nth-child(1){
+    width: 70%;
+    margin: 0;
+    padding:0;
+}
+.cv-header>div:nth-child(1)>p:nth-child(1) {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+    margin: 0;
+}
+
+.cv-header>div:nth-child(1)>p:nth-child(2),.cv-header>div:nth-child(1)>p:nth-child(3) {
+    font-size: .8rem;
+    opacity: .7;
+    margin-bottom: 0;
+}
+.cv-header>.cv-picture{
+    height: 10vw;
+    width: 10vw;
+    background-color: blue;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    overflow: hidden;
+}
+
+.cv-section {
+    width: 100%;
+}
+
+.cv-section>h1 {
+    font: 1.4rem;
+    color: var(--primary-color);
+}
+
+.cv-section>.project-item {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 8px;
+}
+
+.cv-section>.project-item>span:nth-child(1) {
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-bottom: .5px black solid;
+    width: fit-content;
+}
+
+.cv-section>.project-item>span:nth-child(2), .cv-section>.summary-item {
+    font-size: .8rem;
+}
+.cv-section>.summary-item{
+    margin: 8px;
+}
+.cv-section>.cv-links{
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.cv-links> a{
+    padding: 5px;
+    cursor: pointer;
+}
+.link-logo{
+    height: 40px;
+    width: 40px;
+}
+
+.cv-section>.cv-skills{
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.cv-section>.cv-skills>span{
+    margin: 12px;
+    font-weight: 600;
+    border-bottom: 1px black solid;
+}

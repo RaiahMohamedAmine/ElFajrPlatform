@@ -1,0 +1,26 @@
+@import '../Base.css';
+
+.about-us{
+    position: relative;
+    height: fit-content;
+    min-height: 100vh;
+    /* width: 100vw; */
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.line-a-us{
+    position: absolute;
+    height: 80%;
+    width: 1px;
+    background-color: var(--primary-color);
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
