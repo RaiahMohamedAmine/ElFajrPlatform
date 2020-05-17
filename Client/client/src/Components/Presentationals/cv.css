@@ -11,7 +11,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 12px;
 }
 .cv-header>div:nth-child(1){
     width: 70%;
@@ -31,8 +31,8 @@
     margin-bottom: 0;
 }
 .cv-header>.cv-picture{
-    height: 10vw;
-    width: 10vw;
+    height: 8vw;
+    width: 8vw;
     background-color: blue;
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -47,7 +47,7 @@
 }
 
 .cv-section>h1 {
-    font: 1.4rem;
+    font: 1.6rem;
     color: var(--primary-color);
 }
 
@@ -58,24 +58,24 @@
 }
 
 .cv-section>.project-item>span:nth-child(1) {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     border-bottom: .5px black solid;
     width: fit-content;
 }
 
 .cv-section>.project-item>span:nth-child(2), .cv-section>.summary-item {
-    font-size: .8rem;
+    font-size: .9rem;
 }
 .cv-section>.summary-item{
     margin: 8px;
 }
-.cv-section>.cv-links{
-    width: 100%;
+.cv-links{
+    width: 50%;
     padding: 12px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .cv-links> a{
@@ -83,8 +83,8 @@
     cursor: pointer;
 }
 .link-logo{
-    height: 40px;
-    width: 40px;
+    height: 20px;
+    width: 20px;
 }
 
 .cv-section>.cv-skills{
