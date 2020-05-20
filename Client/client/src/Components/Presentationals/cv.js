@@ -21,16 +21,6 @@ const CV = ({
             <div className='summary-item'>{summary}</div>
         </div>
         <div className='cv-section'>
-            <h1>Contacts</h1>
-            <div className='cv-links'>
-                {Object.keys(links).map(
-                    (key, i) => {
-                        return <a key={i} href={links[key]} target='_blank'><img className='link-logo' src={'/imgs/' + key + '.png'} alt={key} /></a>
-                    }
-                )}
-            </div>
-        </div>
-        <div className='cv-section'>
             <h1>Projets</h1>
             {projects.map(
                 (project, i) => {
@@ -46,6 +36,16 @@ const CV = ({
             <div className='cv-skills'>
                 {skills.map(
                     (skill,i)=> <span key={i}>{skill}</span>
+                )}
+            </div>
+        </div>
+        <div className='cv-section'>
+            <h1>Contactez-moi</h1>
+            <div className='cv-links'>
+                {Object.keys(links).map(
+                    (key, i) => {
+                        return <a key={i} href={links[key]} target='_blank'><img className='link-logo' src={'/imgs/' + key + '.png'} alt={key} /></a>
+                    }
                 )}
             </div>
         </div>

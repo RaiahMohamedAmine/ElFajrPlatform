@@ -27,7 +27,7 @@ const MainPage = ({
             </div>
         </div>
     </div>
-    <p className='copyright'>Copyright &copy; 2019 Association El Fedjr Boumerdes. All Rights Reserved.| Privacy Policy.| <p onClick={e=> history.push('/about-us')}>About Us</p></p>
+    <p className='copyright'>Copyright &copy; {new Date().getFullYear()} Association El Fedjr Boumerdes. All Rights Reserved.| Privacy Policy.| <p onClick={e=> history.push('/about-us')}>About Us</p></p>
     </div>
 }
 
