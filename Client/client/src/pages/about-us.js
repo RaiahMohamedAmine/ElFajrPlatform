@@ -37,6 +37,7 @@ const nassim={
     ],
     picture:'/imgs/ImageCV.jpg'
 }
+<<<<<<< HEAD
 
 const amine= {
     
@@ -73,6 +74,9 @@ const amine= {
 const AboutUs=({
 
 })=>{
+=======
+const AboutUs=()=>{
+>>>>>>> 7e293bb12b8f66e29d1c89bafd1130de6822daab
     return <div className='about-us'>
         <div className='line-a-us'></div>
         <CV profil={amine}/>

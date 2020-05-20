@@ -26,8 +26,12 @@ const MainPage = ({
                 <Rdvs/>
             </div>
         </div>
+    <p className='copyright'>Copyright &copy; 2019 Association El Fedjr Boumerdes. All Rights Reserved.| Privacy Policy.| <span onClick={e=> history.push('/about-us')}>About Us</span></p>
     </div>
+<<<<<<< HEAD
     <p className='copyright'>Copyright &copy; {new Date().getFullYear()} Association El Fedjr Boumerdes. All Rights Reserved.| Privacy Policy.| <p onClick={e=> history.push('/about-us')}>About Us</p></p>
+=======
+>>>>>>> 7e293bb12b8f66e29d1c89bafd1130de6822daab
     </div>
 }
 

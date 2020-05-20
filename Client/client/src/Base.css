@@ -93,10 +93,19 @@ img {
 }
 
 .copyright {
+    font-size: .8rem;
     color: var(--secondary-color);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
 }
 
-.copyright >p{
+.copyright >span{
     display: inline;
     cursor: pointer;
     transition: .3s all ease-in;
@@ -106,6 +115,6 @@ img {
     -o-transition: .3s all ease-in;
 }
 
-.copyright >p:hover{
+.copyright >span:hover{
     color: #444444;
 }

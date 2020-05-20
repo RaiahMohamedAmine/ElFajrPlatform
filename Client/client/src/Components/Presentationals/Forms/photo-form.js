@@ -3,7 +3,6 @@ import './photo-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import FileInput from '../Form-Items/file-input';
 import Button from '../Buttons/button';
-import Dialog from '../Dialogs/dialog';
 
 const PhotoForm = ({
     formdata,

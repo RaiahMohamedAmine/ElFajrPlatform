@@ -4,16 +4,23 @@ import './cv.css'
 const CV = ({
     profil
 }) => {
-    const { links, projects, summary, picture, fullName, tel, mail ,skills} = profil
+    const { links, projects, summary, picture, fullName, tel, mail, skills } = profil
     return <div className='cv'>
         <div className='cv-header'>
             <div>
                 <p>{fullName}</p>
                 <p>{mail}</p>
                 <p>{tel}</p>
+                <div className='cv-links'>
+                    {Object.keys(links).map(
+                        (key, i) => {
+                            return <a key={i} href={links[key]} target='link'><img className='link-logo' src={'/imgs/' + key + '.png'} alt={key} /></a>
+                        }
+                    )}
+                </div>
             </div>
             <div className='cv-picture' style={{ backgroundImage: picture }}>
-                <img src={picture} alt="Photo d'identité"></img>
+                <img src={picture} alt={fullName}></img>
             </div>
         </div>
         <div className='cv-section'>
@@ -35,7 +42,7 @@ const CV = ({
             <h1>Compétences</h1>
             <div className='cv-skills'>
                 {skills.map(
-                    (skill,i)=> <span key={i}>{skill}</span>
+                    (skill, i) => <span key={i}>{skill}</span>
                 )}
             </div>
         </div>
