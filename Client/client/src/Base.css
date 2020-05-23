@@ -105,7 +105,7 @@ img {
     -o-transform: translateX(-50%);
 }
 
-.copyright >span{
+.copyright >strong{
     display: inline;
     cursor: pointer;
     transition: .3s all ease-in;
@@ -115,6 +115,6 @@ img {
     -o-transition: .3s all ease-in;
 }
 
-.copyright >span:hover{
+.copyright >strong:hover{
     color: #444444;
 }

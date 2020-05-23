@@ -19,16 +19,12 @@ const nassim={
             description:"WeatherLab est mon tout premier projet,implémenté en C# .net et Wpf. Il permet de faire des prédictions et prévisions météorologiques des Wilaya de l'Algérie."
         },
         {
-            name:'WeatherLab',
-            description:"WeatherLab est mon tout premier projet,implémenté en C# .net et Wpf. Il permet de faire des prédictions et prévisions météorologiques des Wilaya de l'Algérie."
+            name:'Care !T',
+            description:"Care-!T représente une solution mobile conçu afin vous donner un diagnostic minimaliste sur votre etat de santé, developpée lors d'une compétition en Espagne."
         },
         {
-            name:'WeatherLab',
-            description:"WeatherLab est mon tout premier projet,implémenté en C# .net et Wpf. Il permet de faire des prédictions et prévisions météorologiques des Wilaya de l'Algérie."
-        },
-        {
-            name:'WeatherLab',
-            description:'Weatherlab apllication chaba'
+            name:"CSE's Websites",
+            description:"Participation à la réalisation du site officiel du CLub Scientifique De l'ESI ainsi que les sites de multiples évenements"
         },
     ],
     skills:[
