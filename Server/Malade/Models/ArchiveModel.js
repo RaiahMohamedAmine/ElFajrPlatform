@@ -17,6 +17,10 @@ var ArchiveSchema = new mongoose.Schema({
         type: String,
         required : true
     },
+    dateAdhesion : {
+        type: String,
+        required: true
+    },
     dateNaissance :{
         type: String,
         required: true

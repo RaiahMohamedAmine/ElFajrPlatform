@@ -23,6 +23,7 @@ const ArchiveDlg = ({
             </div>
             <div className='row justify-content-center'>
                 <div className='col-10 malade-field'>ID: <p>{malade._id}</p></div>
+                <div className='col-10 malade-field'>Date d'Adhesion : <p>{malade.dateAdhesion}</p></div>
                 <div className='col-10 malade-field'>Date de Naissance : <p>{malade.dateNaissance}</p></div>
                 <div className='col-10 malade-field'>Adresse : <p>{malade.adresse}</p></div>
                 <div className='col-10 malade-field'>Lieu des soins: <p>{malade.lieu}</p></div>

@@ -8,18 +8,21 @@ const RadioForm=({
     onSubmit,
     goBack,
     formdata,
+    onPhotoClick,
     modify=false
 })=>{
     return <form className='container photo-form' onSubmit={onSubmit}>
     <div className='row justify-content-center'>
-        {
-            modify? formdata.radio.map((r,i)=> <div className='col-4 photo' key={i}>
-            <div style={{backgroundImage: "url(data:image/jpeg;base64," + r + ")" }}/>
-        </div>) : null
-        }
         <div className='col-10 mt-4'>
             <FileInput name='radio' title="Radios" formdata={formdata}></FileInput>
         </div>
+        {
+            modify? formdata.radio.map((r,i)=> <div className='col-4 photo' key={i}>
+            <div style={{backgroundImage: "url(data:image/jpeg;base64," + r + ")" }} 
+            onClick={e=> onPhotoClick("url(data:image/jpeg;base64," + r + ")")} />
+        </div>) : null
+        }
+        
     </div>
     <div className='photo-form-btns'>
     <div className='col-auto'>

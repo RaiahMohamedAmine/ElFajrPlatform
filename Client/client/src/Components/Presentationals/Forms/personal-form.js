@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './personal-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TextField from '../Form-Items/text-field';
@@ -13,12 +13,13 @@ const PersonalForm = ({
     formdata = {},
     modify
 }) => {
+    var [marie,ChangeMarie] = useState(true);
     return <form className='container personal-form'
         onSubmit={onSubmit}>
         <div className='row'>
             <div className='col-4'>
                 <TextField title='Nom' required
-                    value={formdata.nom} name='nom' onChange={onChange} modify={modify}></TextField>
+                    value={formdata.nom} name='nom' onChange={onChange} modify={marie}></TextField>
             </div>
             <div className='col-4'>
                 <TextField title='Prénom' required
@@ -50,9 +51,15 @@ const PersonalForm = ({
             </div>
             <div className='col-4'>
                 <Select title='Situation Familiale'
-                    name='situationFamilliale' value={formdata.situationFamilliale} onChange={onChange}>
-                    <option value='marie(e)'>Marié(e)</option>
+                    name='situationFamilliale' value={formdata.situationFamilliale} onChange={e=> {onChange(e); 
+                    if (e.target.value==='marie(e)') 
+                    {   ChangeMarie(false) }
+                    else {
+                        ChangeMarie (true);
+                    }
+                    }}>
                     <option value='celibataire'>Célibataire</option>
+                    <option value='marie(e)'>Marié(e)</option>
                     <option value='veuf(ve)'>Veuf(ve)</option>
                     <option value='divorce(e)'>Divorce(e)</option>
                 </Select>

@@ -83,6 +83,7 @@ const MaladeForm = ({
                         }
                         goBack={navigation.previous} />
                     <RadioForm formdata={formValues} modify= {modify}
+                    onPhotoClick={onPhotoClick}
                         onSubmit={
                             e => {
                                 e.preventDefault();

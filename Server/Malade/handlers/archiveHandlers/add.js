@@ -28,6 +28,7 @@ async function Add (req,res){
             lieu: malade.lieu,
             dateNaissance : malade.dateNaissance ,
             situationFamilliale : malade.situationFamilliale,
+            dateAdhesion : malade.dateAdhesion,
             type : malade.type,
             adresse : malade.adresse ,
             tel : malade.tel,
