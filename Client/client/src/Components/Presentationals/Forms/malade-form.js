@@ -63,6 +63,7 @@ const MaladeForm = ({
                                             toastr.error ('Erreur !', "L'ID existe deja. Veuillez le changer")
                                         }
                                         else {
+                                            console.log(res.data);
                                             if (index === 0) {
                                                 navigation.next()
                                             }
@@ -91,6 +92,7 @@ const MaladeForm = ({
                                 items.forEach((item) => {
                                     formdata.append(item, formValues[item]);
                                 });
+                                if (!modify) formdata.append ('dateAdhesion',new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate())
                                 console.log (formValues);
                                 onSubmit(formdata);
                                 onClose(e)

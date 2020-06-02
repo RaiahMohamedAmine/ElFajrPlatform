@@ -2,6 +2,7 @@ var maladeModel = require('../../Models/MaladeModel');
 
 async function Add (req, res)
 {
+    console.log(req.body)
     if (!req.body) {
         res.status(400).json({
             type:'Err',
@@ -11,7 +12,7 @@ async function Add (req, res)
     };
     req.body.photoIdentite = req.files['photoIdentite'].data;
     req.body.anapathe = req.files['anapathe'].data;
-    req.files['radio']?  req.body.radio = [req.files['radio'].data] : req.body.radio = []//null;
+    req.files['radio']?  req.body.radio = [req.files['radio'].data] : req.body.radio = [];
     var malade = new maladeModel(req.body);
     malade.save ((err,malade) => {
         if (err) {

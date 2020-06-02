@@ -55,6 +55,10 @@ var MaladeShema = new schema({
         type: String,
         required : false
     },
+    dateAdhesion : {
+        type: String,
+        required: false
+    },
     fonction : {
         type: String,
         required : true

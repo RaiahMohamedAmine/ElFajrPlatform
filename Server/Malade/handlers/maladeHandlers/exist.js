@@ -13,8 +13,8 @@ async function Exist (req,res) {
                 type: "Err", 
                 message : "Server not responding"
             });
-        if (!malade)
-            res.status(200).json();
+        if (malade)
+            res.status(200).json({malade});
         else {
             ArchiveModel.findById (req.params.id, {_id:1}, (err,malade)=>{
                 res.status(200).json( {
