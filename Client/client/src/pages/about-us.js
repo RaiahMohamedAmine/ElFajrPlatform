@@ -7,7 +7,7 @@ const nassim={
     tel:'0798497663',
     mail:'hm_sehdi@esi.dz',
     links:{
-        mail:'/imgs/mail.png',
+        mail:'',
         linkedin:'https://www.linkedin.com/in/mohammed-nassim-sehdi/',
         facebook:'https://www.facebook.com/mohamednassim.sehdi/',
         github:'https://github.com/SehdiNassim',  
@@ -37,10 +37,10 @@ const nassim={
 const amine= {
     
     fullName:'RAIAH Mohamed Amine',
-    tel:'0554704401',
+    tel:'0554704401 - 0798642428',
     mail:'hm_raiah@esi.dz',
     links:{
-        mail:'/imgs/mail.png',
+        mail:'',
         linkedin:'https://www.linkedin.com/in/mohamed-amine-raiah-00250718a/',
         facebook:'https://www.facebook.com/ami.nou.167/',
         github:'https://github.com/RaiahMohamedAmine',  

@@ -14,7 +14,7 @@ const CV = ({
                 <div className='cv-links'>
                     {Object.keys(links).map(
                         (key, i) => {
-                            return <a key={i} href={links[key]} target='link'><img className='link-logo' src={'/imgs/' + key + '.png'} alt={key} /></a>
+                            return <a key={i} href={key==='mail'? 'mailto:'+mail:links[key]} target='link'><img className='link-logo' src={'/imgs/' + key + '.png'} alt={key} /></a>
                         }
                     )}
                 </div>
