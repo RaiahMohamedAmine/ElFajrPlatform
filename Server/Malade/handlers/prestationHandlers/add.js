@@ -1,7 +1,6 @@
 var prestationModel = require('../../Models/PrestationModel');
 
 async function Add (req,res) {
-    console.log(req.body)
     if(!req.body)
     {
         res.status(400).json ({

@@ -9,6 +9,7 @@ import {
 import Card from '../Components/Presentationals/card';
 import GetMStats from '../middleware/malade/GetStatistics'
 import GetPStats from '../middleware/prestation/GetStatistics';
+import GetAllYears from '../middleware/prestation/GetAllYears';
 import GetAStats from '../middleware/archive/GetStatistics';
 import MaladePie from '../Components/Presentationals/Charts/malade-pie';
 
@@ -18,6 +19,8 @@ const StatsPage = (
         loading: true,
         nbApiCall: 3,
     })
+    var [anneePrestation,setAnneePrestation] = useState(new Date().getFullYear());
+    const [years, setYears]= useState([]) ;
     const [maladeStats, setMStats] = useState({})
     const [archiveStats, setAStats] = useState({})
     const [prestationStats, setPStats] = useState({})
@@ -45,6 +48,7 @@ const StatsPage = (
             }
 
         })
+        GetAllYears().then (res=> setYears( res.years));
         GetPStats()
             .then(res => {
                 setData({
@@ -168,7 +172,7 @@ const StatsPage = (
                     <Card>
                         <div className='chart-card' style={{ width: '100%', height: 400 }}>
                             <div className='chart-card-prestation' style={{ height: '100%', width: '100%' }}>
-                            <h1 style={{color :"#779da1"}}>Dépenses Générale de l'année  {new Date().getFullYear()}</h1>
+                            <h1 style={{color :"#779da1"}}>Dépenses Générale de l'année  {anneePrestation}</h1>
                                 <p>{pageStuff.loading ? '0' :  prestationStats.medicalStats.filter(s=> s.name==='GENERAL')[0].montant +
                                      prestationStats.socialeStats.filter(s=> s.name==='GENERAL')[0].montant
                                 }</p>
@@ -189,9 +193,18 @@ const StatsPage = (
                     </Card>
                 </div>
                 <div className='col-7'>
+                <select onChange={e=> 
+                {
+                    setAnneePrestation(e.target.value);
+                    GetPStats(e.target.value).then (res=>  setPStats(res) )}
+                }> 
+                        {
+                            years.map(year=><option key={year}>{year}</option>)
+                        }
+                </select>
                     <Card>
                         <div className='prestation-chart-container' style={{ width: '90%', height: 400, }}>
-                            <p style={{color :"#779da1"}}>Graphe des Préstations de l'année  {new Date().getFullYear()}</p>
+                            <p style={{color :"#779da1"}}>Graphe des Préstations de l'année  {anneePrestation}</p>
                             <div className='prestation-chart-content' style={{ height: '100%', width: '100%' }}>
                                 <div className='prestation-radio-btns'>
                                     <div>

@@ -1,7 +1,15 @@
 var PrestationModel = require ('../../Models/PrestationModel');
 
 async function GetStatistics (req,res){
-    PrestationModel.find ({annee :new Date().getFullYear ()}, {_id:0, idMalade:0}, (err, prestations)=>{
+    if (!req.params.year)
+    {
+        res.status(400).json ({
+            type:"Err",
+            message :"Bad request"
+        });
+        return;
+    }
+    PrestationModel.find ({annee :req.params.year},{_id:0, idMalade:0}, (err, prestations)=>{
         if (err) {
             res.status(500).json({
                 type:'Err',

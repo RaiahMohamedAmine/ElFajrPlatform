@@ -2,10 +2,10 @@ import axios from 'axios' ;
 import config from '../config';
 import {toastr} from 'react-redux-toastr';
 
-export default () => {
+export default (year= new Date().getFullYear()) => {
     return axios ({
         method: "POST" ,
-        url : config.URL+":"+ config.PORT+"/prestation/statistics",
+        url : config.URL+":"+ config.PORT+"/prestation/statistics/"+year,
         headers : {
             Authorization : "Bearer ",// + "token",
             crossDomaine : true,

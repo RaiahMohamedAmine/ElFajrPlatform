@@ -66,9 +66,7 @@ const amine= {
     ],
     picture:'/imgs/Amine.png'
 }
-const AboutUs=({
-
-})=>{
+const AboutUs=()=>{
     return <div className='about-us'>
         <div className='line-a-us'></div>
         <CV profil={amine}/>

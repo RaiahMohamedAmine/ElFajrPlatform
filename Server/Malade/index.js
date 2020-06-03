@@ -21,14 +21,12 @@ app.use(bodyParser.urlencoded({
 }));
 app.set ('view engine', 'ejs');
 
-require ('./handlers/rdvHandlers/updatingDb') ();
+//require ('./handlers/rdvHandlers/updatingDb') ();
 require ('./routes/maladeRoutes') (app);
 require('./routes/rdvRoutes') (app);
 require('./routes/prestationsRoutes') (app);
 require('./routes/archiveRoutes') (app);
-app.get('/', (req,res)=>{
-    res.send ('HellocWorld ')
-})
+
 app.post ('/login', (req,res)=> {
     const mdpHashed = crypto.pbkdf2Sync (req.body.mdp,process.env.SALT,10,100,'sha512').toString ();
     var pass = fs.readFileSync('pass').toString ();
