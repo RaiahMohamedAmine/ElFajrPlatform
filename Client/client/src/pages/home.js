@@ -26,7 +26,7 @@ const MainPage = ({
                 <Rdvs/>
             </div>
         </div>
-    <p className='copyright'>Copyright &copy; {new Date().getFullYear()} Association El Fedjr Boumerdes. All Rights Reserved.| Privacy Policy.| <strong onClick={e=> history.push('/about-us')}>About Us</strong></p>
+    <p className='copyright'>Copyright &copy; {new Date().getFullYear()} Association El Fedjr Dellys. All Rights Reserved.| Privacy Policy.| <strong onClick={e=> history.push('/about-us')}>About Us</strong></p>
     </div>
     </div>
 }
