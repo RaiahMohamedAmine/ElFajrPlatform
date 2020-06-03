@@ -4,13 +4,16 @@ import './header.css'
 const Header = ({
     toHome = f => f,
     toArchive = f => f,
-    toStats=f=>f,
-    toChangePass =f=>f
+    toStats = f => f,
+    toChangePass = f => f
 }) => {
     return <div className='header'>
         <div className='header-left'>
             <span className='header-logo' onClick={toHome}></span>
-            <h2 className='header-title'>Association El Fedjr</h2>
+            <div className='header-titles'>
+                <h2 className='header-main-title'>Association El Fedjr</h2>
+                <h5 className='header-secondary-title'>Bureau Dellys</h5>
+            </div>
         </div>
         <div className='header-icons-container'>
             <div className='header-icon header-archive-icon' onClick={toArchive}>

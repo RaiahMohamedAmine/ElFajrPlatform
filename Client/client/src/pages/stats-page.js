@@ -19,8 +19,8 @@ const StatsPage = (
         loading: true,
         nbApiCall: 3,
     })
-    var [anneePrestation,setAnneePrestation] = useState(new Date().getFullYear());
-    const [years, setYears]= useState([]) ;
+    var [anneePrestation, setAnneePrestation] = useState(new Date().getFullYear());
+    const [years, setYears] = useState([]);
     const [maladeStats, setMStats] = useState({})
     const [archiveStats, setAStats] = useState({})
     const [prestationStats, setPStats] = useState({})
@@ -28,7 +28,7 @@ const StatsPage = (
         choice: 'sexe',
         data: []
     })
-    const [typePres,settype]=useState('medical')
+    const [typePres, settype] = useState('medical')
     useEffect(() => {
         GetMStats().then(res => {
             setData({
@@ -48,7 +48,7 @@ const StatsPage = (
             }
 
         })
-        GetAllYears().then (res=> setYears( res.years));
+        GetAllYears().then(res => setYears(res.years));
         GetPStats()
             .then(res => {
                 setData({
@@ -79,7 +79,7 @@ const StatsPage = (
                 }
             }
             )
-    },[])
+    }, [])
     const updateG1Data = (critere) => {
         switch (critere) {
             case 'sexe':
@@ -152,13 +152,13 @@ const StatsPage = (
                 <div className='col-11'>
                     <Card>
                         <div className='chart-card' style={{ width: '100%', height: 500 }}>
-                            <p style={{color :"#413ea0"}}>Graphe d'age</p>
+                            <p style={{ color: "#413ea0" }}>Graphe d'age</p>
                             <ResponsiveContainer>
                                 <BarChart
                                     data={maladeStats.ageStats} sroke="#f5f5f5"
                                 >
-                                    <XAxis dataKey="name" label={{value :"Age (ans)" , position: 'insideBottomRight' }} />
-                                    <YAxis label={{value :"Nombre Malade" ,angle :-90, position: 'insideLeft'}} />
+                                    <XAxis dataKey="name" label={{ value: "Age (ans)", position: 'insideBottomRight' }} />
+                                    <YAxis label={{ value: "Nombre Malade", angle: -90, position: 'insideLeft' }} />
                                     <Tooltip />
                                     <Bar dataKey="value" barSize={40} fill="#413ea0" />
                                 </BarChart>
@@ -172,19 +172,19 @@ const StatsPage = (
                     <Card>
                         <div className='chart-card' style={{ width: '100%', height: 400 }}>
                             <div className='chart-card-prestation' style={{ height: '100%', width: '100%' }}>
-                            <h1 style={{color :"#779da1"}}>Dépenses Générale de l'année  {anneePrestation}</h1>
-                                <p>{pageStuff.loading ? '0' :  prestationStats.medicalStats.filter(s=> s.name==='GENERAL')[0].montant +
-                                     prestationStats.socialeStats.filter(s=> s.name==='GENERAL')[0].montant
+                                <h1 style={{ color: "#779da1" }}>Dépenses Générale de l'année  {anneePrestation}</h1>
+                                <p>{pageStuff.loading ? '0' : prestationStats.medicalStats.filter(s => s.name === 'GENERAL')[0].montant +
+                                    prestationStats.socialeStats.filter(s => s.name === 'GENERAL')[0].montant
                                 }</p>
                                 <div style={{ width: '100%', height: '100%' }}>
                                     <ResponsiveContainer>
                                         <PieChart>
                                             <Tooltip />
                                             <Pie dataKey="value"
-                                                data={[{ name: 'Medicale', value: pageStuff.loading ? 0 : prestationStats.medicalStats.filter(s=> s.name==='GENERAL')[0].montant },
-                                                { name: 'Sociale', value: pageStuff.loading ? 0 : prestationStats.socialeStats.filter(s=> s.name==='GENERAL')[0].montant }]}
+                                                data={[{ name: 'Medicale', value: pageStuff.loading ? 0 : prestationStats.medicalStats.filter(s => s.name === 'GENERAL')[0].montant },
+                                                { name: 'Sociale', value: pageStuff.loading ? 0 : prestationStats.socialeStats.filter(s => s.name === 'GENERAL')[0].montant }]}
                                                 fill="#779da1" label>
-                                                </Pie>
+                                            </Pie>
                                         </PieChart>
                                     </ResponsiveContainer>
                                 </div>
@@ -193,37 +193,37 @@ const StatsPage = (
                     </Card>
                 </div>
                 <div className='col-7'>
-                <select onChange={e=> 
-                {
-                    setAnneePrestation(e.target.value);
-                    GetPStats(e.target.value).then (res=>  setPStats(res) )}
-                }> 
-                        {
-                            years.map(year=><option key={year}>{year}</option>)
-                        }
-                </select>
                     <Card>
                         <div className='prestation-chart-container' style={{ width: '90%', height: 400, }}>
-                            <p style={{color :"#779da1"}}>Graphe des Préstations de l'année  {anneePrestation}</p>
+                            <p style={{ color: "#779da1" }}>Graphe des Préstations de l'année  {anneePrestation}</p>
+                            <select className='select-years' onChange={e => {
+                                setAnneePrestation(e.target.value);
+                                GetPStats(e.target.value).then(res => setPStats(res))
+                            }
+                            }>
+                                {
+                                    years.map(year => <option key={year}>{year}</option>)
+                                }
+                            </select>
                             <div className='prestation-chart-content' style={{ height: '100%', width: '100%' }}>
                                 <div className='prestation-radio-btns'>
                                     <div>
-                                        <input checked={typePres === 'medical'} type='radio' name='prestation-graphe' value='medical' onChange={e=> settype('medical')}></input>
+                                        <input checked={typePres === 'medical'} type='radio' name='prestation-graphe' value='medical' onChange={e => settype('medical')}></input>
                                         <label>Médicale</label>
                                     </div>
                                     <div>
-                                        <input checked={typePres === 'sociale'} type='radio' name='prestation-graphe' value='sociale' onChange={e=> settype('sociale')}></input>
+                                        <input checked={typePres === 'sociale'} type='radio' name='prestation-graphe' value='sociale' onChange={e => settype('sociale')}></input>
                                         <label>Sociale</label>
                                     </div>
                                 </div>
-                                <div style={{ height: '100%', width: '100%',}}>
+                                <div style={{ height: '100%', width: '100%', }}>
                                     <ResponsiveContainer>
                                         <BarChart
-                                            data={pageStuff.loading ? null :typePres==='medical' ? prestationStats.medicalStats.filter(pres=> pres.name!=='GENERAL'): prestationStats.socialeStats.filter(pres=> pres.name!=='GENERAL')}
-                                            margin={{ top: 20, left: 40, right:0, bottom: 50 }}
-                                            barSize={30} 
+                                            data={pageStuff.loading ? null : typePres === 'medical' ? prestationStats.medicalStats.filter(pres => pres.name !== 'GENERAL') : prestationStats.socialeStats.filter(pres => pres.name !== 'GENERAL')}
+                                            margin={{ top: 20, left: 40, right: 0, bottom: 50 }}
+                                            barSize={30}
                                         >
-                                            <XAxis interval={0} dataKey="name"  padding={{ left: 10, right: 10 }} angle={-15} textAnchor='end' />
+                                            <XAxis interval={0} dataKey="name" padding={{ left: 10, right: 10 }} angle={-15} textAnchor='end' />
                                             <YAxis />
                                             <Tooltip />
                                             <Bar dataKey="montant" fill="#779da1" />

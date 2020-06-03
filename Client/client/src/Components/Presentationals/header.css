@@ -32,9 +32,17 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-
-.header-title{
+.header-titles{
+    padding: 0 12px;
+}
+.header-main-title{
     color: white;
+}
+.header-secondary-title{
+    margin-top: -10px;
+    font-weight: 600;
+    color: #272727;
+    opacity: .5;
 }
 .header-icons-container{
     display: flex;
