@@ -98,3 +98,14 @@
     display: flex;
     align-items: center;
 }
+.select-years{
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100px;   
+    padding: 8px; 
+    border: none;
+    border-bottom: 1px var(--secondary-color) solid;
+    border-left: 1px var(--secondary-color) solid;
+    outline: none;
+}
