@@ -1,11 +1,13 @@
-var Add = require ('./add');
-var Get = require ('./get');
-var GetById = require ('./getById');
-var Delete = require ('./delete');
-var Update = require ('./modify');
-var GetByIdForItem = require ('./getByIdForItem');
-var GetStatistics = require ('./statistics');
-var Exist = require ('./exist');
+const Add = require ('./add');
+const Get = require ('./get');
+const GetById = require ('./getById');
+const Delete = require ('./delete');
+const Update = require ('./modify');
+const GetByIdForItem = require ('./getByIdForItem');
+const GetStatistics = require ('./statistics');
+const Exist = require ('./exist');
+const Print = require('./print');
+
 module.exports ={
     Add,
     Get,
@@ -15,4 +17,5 @@ module.exports ={
     GetByIdForItem,
     GetStatistics,
     Exist,
+    Print
 }

@@ -6,6 +6,7 @@ module.exports= (app)=>{
     app.post('/malade/modify', malade.Update);
     app.post('/malade/get/forItem/:id',malade.GetByIdForItem);
     app.post('/malade/delete/:id', malade.Delete);
+    app.post('/malade/print/:id', malade.Print);
     app.post ('/malade/statistics',malade.GetStatistics);
     app.post('/malade/exist/:id',malade.Exist);
     app.post('/malade/:id', malade.GetById);
