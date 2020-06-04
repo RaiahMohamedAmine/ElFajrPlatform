@@ -3,7 +3,7 @@ import MaladeDlg from '../Components/Presentationals/Dialogs/malade-dlg'
 import { withRouter, Redirect } from 'react-router';
 import getMaladeById from '../middleware/malade/getMaladeById'
 import MainPage from './home';
-
+import printMalade from '../middleware/malade/printMalade';
 
 const MaladePage = ({
     history,
@@ -21,6 +21,7 @@ const MaladePage = ({
         <div>
             <MaladeDlg malade={malade} onClose={e => history.push('/')}
                 onEdit={e => history.push(`./${match.params.id}/Modifier`)}
+                onPrint= {e=> printMalade(match.params.id)}
                 toRdv={e => history.push(`./${match.params.id}/Rendez-Vous`)}
                 toPrestation={e => history.push(`./${match.params.id}/Prestations`)} />
             <MainPage />

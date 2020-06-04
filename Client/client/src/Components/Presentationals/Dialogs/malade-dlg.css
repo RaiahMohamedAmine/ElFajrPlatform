@@ -135,6 +135,10 @@
     background-image: url(../../../assets/deleteGrey.svg);
 }
 
+.printer{
+    background-image: url(../../../assets/printer.svg);
+}
+
 .icon:hover::before{
     position: absolute;
     top: 110%;
@@ -153,4 +157,7 @@
 }
 .delete.icon:hover::before{
     content: 'Supprimer';
+}
+.printer.icon:hover::before{
+    content: 'Imprimer';
 }

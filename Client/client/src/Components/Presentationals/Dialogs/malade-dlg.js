@@ -12,6 +12,7 @@ import { getInputToday } from '../rdvs-list';
 const MaladeDlg = ({
     onClose = f => f,
     onEdit = f => f,
+    onPrint = f => f,
     toRdv = f => f,
     toPrestation = f => f,
     malade = {},
@@ -26,6 +27,7 @@ const MaladeDlg = ({
             <div className='malade-dlg-container container'>
                 <div className='row justify-content-around'>
                     <div className='icon edit' onClick={onEdit}></div>
+                    <div className='icon printer' onClick={onPrint}></div>
                     <div className='icon delete' onClick={e =>
                         confirmAlert({
                             title: 'Confirmer la supression',
