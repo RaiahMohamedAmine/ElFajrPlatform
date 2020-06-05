@@ -31,7 +31,7 @@ const TextField = ({
             return <div className='text-field'>
             <label className='text-field-title'>{title}</label>
             <input className='text-field-input' name={name} 
-                value={value} type={type} pattern ="[a-zA-Z1-9é ]{3,}"
+                value={value} type={type} pattern ="[a-zA-Z1-9é°,- ]{3,}"
                 title="Veuillez fournir une adresse valide." 
                 required onChange={onChange}></input>    
             </div>

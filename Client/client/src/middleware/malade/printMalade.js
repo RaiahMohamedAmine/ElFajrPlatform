@@ -5,7 +5,7 @@ import config from '../config';
 export default (id) => {
     return axios ({
         method: "POST" ,
-        url : config.URL+":5201"/*+ config.PORT*/+"/malade/print/"+id,
+        url : config.URL+":"+ config.PORT+"/malade/print/"+id,
         headers : {
             Authorization : "Bearer ",// + "token",
             crossDomaine : true,

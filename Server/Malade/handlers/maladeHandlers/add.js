@@ -2,7 +2,6 @@ var maladeModel = require('../../Models/MaladeModel');
 
 async function Add (req, res)
 {
-    console.log(req.body)
     if (!req.body) {
         res.status(400).json({
             type:'Err',

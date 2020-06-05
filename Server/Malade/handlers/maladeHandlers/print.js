@@ -35,7 +35,7 @@ module.exports =Print ;
 
 const generatePDF = (malade)=>{
    var doc = new pdf({size:[245,195],margin:0});
-   doc.pipe(fs.createWriteStream('./carte.pdf'));
+   doc.pipe(fs.createWriteStream('../../carte.pdf'));
    generateShape(doc);
    generateTemplate(doc);
    generateUser(doc,malade)
@@ -75,21 +75,21 @@ const generateTemplate = (doc) => {
     .text('Date d\'adhesion : ',15,129)
     .text('No : ',168,86)
     .font('../../Client/client/src/assets/font.ttf')
-    .text('Tel/Fax 026.27.12.64 - Mob 0554.70.44.01',80,53)
+    .fontSize(6)
+    .text('Mob : 0552.70.94.69 - 0658.22.36.27 - 0772.62.22.79',70,53)
     
 };
 
 const generateUser = (doc,malade)=>{
-  //  var buf =  Buffer.from (malade.photoIdentite);
-  //  var base64 = buf.toString('Binary');
-    fs.writeFileSync('image.png',malade.photoIdentite, 'base64');
+    fs.writeFileSync('image.png',malade.photoIdentite.buffer, 'base64');
     doc
-        .fontSize(7)
         .font('../../Client/client/src/assets/xbold.ttf')
+        .fontSize(5)
+        .text (malade.adresse,50,119)
+        .fontSize(7)
         .text (malade.nom,45,81)
         .text (malade.prenom,55,93)
         .text (malade.dateNaissance,91,105)
-        .text (malade.adresse,60,117)
         .text (malade.dateAdhesion,85,129)
         .text (malade._id,185,86)
         .image('./image.png' ,162,98,{width:50,radius:10});

@@ -19,7 +19,7 @@ const PersonalForm = ({
         <div className='row'>
             <div className='col-4'>
                 <TextField title='Nom' required
-                    value={formdata.nom} name='nom' onChange={onChange} modify={marie}></TextField>
+                    value={formdata.nom} name='nom' onChange={onChange} modify={modify && marie}></TextField>
             </div>
             <div className='col-4'>
                 <TextField title='Prénom' required
@@ -39,7 +39,7 @@ const PersonalForm = ({
                  max={getInputToday()}></DateInput>
             </div>
             <div className='col-5'>
-                <TextField title='lieu' required
+                <TextField title='Lieu des soins' required
                     value={formdata.lieu} name='lieu' onChange={onChange}></TextField>
             </div>
             <div className='col-3'>
