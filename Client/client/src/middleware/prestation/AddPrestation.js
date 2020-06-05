@@ -3,7 +3,6 @@ import { toastr } from 'react-redux-toastr';
 import config from '../config';
 
 export default (data) => {
-    console.log(data)
     return axios({
         method: "POST",
         data: data,

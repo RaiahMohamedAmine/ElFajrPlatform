@@ -29,13 +29,22 @@ require('./routes/archiveRoutes') (app);
 
 app.post ('/login', (req,res)=> {
     const mdpHashed = crypto.pbkdf2Sync (req.body.mdp,process.env.SALT,10,100,'sha512').toString ();
-    var pass = fs.readFileSync('pass').toString ();
-    pass ===mdpHashed ? res.status(200).json ({
-        type :"Info"
-    }) : 
-    res.status(200).json ({
-        type: "Err"
+    if (fs.existsSync('pass')){
+        var pass = fs.readFileSync('pass').toString ();
+        pass ===mdpHashed ? res.status(200).json ({
+            type :"Info"
+        }) : 
+        res.status(200).json ({
+            type: "Err"
+        });
+    }
+    else{
+        fs.writeFileSync ('pass',mdpHashed, { encoding :'utf8', flag:'w'});
+    res.json ({
+        type:"Info", 
+        //message :"Mot de passe change avec succes"
     });
+    }
 }) ;
 
 app.post ('/changePass',(req,res)=>{
@@ -56,6 +65,6 @@ app.post ('/changePass',(req,res)=>{
     });
 });
 
-app.listen (process.env.PORT || 5200, 'localhost', ()=>{
+app.listen (process.env.PORT || 5200, 'fedjrAPI', ()=>{
     console.log("Server started at port : "+ 5200)
 })

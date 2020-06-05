@@ -81,11 +81,22 @@ const generateTemplate = (doc) => {
 };
 
 const generateUser = (doc,malade)=>{
-    fs.writeFileSync('image.png',malade.photoIdentite.buffer, 'base64');
+    typeof(malade.photoIdentite)==='object' ? 
+    fs.writeFileSync('image.png',malade.photoIdentite.buffer, 'base64'): 
+    fs.writeFileSync('image.png',malade.photoIdentite, 'base64'); 
     doc
         .font('../../Client/client/src/assets/xbold.ttf')
+    if (malade.adresse.length>24){
+        doc
         .fontSize(5)
         .text (malade.adresse,50,119)
+    }
+    else{
+        doc
+        .fontSize(7)
+        .text (malade.adresse,55,117)
+    }
+        doc 
         .fontSize(7)
         .text (malade.nom,45,81)
         .text (malade.prenom,55,93)

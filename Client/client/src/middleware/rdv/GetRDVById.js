@@ -15,7 +15,6 @@ export default (id)=>{
         if (res.data.type==="Err")
             throw new Error (res.data.message);
         else
-            console.log (res.data.rdvs);
             return res.data.rdvs
     }).catch (err=>{
         toastr.error ('Erreur Fatale !', 'Assurez-vous que le serveur est bien en marche');
