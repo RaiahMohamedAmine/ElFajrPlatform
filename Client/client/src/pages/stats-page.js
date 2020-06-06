@@ -48,22 +48,25 @@ const StatsPage = (
             }
 
         })
-        GetAllYears().then(res => setYears(res.years));
-        GetPStats()
-            .then(res => {
-                setData({
-                    ...pageStuff,
-                    nbApiCall: --pageStuff.nbApiCall
-                })
-                setPStats(res)
-                if (pageStuff.nbApiCall === 0) {
+        GetAllYears().then(res => {
+            setYears(res.years);
+            if (res.years && res.years.length>0)  {
+                setAnneePrestation(res.years[0]);           
+                GetPStats(res.years[0]).then(res => {
                     setData({
                         ...pageStuff,
-                        loading: false
+                        nbApiCall: --pageStuff.nbApiCall
                     })
-                }
+                    setPStats(res)
+                    if (pageStuff.nbApiCall === 0) {
+                        setData({
+                            ...pageStuff,
+                            loading: false
+                        })
+                    }
+                })
             }
-            )
+        });
         GetAStats()
             .then(res => {
                 setData({

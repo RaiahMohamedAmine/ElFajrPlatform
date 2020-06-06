@@ -1,4 +1,4 @@
 export default {
-    URL :"http://localhost",
+    URL :"http://fedjrAPI",
     PORT : 5200
 }

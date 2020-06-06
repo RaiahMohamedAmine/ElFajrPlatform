@@ -26,7 +26,7 @@ const MyApp = () => {
                             setLog(true);
                             history.push('/');
                         }
-                    })
+                    }).catch (err=> toastr.error('Erreur', 'Assurez vous que le serveur est bien en marche'));
                 }}>
                     <img src={logo} alt="Logo El Fedjr" />
                     <p>Mot de passe</p>

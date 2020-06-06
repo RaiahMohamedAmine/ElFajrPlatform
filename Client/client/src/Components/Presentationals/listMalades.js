@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import './listMalades.css'
 import ListMaladeItem from './listMaladeItem';
+import { toastr } from 'react-redux-toastr';
 
 
 const ListMalades = ({
@@ -29,11 +30,8 @@ const ListMalades = ({
             }
         </div>
     }
-
-    return <div className="list-malades">
-        <h2> Oops ! Aucun malade n'a été trouvé avec cet Id. Vous vous êtes surement trompé.</h2>
-    </div>
-    
+    toastr.error('Erreur',"Aucun Malade trouvé avec cet ID")
+    return <div></div>
 }
 
 export default ListMalades

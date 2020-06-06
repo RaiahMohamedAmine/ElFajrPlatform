@@ -13,7 +13,6 @@ export default (id)=>{
         if (res.data.type==="Err")
             throw new Error (res.message);
         else
-            console.log (res.data);
             return res.data.malade
     })
 };

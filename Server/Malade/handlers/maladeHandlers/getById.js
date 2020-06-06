@@ -13,7 +13,6 @@ async function GetById (req,res) {
                 message : "Server not responding"
             });
         };
-      //  console.log (malades);
         res.status(200).json({
             type : "Info",
             message :"Getting Malade",

@@ -15,7 +15,6 @@ export default (data) => {
     }).then (res => {
         if (res.data.type ==="Err"){
             toastr.error('Erreur',"L'ajout a échoué")
-            throw new Error (res.data.message)
         }
         else{
             toastr.success('Succés','Malade Ajouté')   
