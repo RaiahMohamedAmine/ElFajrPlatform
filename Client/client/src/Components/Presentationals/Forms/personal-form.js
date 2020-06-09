@@ -51,7 +51,7 @@ const PersonalForm = ({
             </div>
             <div className='col-3'>
                 <DateInput name='dateAdhesion' value={formdata.dateAdhesion} onChange={onChange}
-                 title='Date dAdhesion' modify={modify}></DateInput>
+                 title='Date dAdhesion' modify={modify} max={getInputToday()}></DateInput> 
             </div>  
             <div className='col-3'>
                 <Select title='Type du Cancer' required modify={modify}
