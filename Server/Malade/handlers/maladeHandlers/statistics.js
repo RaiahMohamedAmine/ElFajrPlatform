@@ -25,31 +25,31 @@ async function GetStatistics (req,res) {
                 value: 0
             } ,
             {
-                name :'10 à 20' ,
+                name :'11 à 20' ,
                 value: 0
             } ,
             {
-                name :'20 à 30' ,
+                name :'21 à 30' ,
                 value: 0
             } ,
             {
-                name :'30 à 40' ,
+                name :'31 à 40' ,
                 value: 0
             } ,
             {
-                name :'40 à 50' ,
+                name :'41 à 50' ,
                 value: 0
             } ,
             {
-                name :'50 à 60' ,
+                name :'51 à 60' ,
                 value: 0
             } ,
             {
-                name :'60 à 70' ,
+                name :'61 à 70' ,
                 value: 0
             } ,
             {
-                name :'70 à 80' ,
+                name :'71 à 80' ,
                 value: 0
             } 
         ]

@@ -28,10 +28,12 @@ const MaladeForm = ({
         prenom: '',
         sexe: 'Male',
         dateNaissance: '',
+        dateAdhesion:'',
         assure: true,
-        situationFamilliale: 'marie(e)',
+        situationFamilliale: 'celibataire',
         type: 'Foie',
         adresse: '',
+        nbEnfants:'',
         lieu : '',
         adherent: true,
         tel: '',
@@ -87,12 +89,11 @@ const MaladeForm = ({
                             e => {
                                 e.preventDefault();
                                 var formdata = new FormData();
-                                const items = ['_id', 'nom', 'prenom', 'sexe', 'dateNaissance', 'lieu','assure', 'situationFamilliale', 'type', 'adresse', 'adherent', 'tel', 
-                                'autreTel', 'fonction', 'photoIdentite', 'anapathe', 'radio'];
+                                const items = ['_id', 'nom', 'prenom', 'sexe', 'dateNaissance', 'lieu','assure', 'situationFamilliale','nbEnfants' ,'type', 'adresse', 'adherent', 'tel', 
+                                'autreTel', 'fonction', 'photoIdentite', 'anapathe', 'radio','dateAdhesion'];
                                 items.forEach((item) => {
                                     formdata.append(item, formValues[item]);
                                 });
-                                if (!modify) formdata.append ('dateAdhesion',new Date().getFullYear()+'-'+(new Date().getMonth()+1)+'-'+new Date().getDate())
                                 onSubmit(formdata);
                                 onClose(e)
                             }

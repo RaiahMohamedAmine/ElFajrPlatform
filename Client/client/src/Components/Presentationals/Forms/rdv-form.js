@@ -40,10 +40,14 @@ const RdvForm = ({
                 <Select title='Motif' name='motif' required onChange={setRdv}>
                     <option >Choisir Motif</option>
                     <option value='Consultation'>Consultation</option>
+                    <option value='Consultation'>Consultation Cardio</option>
+                    <option value='Consultation'>Consultation Gynéco</option>
                     <option value='Radiothérapie'>Radiothérapie</option>
                     <option value='Chimiothérapie'>Chimiothérapie</option>
                     <option value='Imagerie'>Imagerie</option>
-                    <option value='Analyse de laboratoire'>Analyse de laboratoire</option>
+                    <option value='Analyse de laboratoire'>Anapathe</option>
+                    <option value='Analyse de laboratoire'>Biopsie Anapathe</option>
+                    <option value='Analyse de laboratoire'>Analyse Sanguin</option>
                 </Select>
             </div>
             <div className='col-auto'>

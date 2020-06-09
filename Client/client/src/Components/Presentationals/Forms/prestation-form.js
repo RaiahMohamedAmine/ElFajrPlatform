@@ -42,7 +42,12 @@ const PrestationForm = ({
                 <TextField title='Montant' type='number' name='montant' required onChange={setPres} />
             </div>
             <div className='col-10'>
-                <Select title='Motif' name='motif' required onChange={setPres}>
+                <Select title='Motif' name='motif' required onChange={e=>{
+                    setPres(e);
+                    let formulaire = document.getElementsByClassName('row');
+                   // var p = document.createElement("select");
+                  //  formulaire.appendChild(p)
+                    }}>
                     <option >Choisir Motif</option>
                     {
                         prestation.type === 'medicale' ?
@@ -50,7 +55,7 @@ const PrestationForm = ({
                                 <option value='Consultation générale'>Consultation générale</option>
                                 <option value='Consultation spécialisée'>Consultation spécalisée</option>
                                 <option value='Analyse labo'>Analyse labo</option>
-                                <option value='Médicament'>Médiacament</option>
+                                <option value='Médicament'>Médicament</option>
                                 <option value='Para pharmacie'>Para pharmacie</option></>
                             : prestation.type === 'sociale' ?
                                 <><option value='Aide alimentaire'>Aide alimentaire</option>

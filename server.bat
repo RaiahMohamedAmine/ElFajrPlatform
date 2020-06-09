@@ -1,2 +1,2 @@
 cd Server/Malade
-node index.js
+nodemon index.js
