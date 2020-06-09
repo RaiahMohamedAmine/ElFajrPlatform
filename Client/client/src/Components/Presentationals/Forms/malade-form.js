@@ -92,7 +92,12 @@ const MaladeForm = ({
                                 const items = ['_id', 'nom', 'prenom', 'sexe', 'dateNaissance', 'lieu','assure', 'situationFamilliale','nbEnfants' ,'type', 'adresse', 'adherent', 'tel', 
                                 'autreTel', 'fonction', 'photoIdentite', 'anapathe', 'radio','dateAdhesion'];
                                 items.forEach((item) => {
-                                    formdata.append(item, formValues[item]);
+                                    if (item==='radio') {
+                                        for(var i =0; i<formValues['radio'].length;i++)
+                                            formdata.append('radio',formValues['radio'][i])
+                                    }
+                                    else
+                                       formdata.append(item, formValues[item]);
                                 });
                                 onSubmit(formdata);
                                 onClose(e)
