@@ -40,7 +40,7 @@ const PersonalForm = ({
                     value={formdata.adresse} name='adresse' onChange={onChange}></TextField>
             </div>
             <div className='col-6'>
-                <TextField title='Lieu des soins' required
+                <TextField title='Lieu des soins' required type='adresse'
                     value={formdata.lieu} name='lieu' onChange={onChange}></TextField>
             </div>
             <div className='col-3'>
