@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './rdv-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TextField from './../Form-Items/text-field';
@@ -19,7 +19,8 @@ const RdvForm = ({
         dateRDV: '',
         lieu: '',
         motif: '',
-    })
+    });
+    var [opacity,setOpacity]=useState(0);
     return <form className='container rdv-form' onSubmit={e => {
         e.preventDefault()
         onAdd(rdv)
@@ -37,18 +38,22 @@ const RdvForm = ({
                 <TextField title='Lieu' name='lieu' required onChange={setRdv} />
             </div>
             <div className='col-10'>
-                <Select title='Motif' name='motif' required onChange={setRdv}>
+                <Select title='Motif' name='motif' required onChange={e=>{
+                    setRdv(e);
+                    if (e.target.value==='Imagerie'|| e.target.value==='Consultation') setOpacity(1) 
+                    else setOpacity(0)
+                    }}>
                     <option >Choisir Motif</option>
                     <option value='Consultation'>Consultation</option>
-                    <option value='Consultation'>Consultation Cardio</option>
-                    <option value='Consultation'>Consultation Gynéco</option>
                     <option value='Radiothérapie'>Radiothérapie</option>
                     <option value='Chimiothérapie'>Chimiothérapie</option>
                     <option value='Imagerie'>Imagerie</option>
                     <option value='Analyse de laboratoire'>Anapathe</option>
-                    <option value='Analyse de laboratoire'>Biopsie Anapathe</option>
                     <option value='Analyse de laboratoire'>Analyse Sanguin</option>
                 </Select>
+            </div>
+            <div className='col-10' style={{opacity:opacity}}>
+                <TextField title='Details Rendez-Vous' name='details' required onChange={setRdv} />
             </div>
             <div className='col-auto'>
                 <Button>Ajouter Rendez-Vous</Button>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './personal-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TextField from '../Form-Items/text-field';
@@ -14,6 +14,12 @@ const PersonalForm = ({
     modify
 }) => {
     var [marie,ChangeMarie] = useState(true);
+    useEffect(()=>{
+        if(modify){
+            const isMarried = formdata.situationFamilliale==='celibataire';
+            ChangeMarie(isMarried);
+        }
+    })
     return <form className='container personal-form'
         onSubmit={onSubmit}>
         <div className='row'>

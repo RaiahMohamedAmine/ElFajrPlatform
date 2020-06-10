@@ -9,7 +9,7 @@ const RdvMalade = ({
         <div>
             <p>{rdv.dateRDV}</p>
             <p>{rdv.lieu}</p>
-            <p>{rdv.motif}</p>
+            <p>{rdv.motif}{ rdv.details ? ' ( '+ rdv.details + ' )' : ''}</p>
         </div>
         <span onClick={e=> onDelete(rdv)}/>
     </div>

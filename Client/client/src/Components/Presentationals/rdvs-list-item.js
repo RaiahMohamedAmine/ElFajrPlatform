@@ -9,7 +9,7 @@ const ListRdvsItem = ({
         <div className='item-info'>
             <p>{rdv.nom + " " + rdv.prenom}</p>
             <p>{"Tel: " + rdv.tel}</p>
-            <p>{"A "+rdv.lieu+","+rdv.motif}</p>
+            <p>{"A "+rdv.lieu+", "+rdv.motif} { rdv.details ? ' ( '+ rdv.details + ' )' : ''}</p>
         </div>
     </div>
 }

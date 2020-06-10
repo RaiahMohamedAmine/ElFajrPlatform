@@ -224,7 +224,7 @@ const StatsPage = (
                                         <BarChart
                                             data={pageStuff.loading ? null : typePres === 'medical' ? prestationStats.medicalStats.filter(pres => pres.name !== 'GENERAL') : prestationStats.socialeStats.filter(pres => pres.name !== 'GENERAL')}
                                             margin={{ top: 20, left: 40, right: 0, bottom: 50 }}
-                                            barSize={30}
+                                            barSize={30} onClick={e=> {console.log(e.activeLabel)}}
                                         >
                                             <XAxis interval={0} dataKey="name" padding={{ left: 10, right: 10 }} angle={-15} textAnchor='end' />
                                             <YAxis />

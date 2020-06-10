@@ -39,6 +39,7 @@ async function GetByDate (req,res) {
                     photoIdentite: malades[i].photoIdentite,
                     motif : rdvs[i].motif,
                     lieu : rdvs[i].lieu,
+                    details : rdvs[i].details,
                 });
             }
             return Promise.all (newRdvs).then (newRdvs=> {
