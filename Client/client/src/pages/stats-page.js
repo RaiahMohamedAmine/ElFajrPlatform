@@ -177,7 +177,8 @@ const StatsPage = (
                             <div className='chart-card-prestation' style={{ height: '100%', width: '100%' }}>
                                 <h1 style={{ color: "#779da1" }}>Dépenses Générale de l'année  {anneePrestation}</h1>
                                 <p>{pageStuff.loading ? '0' : prestationStats.medicalStats.filter(s => s.name === 'GENERAL')[0].montant +
-                                    prestationStats.socialeStats.filter(s => s.name === 'GENERAL')[0].montant
+                                    prestationStats.socialeStats.filter(s => s.name === 'GENERAL')[0].montant +
+                                    prestationStats.bureauStats.filter(s => s.name === 'GENERAL')[0].montant
                                 }</p>
                                 <div style={{ width: '100%', height: '100%' }}>
                                     <ResponsiveContainer>
@@ -185,7 +186,8 @@ const StatsPage = (
                                             <Tooltip />
                                             <Pie dataKey="value"
                                                 data={[{ name: 'Medicale', value: pageStuff.loading ? 0 : prestationStats.medicalStats.filter(s => s.name === 'GENERAL')[0].montant },
-                                                { name: 'Sociale', value: pageStuff.loading ? 0 : prestationStats.socialeStats.filter(s => s.name === 'GENERAL')[0].montant }]}
+                                                { name: 'Sociale', value: pageStuff.loading ? 0 : prestationStats.socialeStats.filter(s => s.name === 'GENERAL')[0].montant },
+                                                { name: 'Bureau', value: pageStuff.loading ? 0 : prestationStats.bureauStats.filter(s => s.name === 'GENERAL')[0].montant }]}
                                                 fill="#779da1" label>
                                             </Pie>
                                         </PieChart>
@@ -218,11 +220,17 @@ const StatsPage = (
                                         <input checked={typePres === 'sociale'} type='radio' name='prestation-graphe' value='sociale' onChange={e => settype('sociale')}></input>
                                         <label>Sociale</label>
                                     </div>
+                                    <div>
+                                        <input checked={typePres === 'bureau'} type='radio' name='prestation-graphe' value='bureau' onChange={e => settype('bureau')}></input>
+                                        <label>Bureau</label>
+                                    </div>
                                 </div>
                                 <div style={{ height: '100%', width: '100%', }}>
                                     <ResponsiveContainer>
                                         <BarChart
-                                            data={pageStuff.loading ? null : typePres === 'medical' ? prestationStats.medicalStats.filter(pres => pres.name !== 'GENERAL') : prestationStats.socialeStats.filter(pres => pres.name !== 'GENERAL')}
+                                            data={pageStuff.loading ? null : typePres === 'medical' ? prestationStats.medicalStats.filter(pres => pres.name !== 'GENERAL') : 
+                                            typePres==='sociale' ? prestationStats.socialeStats.filter(pres => pres.name !== 'GENERAL') : 
+                                            prestationStats.bureauStats.filter(pres => pres.name !== 'GENERAL') }
                                             margin={{ top: 20, left: 40, right: 0, bottom: 50 }}
                                             barSize={30} onClick={e=> {console.log(e.activeLabel)}}
                                         >

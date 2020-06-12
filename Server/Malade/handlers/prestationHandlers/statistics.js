@@ -88,14 +88,92 @@ async function GetStatistics (req,res){
             },
             
         ];
+
+        var bureauStats =[
+            {
+                name :'Fournitures de Bureau',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Frais de transport',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Dépenses Para-pharmacie',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Aides Sociales',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Facture d\'électricité',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'GENERAL',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Facture d\'eau',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Facture de Telephone Fixe',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Rechargement crédit',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Cartes prépayés Internet',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Prime pour les secretaires',
+                nb: 0,
+                montant :0
+            },
+            {
+                name :'Sensibilisation',
+                nb: 0,
+                montant :0
+            },
+        ]
         prestations.forEach(prestation => {
-            prestation.type==='medicale' ? setStats (prestation,medicalStats) : setStats(prestation, socialeStats);
+           switch(prestation.type){
+               case 'medicale' : {
+                   setStats(prestation,medicalStats);
+                   break;
+                }
+               case 'sociale' : {
+                    setStats(prestation,socialeStats);
+                    break;
+                }  
+                case 'bureau' : {
+                    setStats(prestation,bureauStats);
+                    break;
+                } 
+                default : break;
+           }
         });
         res.status(200).json({
             type:'Info',
             message : "Gettin Statistics",
             medicalStats,
-            socialeStats
+            socialeStats,
+            bureauStats
         });
     });
 };

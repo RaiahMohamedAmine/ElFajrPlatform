@@ -73,6 +73,7 @@ const PersonalForm = ({
                     <option value='Colorectal'>Colorectal</option>
                     <option value='Utérus'>Utérus</option>
                     <option value='Estomac'>Estomac</option>
+                    <option value='Gorge'>Gorge</option>
                     <option value='Amigdale'>Amigdale</option>
                     <option value='Cavum'>Cavum</option>
                     <option value='Ovaires'>Ovaires</option>
