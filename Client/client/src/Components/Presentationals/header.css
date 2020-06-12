@@ -65,3 +65,37 @@
 .header-settings-icon{
     background-image: url(../../assets/settings.svg);
 }
+.header-calculator-icon{
+    background-image: url(../../assets/calculator.svg);
+}
+
+.header-icon:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.header-icon:hover::before{
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.header-archive-icon:hover::before{
+    content: 'Archive';
+}
+.header-stats-icon:hover::before{
+    content: 'Statistiques';
+}
+.header-settings-icon:hover::before{
+    content: 'Changer mot de passe';
+}
+.header-calculator-icon:hover::before{
+    content: 'Prestation Extra Malade';
+}

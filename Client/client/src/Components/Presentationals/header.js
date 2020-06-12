@@ -5,7 +5,8 @@ const Header = ({
     toHome = f => f,
     toArchive = f => f,
     toStats = f => f,
-    toChangePass = f => f
+    toChangePass = f => f,
+    toPrestationBureau =f=> f
 }) => {
     return <div className='header'>
         <div className='header-left'>
@@ -17,6 +18,8 @@ const Header = ({
         </div>
         <div className='header-icons-container'>
             <div className='header-icon header-archive-icon' onClick={toArchive}>
+            </div>
+            <div className='header-icon header-calculator-icon' onClick={toPrestationBureau}>
             </div>
             <div className='header-icon header-stats-icon' onClick={toStats}>
             </div>
