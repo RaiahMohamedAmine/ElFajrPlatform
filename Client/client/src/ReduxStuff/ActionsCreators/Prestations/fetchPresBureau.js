@@ -4,7 +4,7 @@ import setPrestation from './setPrestation';
 import GetPrestationBureau from '../../../middleware/prestation/GetPrestationBureau';
 
 
-const fetchPres = () => {
+const fetchPresBureau = () => {
     return function (dispatch) {
         dispatch(requestPres())
         GetPrestationBureau()
@@ -13,4 +13,4 @@ const fetchPres = () => {
     }
 }
 
-export default fetchPres
+export default fetchPresBureau

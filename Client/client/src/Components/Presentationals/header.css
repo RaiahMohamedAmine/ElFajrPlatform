@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 999;
 }
 
 .header-left{
@@ -55,6 +56,11 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
+    transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -ms-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
 }
 .header-archive-icon{
     background-image: url(../../assets/document.svg);
@@ -78,13 +84,22 @@
 }
 .header-icon:hover::before{
     position: absolute;
-    top: 110%;
+    color: grey;
+    font-size: .9rem;
+    background-color: white;
+    top: 120%;
     left: 50%;
+    padding: 4px;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
+    border-radius: .3rem;
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    -ms-border-radius: .3rem;
+    -o-border-radius: .3rem;
 }
 
 .header-archive-icon:hover::before{
@@ -94,8 +109,8 @@
     content: 'Statistiques';
 }
 .header-settings-icon:hover::before{
-    content: 'Changer mot de passe';
+    content: 'mot de passe';
 }
 .header-calculator-icon:hover::before{
-    content: 'Prestation Extra Malade';
+    content: 'Prestation';
 }

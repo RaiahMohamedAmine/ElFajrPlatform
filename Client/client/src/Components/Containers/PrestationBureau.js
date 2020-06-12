@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import PrestationDialog from './../Presentationals/Dialogs/prestationBureau-dlg';
-import addPres from './../../ReduxStuff/ActionsCreators/Prestations/addPres';
 import fetchPresBureau from './../../ReduxStuff/ActionsCreators/Prestations/fetchPresBureau';
-import deletePres from './../../ReduxStuff/ActionsCreators/Prestations/deletePres';
+import addPresBureau from './../../ReduxStuff/ActionsCreators/Prestations/addPresBureau';
+import deletePresBureau from './../../ReduxStuff/ActionsCreators/Prestations/deletePresBureau';
 
 const mapStateToProps=(state)=>({
     prestations:state.prestations.prestations,
@@ -12,7 +12,7 @@ const mapStateToProps=(state)=>({
 const mapDispatchToProps=(dispatch)=>({
     onAdd(prestation){
         dispatch(
-            addPres(prestation)
+            addPresBureau(prestation)
         )
     }
     ,
@@ -24,7 +24,7 @@ const mapDispatchToProps=(dispatch)=>({
     ,
     onDelete(prestation){
         dispatch(
-            deletePres(prestation)
+            deletePresBureau(prestation)
         )
     }
 })

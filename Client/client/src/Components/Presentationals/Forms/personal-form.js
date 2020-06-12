@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import './personal-form.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import TextField from '../Form-Items/text-field';
 import Select from '../Form-Items/select';
 import Button from '../Buttons/button';
 import DateInput from '../Form-Items/date-input';
-import {getInputToday } from './../rdvs-list';
+import { getInputToday } from './../rdvs-list';
 
 const PersonalForm = ({
     onChange,
@@ -13,10 +13,10 @@ const PersonalForm = ({
     formdata = {},
     modify
 }) => {
-    var [marie,ChangeMarie] = useState(true);
-    useEffect(()=>{
-        if(modify){
-            const isMarried = formdata.situationFamilliale==='celibataire';
+    var [marie, ChangeMarie] = useState(true);
+    useEffect(() => {
+        if (modify) {
+            const isMarried = formdata.situationFamilliale === 'celibataire';
             ChangeMarie(isMarried);
         }
     })
@@ -44,7 +44,7 @@ const PersonalForm = ({
                     value={formdata.lieu} name='lieu' onChange={onChange}></TextField>
             </div>
             <div className='col-3'>
-                <Select title='Sexe' required name='sexe' 
+                <Select title='Sexe' required name='sexe'
                     value={formdata.sexe} onChange={onChange} modify={modify}>
                     <option value='Male'>Homme</option>
                     <option value='Female'>Femme</option>
@@ -52,13 +52,13 @@ const PersonalForm = ({
             </div>
             <div className='col-3'>
                 <DateInput name='dateNaissance' value={formdata.dateNaissance} onChange={onChange}
-                 title='Date de Naissance' modify={modify}
-                 max={getInputToday()}></DateInput>
+                    title='Date de Naissance' modify={modify}
+                    max={getInputToday()}></DateInput>
             </div>
             <div className='col-3'>
                 <DateInput name='dateAdhesion' value={formdata.dateAdhesion} onChange={onChange}
-                 title='Date dAdhesion' modify={modify} max={getInputToday()}></DateInput> 
-            </div>  
+                    title='Date dAdhesion' modify={modify} max={getInputToday()}></DateInput>
+            </div>
             <div className='col-3'>
                 <Select title='Type du Cancer' required modify={modify}
                     name='type' onChange={onChange}
@@ -81,16 +81,16 @@ const PersonalForm = ({
                     <option value='Goitre'>Goitre</option>
                     <option value='Os'>Os</option>
                 </Select>
-            </div>     
-            
+            </div>
+
             <div className='col-4'>
                 <Select title='Situation Familiale'
-                    name='situationFamilliale' value={formdata.situationFamilliale} onChange={e=> {onChange(e); 
-                    if (e.target.value==='celibataire') 
-                    {   ChangeMarie(true) }
-                    else {
-                        ChangeMarie (false);
-                    }
+                    name='situationFamilliale' value={formdata.situationFamilliale} onChange={e => {
+                        onChange(e);
+                        if (e.target.value === 'celibataire') { ChangeMarie(true) }
+                        else {
+                            ChangeMarie(false);
+                        }
                     }}>
                     <option value='celibataire'>Célibataire</option>
                     <option value='marie(e)'>Marié(e)</option>
@@ -98,7 +98,7 @@ const PersonalForm = ({
                     <option value='divorce(e)'>Divorce(e)</option>
                 </Select>
             </div>
-           
+
             <div className='col-4'>
                 <TextField title='Nombre denfants' modify={marie} type='number'
                     value={formdata.nbEnfants} name='nbEnfants' onChange={onChange}></TextField>
@@ -112,9 +112,9 @@ const PersonalForm = ({
                     value={formdata.tel} name='tel' onChange={onChange}></TextField>
             </div>
             <div className='col-3'>
-                <TextField title='Autre N° de Téléphone' type='tel' 
+                <TextField title='Autre N° de Téléphone' type='tel'
                     value={formdata.autreTel} name='autreTel' onChange={onChange}></TextField>
-            </div>    
+            </div>
             <div className='col-3'>
                 <Select title='Assurance' required
                     name='assure' value={formdata.assure} onChange={onChange}>
@@ -129,10 +129,12 @@ const PersonalForm = ({
                     <option value={false}>Non</option>
                 </Select>
             </div>
-            
+
         </div>
-        <div className='button-container'>
-            <Button>Suivant</Button>
+        <div className='row justify-content-end' style={{ marginTop: "32px" }}>
+            <div className='col-3'>
+                <Button>Suivant</Button>
+            </div>
         </div>
     </form>
 }
