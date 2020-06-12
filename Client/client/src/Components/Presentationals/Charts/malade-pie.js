@@ -13,7 +13,13 @@ const colors = [
     '#7b03fc',
     '#ca03fc',
     '#03fce7',
-    '#aa91ab'
+    '#aa91ab',
+    '#abcdef',
+    '#aaaaaa',
+    '#6f6f6f',
+    '#21fd65',
+    '#874135',
+    '#cccccc'
 ]
 
 const MaladePie = ({
@@ -55,7 +61,7 @@ const MaladePie = ({
                         <Tooltip />
                         <Pie dataKey="value" data={data} fill="#779da1" label>
                             {data.map((entry, index) =>
-                                <Cell key={`cell-${index}`} fill={colors[index%11]} />
+                                <Cell key={`cell-${index}`} fill={colors[index%16]} />
                             )}
                         </Pie>
                     </PieChart>

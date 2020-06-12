@@ -116,6 +116,30 @@ async function GetStatistics (req,res) {
             {
                 name :'Gorge' ,
                 value: 0
+            },
+            {
+                name :'Amigdale' ,
+                value: 0
+            },
+            {
+                name :'Cavum' ,
+                value: 0
+            },
+            {
+                name :'Ovaires' ,
+                value: 0
+            },
+            {
+                name :'Pancreas' ,
+                value: 0
+            },
+            {
+                name :'Goitre' ,
+                value: 0
+            },
+            {
+                name :'Os' ,
+                value: 0
             }
         ];
 
