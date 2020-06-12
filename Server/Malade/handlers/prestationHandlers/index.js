@@ -1,14 +1,17 @@
-var Add = require ('./add');
-var GetById = require('./getById');
-var GetByYear = require('./getByYear');
-var Delete = require('./delete');
-var GetStatistics = require ('./statistics');
-var GetAllYears = require('./getAllYears');
+const Add = require ('./add');
+const GetById = require('./getById');
+const GetByYear = require('./getByYear');
+const Delete = require('./delete');
+const GetStatistics = require ('./statistics');
+const GetAllYears = require('./getAllYears');
+const GetBureau = require('./getBureau');
+
 module.exports={
     Add,
     GetById,
     GetByYear,
     Delete,
     GetStatistics,
-    GetAllYears
+    GetAllYears,
+    GetBureau
 };

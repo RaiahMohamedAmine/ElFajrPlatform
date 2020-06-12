@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './rdv-form.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TextField from './../Form-Items/text-field';
@@ -20,6 +20,7 @@ const PrestationForm = ({
         montant: '',
         annee:''
     })
+    var [opacity,setOpacity]=useState(0);
     return <form className='container rdv-form' onSubmit={e => {
         e.preventDefault()
         prestation.annee=prestation.date.substring(0,4)
@@ -42,7 +43,10 @@ const PrestationForm = ({
                 <TextField title='Montant' type='number' name='montant' required onChange={setPres} />
             </div>
             <div className='col-10'>
-                <Select title='Motif' name='motif' required onChange={setPres}>
+                <Select title='Motif' name='motif' required onChange={e=>{
+                    setPres(e);
+                    e.target.value==='Imagerie'? setOpacity(1) : setOpacity(0)
+                    }}>
                     <option >Choisir Motif</option>
                     {
                         prestation.type === 'medicale' ?
@@ -50,7 +54,7 @@ const PrestationForm = ({
                                 <option value='Consultation générale'>Consultation générale</option>
                                 <option value='Consultation spécialisée'>Consultation spécalisée</option>
                                 <option value='Analyse labo'>Analyse labo</option>
-                                <option value='Médicament'>Médiacament</option>
+                                <option value='Médicament'>Médicament</option>
                                 <option value='Para pharmacie'>Para pharmacie</option></>
                             : prestation.type === 'sociale' ?
                                 <><option value='Aide alimentaire'>Aide alimentaire</option>
@@ -59,6 +63,14 @@ const PrestationForm = ({
                                     <option value='Aide pour fetes'>Aide pour fetes</option>
                                     <option value='Aide occasions religieuses'>Aide occasions religieuses</option> </> : null
                     }
+                </Select>
+            </div>
+            <div className='col-10' style={{opacity:opacity}}>
+                <Select title='Details Imagerie' name='details' required onChange={setPres}>
+                    <option value='IRM'>IRM</option>
+                    <option value='Scanner'>Scanner</option>
+                    <option value='Echographie'>Echographie</option>
+                    <option value='Mamographie'>Mamographie</option>
                 </Select>
             </div>
             <div className='col-auto'>

@@ -36,7 +36,7 @@ const PhotoForm = ({
                     <FileInput name='anapathe' title="Anapathe" formdata={formdata} required={!modify}></FileInput>
                 </div>
             </div>
-            <div className='photo-form-btns'>
+            <div className='row justify-content-end m-3'>
                 <div className='col-auto'>
                     <Button onClick={e => {
                         e.preventDefault()

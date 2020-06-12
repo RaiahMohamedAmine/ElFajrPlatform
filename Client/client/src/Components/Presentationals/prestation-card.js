@@ -10,7 +10,7 @@ const PrestationCard = ({
         <div>
             <p>{prestation.date}</p>
             <p>{prestation.montant}</p>
-            <p>{prestation.motif}</p>
+            <p>{prestation.motif }{ prestation.details ? ' ( '+ prestation.details + ' )' : ''}</p>
         </div>
         {
             canDelete ?

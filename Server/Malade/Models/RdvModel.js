@@ -16,6 +16,10 @@ var rdvSchema = mongoose.Schema({
     motif : {
         type :String,
         required : true
+    },
+    details :{
+        type :String,
+        required : false
     }
 });
 

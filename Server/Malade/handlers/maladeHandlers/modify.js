@@ -13,7 +13,16 @@ function Modify (req, res) {
     {
         if (req.files.photoIdentite)    req.body.photoIdentite = req.files['photoIdentite'].data;
         if (req.files.anapathe)    req.body.anapathe = req.files['anapathe'].data;
-        if (req.files.radio)      radio=true;
+        if (req.files.radio)      {
+            radio=true;
+            if(req.files.radio.length)
+            req.files.radio.forEach((file,i) => {
+                req.files.radio[i]=file.data
+            });
+            else {
+                req.files.radio=req.files.radio.data;
+            }
+        }
     }    
     radio ? 
     maladeModel.findByIdAndUpdate (req.body._id, {
@@ -27,7 +36,7 @@ function Modify (req, res) {
         photoIdentite: req.body.photoIdentite,
         anapathe : req.body.anapathe,
         $push :{
-            radio : req.files.radio.data
+            radio : req.files.radio
         }
     }, (err, malade)=>{
         if(err) {

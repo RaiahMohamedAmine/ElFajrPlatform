@@ -11,7 +11,19 @@ async function Add (req, res)
     };
     req.body.photoIdentite = req.files['photoIdentite'].data;
     req.body.anapathe = req.files['anapathe'].data;
-    req.files['radio']?  req.body.radio = [req.files['radio'].data] : req.body.radio = [];
+    if (req.files.radio){
+        if(req.files.radio.length){
+            req.body.radio=[];
+            req.files.radio.forEach((file,i) => {
+                req.body.radio[i]=file.data
+            });
+        }
+        else{
+            req.body.radio=req.files.radio.data;
+        }
+    }
+    else
+        req.body.radio=[];
     var malade = new maladeModel(req.body);
     malade.save ((err,malade) => {
         if (err) {

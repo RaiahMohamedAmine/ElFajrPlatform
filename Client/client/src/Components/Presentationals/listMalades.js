@@ -30,7 +30,7 @@ const ListMalades = ({
             }
         </div>
     }
-    toastr.error('Erreur',"Aucun Malade trouvé avec cet ID")
+  //  toastr.error('Erreur',"Aucun Malade trouvé avec cet ID")
     return <div></div>
 }
 

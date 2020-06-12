@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var prestationSchema = mongoose.Schema({
     idMalade :{
         type :String,
-        required : true
+        required : false
     },
     date :{
         type :String,
@@ -24,6 +24,10 @@ var prestationSchema = mongoose.Schema({
     motif :{
         type :String,
         required : true
+    },
+    details :{
+        type :String,
+        required : false
     }
 });
 

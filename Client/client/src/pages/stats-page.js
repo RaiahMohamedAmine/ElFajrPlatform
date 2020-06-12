@@ -48,22 +48,25 @@ const StatsPage = (
             }
 
         })
-        GetAllYears().then(res => setYears(res.years));
-        GetPStats()
-            .then(res => {
-                setData({
-                    ...pageStuff,
-                    nbApiCall: --pageStuff.nbApiCall
-                })
-                setPStats(res)
-                if (pageStuff.nbApiCall === 0) {
+        GetAllYears().then(res => {
+            setYears(res.years);
+            if (res.years && res.years.length>0)  {
+                setAnneePrestation(res.years[0]);           
+                GetPStats(res.years[0]).then(res => {
                     setData({
                         ...pageStuff,
-                        loading: false
+                        nbApiCall: --pageStuff.nbApiCall
                     })
-                }
+                    setPStats(res)
+                    if (pageStuff.nbApiCall === 0) {
+                        setData({
+                            ...pageStuff,
+                            loading: false
+                        })
+                    }
+                })
             }
-            )
+        });
         GetAStats()
             .then(res => {
                 setData({
@@ -221,7 +224,7 @@ const StatsPage = (
                                         <BarChart
                                             data={pageStuff.loading ? null : typePres === 'medical' ? prestationStats.medicalStats.filter(pres => pres.name !== 'GENERAL') : prestationStats.socialeStats.filter(pres => pres.name !== 'GENERAL')}
                                             margin={{ top: 20, left: 40, right: 0, bottom: 50 }}
-                                            barSize={30}
+                                            barSize={30} onClick={e=> {console.log(e.activeLabel)}}
                                         >
                                             <XAxis interval={0} dataKey="name" padding={{ left: 10, right: 10 }} angle={-15} textAnchor='end' />
                                             <YAxis />

@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 999;
 }
 
 .header-left{
@@ -55,6 +56,11 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
+    transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -ms-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
 }
 .header-archive-icon{
     background-image: url(../../assets/document.svg);
@@ -64,4 +70,47 @@
 }
 .header-settings-icon{
     background-image: url(../../assets/settings.svg);
+}
+.header-calculator-icon{
+    background-image: url(../../assets/calculator.svg);
+}
+
+.header-icon:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.header-icon:hover::before{
+    position: absolute;
+    color: grey;
+    font-size: .9rem;
+    background-color: white;
+    top: 120%;
+    left: 50%;
+    padding: 4px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    border-radius: .3rem;
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    -ms-border-radius: .3rem;
+    -o-border-radius: .3rem;
+}
+
+.header-archive-icon:hover::before{
+    content: 'Archive';
+}
+.header-stats-icon:hover::before{
+    content: 'Statistiques';
+}
+.header-settings-icon:hover::before{
+    content: 'mot de passe';
+}
+.header-calculator-icon:hover::before{
+    content: 'Prestation';
 }
