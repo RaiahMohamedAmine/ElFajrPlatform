@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var prestationSchema = mongoose.Schema({
     idMalade :{
         type :String,
-        required : true
+        required : false
     },
     date :{
         type :String,

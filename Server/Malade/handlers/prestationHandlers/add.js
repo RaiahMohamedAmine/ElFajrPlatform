@@ -9,6 +9,14 @@ async function Add (req,res) {
         });
         return;
     }
+    if (!req.body.idMalade && req.body.type!=='bureau')
+    {
+        res.status(400).json ({
+            type:"Err",
+            message :"Bad request"
+        });
+        return;
+    }
     var nvlPrestation = new prestationModel(req.body);
     nvlPrestation.save((err,prestation)=>{
         if (err)
