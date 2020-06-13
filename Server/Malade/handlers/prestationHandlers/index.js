@@ -5,6 +5,7 @@ const Delete = require('./delete');
 const GetStatistics = require ('./statistics');
 const GetAllYears = require('./getAllYears');
 const GetBureau = require('./getBureau');
+const GetStatisticsDetails = require('./statisticsDetails');
 
 module.exports={
     Add,
@@ -13,5 +14,6 @@ module.exports={
     Delete,
     GetStatistics,
     GetAllYears,
-    GetBureau
+    GetBureau,
+    GetStatisticsDetails
 };
