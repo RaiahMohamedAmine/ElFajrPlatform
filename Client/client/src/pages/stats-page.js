@@ -14,6 +14,7 @@ import GetAStats from '../middleware/archive/GetStatistics';
 import MaladePie from '../Components/Presentationals/Charts/malade-pie';
 
 const StatsPage = (
+    {history}
 ) => {
     const [pageStuff, setData] = useState({
         loading: true,
@@ -232,7 +233,9 @@ const StatsPage = (
                                             typePres==='sociale' ? prestationStats.socialeStats.filter(pres => pres.name !== 'GENERAL') : 
                                             prestationStats.bureauStats.filter(pres => pres.name !== 'GENERAL') }
                                             margin={{ top: 20, left: 40, right: 0, bottom: 50 }}
-                                            barSize={30} onClick={e=> {console.log(e.activeLabel)}}
+                                            barSize={30} onClick={e=> {console.log(e.activeLabel) 
+                                                history.push('prestation/details')
+                                            }}
                                         >
                                             <XAxis interval={0} dataKey="name" padding={{ left: 10, right: 10 }} angle={-15} textAnchor='end' />
                                             <YAxis />

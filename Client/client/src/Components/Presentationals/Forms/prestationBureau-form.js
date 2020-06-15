@@ -45,7 +45,7 @@ const PrestationForm = ({
                     <option value='Facture de Telephone Fixe'>Facture de Telephone Fixe</option>
                     <option value="Rechargement crédit">Rechargement crédit</option>
                     <option value='Cartes prépayés Internet'>Cartes prépayés Internet</option>
-                    <option value='Prime pour les secretaires'>Prime pour les secretaires</option>
+                    <option value='Prime secretaires'>Prime secretaires</option>
                     <option value='Sensibilisation'>Sensibilisation</option>
                 </Select>
             </div>
