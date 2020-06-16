@@ -109,7 +109,7 @@
     content: 'Statistiques';
 }
 .header-settings-icon:hover::before{
-    content: 'mot de passe';
+    content: 'Mot De Passe';
 }
 .header-calculator-icon:hover::before{
     content: 'Prestation';

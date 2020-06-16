@@ -145,10 +145,6 @@ async function GetStatistics (req,res){
                     text : 'Facture d\'électricité'
                 },
                 {
-                    dataField : 'GENERAL',
-                    text : 'GENERAL'
-                },
-                {
                     dataField : 'Facture d\'eau',
                     text : 'Facture d\'eau'
                 },
@@ -171,6 +167,10 @@ async function GetStatistics (req,res){
                 {
                     dataField : 'Sensibilisation',
                     text : 'Sensibilisation'
+                },
+                {
+                    dataField : 'GENERAL',
+                    text : 'GENERAL'
                 }
             ],
         data : [
@@ -235,9 +235,11 @@ async function GetStatistics (req,res){
         res.status(200).json({
             type:'Info',
             message : "Gettin Statistics",
-            medicalStats,
-            socialeStats,
-            bureauStats
+            Stats :{
+                medicalStats,
+                socialeStats,
+                bureauStats
+            }
         });
     });
 };

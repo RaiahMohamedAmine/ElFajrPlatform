@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import './listMalades.css'
 import ListMaladeItem from './listMaladeItem';
-import { toastr } from 'react-redux-toastr';
 
 
 const ListMalades = ({
