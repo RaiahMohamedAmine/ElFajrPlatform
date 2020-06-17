@@ -7,7 +7,7 @@ import GetAllYears from '../middleware/prestation/GetAllYears';
 import Header from '../Components/Presentationals/WithRouter/header'
 import { withRouter } from 'react-router';
 import { toastr } from 'react-redux-toastr';
-
+import {LineChart,XAxis,YAxis,CartesianGrid,Line,Tooltip, Legend} from 'recharts'
 
 const ArchivePage = (
     {
@@ -47,7 +47,7 @@ const ArchivePage = (
         currentPres:pres
     })
     var {year,currentPres}= currenState
-    return <div className='archive-page'>
+    return <div>
         <Header></Header>
         <div className='container-fluid archive-content'>
           {
@@ -94,6 +94,38 @@ const ArchivePage = (
               </div> 
           }        
         </div>
+        <LineChart width={window.innerWidth-250} height={400} data={getChartsData(Stats)} margin={50} >
+            <XAxis dataKey="name"/>
+            <YAxis/>
+            <CartesianGrid stroke="#eee" strokeDasharray="10 10"/>
+        <XAxis dataKey="name" />
+        <YAxis dataKey='Dépenses'/>
+        <Tooltip />
+        <Legend />
+            <Line type="monotone" dataKey="Dépenses Médicales" stroke="#ff0000" activeDot={{ r: 6 }} />
+            <Line type="monotone" dataKey="Dépenses Sociales" stroke="#0000ff" activeDot={{ r: 6 }}/>
+            <Line type="monotone" dataKey="Dépenses Bureau" stroke="#008000" activeDot={{ r: 6 }}/>
+    </LineChart>
+    <h1> Graphe des dépenses de l'année {year}</h1>
+
     </div>
+}
+
+const getChartsData =(Stats)=>{
+   if(Stats) {
+       var data = [];
+       var i=0;
+       Stats.medicalStats.data.forEach(stat=>{
+           data.push({
+               name : stat['mois'],
+               "Dépenses Médicales" : stat['GENERAL'],
+               "Dépenses Sociales" : Stats.socialeStats.data[i]['GENERAL'],
+               "Dépenses Bureau" : Stats.bureauStats.data[i]['GENERAL'],
+           });
+           i++;
+       })
+       return data;
+    }
+    return [];
 }
 export default withRouter(ArchivePage)
