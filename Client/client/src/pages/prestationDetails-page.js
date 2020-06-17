@@ -10,26 +10,23 @@ import { toastr } from 'react-redux-toastr';
 
 
 const ArchivePage = (
-    ///
-    //
-    /// Supprime le states Year o medhouli en parametre 
-    /// win telqa res.years tu le change b le parametre years
-    /// o nehhi la requete getAll years m3a setYears
-/// Appelle direct fel useeffect GetDetails comme parametre years[0]
+    {
+        location
+    }
 
 ) => {
     const [Stats, setStats] = useState();
     const [loading, setloading] = useState(true);
-    const [year, setYear] = useState(new Date().getFullYear());  
     const [years, setYears] = useState([]);  
-    const [currentPres,setCurrentPres]=useState('medical');
-
+    const [currenState, setCurrentState]=useState({
+        year:location.currentYear ? location.currentYear : new Date().getFullYear(),
+        currentPres:location.currentPres ? location.currentPres :'medical',
+    })
     useEffect(() => {
         GetAllYears().then(res => {
             setYears(res.years);
             if (res.years && res.years.length>0)  {
-                setYear(res.years[0]);           
-                GetStatisticsDetails(res.years[0]).then(res => {
+                GetStatisticsDetails(currenState.year).then(res => {
                     if (res.type==='Err')
                         toastr.error('Erreur !', 'Une erreur s\'est produite. Veuillez Réessayez !')
                     else
@@ -41,6 +38,15 @@ const ArchivePage = (
             }
         }).catch (err=> toastr.error('Erreur Fatale', 'Assurez vous que le serveur est en marche'));
     }, [])
+    const setYear= yr=> setCurrentState({
+        ...currenState,
+        year:yr
+    })
+    const setCurrentPres=pres=>setCurrentState({
+        ...currenState,
+        currentPres:pres
+    })
+    var {year,currentPres}= currenState
     return <div className='archive-page'>
         <Header></Header>
         <div className='container-fluid archive-content'>
@@ -64,7 +70,7 @@ const ArchivePage = (
                                         <label>Bureau</label>
                                     </div>
                     </div>
-                    <select className='select-years' onChange={e => {
+                    <select className='select-years' defaultValue={year} onChange={e => {
                                 setYear(e.target.value);
                                 GetStatisticsDetails(e.target.value).then(res => {
                                     if (res.type==='Err')
@@ -75,7 +81,7 @@ const ArchivePage = (
                             }
                             }>
                                 {
-                                    years.map(year => <option key={year}>{year}</option>)
+                                    years.map(yr => <option key={yr}>{yr}</option>)
                                 }
                     </select>
                     <BoostrapTable
