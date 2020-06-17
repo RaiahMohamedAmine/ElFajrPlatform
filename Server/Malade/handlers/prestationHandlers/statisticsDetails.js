@@ -215,6 +215,16 @@ async function GetStatistics (req,res){
             },
         ]
     }
+
+    if (req.params.year===new Date().getFullYear().toString())
+    {
+        const month = new Date().getMonth()+1;
+        socialeStats.data.splice(month,12-month); 
+        medicalStats.data.splice(month,12-month); 
+        bureauStats.data.splice(month,12-month); 
+
+        console.log(socialeStats.data)
+    }
         prestations.forEach(prestation => {
            switch(prestation.type){
                case 'medicale' : {
@@ -248,7 +258,7 @@ const setStats = (prestation, Stats)=>{
     const index = parseInt(prestation.date.substring(5,7))-1;
     Stats.data[index][prestation.motif]+=prestation.montant;
     Stats.data[index].GENERAL+=prestation.montant;
-    Stats.data[12][prestation.motif]+=prestation.montant;
-    Stats.data[12].GENERAL+=prestation.montant;
+    Stats.data[Stats.data.length-1][prestation.motif]+=prestation.montant;
+    Stats.data[Stats.data.length-1].GENERAL+=prestation.montant;
 };
 module.exports= GetStatistics;
