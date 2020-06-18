@@ -3,14 +3,16 @@
     width: 100%;
     position: relative;
     padding: 3% 5% 0; 
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .photo-form-btns{
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    bottom: 7%;
+    top: 100%;
     right: 3%;
     transform: translateY(-100%);
     -webkit-transform: translateY(-100%);
@@ -18,7 +20,9 @@
     -ms-transform: translateY(-100%);
     -o-transform: translateY(-100%);
 }
-
+.photo-form-btns> div{
+    margin:16px 12px;
+}
 .photo > div{
     height: 150px;
     width: 150px;

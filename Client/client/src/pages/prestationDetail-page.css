@@ -1,0 +1,34 @@
+@import '../Base.css';
+
+.prestation-detail-page {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.prestation-detail-content {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prestation-detail-content>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.prestation-detail-content>div h1 {
+    color: var(--primary-color);
+    margin: 32px 0;
+}
+
+.prestation-detail-content>div .prestation-radio-btns {
+    margin: 36px;
+}

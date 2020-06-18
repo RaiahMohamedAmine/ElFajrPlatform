@@ -26,14 +26,14 @@ const RadioForm=({
         }
         </div>
     </div>
-    <div className='row justify-content-end' style={{paddingBottom:"20px"}}>
-    <div className='col-auto'>
+    <div className='photo-form-btns'>
+    <div>
             <Button onClick={e => {
                 e.preventDefault()
                 goBack()
             }}>Précédent</Button>
         </div>
-        <div className='col-auto'>
+        <div>
             <Button>{ modify ? "Modifier" :"Ajouter"}</Button>
         </div>
     </div>

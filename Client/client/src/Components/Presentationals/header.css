@@ -1,14 +1,17 @@
 @import '../../Base.css';
 
 .header{
-    position: relative;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
     height: 80px;
     padding: 20px 30px;
     background-color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 999;
+    z-index: 100;
 }
 
 .header-left{

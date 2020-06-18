@@ -3,6 +3,8 @@
     height: 100%;
     position: relative;
     padding: 3% 5% 0;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .button-container{

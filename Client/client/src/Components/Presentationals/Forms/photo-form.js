@@ -8,7 +8,7 @@ const PhotoForm = ({
     formdata,
     onSubmit = f => f,
     goBack = f => f,
-    onPhotoClick,
+    onPhotoClick= f=> f,
     modify
 }) => {
     return <form className='container photo-form' onSubmit={onSubmit}>
@@ -36,14 +36,14 @@ const PhotoForm = ({
                     <FileInput name='anapathe' title="Anapathe" formdata={formdata} required={!modify}></FileInput>
                 </div>
             </div>
-            <div className='row justify-content-end m-3'>
-                <div className='col-auto'>
+            <div className='photo-form-btns'>
+                <div>
                     <Button onClick={e => {
                         e.preventDefault()
                         goBack()
                     }}>Précédent</Button>
                 </div>
-                <div className='col-auto'>
+                <div>
                     <Button>Suivant</Button>
                 </div>
             </div>

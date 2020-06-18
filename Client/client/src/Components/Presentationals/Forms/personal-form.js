@@ -131,8 +131,8 @@ const PersonalForm = ({
             </div>
 
         </div>
-        <div className='row justify-content-end' style={{ marginTop: "32px" }}>
-            <div className='col-3'>
+        <div className='photo-form-btns' >
+            <div>
                 <Button>Suivant</Button>
             </div>
         </div>
