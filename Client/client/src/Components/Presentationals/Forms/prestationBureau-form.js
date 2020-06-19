@@ -18,11 +18,9 @@ const PrestationForm = ({
         montant: '',
         annee:''
     })
-    //var [opacity,setOpacity]=useState(0);
     return <form className='container rdv-form' onSubmit={e => {
         e.preventDefault()
         prestation.annee=prestation.date.substring(0,4)
-        console.log(prestation);
         onAdd(prestation)
     }}>
         <div className='row justify-content-center align-items-around rdv-form-content'>

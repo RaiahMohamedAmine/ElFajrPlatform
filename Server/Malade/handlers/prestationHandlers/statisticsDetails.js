@@ -222,8 +222,6 @@ async function GetStatistics (req,res){
         socialeStats.data.splice(month,12-month); 
         medicalStats.data.splice(month,12-month); 
         bureauStats.data.splice(month,12-month); 
-
-        console.log(socialeStats.data)
     }
         prestations.forEach(prestation => {
            switch(prestation.type){
