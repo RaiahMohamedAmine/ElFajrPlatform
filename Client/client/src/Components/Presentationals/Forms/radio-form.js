@@ -21,7 +21,7 @@ const RadioForm=({
         {
             modify? formdata.radio.map((r,i)=> <div className='col-3 photo' key={i}>
             <div style={{backgroundImage: "url(data:image/jpeg;base64," + r + ")" }} 
-            onClick={e=> onPhotoClick("url(data:image/jpeg;base64," + r + ")")} />
+            onClick={e=> onPhotoClick("data:image/jpeg;base64," + r )} />
         </div>) : null
         }
         </div>

@@ -16,8 +16,8 @@ const PhotoForm = ({
                 {
                     modify ? 
                     <div className='col-4 photo'>
-                        <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.photoIdentite + ")" }} 
-                        onClick={e=> onPhotoClick("url(data:image/jpeg;base64," + formdata.photoIdentite + ")")}/>
+                        <div style={{backgroundImage: "url(data:image/jpg;base64," + formdata.photoIdentite + ")" }} 
+                        onClick={e=> onPhotoClick("data:image/jpg;base64," + formdata.photoIdentite )}/>
                     </div>
                     :null
                 }
@@ -28,7 +28,7 @@ const PhotoForm = ({
                     modify ? 
                     <div className='col-4 photo'>
                         <div style={{backgroundImage: "url(data:image/jpeg;base64," + formdata.anapathe + ")" }}
-                        onClick={e=> onPhotoClick( "url(data:image/jpeg;base64," + formdata.anapathe + ")")}/>
+                        onClick={e=> onPhotoClick( "data:image/jpeg;base64," + formdata.anapathe )}/>
                     </div>
                     :null
                 }
