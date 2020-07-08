@@ -12,8 +12,7 @@ export default (id) => {
         }
     }).then (res => {
         if (res.data.type ==="Err"){
-            toastr.error('Erreur',"L'impression a échoué")
-            throw new Error (res.data.message)
+            toastr.error('Erreur',"L'impression a échouée. Veuillez Réessayez !")
         }
         else{
             toastr.success('Succés','Impression en cours')   
