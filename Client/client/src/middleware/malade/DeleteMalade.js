@@ -12,8 +12,8 @@ export default (id) => {
         }
     }).then (res => {
         if (res.data.type ==="Err"){
-            toastr.error('Erreur','La suppression a échoué')
-            throw new Error(res.data.message)
+            toastr.error('Erreur', "La suppresion a échouée. Veuillez Reéssayez !")
+
         }else {
             toastr.success('Succés','Malade Supprimé')
             return res.data
