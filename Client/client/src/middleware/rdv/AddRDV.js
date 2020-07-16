@@ -14,8 +14,7 @@ export default (data)=>{
         }
     }).then (res=>{
         if (res.data.type==="Err"){
-            toastr.error('Erreur','Ajout Impossible')
-            throw new Error (res.data.message);
+            toastr.error('Erreur',"L'ajout du RDV a échoué. Veuillez Réessayez !");
         }
         else{
             toastr.success('Succés','Rendez-vous ajouté')

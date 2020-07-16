@@ -14,8 +14,7 @@ export default (data)=>{
         }
     }).then (res=>{
         if (res.data.type==="Err"){
-            toastr.error('Erreur','La suppression a echoué')
-            throw new Error (res.data.message);
+            toastr.error('Erreur','La suppression du RDV a échouée. Veuillez Réessayez !');
         }
         else{
             toastr.success('Succés','Rendez-vous supprimé')
