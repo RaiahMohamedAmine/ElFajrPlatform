@@ -13,7 +13,7 @@ export default (year= new Date().getFullYear()) => {
         }
     }).then (res => {
         if (res.data.type ==="Err")
-            throw new Error (res.data.message)
+            toastr.error('Erreur', "Une Erreur a survenue. Veuillez Reéssayez !");
         else
             return res.data
     }).catch (err=>{
