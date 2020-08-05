@@ -23,7 +23,7 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "express-fileupload": "^1.1.6",
+    "express-fileupload": "^1.1.9",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.7",
     "pdfkit": "^0.11.0"
