@@ -118,3 +118,7 @@ img {
 .copyright >strong:hover{
     color: #444444;
 }
+
+.react-confirm-alert-overlay{
+    z-index: 9999 !important;
+}
