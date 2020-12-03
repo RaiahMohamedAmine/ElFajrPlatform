@@ -1,10 +1,12 @@
 import axios from 'axios';
+import {toastr} from 'react-redux-toastr'
+import config from '../config';
 
 export default (data)=>{
     return axios ({
         method: "POST",
         data :data,
-        url : "http://localhost:5200/getRdvByDate",
+        url : config.URL+":"+ config.PORT+"/getRdvByDate",
         headers :{
             Authorization : "Bearer ",// + "token",
             crossDomaine : true,
@@ -12,8 +14,10 @@ export default (data)=>{
         }
     }).then (res=>{
         if (res.data.type==="Err")
-            throw new Error (res.data.message);
+        toastr.error('Erreur', "Une Erreur a survenue. Veuillez Reéssayez !");
         else
             return res.data.rdvs
-    })
+    }).catch (err=>{
+        toastr.error ('Erreur Fatale !', 'Assurez-vous que le serveur est bien en marche');
+    });
 };

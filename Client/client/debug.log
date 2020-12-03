@@ -12,3 +12,4 @@
 [0325/234314.238:ERROR:exception_snapshot_win.cc(98)] thread ID 18472 not found in process
 [0325/234314.240:ERROR:process_reader_win.cc(123)] NtOpenThread: {Accès refusé} Un processus a demandé l’accès a un objet, mais il ne bénéficie pas des autorisations nécessaires. (0xc0000022)
 [0325/234314.241:ERROR:exception_snapshot_win.cc(98)] thread ID 17304 not found in process
+[1111/105313.758:ERROR:directory_reader_win.cc(43)] FindFirstFile: Le chemin d’accès spécifié est introuvable. (0x3)

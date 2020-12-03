@@ -16,7 +16,7 @@ const ModifyForm = ({
                 ...photoData,
                 isShowed: false
             })}></div>
-            <div className='photo-xl' style={{ backgroundImage: photoData.src }} />
+            <img className='photo-xl' src={photoData.src}/>
         </div>
         <MaladeForm onClose={onClose} modify={true} initValues={initValues}
             onPhotoClick={src=> setPhotoData({

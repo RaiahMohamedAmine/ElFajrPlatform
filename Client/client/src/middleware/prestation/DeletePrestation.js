@@ -14,8 +14,7 @@ export default (data) => {
         }
     }).then(res => {
         if (res.data.type === "Err"){
-            toastr.error('Erreur','La suppression a échoué')
-            throw new Error(res.data.message)
+            toastr.error('Erreur','La suppression du malade a échouée. Veuillez Réessayez !')
         }
         else{
             toastr.success('Succés','Préstation supprimée')

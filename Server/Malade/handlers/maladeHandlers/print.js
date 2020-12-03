@@ -44,7 +44,7 @@ const generatePDF = (malade)=>{
 
 const generateShape = (doc)=>{   
     doc.lineWidth(1)
-    .roundedRect(10,10,220,175,10)
+    .roundedRect(10,10,220,160,10)
     .lineWidth(0.7)
     .moveTo(10, 63)
     .lineTo(230, 63)
@@ -73,7 +73,7 @@ const generateTemplate = (doc) => {
     .text('Date de naissance : ',15,105)
     .text('Adresse : ',15,117)
     .text('Date d\'adhesion : ',15,129)
-    .text('No : ',168,86)
+    .text('No : ',180,86)
     .font('../../Client/client/src/assets/font.ttf')
     .fontSize(6)
     .text('Mob : 0552.70.94.69 - 0658.22.36.27 - 0772.62.22.79',70,53)
@@ -81,9 +81,14 @@ const generateTemplate = (doc) => {
 };
 
 const generateUser = (doc,malade)=>{
-    typeof(malade.photoIdentite)==='object' ? 
-    fs.writeFileSync('image.png',malade.photoIdentite.buffer, 'base64'): 
-    fs.writeFileSync('image.png',malade.photoIdentite, 'base64'); 
+    if (typeof(malade.photoIdentite)==='object' )
+    {
+        fs.writeFileSync('image.png',malade.photoIdentite.buffer, 'base64')
+        doc.image('./image.png' ,170,98,{width:40,radius:10});
+        fs.unlinkSync('image.png') ;
+    }
+    else
+        doc.image("data:image/jpg;base64,"+malade.photoIdentite ,170,98,{width:40,radius:10});
     doc
         .font('../../Client/client/src/assets/xbold.ttf')
     if (malade.adresse.length>24){
@@ -102,7 +107,5 @@ const generateUser = (doc,malade)=>{
         .text (malade.prenom,55,93)
         .text (malade.dateNaissance,91,105)
         .text (malade.dateAdhesion,85,129)
-        .text (malade._id,185,86)
-        .image('./image.png' ,162,98,{width:50,radius:10});
-    fs.unlinkSync('image.png') ;
+        .text (malade._id,200,86)
 }

@@ -1,9 +1,11 @@
 import axios from 'axios';
+import config from '../config';
+import {toastr} from 'react-redux-toastr'
 
 export default (id)=>{
     return axios ({
         method: "POST",
-        url : "http://localhost:5200/getForItem/"+id,
+        url : config.URL+":"+ config.PORT+"/getForItem/"+id,
         headers :{
             Authorization : "Bearer ",// + "token",
             crossDomaine : true,
@@ -11,8 +13,10 @@ export default (id)=>{
         }
     }).then (res=>{
         if (res.data.type==="Err")
-            throw new Error (res.message);
+        toastr.error('Erreur', "Une Erreur a survenue. Veuillez Reéssayez !")
         else
             return res.data.malade
-    })
+    }).catch (err=>{
+        toastr.error ('Erreur Fatale !', 'Assurez-vous que le serveur est bien en marche');
+    });
 };

@@ -14,8 +14,7 @@ export default (data) => {
         }
     }).then(res => {
         if (res.data.type === "Err") {
-            toastr.error('Erreur', "Impossible d'archiver")
-            throw new Error(res.data.message)
+            toastr.error('Erreur', "L'archivage a échoué. Veuillez Réessayez")
         }
         else {
             toastr.success('Succés','Malade Archivé')

@@ -21,7 +21,7 @@ const MaladeDlg = ({
     return <div className='malade-dlg'>
         <div className='photo-malade-container' style={{display: picIsShowed ? 'block':'none'}}>
             <div style={{height:'100%',width:'100%'}} onClick={e=> setShowed(false)}></div>
-            <div className='photo-xl' style={{ backgroundImage: "url(data:image/jpeg;base64," + malade.photoIdentite + ")" }} />
+            <img className='photo-xl' src={"data:image/jpg;base64," + malade.photoIdentite } />
         </div>
         <Dialog type='sm' onClose={onClose}>
             <div className='malade-dlg-container container'>

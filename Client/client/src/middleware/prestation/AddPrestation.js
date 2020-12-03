@@ -14,8 +14,8 @@ export default (data) => {
         }
     }).then(res => {
         if (res.data.type === "Err"){
-            toastr.error('Erreur',"L'ajout a échoué")
-            throw new Error(res.data.message)
+            toastr.error('Erreur', "L'ajout du malade a échoué. Veuillez Reéssayez !")
+
         }
         else{
             toastr.success("Succés",'Préstation Ajoutée')   
