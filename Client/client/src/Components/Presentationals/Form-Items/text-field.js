@@ -41,7 +41,7 @@ const TextField = ({
         <input className='text-field-input' name={name} 
             value={value} type={type} pattern ="[a-zA-Z ]{3,}"
             title= "Veuillez respecter le format : minuscule, majuscule avec espaces, minimum 3 lettres"
-            required onChange={onChange} disabled={modify}></input>    
+            required={required} onChange={onChange} disabled={modify}></input>    
     </div>
     default :return null
     }

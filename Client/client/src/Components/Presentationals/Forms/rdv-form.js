@@ -53,7 +53,7 @@ const RdvForm = ({
                 </Select>
             </div>
             <div className='col-10' style={{opacity:opacity}}>
-                <TextField title='Details Rendez-Vous' name='details' required onChange={setRdv} />
+                <TextField title='Details Rendez-Vous' name='details' required= {opacity===1} onChange={setRdv} />
             </div>
             <div className='col-auto'>
                 <Button>Ajouter Rendez-Vous</Button>
